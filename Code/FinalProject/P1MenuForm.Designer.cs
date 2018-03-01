@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.CustomersButton = new System.Windows.Forms.Button();
+            this.ProjectRequestsButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // CustomersButton
@@ -42,11 +43,23 @@
             this.CustomersButton.UseVisualStyleBackColor = true;
             this.CustomersButton.Click += new System.EventHandler(this.CustomersButton_Click);
             // 
+            // ProjectRequestsButton
+            // 
+            this.ProjectRequestsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProjectRequestsButton.Location = new System.Drawing.Point(12, 66);
+            this.ProjectRequestsButton.Name = "ProjectRequestsButton";
+            this.ProjectRequestsButton.Size = new System.Drawing.Size(130, 48);
+            this.ProjectRequestsButton.TabIndex = 1;
+            this.ProjectRequestsButton.Text = "Project Requests";
+            this.ProjectRequestsButton.UseVisualStyleBackColor = true;
+            this.ProjectRequestsButton.Click += new System.EventHandler(this.ProjectRequestsButton_Click);
+            // 
             // P1MenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(659, 484);
+            this.Controls.Add(this.ProjectRequestsButton);
             this.Controls.Add(this.CustomersButton);
             this.Name = "P1MenuForm";
             this.Text = "P1MenuForm";
@@ -57,5 +70,6 @@
         #endregion
 
         private System.Windows.Forms.Button CustomersButton;
+        private System.Windows.Forms.Button ProjectRequestsButton;
     }
 }

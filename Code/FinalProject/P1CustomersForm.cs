@@ -51,5 +51,22 @@ namespace FinalProject
         {
             tCostumersBindingSource.MoveNext();
         }
+
+        private void AddNewButton_Click(object sender, EventArgs e)
+        {
+            tCostumersBindingSource.AddNew();
+        }
+
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+            tCostumersBindingSource.EndEdit();
+            this.tCostumersTableAdapter.Update(this.databaseDataSet.tCostumers);
+        }
+
+        private void RefreshButton_Click(object sender, EventArgs e)
+        {
+            this.tCostumersTableAdapter.Fill(this.databaseDataSet.tCostumers);
+            tCostumersDataGridView.Refresh();
+        }
     }
 }

@@ -131,6 +131,7 @@
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.tCostumersTableAdapter = this.tCostumersTableAdapter;
             this.tableAdapterManager.tFeaturesTableAdapter = null;
+            this.tableAdapterManager.tProjectRequestsTableAdapter = null;
             this.tableAdapterManager.tProjectsTableAdapter = null;
             this.tableAdapterManager.tSpecialtiesTableAdapter = null;
             this.tableAdapterManager.tSpecialtiesToFeaturesTableAdapter = null;
@@ -274,6 +275,7 @@
             this.AddNewButton.TabIndex = 15;
             this.AddNewButton.Text = "Add";
             this.AddNewButton.UseVisualStyleBackColor = true;
+            this.AddNewButton.Click += new System.EventHandler(this.AddNewButton_Click);
             // 
             // DeleteButton
             // 
@@ -292,6 +294,7 @@
             this.SaveButton.TabIndex = 17;
             this.SaveButton.Text = "Save";
             this.SaveButton.UseVisualStyleBackColor = true;
+            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
             // RefreshButton
             // 
@@ -301,6 +304,7 @@
             this.RefreshButton.TabIndex = 18;
             this.RefreshButton.Text = "Refresh";
             this.RefreshButton.UseVisualStyleBackColor = true;
+            this.RefreshButton.Click += new System.EventHandler(this.RefreshButton_Click);
             // 
             // P1CustomersForm
             // 

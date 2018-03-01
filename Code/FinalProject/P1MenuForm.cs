@@ -22,5 +22,11 @@ namespace FinalProject
             P1CustomersForm form = new P1CustomersForm();
             form.Show();
         }
+
+        private void ProjectRequestsButton_Click(object sender, EventArgs e)
+        {
+            P1ProjectRequestsForm form = new P1ProjectRequestsForm();
+            form.Show();
+        }
     }
 }
