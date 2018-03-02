@@ -39,21 +39,25 @@ namespace FinalProject
         private void FirstButton_Click_1(object sender, EventArgs e)
         {
             tProjectRequestsBindingSource.MoveFirst();
+            UpdateStatus();
         }
 
         private void UpButton_Click(object sender, EventArgs e)
         {
             tProjectRequestsBindingSource.MovePrevious();
+            UpdateStatus();
         }
 
         private void LastButton_Click(object sender, EventArgs e)
         {
             tProjectRequestsBindingSource.MoveLast();
+            UpdateStatus();
         }
 
         private void DownButton_Click(object sender, EventArgs e)
         {
             tProjectRequestsBindingSource.MoveNext();
+            UpdateStatus();
         }
 
         private void AddNewButton_Click(object sender, EventArgs e)
@@ -68,6 +72,8 @@ namespace FinalProject
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
+            // TODO : Set the default value of projectRequestManagmentApproved to 0
+
             tProjectRequestsBindingSource.EndEdit();
             this.tProjectRequestsTableAdapter.Update(this.databaseDataSet.tProjectRequests);
         }
@@ -76,6 +82,32 @@ namespace FinalProject
         {
             this.tProjectRequestsTableAdapter.Fill(this.databaseDataSet.tProjectRequests);
             tProjectRequestsDataGridView.Refresh();
+        }
+
+        private void UpdateStatus()
+        {
+            // TODO : Handle edge cases (no project request selected and stuff like that).
+
+            int projectId = int.Parse(projectRequestIdTextBox.Text);
+            foreach (DataRow row in this.databaseDataSet.tProjectRequests.Rows)
+            {
+                if((int)row["projectRequestId"] == projectId)
+                {
+                    //This is our project request
+
+                    statusTextBox.Text = (int)row["projectRequestManagmentApproved"] == 0 ? "Not Approved" : "Approved";
+                    return;
+                }
+            }
+
+            statusTextBox.Text = "";
+        }
+
+        private void managerApprovedButton_Click(object sender, EventArgs e)
+        {
+            // TODO : Implement this
+            // Just set projectRequestManagmentApproved to 1 and call the same code
+            // as in the update button handler
         }
     }
 }

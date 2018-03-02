@@ -28,5 +28,11 @@ namespace FinalProject
             P1ProjectRequestsForm form = new P1ProjectRequestsForm();
             form.Show();
         }
+
+        private void AssembleTeamsButton_Click(object sender, EventArgs e)
+        {
+            P1TeamsForm form = new P1TeamsForm();
+            form.Show();
+        }
     }
 }

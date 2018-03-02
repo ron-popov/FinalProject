@@ -38,10 +38,6 @@
             this.tableAdapterManager = new FinalProject.DatabaseDataSetTableAdapters.TableAdapterManager();
             this.tCostumersTableAdapter = new FinalProject.DatabaseDataSetTableAdapters.tCostumersTableAdapter();
             this.tWorkersTableAdapter = new FinalProject.DatabaseDataSetTableAdapters.tWorkersTableAdapter();
-            this.tProjectRequestsDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.projectRequestIdTextBox = new System.Windows.Forms.TextBox();
             this.projectRequestCustomerIdComboBox = new System.Windows.Forms.ComboBox();
             this.tCostumersBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -55,14 +51,23 @@
             this.FirstButton = new System.Windows.Forms.Button();
             this.DownButton = new System.Windows.Forms.Button();
             this.UpButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.statusTextBox = new System.Windows.Forms.TextBox();
+            this.managerApprovedButton = new System.Windows.Forms.Button();
+            this.tProjectRequestsDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             projectRequestIdLabel = new System.Windows.Forms.Label();
             projectRequestCustomerIdLabel = new System.Windows.Forms.Label();
             projectRequestManagerIdLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tProjectRequestsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tProjectRequestsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tCostumersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tWorkersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tProjectRequestsDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // projectRequestIdLabel
@@ -129,38 +134,6 @@
             // 
             this.tWorkersTableAdapter.ClearBeforeFill = true;
             // 
-            // tProjectRequestsDataGridView
-            // 
-            this.tProjectRequestsDataGridView.AutoGenerateColumns = false;
-            this.tProjectRequestsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tProjectRequestsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3});
-            this.tProjectRequestsDataGridView.DataSource = this.tProjectRequestsBindingSource;
-            this.tProjectRequestsDataGridView.Location = new System.Drawing.Point(12, 12);
-            this.tProjectRequestsDataGridView.Name = "tProjectRequestsDataGridView";
-            this.tProjectRequestsDataGridView.Size = new System.Drawing.Size(569, 245);
-            this.tProjectRequestsDataGridView.TabIndex = 1;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "projectRequestId";
-            this.dataGridViewTextBoxColumn1.HeaderText = "projectRequestId";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "projectRequestCustomerId";
-            this.dataGridViewTextBoxColumn2.HeaderText = "projectRequestCustomerId";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "projectRequestManagerId";
-            this.dataGridViewTextBoxColumn3.HeaderText = "projectRequestManagerId";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
             // projectRequestIdTextBox
             // 
             this.projectRequestIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tProjectRequestsBindingSource, "projectRequestId", true));
@@ -205,7 +178,7 @@
             // 
             // RefreshButton
             // 
-            this.RefreshButton.Location = new System.Drawing.Point(747, 221);
+            this.RefreshButton.Location = new System.Drawing.Point(746, 247);
             this.RefreshButton.Name = "RefreshButton";
             this.RefreshButton.Size = new System.Drawing.Size(113, 23);
             this.RefreshButton.TabIndex = 26;
@@ -215,7 +188,7 @@
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(628, 221);
+            this.SaveButton.Location = new System.Drawing.Point(627, 247);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(113, 23);
             this.SaveButton.TabIndex = 25;
@@ -225,7 +198,7 @@
             // 
             // DeleteButton
             // 
-            this.DeleteButton.Location = new System.Drawing.Point(747, 192);
+            this.DeleteButton.Location = new System.Drawing.Point(746, 218);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(113, 23);
             this.DeleteButton.TabIndex = 24;
@@ -235,7 +208,7 @@
             // 
             // AddNewButton
             // 
-            this.AddNewButton.Location = new System.Drawing.Point(628, 192);
+            this.AddNewButton.Location = new System.Drawing.Point(627, 218);
             this.AddNewButton.Name = "AddNewButton";
             this.AddNewButton.Size = new System.Drawing.Size(113, 23);
             this.AddNewButton.TabIndex = 23;
@@ -245,7 +218,7 @@
             // 
             // LastButton
             // 
-            this.LastButton.Location = new System.Drawing.Point(628, 141);
+            this.LastButton.Location = new System.Drawing.Point(627, 189);
             this.LastButton.Name = "LastButton";
             this.LastButton.Size = new System.Drawing.Size(113, 23);
             this.LastButton.TabIndex = 22;
@@ -255,7 +228,7 @@
             // 
             // FirstButton
             // 
-            this.FirstButton.Location = new System.Drawing.Point(628, 112);
+            this.FirstButton.Location = new System.Drawing.Point(627, 160);
             this.FirstButton.Name = "FirstButton";
             this.FirstButton.Size = new System.Drawing.Size(113, 23);
             this.FirstButton.TabIndex = 21;
@@ -265,7 +238,7 @@
             // 
             // DownButton
             // 
-            this.DownButton.Location = new System.Drawing.Point(747, 141);
+            this.DownButton.Location = new System.Drawing.Point(746, 189);
             this.DownButton.Name = "DownButton";
             this.DownButton.Size = new System.Drawing.Size(113, 23);
             this.DownButton.TabIndex = 20;
@@ -275,7 +248,7 @@
             // 
             // UpButton
             // 
-            this.UpButton.Location = new System.Drawing.Point(747, 112);
+            this.UpButton.Location = new System.Drawing.Point(746, 160);
             this.UpButton.Name = "UpButton";
             this.UpButton.Size = new System.Drawing.Size(113, 23);
             this.UpButton.TabIndex = 19;
@@ -283,11 +256,89 @@
             this.UpButton.UseVisualStyleBackColor = true;
             this.UpButton.Click += new System.EventHandler(this.UpButton_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(611, 100);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(121, 13);
+            this.label1.TabIndex = 27;
+            this.label1.Text = "project Request Status :";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(696, 104);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(0, 13);
+            this.label2.TabIndex = 28;
+            // 
+            // statusTextBox
+            // 
+            this.statusTextBox.Location = new System.Drawing.Point(761, 97);
+            this.statusTextBox.Name = "statusTextBox";
+            this.statusTextBox.Size = new System.Drawing.Size(122, 20);
+            this.statusTextBox.TabIndex = 29;
+            // 
+            // managerApprovedButton
+            // 
+            this.managerApprovedButton.Location = new System.Drawing.Point(627, 131);
+            this.managerApprovedButton.Name = "managerApprovedButton";
+            this.managerApprovedButton.Size = new System.Drawing.Size(232, 23);
+            this.managerApprovedButton.TabIndex = 30;
+            this.managerApprovedButton.Text = "Managment Approved";
+            this.managerApprovedButton.UseVisualStyleBackColor = true;
+            this.managerApprovedButton.Click += new System.EventHandler(this.managerApprovedButton_Click);
+            // 
+            // tProjectRequestsDataGridView
+            // 
+            this.tProjectRequestsDataGridView.AutoGenerateColumns = false;
+            this.tProjectRequestsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tProjectRequestsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4});
+            this.tProjectRequestsDataGridView.DataSource = this.tProjectRequestsBindingSource;
+            this.tProjectRequestsDataGridView.Location = new System.Drawing.Point(12, 12);
+            this.tProjectRequestsDataGridView.Name = "tProjectRequestsDataGridView";
+            this.tProjectRequestsDataGridView.Size = new System.Drawing.Size(593, 258);
+            this.tProjectRequestsDataGridView.TabIndex = 30;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "projectRequestId";
+            this.dataGridViewTextBoxColumn1.HeaderText = "projectRequestId";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "projectRequestCustomerId";
+            this.dataGridViewTextBoxColumn2.HeaderText = "projectRequestCustomerId";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "projectRequestManagerId";
+            this.dataGridViewTextBoxColumn3.HeaderText = "projectRequestManagerId";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "projectRequestManagmentApproved";
+            this.dataGridViewTextBoxColumn4.HeaderText = "projectRequestManagmentApproved";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
             // P1ProjectRequestsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(895, 282);
+            this.ClientSize = new System.Drawing.Size(903, 290);
+            this.Controls.Add(this.tProjectRequestsDataGridView);
+            this.Controls.Add(this.managerApprovedButton);
+            this.Controls.Add(this.statusTextBox);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.RefreshButton);
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.DeleteButton);
@@ -302,15 +353,14 @@
             this.Controls.Add(this.projectRequestCustomerIdComboBox);
             this.Controls.Add(projectRequestManagerIdLabel);
             this.Controls.Add(this.projectRequestManagerIdComboBox);
-            this.Controls.Add(this.tProjectRequestsDataGridView);
             this.Name = "P1ProjectRequestsForm";
             this.Text = "P1ProjectRequests";
             this.Load += new System.EventHandler(this.P1ProjectRequestsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tProjectRequestsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tProjectRequestsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tCostumersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tWorkersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tProjectRequestsDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -322,10 +372,6 @@
         private System.Windows.Forms.BindingSource tProjectRequestsBindingSource;
         private DatabaseDataSetTableAdapters.tProjectRequestsTableAdapter tProjectRequestsTableAdapter;
         private DatabaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.DataGridView tProjectRequestsDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private DatabaseDataSetTableAdapters.tCostumersTableAdapter tCostumersTableAdapter;
         private System.Windows.Forms.TextBox projectRequestIdTextBox;
         private System.Windows.Forms.ComboBox projectRequestCustomerIdComboBox;
@@ -341,5 +387,14 @@
         private System.Windows.Forms.Button FirstButton;
         private System.Windows.Forms.Button DownButton;
         private System.Windows.Forms.Button UpButton;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox statusTextBox;
+        private System.Windows.Forms.Button managerApprovedButton;
+        private System.Windows.Forms.DataGridView tProjectRequestsDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
     }
 }

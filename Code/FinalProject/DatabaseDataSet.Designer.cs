@@ -3314,6 +3314,8 @@ namespace FinalProject {
             
             private global::System.Data.DataColumn columnprojectRequestManagerId;
             
+            private global::System.Data.DataColumn columnprojectRequestManagmentApproved;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public tProjectRequestsDataTable() {
@@ -3373,6 +3375,14 @@ namespace FinalProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn projectRequestManagmentApprovedColumn {
+                get {
+                    return this.columnprojectRequestManagmentApproved;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3408,12 +3418,13 @@ namespace FinalProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public tProjectRequestsRow AddtProjectRequestsRow(tCostumersRow parenttCostumersRowBytCostumerstProjectRequests, tWorkersRow parenttWorkersRowBytWorkerstProjectRequests) {
+            public tProjectRequestsRow AddtProjectRequestsRow(tCostumersRow parenttCostumersRowBytCostumerstProjectRequests, tWorkersRow parenttWorkersRowBytWorkerstProjectRequests, int projectRequestManagmentApproved) {
                 tProjectRequestsRow rowtProjectRequestsRow = ((tProjectRequestsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
-                        null};
+                        null,
+                        projectRequestManagmentApproved};
                 if ((parenttCostumersRowBytCostumerstProjectRequests != null)) {
                     columnValuesArray[1] = parenttCostumersRowBytCostumerstProjectRequests[0];
                 }
@@ -3452,6 +3463,7 @@ namespace FinalProject {
                 this.columnprojectRequestId = base.Columns["projectRequestId"];
                 this.columnprojectRequestCustomerId = base.Columns["projectRequestCustomerId"];
                 this.columnprojectRequestManagerId = base.Columns["projectRequestManagerId"];
+                this.columnprojectRequestManagmentApproved = base.Columns["projectRequestManagmentApproved"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3463,6 +3475,8 @@ namespace FinalProject {
                 base.Columns.Add(this.columnprojectRequestCustomerId);
                 this.columnprojectRequestManagerId = new global::System.Data.DataColumn("projectRequestManagerId", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnprojectRequestManagerId);
+                this.columnprojectRequestManagmentApproved = new global::System.Data.DataColumn("projectRequestManagmentApproved", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnprojectRequestManagmentApproved);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnprojectRequestId}, true));
                 this.columnprojectRequestId.AutoIncrement = true;
@@ -4580,6 +4594,23 @@ namespace FinalProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int projectRequestManagmentApproved {
+                get {
+                    try {
+                        return ((int)(this[this.tabletProjectRequests.projectRequestManagmentApprovedColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'projectRequestManagmentApproved\' in table \'tProjectRequests" +
+                                "\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabletProjectRequests.projectRequestManagmentApprovedColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public tCostumersRow tCostumersRow {
                 get {
                     return ((tCostumersRow)(this.GetParentRow(this.Table.ParentRelations["tCostumerstProjectRequests"])));
@@ -4622,6 +4653,18 @@ namespace FinalProject {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetprojectRequestManagerIdNull() {
                 this[this.tabletProjectRequests.projectRequestManagerIdColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsprojectRequestManagmentApprovedNull() {
+                return this.IsNull(this.tabletProjectRequests.projectRequestManagmentApprovedColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetprojectRequestManagmentApprovedNull() {
+                this[this.tabletProjectRequests.projectRequestManagmentApprovedColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -8152,36 +8195,41 @@ namespace FinalProject.DatabaseDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("projectRequestId", "projectRequestId");
             tableMapping.ColumnMappings.Add("projectRequestCustomerId", "projectRequestCustomerId");
             tableMapping.ColumnMappings.Add("projectRequestManagerId", "projectRequestManagerId");
+            tableMapping.ColumnMappings.Add("projectRequestManagmentApproved", "projectRequestManagmentApproved");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM `tProjectRequests` WHERE ((`projectRequestId` = ?) AND ((? = 1 AND `p" +
-                "rojectRequestCustomerId` IS NULL) OR (`projectRequestCustomerId` = ?)) AND ((? =" +
-                " 1 AND `projectRequestManagerId` IS NULL) OR (`projectRequestManagerId` = ?)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `tProjectRequests` WHERE ((`projectRequestId` = ?) AND ((? = 1 AND `projectRequestCustomerId` IS NULL) OR (`projectRequestCustomerId` = ?)) AND ((? = 1 AND `projectRequestManagerId` IS NULL) OR (`projectRequestManagerId` = ?)) AND ((? = 1 AND `projectRequestManagmentApproved` IS NULL) OR (`projectRequestManagmentApproved` = ?)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_projectRequestId", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "projectRequestId", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_projectRequestCustomerId", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "projectRequestCustomerId", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_projectRequestCustomerId", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "projectRequestCustomerId", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_projectRequestManagerId", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "projectRequestManagerId", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_projectRequestManagerId", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "projectRequestManagerId", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_projectRequestManagmentApproved", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "projectRequestManagmentApproved", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_projectRequestManagmentApproved", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "projectRequestManagmentApproved", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO `tProjectRequests` (`projectRequestCustomerId`, `projectRequestManage" +
-                "rId`) VALUES (?, ?)";
+                "rId`, `projectRequestManagmentApproved`) VALUES (?, ?, ?)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("projectRequestCustomerId", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "projectRequestCustomerId", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("projectRequestManagerId", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "projectRequestManagerId", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("projectRequestManagmentApproved", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "projectRequestManagmentApproved", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `tProjectRequests` SET `projectRequestCustomerId` = ?, `projectRequestManagerId` = ? WHERE ((`projectRequestId` = ?) AND ((? = 1 AND `projectRequestCustomerId` IS NULL) OR (`projectRequestCustomerId` = ?)) AND ((? = 1 AND `projectRequestManagerId` IS NULL) OR (`projectRequestManagerId` = ?)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `tProjectRequests` SET `projectRequestCustomerId` = ?, `projectRequestManagerId` = ?, `projectRequestManagmentApproved` = ? WHERE ((`projectRequestId` = ?) AND ((? = 1 AND `projectRequestCustomerId` IS NULL) OR (`projectRequestCustomerId` = ?)) AND ((? = 1 AND `projectRequestManagerId` IS NULL) OR (`projectRequestManagerId` = ?)) AND ((? = 1 AND `projectRequestManagmentApproved` IS NULL) OR (`projectRequestManagmentApproved` = ?)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("projectRequestCustomerId", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "projectRequestCustomerId", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("projectRequestManagerId", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "projectRequestManagerId", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("projectRequestManagmentApproved", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "projectRequestManagmentApproved", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_projectRequestId", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "projectRequestId", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_projectRequestCustomerId", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "projectRequestCustomerId", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_projectRequestCustomerId", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "projectRequestCustomerId", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_projectRequestManagerId", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "projectRequestManagerId", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_projectRequestManagerId", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "projectRequestManagerId", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_projectRequestManagmentApproved", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "projectRequestManagmentApproved", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_projectRequestManagmentApproved", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "projectRequestManagmentApproved", global::System.Data.DataRowVersion.Original, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8197,8 +8245,8 @@ namespace FinalProject.DatabaseDataSetTableAdapters {
             this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT projectRequestId, projectRequestCustomerId, projectRequestManagerId FROM t" +
-                "ProjectRequests";
+            this._commandCollection[0].CommandText = "SELECT projectRequestId, projectRequestCustomerId, projectRequestManagerId, proje" +
+                "ctRequestManagmentApproved FROM tProjectRequests";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -8259,7 +8307,7 @@ namespace FinalProject.DatabaseDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_projectRequestId, global::System.Nullable<int> Original_projectRequestCustomerId, global::System.Nullable<int> Original_projectRequestManagerId) {
+        public virtual int Delete(int Original_projectRequestId, global::System.Nullable<int> Original_projectRequestCustomerId, global::System.Nullable<int> Original_projectRequestManagerId, global::System.Nullable<int> Original_projectRequestManagmentApproved) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_projectRequestId));
             if ((Original_projectRequestCustomerId.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
@@ -8276,6 +8324,14 @@ namespace FinalProject.DatabaseDataSetTableAdapters {
             else {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((Original_projectRequestManagmentApproved.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(Original_projectRequestManagmentApproved.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -8297,7 +8353,7 @@ namespace FinalProject.DatabaseDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<int> projectRequestCustomerId, global::System.Nullable<int> projectRequestManagerId) {
+        public virtual int Insert(global::System.Nullable<int> projectRequestCustomerId, global::System.Nullable<int> projectRequestManagerId, global::System.Nullable<int> projectRequestManagmentApproved) {
             if ((projectRequestCustomerId.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((int)(projectRequestCustomerId.Value));
             }
@@ -8309,6 +8365,12 @@ namespace FinalProject.DatabaseDataSetTableAdapters {
             }
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((projectRequestManagmentApproved.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(projectRequestManagmentApproved.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -8330,7 +8392,7 @@ namespace FinalProject.DatabaseDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<int> projectRequestCustomerId, global::System.Nullable<int> projectRequestManagerId, int Original_projectRequestId, global::System.Nullable<int> Original_projectRequestCustomerId, global::System.Nullable<int> Original_projectRequestManagerId) {
+        public virtual int Update(global::System.Nullable<int> projectRequestCustomerId, global::System.Nullable<int> projectRequestManagerId, global::System.Nullable<int> projectRequestManagmentApproved, int Original_projectRequestId, global::System.Nullable<int> Original_projectRequestCustomerId, global::System.Nullable<int> Original_projectRequestManagerId, global::System.Nullable<int> Original_projectRequestManagmentApproved) {
             if ((projectRequestCustomerId.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(projectRequestCustomerId.Value));
             }
@@ -8343,22 +8405,36 @@ namespace FinalProject.DatabaseDataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Original_projectRequestId));
-            if ((Original_projectRequestCustomerId.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_projectRequestCustomerId.Value));
+            if ((projectRequestManagmentApproved.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(projectRequestManagmentApproved.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_projectRequestId));
+            if ((Original_projectRequestCustomerId.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_projectRequestCustomerId.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             if ((Original_projectRequestManagerId.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_projectRequestManagerId.Value));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_projectRequestManagerId.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            if ((Original_projectRequestManagmentApproved.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_projectRequestManagmentApproved.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
