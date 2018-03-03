@@ -31,6 +31,7 @@
             this.CustomersButton = new System.Windows.Forms.Button();
             this.ProjectRequestsButton = new System.Windows.Forms.Button();
             this.AssembleTeamsButton = new System.Windows.Forms.Button();
+            this.ProjectsButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // CustomersButton
@@ -66,11 +67,23 @@
             this.AssembleTeamsButton.UseVisualStyleBackColor = true;
             this.AssembleTeamsButton.Click += new System.EventHandler(this.AssembleTeamsButton_Click);
             // 
+            // ProjectsButton
+            // 
+            this.ProjectsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProjectsButton.Location = new System.Drawing.Point(12, 174);
+            this.ProjectsButton.Name = "ProjectsButton";
+            this.ProjectsButton.Size = new System.Drawing.Size(242, 48);
+            this.ProjectsButton.TabIndex = 3;
+            this.ProjectsButton.Text = "Projects";
+            this.ProjectsButton.UseVisualStyleBackColor = true;
+            this.ProjectsButton.Click += new System.EventHandler(this.ProjectsButton_Click);
+            // 
             // P1MenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(266, 484);
+            this.Controls.Add(this.ProjectsButton);
             this.Controls.Add(this.AssembleTeamsButton);
             this.Controls.Add(this.ProjectRequestsButton);
             this.Controls.Add(this.CustomersButton);
@@ -85,5 +98,6 @@
         private System.Windows.Forms.Button CustomersButton;
         private System.Windows.Forms.Button ProjectRequestsButton;
         private System.Windows.Forms.Button AssembleTeamsButton;
+        private System.Windows.Forms.Button ProjectsButton;
     }
 }

@@ -74,6 +74,12 @@
     <Compile Include="P1ProjectRequestsForm.Designer.cs">
       <DependentUpon>P1ProjectRequestsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="P1ProjectsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="P1ProjectsForm.Designer.cs">
+      <DependentUpon>P1ProjectsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="P1TeamsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +99,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="P1ProjectRequestsForm.resx">
       <DependentUpon>P1ProjectRequestsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="P1ProjectsForm.resx">
+      <DependentUpon>P1ProjectsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="P1TeamsForm.resx">
       <DependentUpon>P1TeamsForm.cs</DependentUpon>

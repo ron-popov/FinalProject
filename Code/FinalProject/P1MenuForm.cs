@@ -34,5 +34,11 @@ namespace FinalProject
             P1TeamsForm form = new P1TeamsForm();
             form.Show();
         }
+
+        private void ProjectsButton_Click(object sender, EventArgs e)
+        {
+            P1ProjectsForm form = new P1ProjectsForm();
+            form.Show();
+        }
     }
 }
