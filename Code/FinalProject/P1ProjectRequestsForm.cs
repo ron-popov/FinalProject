@@ -17,6 +17,19 @@ namespace FinalProject
             InitializeComponent();
         }
 
+        private void P1ProjectRequestsForm_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'databaseDataSet.tCostumers' table. You can move, or remove it, as needed.
+            this.tCostumersTableAdapter.Fill(this.databaseDataSet.tCostumers);
+            // TODO: This line of code loads data into the 'databaseDataSet.tProjectRequests' table. You can move, or remove it, as needed.
+            this.tProjectRequestsTableAdapter.Fill(this.databaseDataSet.tProjectRequests);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            tProjectRequestsBindingSource.MovePrevious();
+        }
+
         private void tProjectRequestsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             this.Validate();
@@ -25,89 +38,50 @@ namespace FinalProject
 
         }
 
-        private void P1ProjectRequestsForm_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'databaseDataSet.tWorkers' table. You can move, or remove it, as needed.
-            this.tWorkersTableAdapter.Fill(this.databaseDataSet.tWorkers);
-            // TODO: This line of code loads data into the 'databaseDataSet.tCostumers' table. You can move, or remove it, as needed.
-            this.tCostumersTableAdapter.Fill(this.databaseDataSet.tCostumers);
-            // TODO: This line of code loads data into the 'databaseDataSet.tProjectRequests' table. You can move, or remove it, as needed.
-            this.tProjectRequestsTableAdapter.Fill(this.databaseDataSet.tProjectRequests);
-
-        }
-
-        private void FirstButton_Click_1(object sender, EventArgs e)
-        {
-            tProjectRequestsBindingSource.MoveFirst();
-            UpdateStatus();
-        }
-
-        private void UpButton_Click(object sender, EventArgs e)
-        {
-            tProjectRequestsBindingSource.MovePrevious();
-            UpdateStatus();
-        }
-
-        private void LastButton_Click(object sender, EventArgs e)
-        {
-            tProjectRequestsBindingSource.MoveLast();
-            UpdateStatus();
-        }
-
-        private void DownButton_Click(object sender, EventArgs e)
-        {
-            tProjectRequestsBindingSource.MoveNext();
-            UpdateStatus();
-        }
-
-        private void AddNewButton_Click(object sender, EventArgs e)
+        private void button5_Click(object sender, EventArgs e)
         {
             tProjectRequestsBindingSource.AddNew();
         }
 
-        private void DeleteButton_Click(object sender, EventArgs e)
+        private void button6_Click(object sender, EventArgs e)
         {
             tProjectRequestsBindingSource.RemoveCurrent();
         }
 
-        private void SaveButton_Click(object sender, EventArgs e)
+        private void button7_Click(object sender, EventArgs e)
         {
-            // TODO : Set the default value of projectRequestManagmentApproved to 0
-
-            tProjectRequestsBindingSource.EndEdit();
+            // This saves the dataset into the database
             this.tProjectRequestsTableAdapter.Update(this.databaseDataSet.tProjectRequests);
         }
 
-        private void RefreshButton_Click(object sender, EventArgs e)
+        private void button8_Click(object sender, EventArgs e)
         {
+            // Loads data from the database to the dataset
+            tProjectRequestsBindingSource.EndEdit();
             this.tProjectRequestsTableAdapter.Fill(this.databaseDataSet.tProjectRequests);
-            tProjectRequestsDataGridView.Refresh();
         }
 
-        private void UpdateStatus()
+        private void button4_Click(object sender, EventArgs e)
         {
-            // TODO : Handle edge cases (no project request selected and stuff like that).
-
-            int projectId = int.Parse(projectRequestIdTextBox.Text);
-            foreach (DataRow row in this.databaseDataSet.tProjectRequests.Rows)
-            {
-                if((int)row["projectRequestId"] == projectId)
-                {
-                    //This is our project request
-
-                    statusTextBox.Text = (int)row["projectRequestManagmentApproved"] == 0 ? "Not Approved" : "Approved";
-                    return;
-                }
-            }
-
-            statusTextBox.Text = "";
+            tProjectRequestsBindingSource.MoveNext();
         }
 
-        private void managerApprovedButton_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            // TODO : Implement this
-            // Just set projectRequestManagmentApproved to 1 and call the same code
-            // as in the update button handler
+            tProjectRequestsBindingSource.MoveFirst();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            tProjectRequestsBindingSource.MoveLast();
+        }
+
+        private void tProjectRequestsBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.tProjectRequestsBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.databaseDataSet);
+
         }
     }
 }

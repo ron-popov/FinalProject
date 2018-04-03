@@ -48,6 +48,7 @@
             this.customerIdComboBox = new System.Windows.Forms.ComboBox();
             this.tCostumersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.projectRequestIdComboBox = new System.Windows.Forms.ComboBox();
+            this.tProjectRequestsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.projectDescirptionTextBox = new System.Windows.Forms.TextBox();
             this.tProjectsDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,7 +57,6 @@
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tProjectRequestsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tProjectRequestsTableAdapter = new FinalProject.DatabaseDataSetTableAdapters.tProjectRequestsTableAdapter();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -69,6 +69,9 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.button5 = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
             projectIdLabel = new System.Windows.Forms.Label();
             projectNameLabel = new System.Windows.Forms.Label();
             projectManagerIdLabel = new System.Windows.Forms.Label();
@@ -79,8 +82,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.tProjectsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tWorkersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tCostumersBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tProjectsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tProjectRequestsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tProjectsDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // projectIdLabel
@@ -118,6 +121,24 @@
             customerIdLabel.Size = new System.Drawing.Size(65, 13);
             customerIdLabel.TabIndex = 7;
             customerIdLabel.Text = "customer Id:";
+            // 
+            // projectRequestIdLabel
+            // 
+            projectRequestIdLabel.AutoSize = true;
+            projectRequestIdLabel.Location = new System.Drawing.Point(14, 361);
+            projectRequestIdLabel.Name = "projectRequestIdLabel";
+            projectRequestIdLabel.Size = new System.Drawing.Size(97, 13);
+            projectRequestIdLabel.TabIndex = 8;
+            projectRequestIdLabel.Text = "project Request Id:";
+            // 
+            // projectDescirptionLabel
+            // 
+            projectDescirptionLabel.AutoSize = true;
+            projectDescirptionLabel.Location = new System.Drawing.Point(12, 387);
+            projectDescirptionLabel.Name = "projectDescirptionLabel";
+            projectDescirptionLabel.Size = new System.Drawing.Size(98, 13);
+            projectDescirptionLabel.TabIndex = 10;
+            projectDescirptionLabel.Text = "project Descirption:";
             // 
             // databaseDataSet
             // 
@@ -206,15 +227,6 @@
             this.tCostumersBindingSource.DataMember = "tCostumers";
             this.tCostumersBindingSource.DataSource = this.databaseDataSet;
             // 
-            // projectRequestIdLabel
-            // 
-            projectRequestIdLabel.AutoSize = true;
-            projectRequestIdLabel.Location = new System.Drawing.Point(14, 361);
-            projectRequestIdLabel.Name = "projectRequestIdLabel";
-            projectRequestIdLabel.Size = new System.Drawing.Size(97, 13);
-            projectRequestIdLabel.TabIndex = 8;
-            projectRequestIdLabel.Text = "project Request Id:";
-            // 
             // projectRequestIdComboBox
             // 
             this.projectRequestIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tProjectsBindingSource, "projectRequestId", true));
@@ -227,14 +239,10 @@
             this.projectRequestIdComboBox.TabIndex = 9;
             this.projectRequestIdComboBox.ValueMember = "projectRequestId";
             // 
-            // projectDescirptionLabel
+            // tProjectRequestsBindingSource
             // 
-            projectDescirptionLabel.AutoSize = true;
-            projectDescirptionLabel.Location = new System.Drawing.Point(12, 387);
-            projectDescirptionLabel.Name = "projectDescirptionLabel";
-            projectDescirptionLabel.Size = new System.Drawing.Size(98, 13);
-            projectDescirptionLabel.TabIndex = 10;
-            projectDescirptionLabel.Text = "project Descirption:";
+            this.tProjectRequestsBindingSource.DataMember = "tProjectRequests";
+            this.tProjectRequestsBindingSource.DataSource = this.databaseDataSet;
             // 
             // projectDescirptionTextBox
             // 
@@ -297,11 +305,6 @@
             this.dataGridViewTextBoxColumn6.HeaderText = "projectDescirption";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             // 
-            // tProjectRequestsBindingSource
-            // 
-            this.tProjectRequestsBindingSource.DataMember = "tProjectRequests";
-            this.tProjectRequestsBindingSource.DataSource = this.databaseDataSet;
-            // 
             // tProjectRequestsTableAdapter
             // 
             this.tProjectRequestsTableAdapter.ClearBeforeFill = true;
@@ -349,7 +352,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(936, 29);
+            this.label1.Location = new System.Drawing.Point(642, 240);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(107, 13);
             this.label1.TabIndex = 17;
@@ -360,7 +363,7 @@
             this.comboBox1.DataSource = this.tProjectRequestsBindingSource;
             this.comboBox1.DisplayMember = "projectRequestName";
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(989, 62);
+            this.comboBox1.Location = new System.Drawing.Point(695, 259);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 18;
@@ -370,16 +373,16 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(876, 65);
+            this.label2.Location = new System.Drawing.Point(582, 262);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 13);
+            this.label2.Size = new System.Drawing.Size(83, 13);
             this.label2.TabIndex = 19;
-            this.label2.Text = "Project Request Id";
+            this.label2.Text = "Project Request";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(876, 92);
+            this.label3.Location = new System.Drawing.Point(582, 289);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(61, 13);
             this.label3.TabIndex = 21;
@@ -390,7 +393,7 @@
             this.comboBox2.DataSource = this.tWorkersBindingSource;
             this.comboBox2.DisplayMember = "workerName";
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(989, 89);
+            this.comboBox2.Location = new System.Drawing.Point(695, 286);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 21);
             this.comboBox2.TabIndex = 20;
@@ -398,26 +401,60 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(879, 209);
+            this.button5.Location = new System.Drawing.Point(585, 406);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(231, 23);
             this.button5.TabIndex = 22;
             this.button5.Text = "Add New Project";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(879, 116);
+            this.richTextBox1.Location = new System.Drawing.Point(585, 313);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(231, 87);
             this.richTextBox1.TabIndex = 23;
             this.richTextBox1.Text = "";
             // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(261, 351);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.TabIndex = 24;
+            this.button6.Text = "Save";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(342, 351);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(75, 23);
+            this.button7.TabIndex = 25;
+            this.button7.Text = "Update";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(261, 380);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(156, 23);
+            this.button8.TabIndex = 26;
+            this.button8.Text = "Delete";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
             // P1ProjectsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1172, 441);
+            this.ClientSize = new System.Drawing.Size(826, 441);
+            this.Controls.Add(this.button8);
+            this.Controls.Add(this.button7);
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.label3);
@@ -449,8 +486,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.tProjectsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tWorkersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tCostumersBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tProjectsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tProjectRequestsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tProjectsDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -492,5 +529,8 @@
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button8;
     }
 }

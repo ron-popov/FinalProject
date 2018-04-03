@@ -60,15 +60,120 @@ namespace FinalProject
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int projectRequestId = (int)comboBox1.SelectedValue;
+            //Fetching the project request id of the selected project request
+            int projectRequestId;
+            try
+            {
+                projectRequestId = (int)comboBox1.SelectedValue;
+            }
+            catch
+            {
+                return;
+            }
 
+            // Finding the DataRow associated with the project request
             foreach(DataRow row in databaseDataSet.tProjectRequests.Rows)
             {
                 if((int)row[0] == projectRequestId)
                 {
-                    richTextBox1.Text = row[5].ToString();
+                    // After we found the data row associated with the project request
+                    // we set the content of the textbox to the description of the textbox
+                    richTextBox1.Text = row[3].ToString();
                     return;
                 }
+            }
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Did the managment approve this projet ?", "Managment Approval Dialog", MessageBoxButtons.YesNo);
+            if (result != DialogResult.Yes)
+            {
+                MessageBox.Show("A manager has to approve this project request first");
+                return;
+            }
+
+            //Fetching the project request id of the selected project request
+            int projectRequestId;
+            try
+            {
+                projectRequestId = (int)comboBox1.SelectedValue;
+            }
+            catch
+            {
+                return;
+            }
+
+
+            int customerId = -1;
+            string name = null;
+            string description = null;
+            int managerId = (int)comboBox2.SelectedValue;
+
+            bool found = false;
+
+            // TODO : Fetch values from table
+
+            foreach(DatabaseDataSet.tProjectRequestsRow r in databaseDataSet.tProjectRequests.Rows)
+            {
+                if (((int)r["projectRequestId"]).Equals(projectRequestId))
+                {
+                    if(found)
+                    {
+                        MessageBox.Show("this project already exists");
+                        return;
+                    }
+
+                    name = r["projectRequestName"].ToString();
+                    description = r["projectRequestDescription"].ToString();
+                    customerId = int.Parse(r["projectRequestCustomerId"].ToString());
+
+                    found = true;
+                }
+            }
+
+            if (!found)
+            {
+                MessageBox.Show("Project Request not found");
+                return;
+            }
+
+            // Adding values to table
+            DatabaseDataSet.tProjectsRow row = this.databaseDataSet.tProjects.NewtProjectsRow();
+
+            row["projectName"] = name;
+            row["projectManagerId"] = managerId;
+            row["customerId"] = customerId;
+            row["projectRequestId"] = projectRequestId;
+            row["projectDescirption"] = description;
+
+            databaseDataSet.tProjects.AddtProjectsRow(row);
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            tProjectsBindingSource.EndEdit();
+
+            this.tProjectsTableAdapter.Update(this.databaseDataSet.tProjects);
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            this.tProjectsTableAdapter.Fill(this.databaseDataSet.tProjects);
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to delete this project ?", "Confirmation Dialog", MessageBoxButtons.YesNo);
+            if (result != DialogResult.Yes)
+            {
+                MessageBox.Show("Action canceled");
+            }
+            else
+            {
+                MessageBox.Show("Project Deleted");
+                tProjectsBindingSource.RemoveCurrent();
             }
 
         }
