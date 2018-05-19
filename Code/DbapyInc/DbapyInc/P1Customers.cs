@@ -48,7 +48,28 @@ namespace DbapyInc
 
         private void button4_Click(object sender, EventArgs e)
         {
-            this.customersTableAdapter.Fill(this.databaseDataSet.Customers);
+            this.customersBindingSource.EndEdit();
+            this.customersTableAdapter.Update(this.databaseDataSet.Customers);
         }
-    }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            customersBindingSource.MoveLast();
+        }
+        private void button8_Click(object sender, EventArgs e)
+        {
+            customersBindingSource.MoveFirst();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            customersBindingSource.MoveNext();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            customersBindingSource.MovePrevious();
+        }
+    }           
 }
+        

@@ -19,7 +19,22 @@ namespace DbapyInc
 
         private void button2_Click(object sender, EventArgs e)
         {
+            (new P1Orders()).Show();
+        }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            (new P1Customers()).Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            (new P1Projects()).Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            (new P1ProjectTypes()).Show();
         }
     }
 }

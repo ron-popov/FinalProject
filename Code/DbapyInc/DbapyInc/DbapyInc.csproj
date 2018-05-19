@@ -50,6 +50,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DatabaseDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="P1Orders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="P1Orders.Designer.cs">
+      <DependentUpon>P1Orders.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +80,30 @@
     <Compile Include="P1MainForm.Designer.cs">
       <DependentUpon>P1MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="P1Projects.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="P1Projects.Designer.cs">
+      <DependentUpon>P1Projects.cs</DependentUpon>
+    </Compile>
+    <Compile Include="P1ProjectTypes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="P1ProjectTypes.Designer.cs">
+      <DependentUpon>P1ProjectTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="P2MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="P2MainForm.Designer.cs">
+      <DependentUpon>P2MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="P2Workers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="P2Workers.Designer.cs">
+      <DependentUpon>P2Workers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="LoginForm.resx">
@@ -87,6 +117,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="P1MainForm.resx">
       <DependentUpon>P1MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="P1Orders.resx">
+      <DependentUpon>P1Orders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="P1Projects.resx">
+      <DependentUpon>P1Projects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="P1ProjectTypes.resx">
+      <DependentUpon>P1ProjectTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="P2MainForm.resx">
+      <DependentUpon>P2MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="P2Workers.resx">
+      <DependentUpon>P2Workers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -50,6 +50,10 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
             customerIdLabel = new System.Windows.Forms.Label();
             customerNameLabel = new System.Windows.Forms.Label();
             customerPhoneLabel = new System.Windows.Forms.Label();
@@ -58,6 +62,42 @@
             ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customersDataGridView)).BeginInit();
             this.SuspendLayout();
+            // 
+            // customerIdLabel
+            // 
+            customerIdLabel.AutoSize = true;
+            customerIdLabel.Location = new System.Drawing.Point(612, 36);
+            customerIdLabel.Name = "customerIdLabel";
+            customerIdLabel.Size = new System.Drawing.Size(66, 13);
+            customerIdLabel.TabIndex = 1;
+            customerIdLabel.Text = "Customer Id:";
+            // 
+            // customerNameLabel
+            // 
+            customerNameLabel.AutoSize = true;
+            customerNameLabel.Location = new System.Drawing.Point(612, 62);
+            customerNameLabel.Name = "customerNameLabel";
+            customerNameLabel.Size = new System.Drawing.Size(85, 13);
+            customerNameLabel.TabIndex = 3;
+            customerNameLabel.Text = "Customer Name:";
+            // 
+            // customerPhoneLabel
+            // 
+            customerPhoneLabel.AutoSize = true;
+            customerPhoneLabel.Location = new System.Drawing.Point(612, 88);
+            customerPhoneLabel.Name = "customerPhoneLabel";
+            customerPhoneLabel.Size = new System.Drawing.Size(88, 13);
+            customerPhoneLabel.TabIndex = 5;
+            customerPhoneLabel.Text = "Customer Phone:";
+            // 
+            // customerAddressLabel
+            // 
+            customerAddressLabel.AutoSize = true;
+            customerAddressLabel.Location = new System.Drawing.Point(612, 114);
+            customerAddressLabel.Name = "customerAddressLabel";
+            customerAddressLabel.Size = new System.Drawing.Size(95, 13);
+            customerAddressLabel.TabIndex = 7;
+            customerAddressLabel.Text = "Customer Address:";
             // 
             // databaseDataSet
             // 
@@ -102,7 +142,7 @@
             this.customersDataGridView.DataSource = this.customersBindingSource;
             this.customersDataGridView.Location = new System.Drawing.Point(12, 12);
             this.customersDataGridView.Name = "customersDataGridView";
-            this.customersDataGridView.Size = new System.Drawing.Size(571, 229);
+            this.customersDataGridView.Size = new System.Drawing.Size(571, 286);
             this.customersDataGridView.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn1
@@ -129,15 +169,6 @@
             this.dataGridViewTextBoxColumn4.HeaderText = "CustomerAddress";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
-            // customerIdLabel
-            // 
-            customerIdLabel.AutoSize = true;
-            customerIdLabel.Location = new System.Drawing.Point(612, 36);
-            customerIdLabel.Name = "customerIdLabel";
-            customerIdLabel.Size = new System.Drawing.Size(66, 13);
-            customerIdLabel.TabIndex = 1;
-            customerIdLabel.Text = "Customer Id:";
-            // 
             // customerIdTextBox
             // 
             this.customerIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "CustomerId", true));
@@ -145,15 +176,6 @@
             this.customerIdTextBox.Name = "customerIdTextBox";
             this.customerIdTextBox.Size = new System.Drawing.Size(100, 20);
             this.customerIdTextBox.TabIndex = 2;
-            // 
-            // customerNameLabel
-            // 
-            customerNameLabel.AutoSize = true;
-            customerNameLabel.Location = new System.Drawing.Point(612, 62);
-            customerNameLabel.Name = "customerNameLabel";
-            customerNameLabel.Size = new System.Drawing.Size(85, 13);
-            customerNameLabel.TabIndex = 3;
-            customerNameLabel.Text = "Customer Name:";
             // 
             // customerNameTextBox
             // 
@@ -163,15 +185,6 @@
             this.customerNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.customerNameTextBox.TabIndex = 4;
             // 
-            // customerPhoneLabel
-            // 
-            customerPhoneLabel.AutoSize = true;
-            customerPhoneLabel.Location = new System.Drawing.Point(612, 88);
-            customerPhoneLabel.Name = "customerPhoneLabel";
-            customerPhoneLabel.Size = new System.Drawing.Size(88, 13);
-            customerPhoneLabel.TabIndex = 5;
-            customerPhoneLabel.Text = "Customer Phone:";
-            // 
             // customerPhoneTextBox
             // 
             this.customerPhoneTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "CustomerPhone", true));
@@ -179,15 +192,6 @@
             this.customerPhoneTextBox.Name = "customerPhoneTextBox";
             this.customerPhoneTextBox.Size = new System.Drawing.Size(100, 20);
             this.customerPhoneTextBox.TabIndex = 6;
-            // 
-            // customerAddressLabel
-            // 
-            customerAddressLabel.AutoSize = true;
-            customerAddressLabel.Location = new System.Drawing.Point(612, 114);
-            customerAddressLabel.Name = "customerAddressLabel";
-            customerAddressLabel.Size = new System.Drawing.Size(95, 13);
-            customerAddressLabel.TabIndex = 7;
-            customerAddressLabel.Text = "Customer Address:";
             // 
             // customerAddressTextBox
             // 
@@ -237,11 +241,55 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(713, 276);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(100, 23);
+            this.button5.TabIndex = 16;
+            this.button5.Text = "למטה";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(615, 275);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(92, 23);
+            this.button6.TabIndex = 15;
+            this.button6.Text = "אחרון";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(713, 246);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(100, 23);
+            this.button7.TabIndex = 14;
+            this.button7.Text = "למעלה";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(615, 246);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(92, 23);
+            this.button8.TabIndex = 13;
+            this.button8.Text = "ראשון";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
             // P1Customers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1051, 450);
+            this.ClientSize = new System.Drawing.Size(825, 315);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.button7);
+            this.Controls.Add(this.button8);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -285,5 +333,9 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button8;
     }
 }
