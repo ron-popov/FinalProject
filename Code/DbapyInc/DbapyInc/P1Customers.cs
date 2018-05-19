@@ -48,6 +48,54 @@ namespace DbapyInc
 
         private void button4_Click(object sender, EventArgs e)
         {
+            // Making sure all of the fields are not empty
+            if (customerAddressTextBox.Text.Length > 0)
+            {
+                MessageBox.Show("Customer address cannot be empty");
+                return;
+            }
+
+            if (customerIdTextBox.Text.Length > 0)
+            {
+                MessageBox.Show("Customer id cannot be empty");
+                return;
+            }
+
+            if (customerNameTextBox.Text.Length > 0)
+            {
+                MessageBox.Show("Customer name cannot be empty");
+                return;
+            }
+
+            if (customerPhoneMaskedTextBox.Text.Length > 0)
+            {
+                MessageBox.Show("Customer phone cannot be empty");
+                return;
+            }
+
+            // Checking if the customerId is valid
+            int id = -1;
+            try
+            {
+                id = int.Parse(customerIdTextBox.Text);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Id is not valid");
+                return;
+            }
+
+            // Checking if the customerId exists
+            foreach(DataRow row in databaseDataSet.Customers.Rows)
+            {
+                if((int)(row["Customerid"]) == id)
+                {
+                    MessageBox.Show("Id already exists");
+                    return;
+                }
+            }
+
+            // Save to database
             this.customersBindingSource.EndEdit();
             this.customersTableAdapter.Update(this.databaseDataSet.Customers);
         }

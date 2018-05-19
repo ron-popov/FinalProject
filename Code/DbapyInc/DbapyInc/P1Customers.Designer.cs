@@ -31,8 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label customerIdLabel;
             System.Windows.Forms.Label customerNameLabel;
-            System.Windows.Forms.Label customerPhoneLabel;
             System.Windows.Forms.Label customerAddressLabel;
+            System.Windows.Forms.Label customerPhoneLabel;
             this.databaseDataSet = new DbapyInc.DatabaseDataSet();
             this.customersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.customersTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.CustomersTableAdapter();
@@ -44,7 +44,6 @@
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerIdTextBox = new System.Windows.Forms.TextBox();
             this.customerNameTextBox = new System.Windows.Forms.TextBox();
-            this.customerPhoneTextBox = new System.Windows.Forms.TextBox();
             this.customerAddressTextBox = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -54,10 +53,11 @@
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
+            this.customerPhoneMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             customerIdLabel = new System.Windows.Forms.Label();
             customerNameLabel = new System.Windows.Forms.Label();
-            customerPhoneLabel = new System.Windows.Forms.Label();
             customerAddressLabel = new System.Windows.Forms.Label();
+            customerPhoneLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customersDataGridView)).BeginInit();
@@ -80,15 +80,6 @@
             customerNameLabel.Size = new System.Drawing.Size(85, 13);
             customerNameLabel.TabIndex = 3;
             customerNameLabel.Text = "Customer Name:";
-            // 
-            // customerPhoneLabel
-            // 
-            customerPhoneLabel.AutoSize = true;
-            customerPhoneLabel.Location = new System.Drawing.Point(612, 88);
-            customerPhoneLabel.Name = "customerPhoneLabel";
-            customerPhoneLabel.Size = new System.Drawing.Size(88, 13);
-            customerPhoneLabel.TabIndex = 5;
-            customerPhoneLabel.Text = "Customer Phone:";
             // 
             // customerAddressLabel
             // 
@@ -185,14 +176,6 @@
             this.customerNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.customerNameTextBox.TabIndex = 4;
             // 
-            // customerPhoneTextBox
-            // 
-            this.customerPhoneTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "CustomerPhone", true));
-            this.customerPhoneTextBox.Location = new System.Drawing.Point(713, 85);
-            this.customerPhoneTextBox.Name = "customerPhoneTextBox";
-            this.customerPhoneTextBox.Size = new System.Drawing.Size(100, 20);
-            this.customerPhoneTextBox.TabIndex = 6;
-            // 
             // customerAddressTextBox
             // 
             this.customerAddressTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "CustomerAddress", true));
@@ -281,11 +264,31 @@
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
+            // customerPhoneLabel
+            // 
+            customerPhoneLabel.AutoSize = true;
+            customerPhoneLabel.Location = new System.Drawing.Point(612, 90);
+            customerPhoneLabel.Name = "customerPhoneLabel";
+            customerPhoneLabel.Size = new System.Drawing.Size(88, 13);
+            customerPhoneLabel.TabIndex = 16;
+            customerPhoneLabel.Text = "Customer Phone:";
+            // 
+            // customerPhoneMaskedTextBox
+            // 
+            this.customerPhoneMaskedTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "CustomerPhone", true));
+            this.customerPhoneMaskedTextBox.Location = new System.Drawing.Point(713, 87);
+            this.customerPhoneMaskedTextBox.Mask = "000-0000000";
+            this.customerPhoneMaskedTextBox.Name = "customerPhoneMaskedTextBox";
+            this.customerPhoneMaskedTextBox.Size = new System.Drawing.Size(100, 20);
+            this.customerPhoneMaskedTextBox.TabIndex = 17;
+            // 
             // P1Customers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(825, 315);
+            this.ClientSize = new System.Drawing.Size(865, 319);
+            this.Controls.Add(customerPhoneLabel);
+            this.Controls.Add(this.customerPhoneMaskedTextBox);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button7);
@@ -298,8 +301,6 @@
             this.Controls.Add(this.customerIdTextBox);
             this.Controls.Add(customerNameLabel);
             this.Controls.Add(this.customerNameTextBox);
-            this.Controls.Add(customerPhoneLabel);
-            this.Controls.Add(this.customerPhoneTextBox);
             this.Controls.Add(customerAddressLabel);
             this.Controls.Add(this.customerAddressTextBox);
             this.Controls.Add(this.customersDataGridView);
@@ -327,7 +328,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.TextBox customerIdTextBox;
         private System.Windows.Forms.TextBox customerNameTextBox;
-        private System.Windows.Forms.TextBox customerPhoneTextBox;
         private System.Windows.Forms.TextBox customerAddressTextBox;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
@@ -337,5 +337,6 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.MaskedTextBox customerPhoneMaskedTextBox;
     }
 }
