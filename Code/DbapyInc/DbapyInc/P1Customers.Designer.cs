@@ -33,18 +33,6 @@
             System.Windows.Forms.Label customerNameLabel;
             System.Windows.Forms.Label customerAddressLabel;
             System.Windows.Forms.Label customerPhoneLabel;
-            this.databaseDataSet = new DbapyInc.DatabaseDataSet();
-            this.customersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.customersTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.CustomersTableAdapter();
-            this.tableAdapterManager = new DbapyInc.DatabaseDataSetTableAdapters.TableAdapterManager();
-            this.customersDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerIdTextBox = new System.Windows.Forms.TextBox();
-            this.customerNameTextBox = new System.Windows.Forms.TextBox();
-            this.customerAddressTextBox = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -53,136 +41,27 @@
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
+            this.customersDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.databaseDataSet = new DbapyInc.DatabaseDataSet();
+            this.customersTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.CustomersTableAdapter();
+            this.tableAdapterManager = new DbapyInc.DatabaseDataSetTableAdapters.TableAdapterManager();
+            this.customerIdTextBox = new System.Windows.Forms.TextBox();
+            this.customerNameTextBox = new System.Windows.Forms.TextBox();
+            this.customerAddressTextBox = new System.Windows.Forms.TextBox();
             this.customerPhoneMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             customerIdLabel = new System.Windows.Forms.Label();
             customerNameLabel = new System.Windows.Forms.Label();
             customerAddressLabel = new System.Windows.Forms.Label();
             customerPhoneLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customersDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
             this.SuspendLayout();
-            // 
-            // customerIdLabel
-            // 
-            customerIdLabel.AutoSize = true;
-            customerIdLabel.Location = new System.Drawing.Point(612, 36);
-            customerIdLabel.Name = "customerIdLabel";
-            customerIdLabel.Size = new System.Drawing.Size(66, 13);
-            customerIdLabel.TabIndex = 1;
-            customerIdLabel.Text = "Customer Id:";
-            // 
-            // customerNameLabel
-            // 
-            customerNameLabel.AutoSize = true;
-            customerNameLabel.Location = new System.Drawing.Point(612, 62);
-            customerNameLabel.Name = "customerNameLabel";
-            customerNameLabel.Size = new System.Drawing.Size(85, 13);
-            customerNameLabel.TabIndex = 3;
-            customerNameLabel.Text = "Customer Name:";
-            // 
-            // customerAddressLabel
-            // 
-            customerAddressLabel.AutoSize = true;
-            customerAddressLabel.Location = new System.Drawing.Point(612, 114);
-            customerAddressLabel.Name = "customerAddressLabel";
-            customerAddressLabel.Size = new System.Drawing.Size(95, 13);
-            customerAddressLabel.TabIndex = 7;
-            customerAddressLabel.Text = "Customer Address:";
-            // 
-            // databaseDataSet
-            // 
-            this.databaseDataSet.DataSetName = "DatabaseDataSet";
-            this.databaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // customersBindingSource
-            // 
-            this.customersBindingSource.DataMember = "Customers";
-            this.customersBindingSource.DataSource = this.databaseDataSet;
-            // 
-            // customersTableAdapter
-            // 
-            this.customersTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.BugsTableAdapter = null;
-            this.tableAdapterManager.BugsToTestsTableAdapter = null;
-            this.tableAdapterManager.CustomersTableAdapter = this.customersTableAdapter;
-            this.tableAdapterManager.OrdersTableAdapter = null;
-            this.tableAdapterManager.ProjectComponentsTableAdapter = null;
-            this.tableAdapterManager.ProjectsTableAdapter = null;
-            this.tableAdapterManager.ProjectTypesTableAdapter = null;
-            this.tableAdapterManager.SurveysTableAdapter = null;
-            this.tableAdapterManager.TeamsTableAdapter = null;
-            this.tableAdapterManager.TestsTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = DbapyInc.DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.WorkersTableAdapter = null;
-            this.tableAdapterManager.WorkersToTeamsTableAdapter = null;
-            // 
-            // customersDataGridView
-            // 
-            this.customersDataGridView.AutoGenerateColumns = false;
-            this.customersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.customersDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4});
-            this.customersDataGridView.DataSource = this.customersBindingSource;
-            this.customersDataGridView.Location = new System.Drawing.Point(12, 12);
-            this.customersDataGridView.Name = "customersDataGridView";
-            this.customersDataGridView.Size = new System.Drawing.Size(571, 286);
-            this.customersDataGridView.TabIndex = 1;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "CustomerId";
-            this.dataGridViewTextBoxColumn1.HeaderText = "CustomerId";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "CustomerName";
-            this.dataGridViewTextBoxColumn2.HeaderText = "CustomerName";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "CustomerPhone";
-            this.dataGridViewTextBoxColumn3.HeaderText = "CustomerPhone";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "CustomerAddress";
-            this.dataGridViewTextBoxColumn4.HeaderText = "CustomerAddress";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // customerIdTextBox
-            // 
-            this.customerIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "CustomerId", true));
-            this.customerIdTextBox.Location = new System.Drawing.Point(713, 33);
-            this.customerIdTextBox.Name = "customerIdTextBox";
-            this.customerIdTextBox.Size = new System.Drawing.Size(100, 20);
-            this.customerIdTextBox.TabIndex = 2;
-            // 
-            // customerNameTextBox
-            // 
-            this.customerNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "CustomerName", true));
-            this.customerNameTextBox.Location = new System.Drawing.Point(713, 59);
-            this.customerNameTextBox.Name = "customerNameTextBox";
-            this.customerNameTextBox.Size = new System.Drawing.Size(100, 20);
-            this.customerNameTextBox.TabIndex = 4;
-            // 
-            // customerAddressTextBox
-            // 
-            this.customerAddressTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "CustomerAddress", true));
-            this.customerAddressTextBox.Location = new System.Drawing.Point(713, 111);
-            this.customerAddressTextBox.Name = "customerAddressTextBox";
-            this.customerAddressTextBox.Size = new System.Drawing.Size(100, 20);
-            this.customerAddressTextBox.TabIndex = 8;
             // 
             // button1
             // 
@@ -264,31 +143,164 @@
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
+            // customersDataGridView
+            // 
+            this.customersDataGridView.AutoGenerateColumns = false;
+            this.customersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.customersDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4});
+            this.customersDataGridView.DataSource = this.customersBindingSource;
+            this.customersDataGridView.Location = new System.Drawing.Point(12, 12);
+            this.customersDataGridView.Name = "customersDataGridView";
+            this.customersDataGridView.Size = new System.Drawing.Size(584, 286);
+            this.customersDataGridView.TabIndex = 18;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "CustomerId";
+            this.dataGridViewTextBoxColumn1.HeaderText = "CustomerId";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "CustomerName";
+            this.dataGridViewTextBoxColumn2.HeaderText = "CustomerName";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "CustomerPhone";
+            this.dataGridViewTextBoxColumn3.HeaderText = "CustomerPhone";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "CustomerAddress";
+            this.dataGridViewTextBoxColumn4.HeaderText = "CustomerAddress";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // customersBindingSource
+            // 
+            this.customersBindingSource.DataMember = "Customers";
+            this.customersBindingSource.DataSource = this.databaseDataSet;
+            // 
+            // databaseDataSet
+            // 
+            this.databaseDataSet.DataSetName = "DatabaseDataSet";
+            this.databaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // customersTableAdapter
+            // 
+            this.customersTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.BugsTableAdapter = null;
+            this.tableAdapterManager.BugsToTestsTableAdapter = null;
+            this.tableAdapterManager.CustomersTableAdapter = this.customersTableAdapter;
+            this.tableAdapterManager.OrdersTableAdapter = null;
+            this.tableAdapterManager.ProjectComponentsTableAdapter = null;
+            this.tableAdapterManager.ProjectsTableAdapter = null;
+            this.tableAdapterManager.ProjectTypesTableAdapter = null;
+            this.tableAdapterManager.SurveysTableAdapter = null;
+            this.tableAdapterManager.TeamsTableAdapter = null;
+            this.tableAdapterManager.TestsTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = DbapyInc.DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.WorkersTableAdapter = null;
+            this.tableAdapterManager.WorkersToTeamsTableAdapter = null;
+            // 
+            // customerIdLabel
+            // 
+            customerIdLabel.AutoSize = true;
+            customerIdLabel.Location = new System.Drawing.Point(612, 12);
+            customerIdLabel.Name = "customerIdLabel";
+            customerIdLabel.Size = new System.Drawing.Size(66, 13);
+            customerIdLabel.TabIndex = 18;
+            customerIdLabel.Text = "Customer Id:";
+            customerIdLabel.Click += new System.EventHandler(this.customerIdLabel_Click);
+            // 
+            // customerIdTextBox
+            // 
+            this.customerIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "CustomerId", true));
+            this.customerIdTextBox.Location = new System.Drawing.Point(713, 9);
+            this.customerIdTextBox.Name = "customerIdTextBox";
+            this.customerIdTextBox.Size = new System.Drawing.Size(100, 20);
+            this.customerIdTextBox.TabIndex = 19;
+            this.customerIdTextBox.TextChanged += new System.EventHandler(this.customerIdTextBox_TextChanged);
+            // 
+            // customerNameLabel
+            // 
+            customerNameLabel.AutoSize = true;
+            customerNameLabel.Location = new System.Drawing.Point(612, 38);
+            customerNameLabel.Name = "customerNameLabel";
+            customerNameLabel.Size = new System.Drawing.Size(85, 13);
+            customerNameLabel.TabIndex = 20;
+            customerNameLabel.Text = "Customer Name:";
+            customerNameLabel.Click += new System.EventHandler(this.customerNameLabel_Click);
+            // 
+            // customerNameTextBox
+            // 
+            this.customerNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "CustomerName", true));
+            this.customerNameTextBox.Location = new System.Drawing.Point(713, 35);
+            this.customerNameTextBox.Name = "customerNameTextBox";
+            this.customerNameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.customerNameTextBox.TabIndex = 21;
+            this.customerNameTextBox.TextChanged += new System.EventHandler(this.customerNameTextBox_TextChanged);
+            // 
+            // customerAddressLabel
+            // 
+            customerAddressLabel.AutoSize = true;
+            customerAddressLabel.Location = new System.Drawing.Point(612, 90);
+            customerAddressLabel.Name = "customerAddressLabel";
+            customerAddressLabel.Size = new System.Drawing.Size(95, 13);
+            customerAddressLabel.TabIndex = 24;
+            customerAddressLabel.Text = "Customer Address:";
+            customerAddressLabel.Click += new System.EventHandler(this.customerAddressLabel_Click);
+            // 
+            // customerAddressTextBox
+            // 
+            this.customerAddressTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "CustomerAddress", true));
+            this.customerAddressTextBox.Location = new System.Drawing.Point(713, 87);
+            this.customerAddressTextBox.Name = "customerAddressTextBox";
+            this.customerAddressTextBox.Size = new System.Drawing.Size(100, 20);
+            this.customerAddressTextBox.TabIndex = 25;
+            this.customerAddressTextBox.TextChanged += new System.EventHandler(this.customerAddressTextBox_TextChanged);
+            // 
             // customerPhoneLabel
             // 
             customerPhoneLabel.AutoSize = true;
-            customerPhoneLabel.Location = new System.Drawing.Point(612, 90);
+            customerPhoneLabel.Location = new System.Drawing.Point(612, 63);
             customerPhoneLabel.Name = "customerPhoneLabel";
             customerPhoneLabel.Size = new System.Drawing.Size(88, 13);
-            customerPhoneLabel.TabIndex = 16;
+            customerPhoneLabel.TabIndex = 25;
             customerPhoneLabel.Text = "Customer Phone:";
             // 
             // customerPhoneMaskedTextBox
             // 
             this.customerPhoneMaskedTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "CustomerPhone", true));
-            this.customerPhoneMaskedTextBox.Location = new System.Drawing.Point(713, 87);
-            this.customerPhoneMaskedTextBox.Mask = "000-0000000";
+            this.customerPhoneMaskedTextBox.Location = new System.Drawing.Point(713, 60);
             this.customerPhoneMaskedTextBox.Name = "customerPhoneMaskedTextBox";
             this.customerPhoneMaskedTextBox.Size = new System.Drawing.Size(100, 20);
-            this.customerPhoneMaskedTextBox.TabIndex = 17;
+            this.customerPhoneMaskedTextBox.TabIndex = 26;
             // 
             // P1Customers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(865, 319);
+            this.ClientSize = new System.Drawing.Size(826, 320);
             this.Controls.Add(customerPhoneLabel);
             this.Controls.Add(this.customerPhoneMaskedTextBox);
+            this.Controls.Add(customerIdLabel);
+            this.Controls.Add(this.customerIdTextBox);
+            this.Controls.Add(customerNameLabel);
+            this.Controls.Add(this.customerNameTextBox);
+            this.Controls.Add(customerAddressLabel);
+            this.Controls.Add(this.customerAddressTextBox);
+            this.Controls.Add(this.customersDataGridView);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button7);
@@ -297,26 +309,26 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(customerIdLabel);
-            this.Controls.Add(this.customerIdTextBox);
-            this.Controls.Add(customerNameLabel);
-            this.Controls.Add(this.customerNameTextBox);
-            this.Controls.Add(customerAddressLabel);
-            this.Controls.Add(this.customerAddressTextBox);
-            this.Controls.Add(this.customersDataGridView);
             this.Name = "P1Customers";
             this.Text = "P1Customers";
             this.Load += new System.EventHandler(this.P1Customers_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.customersDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button8;
         private DatabaseDataSet databaseDataSet;
         private System.Windows.Forms.BindingSource customersBindingSource;
         private DatabaseDataSetTableAdapters.CustomersTableAdapter customersTableAdapter;
@@ -329,14 +341,6 @@
         private System.Windows.Forms.TextBox customerIdTextBox;
         private System.Windows.Forms.TextBox customerNameTextBox;
         private System.Windows.Forms.TextBox customerAddressTextBox;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
         private System.Windows.Forms.MaskedTextBox customerPhoneMaskedTextBox;
     }
 }

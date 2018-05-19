@@ -2222,8 +2222,6 @@ namespace DbapyInc {
             
             private global::System.Data.DataColumn columnProjectType;
             
-            private global::System.Data.DataColumn columnProjectPrice;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public ProjectsDataTable() {
@@ -2299,14 +2297,6 @@ namespace DbapyInc {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn ProjectPriceColumn {
-                get {
-                    return this.columnProjectPrice;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2342,15 +2332,14 @@ namespace DbapyInc {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public ProjectsRow AddProjectsRow(int ProjectId, string ProjectName, OrdersRow parentOrdersRowByOrdersProjects, int ManagerId, ProjectTypesRow parentProjectTypesRowByProjectTypesProjects, int ProjectPrice) {
+            public ProjectsRow AddProjectsRow(int ProjectId, string ProjectName, OrdersRow parentOrdersRowByOrdersProjects, int ManagerId, ProjectTypesRow parentProjectTypesRowByProjectTypesProjects) {
                 ProjectsRow rowProjectsRow = ((ProjectsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ProjectId,
                         ProjectName,
                         null,
                         ManagerId,
-                        null,
-                        ProjectPrice};
+                        null};
                 if ((parentOrdersRowByOrdersProjects != null)) {
                     columnValuesArray[2] = parentOrdersRowByOrdersProjects[0];
                 }
@@ -2391,7 +2380,6 @@ namespace DbapyInc {
                 this.columnOrderId = base.Columns["OrderId"];
                 this.columnManagerId = base.Columns["ManagerId"];
                 this.columnProjectType = base.Columns["ProjectType"];
-                this.columnProjectPrice = base.Columns["ProjectPrice"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2407,8 +2395,6 @@ namespace DbapyInc {
                 base.Columns.Add(this.columnManagerId);
                 this.columnProjectType = new global::System.Data.DataColumn("ProjectType", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnProjectType);
-                this.columnProjectPrice = new global::System.Data.DataColumn("ProjectPrice", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnProjectPrice);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnProjectId}, true));
                 this.columnProjectId.AllowDBNull = false;
@@ -4996,22 +4982,6 @@ namespace DbapyInc {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int ProjectPrice {
-                get {
-                    try {
-                        return ((int)(this[this.tableProjects.ProjectPriceColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ProjectPrice\' in table \'Projects\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableProjects.ProjectPriceColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public OrdersRow OrdersRow {
                 get {
                     return ((OrdersRow)(this.GetParentRow(this.Table.ParentRelations["OrdersProjects"])));
@@ -5078,18 +5048,6 @@ namespace DbapyInc {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetProjectTypeNull() {
                 this[this.tableProjects.ProjectTypeColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsProjectPriceNull() {
-                return this.IsNull(this.tableProjects.ProjectPriceColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetProjectPriceNull() {
-                this[this.tableProjects.ProjectPriceColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8322,11 +8280,10 @@ namespace DbapyInc.DatabaseDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("OrderId", "OrderId");
             tableMapping.ColumnMappings.Add("ManagerId", "ManagerId");
             tableMapping.ColumnMappings.Add("ProjectType", "ProjectType");
-            tableMapping.ColumnMappings.Add("ProjectPrice", "ProjectPrice");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `Projects` WHERE ((`ProjectId` = ?) AND ((? = 1 AND `ProjectName` IS NULL) OR (`ProjectName` = ?)) AND ((? = 1 AND `OrderId` IS NULL) OR (`OrderId` = ?)) AND ((? = 1 AND `ManagerId` IS NULL) OR (`ManagerId` = ?)) AND ((? = 1 AND `ProjectType` IS NULL) OR (`ProjectType` = ?)) AND ((? = 1 AND `ProjectPrice` IS NULL) OR (`ProjectPrice` = ?)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `Projects` WHERE ((`ProjectId` = ?) AND ((? = 1 AND `ProjectName` IS NULL) OR (`ProjectName` = ?)) AND ((? = 1 AND `OrderId` IS NULL) OR (`OrderId` = ?)) AND ((? = 1 AND `ManagerId` IS NULL) OR (`ManagerId` = ?)) AND ((? = 1 AND `ProjectType` IS NULL) OR (`ProjectType` = ?)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ProjectId", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ProjectId", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ProjectName", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ProjectName", global::System.Data.DataRowVersion.Original, true, null));
@@ -8337,29 +8294,25 @@ namespace DbapyInc.DatabaseDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ManagerId", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ManagerId", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ProjectType", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ProjectType", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ProjectType", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ProjectType", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ProjectPrice", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ProjectPrice", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ProjectPrice", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ProjectPrice", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO `Projects` (`ProjectId`, `ProjectName`, `OrderId`, `ManagerId`, `Proj" +
-                "ectType`, `ProjectPrice`) VALUES (?, ?, ?, ?, ?, ?)";
+                "ectType`) VALUES (?, ?, ?, ?, ?)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ProjectId", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ProjectId", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ProjectName", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ProjectName", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("OrderId", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "OrderId", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ManagerId", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ManagerId", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ProjectType", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ProjectType", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ProjectPrice", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ProjectPrice", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `Projects` SET `ProjectId` = ?, `ProjectName` = ?, `OrderId` = ?, `ManagerId` = ?, `ProjectType` = ?, `ProjectPrice` = ? WHERE ((`ProjectId` = ?) AND ((? = 1 AND `ProjectName` IS NULL) OR (`ProjectName` = ?)) AND ((? = 1 AND `OrderId` IS NULL) OR (`OrderId` = ?)) AND ((? = 1 AND `ManagerId` IS NULL) OR (`ManagerId` = ?)) AND ((? = 1 AND `ProjectType` IS NULL) OR (`ProjectType` = ?)) AND ((? = 1 AND `ProjectPrice` IS NULL) OR (`ProjectPrice` = ?)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `Projects` SET `ProjectId` = ?, `ProjectName` = ?, `OrderId` = ?, `ManagerId` = ?, `ProjectType` = ? WHERE ((`ProjectId` = ?) AND ((? = 1 AND `ProjectName` IS NULL) OR (`ProjectName` = ?)) AND ((? = 1 AND `OrderId` IS NULL) OR (`OrderId` = ?)) AND ((? = 1 AND `ManagerId` IS NULL) OR (`ManagerId` = ?)) AND ((? = 1 AND `ProjectType` IS NULL) OR (`ProjectType` = ?)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ProjectId", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ProjectId", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ProjectName", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ProjectName", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("OrderId", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "OrderId", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ManagerId", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ManagerId", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ProjectType", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ProjectType", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ProjectPrice", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ProjectPrice", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ProjectId", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ProjectId", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ProjectName", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ProjectName", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ProjectName", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ProjectName", global::System.Data.DataRowVersion.Original, false, null));
@@ -8369,8 +8322,6 @@ namespace DbapyInc.DatabaseDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ManagerId", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ManagerId", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ProjectType", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ProjectType", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ProjectType", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ProjectType", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ProjectPrice", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ProjectPrice", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ProjectPrice", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ProjectPrice", global::System.Data.DataRowVersion.Original, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8386,8 +8337,7 @@ namespace DbapyInc.DatabaseDataSetTableAdapters {
             this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ProjectId, ProjectName, OrderId, ManagerId, ProjectType, ProjectPrice FROM" +
-                " Projects";
+            this._commandCollection[0].CommandText = "SELECT ProjectId, ProjectName, OrderId, ManagerId, ProjectType FROM Projects";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -8448,7 +8398,7 @@ namespace DbapyInc.DatabaseDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ProjectId, string Original_ProjectName, global::System.Nullable<int> Original_OrderId, global::System.Nullable<int> Original_ManagerId, global::System.Nullable<int> Original_ProjectType, global::System.Nullable<int> Original_ProjectPrice) {
+        public virtual int Delete(int Original_ProjectId, string Original_ProjectName, global::System.Nullable<int> Original_OrderId, global::System.Nullable<int> Original_ManagerId, global::System.Nullable<int> Original_ProjectType) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ProjectId));
             if ((Original_ProjectName == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
@@ -8482,14 +8432,6 @@ namespace DbapyInc.DatabaseDataSetTableAdapters {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            if ((Original_ProjectPrice.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((int)(Original_ProjectPrice.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -8510,7 +8452,7 @@ namespace DbapyInc.DatabaseDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int ProjectId, string ProjectName, global::System.Nullable<int> OrderId, global::System.Nullable<int> ManagerId, global::System.Nullable<int> ProjectType, global::System.Nullable<int> ProjectPrice) {
+        public virtual int Insert(int ProjectId, string ProjectName, global::System.Nullable<int> OrderId, global::System.Nullable<int> ManagerId, global::System.Nullable<int> ProjectType) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(ProjectId));
             if ((ProjectName == null)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -8536,12 +8478,6 @@ namespace DbapyInc.DatabaseDataSetTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((ProjectPrice.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((int)(ProjectPrice.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -8562,7 +8498,7 @@ namespace DbapyInc.DatabaseDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int ProjectId, string ProjectName, global::System.Nullable<int> OrderId, global::System.Nullable<int> ManagerId, global::System.Nullable<int> ProjectType, global::System.Nullable<int> ProjectPrice, int Original_ProjectId, string Original_ProjectName, global::System.Nullable<int> Original_OrderId, global::System.Nullable<int> Original_ManagerId, global::System.Nullable<int> Original_ProjectType, global::System.Nullable<int> Original_ProjectPrice) {
+        public virtual int Update(int ProjectId, string ProjectName, global::System.Nullable<int> OrderId, global::System.Nullable<int> ManagerId, global::System.Nullable<int> ProjectType, int Original_ProjectId, string Original_ProjectName, global::System.Nullable<int> Original_OrderId, global::System.Nullable<int> Original_ManagerId, global::System.Nullable<int> Original_ProjectType) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(ProjectId));
             if ((ProjectName == null)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -8588,52 +8524,38 @@ namespace DbapyInc.DatabaseDataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((ProjectPrice.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(ProjectPrice.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_ProjectId));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_ProjectId));
             if ((Original_ProjectName == null)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_ProjectName));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_ProjectName));
             }
             if ((Original_OrderId.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_OrderId.Value));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_OrderId.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             if ((Original_ManagerId.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_ManagerId.Value));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_ManagerId.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             if ((Original_ProjectType.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(Original_ProjectType.Value));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_ProjectType.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
-            }
-            if ((Original_ProjectPrice.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(Original_ProjectPrice.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -8655,8 +8577,8 @@ namespace DbapyInc.DatabaseDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string ProjectName, global::System.Nullable<int> OrderId, global::System.Nullable<int> ManagerId, global::System.Nullable<int> ProjectType, global::System.Nullable<int> ProjectPrice, int Original_ProjectId, string Original_ProjectName, global::System.Nullable<int> Original_OrderId, global::System.Nullable<int> Original_ManagerId, global::System.Nullable<int> Original_ProjectType, global::System.Nullable<int> Original_ProjectPrice) {
-            return this.Update(Original_ProjectId, ProjectName, OrderId, ManagerId, ProjectType, ProjectPrice, Original_ProjectId, Original_ProjectName, Original_OrderId, Original_ManagerId, Original_ProjectType, Original_ProjectPrice);
+        public virtual int Update(string ProjectName, global::System.Nullable<int> OrderId, global::System.Nullable<int> ManagerId, global::System.Nullable<int> ProjectType, int Original_ProjectId, string Original_ProjectName, global::System.Nullable<int> Original_OrderId, global::System.Nullable<int> Original_ManagerId, global::System.Nullable<int> Original_ProjectType) {
+            return this.Update(Original_ProjectId, ProjectName, OrderId, ManagerId, ProjectType, Original_ProjectId, Original_ProjectName, Original_OrderId, Original_ManagerId, Original_ProjectType);
         }
     }
     

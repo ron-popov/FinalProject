@@ -31,21 +31,20 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label projectIdLabel;
             System.Windows.Forms.Label projectNameLabel;
-            System.Windows.Forms.Label orderIdLabel;
             System.Windows.Forms.Label managerIdLabel;
+            System.Windows.Forms.Label orderIdLabel;
             System.Windows.Forms.Label projectTypeLabel;
-            System.Windows.Forms.Label projectPriceLabel;
             this.databaseDataSet = new DbapyInc.DatabaseDataSet();
             this.projectsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.projectsTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.ProjectsTableAdapter();
             this.tableAdapterManager = new DbapyInc.DatabaseDataSetTableAdapters.TableAdapterManager();
+            this.workersTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.WorkersTableAdapter();
             this.projectsDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
@@ -56,23 +55,71 @@
             this.button1 = new System.Windows.Forms.Button();
             this.projectIdTextBox = new System.Windows.Forms.TextBox();
             this.projectNameTextBox = new System.Windows.Forms.TextBox();
-            this.orderIdTextBox = new System.Windows.Forms.TextBox();
             this.managerIdComboBox = new System.Windows.Forms.ComboBox();
-            this.projectTypeTextBox = new System.Windows.Forms.TextBox();
-            this.projectPriceTextBox = new System.Windows.Forms.TextBox();
             this.workersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.workersTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.WorkersTableAdapter();
+            this.orderIdComboBox = new System.Windows.Forms.ComboBox();
+            this.ordersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ordersTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.OrdersTableAdapter();
+            this.projectTypeComboBox = new System.Windows.Forms.ComboBox();
+            this.projectTypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.projectTypesTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.ProjectTypesTableAdapter();
             projectIdLabel = new System.Windows.Forms.Label();
             projectNameLabel = new System.Windows.Forms.Label();
-            orderIdLabel = new System.Windows.Forms.Label();
             managerIdLabel = new System.Windows.Forms.Label();
+            orderIdLabel = new System.Windows.Forms.Label();
             projectTypeLabel = new System.Windows.Forms.Label();
-            projectPriceLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.workersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectTypesBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // projectIdLabel
+            // 
+            projectIdLabel.AutoSize = true;
+            projectIdLabel.Location = new System.Drawing.Point(724, 21);
+            projectIdLabel.Name = "projectIdLabel";
+            projectIdLabel.Size = new System.Drawing.Size(55, 13);
+            projectIdLabel.TabIndex = 24;
+            projectIdLabel.Text = "Project Id:";
+            // 
+            // projectNameLabel
+            // 
+            projectNameLabel.AutoSize = true;
+            projectNameLabel.Location = new System.Drawing.Point(724, 47);
+            projectNameLabel.Name = "projectNameLabel";
+            projectNameLabel.Size = new System.Drawing.Size(74, 13);
+            projectNameLabel.TabIndex = 26;
+            projectNameLabel.Text = "Project Name:";
+            // 
+            // managerIdLabel
+            // 
+            managerIdLabel.AutoSize = true;
+            managerIdLabel.Location = new System.Drawing.Point(724, 99);
+            managerIdLabel.Name = "managerIdLabel";
+            managerIdLabel.Size = new System.Drawing.Size(64, 13);
+            managerIdLabel.TabIndex = 30;
+            managerIdLabel.Text = "Manager Id:";
+            // 
+            // orderIdLabel
+            // 
+            orderIdLabel.AutoSize = true;
+            orderIdLabel.Location = new System.Drawing.Point(724, 72);
+            orderIdLabel.Name = "orderIdLabel";
+            orderIdLabel.Size = new System.Drawing.Size(48, 13);
+            orderIdLabel.TabIndex = 35;
+            orderIdLabel.Text = "Order Id:";
+            // 
+            // projectTypeLabel
+            // 
+            projectTypeLabel.AutoSize = true;
+            projectTypeLabel.Location = new System.Drawing.Point(724, 125);
+            projectTypeLabel.Name = "projectTypeLabel";
+            projectTypeLabel.Size = new System.Drawing.Size(70, 13);
+            projectTypeLabel.TabIndex = 36;
+            projectTypeLabel.Text = "Project Type:";
             // 
             // databaseDataSet
             // 
@@ -105,6 +152,10 @@
             this.tableAdapterManager.WorkersTableAdapter = this.workersTableAdapter;
             this.tableAdapterManager.WorkersToTeamsTableAdapter = null;
             // 
+            // workersTableAdapter
+            // 
+            this.workersTableAdapter.ClearBeforeFill = true;
+            // 
             // projectsDataGridView
             // 
             this.projectsDataGridView.AutoGenerateColumns = false;
@@ -114,8 +165,7 @@
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6});
+            this.dataGridViewTextBoxColumn5});
             this.projectsDataGridView.DataSource = this.projectsBindingSource;
             this.projectsDataGridView.Location = new System.Drawing.Point(12, 12);
             this.projectsDataGridView.Name = "projectsDataGridView";
@@ -151,12 +201,6 @@
             this.dataGridViewTextBoxColumn5.DataPropertyName = "ProjectType";
             this.dataGridViewTextBoxColumn5.HeaderText = "ProjectType";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "ProjectPrice";
-            this.dataGridViewTextBoxColumn6.HeaderText = "ProjectPrice";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             // 
             // button5
             // 
@@ -238,15 +282,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // projectIdLabel
-            // 
-            projectIdLabel.AutoSize = true;
-            projectIdLabel.Location = new System.Drawing.Point(724, 21);
-            projectIdLabel.Name = "projectIdLabel";
-            projectIdLabel.Size = new System.Drawing.Size(55, 13);
-            projectIdLabel.TabIndex = 24;
-            projectIdLabel.Text = "Project Id:";
-            // 
             // projectIdTextBox
             // 
             this.projectIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.projectsBindingSource, "ProjectId", true));
@@ -255,15 +290,6 @@
             this.projectIdTextBox.Size = new System.Drawing.Size(121, 20);
             this.projectIdTextBox.TabIndex = 25;
             // 
-            // projectNameLabel
-            // 
-            projectNameLabel.AutoSize = true;
-            projectNameLabel.Location = new System.Drawing.Point(724, 47);
-            projectNameLabel.Name = "projectNameLabel";
-            projectNameLabel.Size = new System.Drawing.Size(74, 13);
-            projectNameLabel.TabIndex = 26;
-            projectNameLabel.Text = "Project Name:";
-            // 
             // projectNameTextBox
             // 
             this.projectNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.projectsBindingSource, "ProjectName", true));
@@ -271,32 +297,6 @@
             this.projectNameTextBox.Name = "projectNameTextBox";
             this.projectNameTextBox.Size = new System.Drawing.Size(121, 20);
             this.projectNameTextBox.TabIndex = 27;
-            // 
-            // orderIdLabel
-            // 
-            orderIdLabel.AutoSize = true;
-            orderIdLabel.Location = new System.Drawing.Point(724, 73);
-            orderIdLabel.Name = "orderIdLabel";
-            orderIdLabel.Size = new System.Drawing.Size(48, 13);
-            orderIdLabel.TabIndex = 28;
-            orderIdLabel.Text = "Order Id:";
-            // 
-            // orderIdTextBox
-            // 
-            this.orderIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.projectsBindingSource, "OrderId", true));
-            this.orderIdTextBox.Location = new System.Drawing.Point(804, 70);
-            this.orderIdTextBox.Name = "orderIdTextBox";
-            this.orderIdTextBox.Size = new System.Drawing.Size(121, 20);
-            this.orderIdTextBox.TabIndex = 29;
-            // 
-            // managerIdLabel
-            // 
-            managerIdLabel.AutoSize = true;
-            managerIdLabel.Location = new System.Drawing.Point(724, 99);
-            managerIdLabel.Name = "managerIdLabel";
-            managerIdLabel.Size = new System.Drawing.Size(64, 13);
-            managerIdLabel.TabIndex = 30;
-            managerIdLabel.Text = "Manager Id:";
             // 
             // managerIdComboBox
             // 
@@ -310,66 +310,68 @@
             this.managerIdComboBox.TabIndex = 31;
             this.managerIdComboBox.ValueMember = "WorkerId";
             // 
-            // projectTypeLabel
-            // 
-            projectTypeLabel.AutoSize = true;
-            projectTypeLabel.Location = new System.Drawing.Point(724, 126);
-            projectTypeLabel.Name = "projectTypeLabel";
-            projectTypeLabel.Size = new System.Drawing.Size(70, 13);
-            projectTypeLabel.TabIndex = 32;
-            projectTypeLabel.Text = "Project Type:";
-            // 
-            // projectTypeTextBox
-            // 
-            this.projectTypeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.projectsBindingSource, "ProjectType", true));
-            this.projectTypeTextBox.Location = new System.Drawing.Point(804, 123);
-            this.projectTypeTextBox.Name = "projectTypeTextBox";
-            this.projectTypeTextBox.Size = new System.Drawing.Size(121, 20);
-            this.projectTypeTextBox.TabIndex = 33;
-            // 
-            // projectPriceLabel
-            // 
-            projectPriceLabel.AutoSize = true;
-            projectPriceLabel.Location = new System.Drawing.Point(724, 152);
-            projectPriceLabel.Name = "projectPriceLabel";
-            projectPriceLabel.Size = new System.Drawing.Size(70, 13);
-            projectPriceLabel.TabIndex = 34;
-            projectPriceLabel.Text = "Project Price:";
-            // 
-            // projectPriceTextBox
-            // 
-            this.projectPriceTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.projectsBindingSource, "ProjectPrice", true));
-            this.projectPriceTextBox.Location = new System.Drawing.Point(804, 149);
-            this.projectPriceTextBox.Name = "projectPriceTextBox";
-            this.projectPriceTextBox.Size = new System.Drawing.Size(121, 20);
-            this.projectPriceTextBox.TabIndex = 35;
-            // 
             // workersBindingSource
             // 
             this.workersBindingSource.DataMember = "Workers";
             this.workersBindingSource.DataSource = this.databaseDataSet;
             // 
-            // workersTableAdapter
+            // orderIdComboBox
             // 
-            this.workersTableAdapter.ClearBeforeFill = true;
+            this.orderIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.projectsBindingSource, "OrderId", true));
+            this.orderIdComboBox.DataSource = this.ordersBindingSource;
+            this.orderIdComboBox.DisplayMember = "OrderId";
+            this.orderIdComboBox.FormattingEnabled = true;
+            this.orderIdComboBox.Location = new System.Drawing.Point(804, 69);
+            this.orderIdComboBox.Name = "orderIdComboBox";
+            this.orderIdComboBox.Size = new System.Drawing.Size(121, 21);
+            this.orderIdComboBox.TabIndex = 36;
+            this.orderIdComboBox.ValueMember = "OrderId";
+            // 
+            // ordersBindingSource
+            // 
+            this.ordersBindingSource.DataMember = "Orders";
+            this.ordersBindingSource.DataSource = this.databaseDataSet;
+            // 
+            // ordersTableAdapter
+            // 
+            this.ordersTableAdapter.ClearBeforeFill = true;
+            // 
+            // projectTypeComboBox
+            // 
+            this.projectTypeComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.projectsBindingSource, "ProjectType", true));
+            this.projectTypeComboBox.DataSource = this.projectTypesBindingSource;
+            this.projectTypeComboBox.DisplayMember = "TypeName";
+            this.projectTypeComboBox.FormattingEnabled = true;
+            this.projectTypeComboBox.Location = new System.Drawing.Point(804, 122);
+            this.projectTypeComboBox.Name = "projectTypeComboBox";
+            this.projectTypeComboBox.Size = new System.Drawing.Size(121, 21);
+            this.projectTypeComboBox.TabIndex = 37;
+            this.projectTypeComboBox.ValueMember = "TypeId";
+            // 
+            // projectTypesBindingSource
+            // 
+            this.projectTypesBindingSource.DataMember = "ProjectTypes";
+            this.projectTypesBindingSource.DataSource = this.databaseDataSet;
+            // 
+            // projectTypesTableAdapter
+            // 
+            this.projectTypesTableAdapter.ClearBeforeFill = true;
             // 
             // P1Projects
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(943, 362);
+            this.ClientSize = new System.Drawing.Size(942, 362);
+            this.Controls.Add(projectTypeLabel);
+            this.Controls.Add(this.projectTypeComboBox);
+            this.Controls.Add(orderIdLabel);
+            this.Controls.Add(this.orderIdComboBox);
             this.Controls.Add(projectIdLabel);
             this.Controls.Add(this.projectIdTextBox);
             this.Controls.Add(projectNameLabel);
             this.Controls.Add(this.projectNameTextBox);
-            this.Controls.Add(orderIdLabel);
-            this.Controls.Add(this.orderIdTextBox);
             this.Controls.Add(managerIdLabel);
             this.Controls.Add(this.managerIdComboBox);
-            this.Controls.Add(projectTypeLabel);
-            this.Controls.Add(this.projectTypeTextBox);
-            this.Controls.Add(projectPriceLabel);
-            this.Controls.Add(this.projectPriceTextBox);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button7);
@@ -386,6 +388,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.projectsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.workersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectTypesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -403,7 +407,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
@@ -415,10 +418,13 @@
         private DatabaseDataSetTableAdapters.WorkersTableAdapter workersTableAdapter;
         private System.Windows.Forms.TextBox projectIdTextBox;
         private System.Windows.Forms.TextBox projectNameTextBox;
-        private System.Windows.Forms.TextBox orderIdTextBox;
         private System.Windows.Forms.ComboBox managerIdComboBox;
-        private System.Windows.Forms.TextBox projectTypeTextBox;
-        private System.Windows.Forms.TextBox projectPriceTextBox;
         private System.Windows.Forms.BindingSource workersBindingSource;
+        private System.Windows.Forms.ComboBox orderIdComboBox;
+        private System.Windows.Forms.BindingSource ordersBindingSource;
+        private DatabaseDataSetTableAdapters.OrdersTableAdapter ordersTableAdapter;
+        private System.Windows.Forms.ComboBox projectTypeComboBox;
+        private System.Windows.Forms.BindingSource projectTypesBindingSource;
+        private DatabaseDataSetTableAdapters.ProjectTypesTableAdapter projectTypesTableAdapter;
     }
 }

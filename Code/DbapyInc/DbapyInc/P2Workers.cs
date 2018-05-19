@@ -65,6 +65,8 @@ namespace DbapyInc
             // Save everything to the database
             workersBindingSource.EndEdit();
             this.workersTableAdapter.Update(this.databaseDataSet.Workers);
+
+            MessageBox.Show("Saved !");
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -88,6 +90,16 @@ namespace DbapyInc
         }
 
         private void workerPhoneLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void workerBirthDateDateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void workerBirthDateLabel_Click(object sender, EventArgs e)
         {
 
         }

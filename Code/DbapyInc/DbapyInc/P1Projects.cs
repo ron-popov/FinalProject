@@ -27,6 +27,10 @@ namespace DbapyInc
 
         private void P1Projects_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'databaseDataSet.ProjectTypes' table. You can move, or remove it, as needed.
+            this.projectTypesTableAdapter.Fill(this.databaseDataSet.ProjectTypes);
+            // TODO: This line of code loads data into the 'databaseDataSet.Orders' table. You can move, or remove it, as needed.
+            this.ordersTableAdapter.Fill(this.databaseDataSet.Orders);
             // TODO: This line of code loads data into the 'databaseDataSet.Workers' table. You can move, or remove it, as needed.
             this.workersTableAdapter.Fill(this.databaseDataSet.Workers);
             // TODO: This line of code loads data into the 'databaseDataSet.Projects' table. You can move, or remove it, as needed.

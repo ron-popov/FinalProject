@@ -17,16 +17,16 @@ namespace DbapyInc
             InitializeComponent();
         }
 
-        private void customersBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        private void customersBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
         {
             this.Validate();
             this.customersBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.databaseDataSet);
-
         }
 
         private void P1Customers_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'databaseDataSet.Customers' table. You can move, or remove it, as needed.
             this.customersTableAdapter.Fill(this.databaseDataSet.Customers);
 
         }
@@ -49,55 +49,61 @@ namespace DbapyInc
         private void button4_Click(object sender, EventArgs e)
         {
             // Making sure all of the fields are not empty
-            if (customerAddressTextBox.Text.Length > 0)
+            if (customerAddressTextBox.Text.Length == 0)
             {
                 MessageBox.Show("Customer address cannot be empty");
                 return;
             }
 
-            if (customerIdTextBox.Text.Length > 0)
+            if (customerIdTextBox.Text.Length == 0)
             {
                 MessageBox.Show("Customer id cannot be empty");
                 return;
             }
 
-            if (customerNameTextBox.Text.Length > 0)
+            if (customerNameTextBox.Text.Length == 0)
             {
                 MessageBox.Show("Customer name cannot be empty");
                 return;
             }
 
-            if (customerPhoneMaskedTextBox.Text.Length > 0)
+            if (customerPhoneMaskedTextBox.Text.Length == 0)
             {
                 MessageBox.Show("Customer phone cannot be empty");
                 return;
             }
 
             // Checking if the customerId is valid
-            int id = -1;
             try
             {
-                id = int.Parse(customerIdTextBox.Text);
+                int id = int.Parse(customerIdTextBox.Text);
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 MessageBox.Show("Id is not valid");
                 return;
             }
 
-            // Checking if the customerId exists
+            List<int> idList = new List<int>();
+
+            // Checking for customer id duplicates
             foreach(DataRow row in databaseDataSet.Customers.Rows)
             {
-                if((int)(row["Customerid"]) == id)
+                int id = (int)(row["CustomerId"]);
+                if(idList.Contains(id))
                 {
-                    MessageBox.Show("Id already exists");
+                    MessageBox.Show("Id Duplicated found, please remove duplicate before saving");
                     return;
                 }
+
+                idList.Add(id);
             }
 
             // Save to database
             this.customersBindingSource.EndEdit();
             this.customersTableAdapter.Update(this.databaseDataSet.Customers);
+
+            MessageBox.Show("Saved !");
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -117,6 +123,46 @@ namespace DbapyInc
         private void button7_Click(object sender, EventArgs e)
         {
             customersBindingSource.MovePrevious();
+        }
+
+        private void customerIdLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customerIdTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customerNameLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customerNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customerPhoneLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customerPhoneTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customerAddressLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customerAddressTextBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }           
 }
