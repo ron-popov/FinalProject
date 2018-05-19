@@ -31,24 +31,19 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label workerIdLabel;
             System.Windows.Forms.Label workerNameLabel;
-            System.Windows.Forms.Label workerPhoneLabel;
             System.Windows.Forms.Label workerAddressLabel;
             System.Windows.Forms.Label workerJoinDateLabel;
             System.Windows.Forms.Label workerBirthDateLabel;
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.Label workerPhoneLabel;
             this.databaseDataSet = new DbapyInc.DatabaseDataSet();
             this.workersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.workersTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.WorkersTableAdapter();
             this.tableAdapterManager = new DbapyInc.DatabaseDataSetTableAdapters.TableAdapterManager();
             this.workersDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.workerIdTextBox = new System.Windows.Forms.TextBox();
             this.workerNameTextBox = new System.Windows.Forms.TextBox();
-            this.workerPhoneTextBox = new System.Windows.Forms.TextBox();
             this.workerAddressTextBox = new System.Windows.Forms.TextBox();
             this.workerJoinDateDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.workerBirthDateDateTimePicker = new System.Windows.Forms.DateTimePicker();
@@ -60,16 +55,68 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.workerPhoneMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             workerIdLabel = new System.Windows.Forms.Label();
             workerNameLabel = new System.Windows.Forms.Label();
-            workerPhoneLabel = new System.Windows.Forms.Label();
             workerAddressLabel = new System.Windows.Forms.Label();
             workerJoinDateLabel = new System.Windows.Forms.Label();
             workerBirthDateLabel = new System.Windows.Forms.Label();
+            workerPhoneLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.workersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.workersDataGridView)).BeginInit();
             this.SuspendLayout();
+            // 
+            // workerIdLabel
+            // 
+            workerIdLabel.AutoSize = true;
+            workerIdLabel.Location = new System.Drawing.Point(821, 21);
+            workerIdLabel.Name = "workerIdLabel";
+            workerIdLabel.Size = new System.Drawing.Size(57, 13);
+            workerIdLabel.TabIndex = 1;
+            workerIdLabel.Text = "Worker Id:";
+            // 
+            // workerNameLabel
+            // 
+            workerNameLabel.AutoSize = true;
+            workerNameLabel.Location = new System.Drawing.Point(821, 47);
+            workerNameLabel.Name = "workerNameLabel";
+            workerNameLabel.Size = new System.Drawing.Size(76, 13);
+            workerNameLabel.TabIndex = 3;
+            workerNameLabel.Text = "Worker Name:";
+            // 
+            // workerAddressLabel
+            // 
+            workerAddressLabel.AutoSize = true;
+            workerAddressLabel.Location = new System.Drawing.Point(821, 99);
+            workerAddressLabel.Name = "workerAddressLabel";
+            workerAddressLabel.Size = new System.Drawing.Size(86, 13);
+            workerAddressLabel.TabIndex = 7;
+            workerAddressLabel.Text = "Worker Address:";
+            // 
+            // workerJoinDateLabel
+            // 
+            workerJoinDateLabel.AutoSize = true;
+            workerJoinDateLabel.Location = new System.Drawing.Point(821, 126);
+            workerJoinDateLabel.Name = "workerJoinDateLabel";
+            workerJoinDateLabel.Size = new System.Drawing.Size(93, 13);
+            workerJoinDateLabel.TabIndex = 9;
+            workerJoinDateLabel.Text = "Worker Join Date:";
+            // 
+            // workerBirthDateLabel
+            // 
+            workerBirthDateLabel.AutoSize = true;
+            workerBirthDateLabel.Location = new System.Drawing.Point(821, 152);
+            workerBirthDateLabel.Name = "workerBirthDateLabel";
+            workerBirthDateLabel.Size = new System.Drawing.Size(95, 13);
+            workerBirthDateLabel.TabIndex = 11;
+            workerBirthDateLabel.Text = "Worker Birth Date:";
             // 
             // databaseDataSet
             // 
@@ -119,51 +166,6 @@
             this.workersDataGridView.Size = new System.Drawing.Size(760, 320);
             this.workersDataGridView.TabIndex = 1;
             // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "WorkerId";
-            this.dataGridViewTextBoxColumn1.HeaderText = "WorkerId";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "WorkerName";
-            this.dataGridViewTextBoxColumn2.HeaderText = "WorkerName";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "WorkerPhone";
-            this.dataGridViewTextBoxColumn3.HeaderText = "WorkerPhone";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "WorkerAddress";
-            this.dataGridViewTextBoxColumn4.HeaderText = "WorkerAddress";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "WorkerJoinDate";
-            this.dataGridViewTextBoxColumn5.HeaderText = "WorkerJoinDate";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "WorkerBirthDate";
-            this.dataGridViewTextBoxColumn6.HeaderText = "WorkerBirthDate";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // workerIdLabel
-            // 
-            workerIdLabel.AutoSize = true;
-            workerIdLabel.Location = new System.Drawing.Point(821, 21);
-            workerIdLabel.Name = "workerIdLabel";
-            workerIdLabel.Size = new System.Drawing.Size(57, 13);
-            workerIdLabel.TabIndex = 1;
-            workerIdLabel.Text = "Worker Id:";
-            // 
             // workerIdTextBox
             // 
             this.workerIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.workersBindingSource, "WorkerId", true));
@@ -171,15 +173,6 @@
             this.workerIdTextBox.Name = "workerIdTextBox";
             this.workerIdTextBox.Size = new System.Drawing.Size(200, 20);
             this.workerIdTextBox.TabIndex = 2;
-            // 
-            // workerNameLabel
-            // 
-            workerNameLabel.AutoSize = true;
-            workerNameLabel.Location = new System.Drawing.Point(821, 47);
-            workerNameLabel.Name = "workerNameLabel";
-            workerNameLabel.Size = new System.Drawing.Size(76, 13);
-            workerNameLabel.TabIndex = 3;
-            workerNameLabel.Text = "Worker Name:";
             // 
             // workerNameTextBox
             // 
@@ -189,32 +182,6 @@
             this.workerNameTextBox.Size = new System.Drawing.Size(200, 20);
             this.workerNameTextBox.TabIndex = 4;
             // 
-            // workerPhoneLabel
-            // 
-            workerPhoneLabel.AutoSize = true;
-            workerPhoneLabel.Location = new System.Drawing.Point(821, 73);
-            workerPhoneLabel.Name = "workerPhoneLabel";
-            workerPhoneLabel.Size = new System.Drawing.Size(79, 13);
-            workerPhoneLabel.TabIndex = 5;
-            workerPhoneLabel.Text = "Worker Phone:";
-            // 
-            // workerPhoneTextBox
-            // 
-            this.workerPhoneTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.workersBindingSource, "WorkerPhone", true));
-            this.workerPhoneTextBox.Location = new System.Drawing.Point(922, 70);
-            this.workerPhoneTextBox.Name = "workerPhoneTextBox";
-            this.workerPhoneTextBox.Size = new System.Drawing.Size(200, 20);
-            this.workerPhoneTextBox.TabIndex = 6;
-            // 
-            // workerAddressLabel
-            // 
-            workerAddressLabel.AutoSize = true;
-            workerAddressLabel.Location = new System.Drawing.Point(821, 99);
-            workerAddressLabel.Name = "workerAddressLabel";
-            workerAddressLabel.Size = new System.Drawing.Size(86, 13);
-            workerAddressLabel.TabIndex = 7;
-            workerAddressLabel.Text = "Worker Address:";
-            // 
             // workerAddressTextBox
             // 
             this.workerAddressTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.workersBindingSource, "WorkerAddress", true));
@@ -223,15 +190,6 @@
             this.workerAddressTextBox.Size = new System.Drawing.Size(200, 20);
             this.workerAddressTextBox.TabIndex = 8;
             // 
-            // workerJoinDateLabel
-            // 
-            workerJoinDateLabel.AutoSize = true;
-            workerJoinDateLabel.Location = new System.Drawing.Point(821, 126);
-            workerJoinDateLabel.Name = "workerJoinDateLabel";
-            workerJoinDateLabel.Size = new System.Drawing.Size(93, 13);
-            workerJoinDateLabel.TabIndex = 9;
-            workerJoinDateLabel.Text = "Worker Join Date:";
-            // 
             // workerJoinDateDateTimePicker
             // 
             this.workerJoinDateDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.workersBindingSource, "WorkerJoinDate", true));
@@ -239,15 +197,6 @@
             this.workerJoinDateDateTimePicker.Name = "workerJoinDateDateTimePicker";
             this.workerJoinDateDateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.workerJoinDateDateTimePicker.TabIndex = 10;
-            // 
-            // workerBirthDateLabel
-            // 
-            workerBirthDateLabel.AutoSize = true;
-            workerBirthDateLabel.Location = new System.Drawing.Point(821, 152);
-            workerBirthDateLabel.Name = "workerBirthDateLabel";
-            workerBirthDateLabel.Size = new System.Drawing.Size(95, 13);
-            workerBirthDateLabel.TabIndex = 11;
-            workerBirthDateLabel.Text = "Worker Birth Date:";
             // 
             // workerBirthDateDateTimePicker
             // 
@@ -337,11 +286,72 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "WorkerId";
+            this.dataGridViewTextBoxColumn1.HeaderText = "WorkerId";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "WorkerName";
+            this.dataGridViewTextBoxColumn2.HeaderText = "WorkerName";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "WorkerPhone";
+            this.dataGridViewTextBoxColumn3.HeaderText = "WorkerPhone";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "WorkerAddress";
+            this.dataGridViewTextBoxColumn4.HeaderText = "WorkerAddress";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "WorkerJoinDate";
+            dataGridViewCellStyle5.Format = "dd/MM/yyyy";
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dataGridViewTextBoxColumn5.HeaderText = "WorkerJoinDate";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "WorkerBirthDate";
+            dataGridViewCellStyle6.Format = "dd/MM/yyyy";
+            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dataGridViewTextBoxColumn6.HeaderText = "WorkerBirthDate";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            // 
+            // workerPhoneLabel
+            // 
+            workerPhoneLabel.AutoSize = true;
+            workerPhoneLabel.Location = new System.Drawing.Point(821, 73);
+            workerPhoneLabel.Name = "workerPhoneLabel";
+            workerPhoneLabel.Size = new System.Drawing.Size(79, 13);
+            workerPhoneLabel.TabIndex = 32;
+            workerPhoneLabel.Text = "Worker Phone:";
+            workerPhoneLabel.Click += new System.EventHandler(this.workerPhoneLabel_Click);
+            // 
+            // workerPhoneMaskedTextBox
+            // 
+            this.workerPhoneMaskedTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.workersBindingSource, "WorkerPhone", true));
+            this.workerPhoneMaskedTextBox.Location = new System.Drawing.Point(922, 70);
+            this.workerPhoneMaskedTextBox.Mask = "000-0000000";
+            this.workerPhoneMaskedTextBox.Name = "workerPhoneMaskedTextBox";
+            this.workerPhoneMaskedTextBox.Size = new System.Drawing.Size(200, 20);
+            this.workerPhoneMaskedTextBox.TabIndex = 33;
+            // 
             // P2Workers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1153, 347);
+            this.ClientSize = new System.Drawing.Size(1153, 352);
+            this.Controls.Add(workerPhoneLabel);
+            this.Controls.Add(this.workerPhoneMaskedTextBox);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button7);
@@ -354,8 +364,6 @@
             this.Controls.Add(this.workerIdTextBox);
             this.Controls.Add(workerNameLabel);
             this.Controls.Add(this.workerNameTextBox);
-            this.Controls.Add(workerPhoneLabel);
-            this.Controls.Add(this.workerPhoneTextBox);
             this.Controls.Add(workerAddressLabel);
             this.Controls.Add(this.workerAddressTextBox);
             this.Controls.Add(workerJoinDateLabel);
@@ -381,15 +389,8 @@
         private DatabaseDataSetTableAdapters.WorkersTableAdapter workersTableAdapter;
         private DatabaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.DataGridView workersDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.TextBox workerIdTextBox;
         private System.Windows.Forms.TextBox workerNameTextBox;
-        private System.Windows.Forms.TextBox workerPhoneTextBox;
         private System.Windows.Forms.TextBox workerAddressTextBox;
         private System.Windows.Forms.DateTimePicker workerJoinDateDateTimePicker;
         private System.Windows.Forms.DateTimePicker workerBirthDateDateTimePicker;
@@ -401,5 +402,12 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.MaskedTextBox workerPhoneMaskedTextBox;
     }
 }

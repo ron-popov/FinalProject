@@ -16,5 +16,10 @@ namespace DbapyInc
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            (new P2Workers()).Show();
+        }
     }
 }

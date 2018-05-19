@@ -49,6 +49,20 @@ namespace DbapyInc
 
         private void button4_Click(object sender, EventArgs e)
         {
+            // Check if the worker is 18 yet
+            DateTime birthDate = workerBirthDateDateTimePicker.Value;
+            TimeSpan age = DateTime.Now - birthDate;
+
+            if (age.TotalDays < 18*365)
+            {
+                MessageBox.Show("You have to be 18 to work here");
+                return;
+            }
+
+
+            workerJoinDateDateTimePicker.Value = DateTime.Now;
+
+            // Save everything to the database
             workersBindingSource.EndEdit();
             this.workersTableAdapter.Update(this.databaseDataSet.Workers);
         }
@@ -71,6 +85,11 @@ namespace DbapyInc
         private void button5_Click(object sender, EventArgs e)
         {
             workersBindingSource.MoveNext();
+        }
+
+        private void workerPhoneLabel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

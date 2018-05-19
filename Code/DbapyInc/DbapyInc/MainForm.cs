@@ -21,5 +21,10 @@ namespace DbapyInc
         {
             (new P1MainForm()).Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            (new P2MainForm()).Show();
+        }
     }
 }
