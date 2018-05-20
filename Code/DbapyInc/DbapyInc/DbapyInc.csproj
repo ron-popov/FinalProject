@@ -122,17 +122,41 @@
     <Compile Include="P2WorkersToTeams.Designer.cs">
       <DependentUpon>P2WorkersToTeams.cs</DependentUpon>
     </Compile>
+    <Compile Include="P3Bugs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="P3Bugs.Designer.cs">
+      <DependentUpon>P3Bugs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="P3BugsToTests.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="P3BugsToTests.Designer.cs">
+      <DependentUpon>P3BugsToTests.cs</DependentUpon>
+    </Compile>
     <Compile Include="P3MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="P3MainForm.Designer.cs">
       <DependentUpon>P3MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="P3Tests.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="P3Tests.Designer.cs">
+      <DependentUpon>P3Tests.cs</DependentUpon>
+    </Compile>
     <Compile Include="P4MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="P4MainForm.Designer.cs">
       <DependentUpon>P4MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="P4Surveys.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="P4Surveys.Designer.cs">
+      <DependentUpon>P4Surveys.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -172,8 +196,17 @@
     <EmbeddedResource Include="P2WorkersToTeams.resx">
       <DependentUpon>P2WorkersToTeams.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="P3Bugs.resx">
+      <DependentUpon>P3Bugs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="P3MainForm.resx">
+      <DependentUpon>P3MainForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="P4MainForm.resx">
       <DependentUpon>P4MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="P4Surveys.resx">
+      <DependentUpon>P4Surveys.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

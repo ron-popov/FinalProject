@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace DbapyInc
 {
-    public partial class P4MainForm : Form
+    public partial class P3Tests : Form
     {
-        public P4MainForm()
+        public P3Tests()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            (new P4Surveys()).Show();
         }
     }
 }

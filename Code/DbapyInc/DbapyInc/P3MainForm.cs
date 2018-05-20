@@ -16,5 +16,20 @@ namespace DbapyInc
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            (new P3Tests()).Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            (new P3Bugs()).Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            (new P3BugsToTests()).Show();
+        }
     }
 }
