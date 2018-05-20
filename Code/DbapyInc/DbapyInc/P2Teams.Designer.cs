@@ -37,6 +37,8 @@
             this.teamsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.teamsTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.TeamsTableAdapter();
             this.tableAdapterManager = new DbapyInc.DatabaseDataSetTableAdapters.TableAdapterManager();
+            this.projectComponentsTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.ProjectComponentsTableAdapter();
+            this.workersTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.WorkersTableAdapter();
             this.teamsDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,11 +47,9 @@
             this.teamIdTextBox = new System.Windows.Forms.TextBox();
             this.teamNameTextBox = new System.Windows.Forms.TextBox();
             this.manageridComboBox = new System.Windows.Forms.ComboBox();
-            this.componentIdComboBox = new System.Windows.Forms.ComboBox();
             this.workersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.workersTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.WorkersTableAdapter();
+            this.componentIdComboBox = new System.Windows.Forms.ComboBox();
             this.projectComponentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.projectComponentsTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.ProjectComponentsTableAdapter();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
@@ -68,6 +68,42 @@
             ((System.ComponentModel.ISupportInitialize)(this.workersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectComponentsBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // teamIdLabel
+            // 
+            teamIdLabel.AutoSize = true;
+            teamIdLabel.Location = new System.Drawing.Point(812, 25);
+            teamIdLabel.Name = "teamIdLabel";
+            teamIdLabel.Size = new System.Drawing.Size(49, 13);
+            teamIdLabel.TabIndex = 1;
+            teamIdLabel.Text = "Team Id:";
+            // 
+            // teamNameLabel
+            // 
+            teamNameLabel.AutoSize = true;
+            teamNameLabel.Location = new System.Drawing.Point(812, 51);
+            teamNameLabel.Name = "teamNameLabel";
+            teamNameLabel.Size = new System.Drawing.Size(68, 13);
+            teamNameLabel.TabIndex = 3;
+            teamNameLabel.Text = "Team Name:";
+            // 
+            // manageridLabel
+            // 
+            manageridLabel.AutoSize = true;
+            manageridLabel.Location = new System.Drawing.Point(812, 77);
+            manageridLabel.Name = "manageridLabel";
+            manageridLabel.Size = new System.Drawing.Size(60, 13);
+            manageridLabel.TabIndex = 5;
+            manageridLabel.Text = "Managerid:";
+            // 
+            // componentIdLabel
+            // 
+            componentIdLabel.AutoSize = true;
+            componentIdLabel.Location = new System.Drawing.Point(812, 104);
+            componentIdLabel.Name = "componentIdLabel";
+            componentIdLabel.Size = new System.Drawing.Size(76, 13);
+            componentIdLabel.TabIndex = 7;
+            componentIdLabel.Text = "Component Id:";
             // 
             // databaseDataSet
             // 
@@ -99,6 +135,14 @@
             this.tableAdapterManager.UpdateOrder = DbapyInc.DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.WorkersTableAdapter = this.workersTableAdapter;
             this.tableAdapterManager.WorkersToTeamsTableAdapter = null;
+            // 
+            // projectComponentsTableAdapter
+            // 
+            this.projectComponentsTableAdapter.ClearBeforeFill = true;
+            // 
+            // workersTableAdapter
+            // 
+            this.workersTableAdapter.ClearBeforeFill = true;
             // 
             // teamsDataGridView
             // 
@@ -139,15 +183,6 @@
             this.dataGridViewTextBoxColumn4.HeaderText = "ComponentId";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
-            // teamIdLabel
-            // 
-            teamIdLabel.AutoSize = true;
-            teamIdLabel.Location = new System.Drawing.Point(812, 25);
-            teamIdLabel.Name = "teamIdLabel";
-            teamIdLabel.Size = new System.Drawing.Size(49, 13);
-            teamIdLabel.TabIndex = 1;
-            teamIdLabel.Text = "Team Id:";
-            // 
             // teamIdTextBox
             // 
             this.teamIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teamsBindingSource, "TeamId", true));
@@ -156,15 +191,6 @@
             this.teamIdTextBox.Size = new System.Drawing.Size(121, 20);
             this.teamIdTextBox.TabIndex = 2;
             // 
-            // teamNameLabel
-            // 
-            teamNameLabel.AutoSize = true;
-            teamNameLabel.Location = new System.Drawing.Point(812, 51);
-            teamNameLabel.Name = "teamNameLabel";
-            teamNameLabel.Size = new System.Drawing.Size(68, 13);
-            teamNameLabel.TabIndex = 3;
-            teamNameLabel.Text = "Team Name:";
-            // 
             // teamNameTextBox
             // 
             this.teamNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teamsBindingSource, "TeamName", true));
@@ -172,15 +198,6 @@
             this.teamNameTextBox.Name = "teamNameTextBox";
             this.teamNameTextBox.Size = new System.Drawing.Size(121, 20);
             this.teamNameTextBox.TabIndex = 4;
-            // 
-            // manageridLabel
-            // 
-            manageridLabel.AutoSize = true;
-            manageridLabel.Location = new System.Drawing.Point(812, 77);
-            manageridLabel.Name = "manageridLabel";
-            manageridLabel.Size = new System.Drawing.Size(60, 13);
-            manageridLabel.TabIndex = 5;
-            manageridLabel.Text = "Managerid:";
             // 
             // manageridComboBox
             // 
@@ -194,14 +211,10 @@
             this.manageridComboBox.TabIndex = 6;
             this.manageridComboBox.ValueMember = "WorkerId";
             // 
-            // componentIdLabel
+            // workersBindingSource
             // 
-            componentIdLabel.AutoSize = true;
-            componentIdLabel.Location = new System.Drawing.Point(812, 104);
-            componentIdLabel.Name = "componentIdLabel";
-            componentIdLabel.Size = new System.Drawing.Size(76, 13);
-            componentIdLabel.TabIndex = 7;
-            componentIdLabel.Text = "Component Id:";
+            this.workersBindingSource.DataMember = "Workers";
+            this.workersBindingSource.DataSource = this.databaseDataSet;
             // 
             // componentIdComboBox
             // 
@@ -215,23 +228,10 @@
             this.componentIdComboBox.TabIndex = 8;
             this.componentIdComboBox.ValueMember = "ComponentId";
             // 
-            // workersBindingSource
-            // 
-            this.workersBindingSource.DataMember = "Workers";
-            this.workersBindingSource.DataSource = this.databaseDataSet;
-            // 
-            // workersTableAdapter
-            // 
-            this.workersTableAdapter.ClearBeforeFill = true;
-            // 
             // projectComponentsBindingSource
             // 
             this.projectComponentsBindingSource.DataMember = "ProjectComponents";
             this.projectComponentsBindingSource.DataSource = this.databaseDataSet;
-            // 
-            // projectComponentsTableAdapter
-            // 
-            this.projectComponentsTableAdapter.ClearBeforeFill = true;
             // 
             // button5
             // 
@@ -241,6 +241,7 @@
             this.button5.TabIndex = 40;
             this.button5.Text = "למטה";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
@@ -250,6 +251,7 @@
             this.button6.TabIndex = 39;
             this.button6.Text = "אחרון";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button7
             // 
@@ -259,6 +261,7 @@
             this.button7.TabIndex = 38;
             this.button7.Text = "למעלה";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button8
             // 
@@ -268,6 +271,7 @@
             this.button8.TabIndex = 37;
             this.button8.Text = "ראשון";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button4
             // 
@@ -277,6 +281,7 @@
             this.button4.TabIndex = 36;
             this.button4.Text = "שמירה";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -286,6 +291,7 @@
             this.button3.TabIndex = 35;
             this.button3.Text = "עדכון ממסד";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -295,6 +301,7 @@
             this.button2.TabIndex = 34;
             this.button2.Text = "הסר";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -304,6 +311,7 @@
             this.button1.TabIndex = 33;
             this.button1.Text = "הוסף חדש";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // P2Teams
             // 

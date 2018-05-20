@@ -62,6 +62,7 @@ namespace DbapyInc
 
             workerJoinDateDateTimePicker.Value = DateTime.Now;
 
+            // Looking for empty fields
             if (workerIdTextBox.Text.Length == 0)
             {
                 MessageBox.Show("Worker Id cannot be empty");

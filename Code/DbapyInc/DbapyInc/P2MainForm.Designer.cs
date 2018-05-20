@@ -87,6 +87,7 @@
             this.button4.TabIndex = 10;
             this.button4.Text = "פירוט צוותים";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // P2MainForm
             // 
