@@ -71,6 +71,60 @@
             ((System.ComponentModel.ISupportInitialize)(this.workersDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
+            // workerIdLabel
+            // 
+            workerIdLabel.AutoSize = true;
+            workerIdLabel.Location = new System.Drawing.Point(829, 12);
+            workerIdLabel.Name = "workerIdLabel";
+            workerIdLabel.Size = new System.Drawing.Size(57, 13);
+            workerIdLabel.TabIndex = 32;
+            workerIdLabel.Text = "Worker Id:";
+            // 
+            // workerNameLabel
+            // 
+            workerNameLabel.AutoSize = true;
+            workerNameLabel.Location = new System.Drawing.Point(829, 38);
+            workerNameLabel.Name = "workerNameLabel";
+            workerNameLabel.Size = new System.Drawing.Size(76, 13);
+            workerNameLabel.TabIndex = 34;
+            workerNameLabel.Text = "Worker Name:";
+            // 
+            // workerPhoneLabel
+            // 
+            workerPhoneLabel.AutoSize = true;
+            workerPhoneLabel.Location = new System.Drawing.Point(829, 64);
+            workerPhoneLabel.Name = "workerPhoneLabel";
+            workerPhoneLabel.Size = new System.Drawing.Size(79, 13);
+            workerPhoneLabel.TabIndex = 36;
+            workerPhoneLabel.Text = "Worker Phone:";
+            // 
+            // workerAddressLabel
+            // 
+            workerAddressLabel.AutoSize = true;
+            workerAddressLabel.Location = new System.Drawing.Point(829, 90);
+            workerAddressLabel.Name = "workerAddressLabel";
+            workerAddressLabel.Size = new System.Drawing.Size(86, 13);
+            workerAddressLabel.TabIndex = 38;
+            workerAddressLabel.Text = "Worker Address:";
+            // 
+            // workerJoinDateLabel
+            // 
+            workerJoinDateLabel.AutoSize = true;
+            workerJoinDateLabel.Location = new System.Drawing.Point(829, 143);
+            workerJoinDateLabel.Name = "workerJoinDateLabel";
+            workerJoinDateLabel.Size = new System.Drawing.Size(93, 13);
+            workerJoinDateLabel.TabIndex = 40;
+            workerJoinDateLabel.Text = "Worker Join Date:";
+            // 
+            // workerBirthDateLabel
+            // 
+            workerBirthDateLabel.AutoSize = true;
+            workerBirthDateLabel.Location = new System.Drawing.Point(829, 117);
+            workerBirthDateLabel.Name = "workerBirthDateLabel";
+            workerBirthDateLabel.Size = new System.Drawing.Size(95, 13);
+            workerBirthDateLabel.TabIndex = 42;
+            workerBirthDateLabel.Text = "Worker Birth Date:";
+            // 
             // databaseDataSet
             // 
             this.databaseDataSet.DataSetName = "DatabaseDataSet";
@@ -235,15 +289,6 @@
             this.dataGridViewTextBoxColumn6.HeaderText = "WorkerBirthDate";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             // 
-            // workerIdLabel
-            // 
-            workerIdLabel.AutoSize = true;
-            workerIdLabel.Location = new System.Drawing.Point(829, 12);
-            workerIdLabel.Name = "workerIdLabel";
-            workerIdLabel.Size = new System.Drawing.Size(57, 13);
-            workerIdLabel.TabIndex = 32;
-            workerIdLabel.Text = "Worker Id:";
-            // 
             // workerIdTextBox
             // 
             this.workerIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.workersBindingSource, "WorkerId", true));
@@ -252,15 +297,6 @@
             this.workerIdTextBox.Size = new System.Drawing.Size(200, 20);
             this.workerIdTextBox.TabIndex = 33;
             // 
-            // workerNameLabel
-            // 
-            workerNameLabel.AutoSize = true;
-            workerNameLabel.Location = new System.Drawing.Point(829, 38);
-            workerNameLabel.Name = "workerNameLabel";
-            workerNameLabel.Size = new System.Drawing.Size(76, 13);
-            workerNameLabel.TabIndex = 34;
-            workerNameLabel.Text = "Worker Name:";
-            // 
             // workerNameTextBox
             // 
             this.workerNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.workersBindingSource, "WorkerName", true));
@@ -268,15 +304,6 @@
             this.workerNameTextBox.Name = "workerNameTextBox";
             this.workerNameTextBox.Size = new System.Drawing.Size(200, 20);
             this.workerNameTextBox.TabIndex = 35;
-            // 
-            // workerPhoneLabel
-            // 
-            workerPhoneLabel.AutoSize = true;
-            workerPhoneLabel.Location = new System.Drawing.Point(829, 64);
-            workerPhoneLabel.Name = "workerPhoneLabel";
-            workerPhoneLabel.Size = new System.Drawing.Size(79, 13);
-            workerPhoneLabel.TabIndex = 36;
-            workerPhoneLabel.Text = "Worker Phone:";
             // 
             // workerPhoneMaskedTextBox
             // 
@@ -287,15 +314,6 @@
             this.workerPhoneMaskedTextBox.Size = new System.Drawing.Size(200, 20);
             this.workerPhoneMaskedTextBox.TabIndex = 37;
             // 
-            // workerAddressLabel
-            // 
-            workerAddressLabel.AutoSize = true;
-            workerAddressLabel.Location = new System.Drawing.Point(829, 90);
-            workerAddressLabel.Name = "workerAddressLabel";
-            workerAddressLabel.Size = new System.Drawing.Size(86, 13);
-            workerAddressLabel.TabIndex = 38;
-            workerAddressLabel.Text = "Worker Address:";
-            // 
             // workerAddressTextBox
             // 
             this.workerAddressTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.workersBindingSource, "WorkerAddress", true));
@@ -304,16 +322,6 @@
             this.workerAddressTextBox.Size = new System.Drawing.Size(200, 20);
             this.workerAddressTextBox.TabIndex = 39;
             // 
-            // workerJoinDateLabel
-            // 
-            workerJoinDateLabel.AutoSize = true;
-            workerJoinDateLabel.Location = new System.Drawing.Point(829, 143);
-            workerJoinDateLabel.Name = "workerJoinDateLabel";
-            workerJoinDateLabel.Size = new System.Drawing.Size(93, 13);
-            workerJoinDateLabel.TabIndex = 40;
-            workerJoinDateLabel.Text = "Worker Join Date:";
-            workerJoinDateLabel.Visible = false;
-            // 
             // workerJoinDateDateTimePicker
             // 
             this.workerJoinDateDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.workersBindingSource, "WorkerJoinDate", true));
@@ -321,16 +329,6 @@
             this.workerJoinDateDateTimePicker.Name = "workerJoinDateDateTimePicker";
             this.workerJoinDateDateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.workerJoinDateDateTimePicker.TabIndex = 41;
-            this.workerJoinDateDateTimePicker.Visible = false;
-            // 
-            // workerBirthDateLabel
-            // 
-            workerBirthDateLabel.AutoSize = true;
-            workerBirthDateLabel.Location = new System.Drawing.Point(829, 117);
-            workerBirthDateLabel.Name = "workerBirthDateLabel";
-            workerBirthDateLabel.Size = new System.Drawing.Size(95, 13);
-            workerBirthDateLabel.TabIndex = 42;
-            workerBirthDateLabel.Text = "Worker Birth Date:";
             // 
             // workerBirthDateDateTimePicker
             // 
