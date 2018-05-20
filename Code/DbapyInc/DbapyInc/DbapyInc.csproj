@@ -122,6 +122,18 @@
     <Compile Include="P2WorkersToTeams.Designer.cs">
       <DependentUpon>P2WorkersToTeams.cs</DependentUpon>
     </Compile>
+    <Compile Include="P3MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="P3MainForm.Designer.cs">
+      <DependentUpon>P3MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="P4MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="P4MainForm.Designer.cs">
+      <DependentUpon>P4MainForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="LoginForm.resx">
@@ -159,6 +171,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="P2WorkersToTeams.resx">
       <DependentUpon>P2WorkersToTeams.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="P4MainForm.resx">
+      <DependentUpon>P4MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
