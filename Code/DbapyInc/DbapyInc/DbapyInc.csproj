@@ -92,6 +92,12 @@
     <Compile Include="P1ProjectTypes.Designer.cs">
       <DependentUpon>P1ProjectTypes.cs</DependentUpon>
     </Compile>
+    <Compile Include="P2Components.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="P2Components.Designer.cs">
+      <DependentUpon>P2Components.cs</DependentUpon>
+    </Compile>
     <Compile Include="P2MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,6 +144,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="P1ProjectTypes.resx">
       <DependentUpon>P1ProjectTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="P2Components.resx">
+      <DependentUpon>P2Components.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="P2MainForm.resx">
       <DependentUpon>P2MainForm.cs</DependentUpon>

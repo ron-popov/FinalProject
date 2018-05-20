@@ -31,5 +31,10 @@ namespace DbapyInc
         {
             (new P2WorkersToTeams()).Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            (new P2Components()).Show();
+        }
     }
 }
