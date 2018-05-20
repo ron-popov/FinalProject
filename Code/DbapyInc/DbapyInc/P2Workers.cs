@@ -53,7 +53,7 @@ namespace DbapyInc
             DateTime birthDate = workerBirthDateDateTimePicker.Value;
             TimeSpan age = DateTime.Now - birthDate;
 
-            if (age.TotalDays < 18*365)
+            if (age.TotalDays < 18*365 && DateTime.Now > birthDate)
             {
                 MessageBox.Show("You have to be 18 to work here");
                 return;
@@ -61,6 +61,45 @@ namespace DbapyInc
 
 
             workerJoinDateDateTimePicker.Value = DateTime.Now;
+
+            if (workerIdTextBox.Text.Length == 0)
+            {
+                MessageBox.Show("Worker Id cannot be empty");
+                return;
+            }
+
+            if (workerNameTextBox.Text.Length == 0)
+            {
+                MessageBox.Show("Worker Name cannot be empty");
+                return;
+            }
+
+            if (workerPhoneMaskedTextBox.Text.Length == 0)
+            {
+                MessageBox.Show("Worker Phone Number cannot be empty");
+                return;
+            }
+
+            if (workerAddressTextBox.Text.Length == 0)
+            {
+                MessageBox.Show("Worker address cannot be empty");
+                return;
+            }
+
+            // Checking for duplicates
+            List<int> idList = new List<int>();
+
+            foreach (DataRow row in databaseDataSet.Workers.Rows)
+            {
+                int id = (int)(row["WorkerId"]);
+                if (idList.Contains(id))
+                {
+                    MessageBox.Show("Worker Id Duplicated found, please remove duplicate before saving");
+                    return;
+                }
+
+                idList.Add(id);
+            }
 
             // Save everything to the database
             workersBindingSource.EndEdit();

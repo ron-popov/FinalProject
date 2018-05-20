@@ -31,6 +31,10 @@ namespace DbapyInc
             this.customersTableAdapter.Fill(this.databaseDataSet.Customers);
             // TODO: This line of code loads data into the 'databaseDataSet.Orders' table. You can move, or remove it, as needed.
             this.ordersTableAdapter.Fill(this.databaseDataSet.Orders);
+            // TODO: This line of code loads data into the 'databaseDataSet.Customers' table. You can move, or remove it, as needed.
+            this.customersTableAdapter.Fill(this.databaseDataSet.Customers);
+            // TODO: This line of code loads data into the 'databaseDataSet.Orders' table. You can move, or remove it, as needed.
+            this.ordersTableAdapter.Fill(this.databaseDataSet.Orders);
 
         }
 
@@ -46,8 +50,40 @@ namespace DbapyInc
 
         private void button4_Click(object sender, EventArgs e)
         {
+            if(orderIdTextBox.Text.Length == 0)
+            {
+                MessageBox.Show("Order Id Cannot be empty");
+                return;
+            }
+
+            if (customerIdComboBox.Text.Length == 0)
+            {
+                MessageBox.Show("Order Id Cannot be empty");
+                return;
+            }
+
+            orderDateDateTimePicker.Value = DateTime.Now;
+
+            // Checking for duplicates
+            List<int> idList = new List<int>();
+
+            foreach (DataRow row in databaseDataSet.Orders.Rows)
+            {
+                int id = (int)(row["OrderId"]);
+                if (idList.Contains(id))
+                {
+                    MessageBox.Show("Order Id Duplicated found, please remove duplicate before saving");
+                    return;
+                }
+
+                idList.Add(id);
+            }
+
+            // Saving to database
             customersBindingSource.EndEdit();
             this.customersTableAdapter.Update(this.databaseDataSet.Customers);
+
+            MessageBox.Show("Saved !");
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -77,7 +113,7 @@ namespace DbapyInc
 
         private void button9_Click(object sender, EventArgs e)
         {
-            string customerName = textBox1.Text;
+            /*string customerName = textBox1.Text;
 
             // A list of wanted customer id's
             List<int> customerId = new List<int>();
@@ -111,7 +147,15 @@ namespace DbapyInc
                 DataView dv = new DataView(databaseDataSet.Customers);
                 dv.RowFilter = query;
                 ordersDataGridView.DataSource = dv;
-            }
+            }*/
+        }
+
+        private void ordersBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.ordersBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.databaseDataSet);
+
         }
     }
 }

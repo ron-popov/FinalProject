@@ -49,8 +49,46 @@ namespace DbapyInc
 
         private void button4_Click(object sender, EventArgs e)
         {
+            // Checking if all input fields are not empty
+            if (typeIdTextBox.Text.Length == 0)
+            {
+                MessageBox.Show("Project Type Id cannot be empty");
+                return;
+            }
+
+            if (typeNameTextBox.Text.Length == 0)
+            {
+                MessageBox.Show("Project Type Name cannot be empty");
+                return;
+            }
+
+            if (typePriceTextBox.Text.Length == 0)
+            {
+                MessageBox.Show("Project Type Price cannot be empty");
+                return;
+            }
+
+
+            // Checking for duplicates
+            List<int> idList = new List<int>();
+
+            foreach (DataRow row in databaseDataSet.ProjectTypes.Rows)
+            {
+                int id = (int)(row["TypeId"]);
+                if (idList.Contains(id))
+                {
+                    MessageBox.Show("Project Type Id Duplicated found, please remove duplicate before saving");
+                    return;
+                }
+
+                idList.Add(id);
+            }
+
+            // Saving to database
             projectTypesBindingSource.EndEdit();
             this.projectTypesTableAdapter.Update(this.databaseDataSet.ProjectTypes);
+
+            MessageBox.Show("Saved !");
         }
 
         private void button8_Click(object sender, EventArgs e)

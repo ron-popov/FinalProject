@@ -63,6 +63,45 @@
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
             this.SuspendLayout();
             // 
+            // customerIdLabel
+            // 
+            customerIdLabel.AutoSize = true;
+            customerIdLabel.Location = new System.Drawing.Point(612, 12);
+            customerIdLabel.Name = "customerIdLabel";
+            customerIdLabel.Size = new System.Drawing.Size(66, 13);
+            customerIdLabel.TabIndex = 18;
+            customerIdLabel.Text = "Customer Id:";
+            customerIdLabel.Click += new System.EventHandler(this.customerIdLabel_Click);
+            // 
+            // customerNameLabel
+            // 
+            customerNameLabel.AutoSize = true;
+            customerNameLabel.Location = new System.Drawing.Point(612, 38);
+            customerNameLabel.Name = "customerNameLabel";
+            customerNameLabel.Size = new System.Drawing.Size(85, 13);
+            customerNameLabel.TabIndex = 20;
+            customerNameLabel.Text = "Customer Name:";
+            customerNameLabel.Click += new System.EventHandler(this.customerNameLabel_Click);
+            // 
+            // customerAddressLabel
+            // 
+            customerAddressLabel.AutoSize = true;
+            customerAddressLabel.Location = new System.Drawing.Point(612, 90);
+            customerAddressLabel.Name = "customerAddressLabel";
+            customerAddressLabel.Size = new System.Drawing.Size(95, 13);
+            customerAddressLabel.TabIndex = 24;
+            customerAddressLabel.Text = "Customer Address:";
+            customerAddressLabel.Click += new System.EventHandler(this.customerAddressLabel_Click);
+            // 
+            // customerPhoneLabel
+            // 
+            customerPhoneLabel.AutoSize = true;
+            customerPhoneLabel.Location = new System.Drawing.Point(612, 63);
+            customerPhoneLabel.Name = "customerPhoneLabel";
+            customerPhoneLabel.Size = new System.Drawing.Size(88, 13);
+            customerPhoneLabel.TabIndex = 25;
+            customerPhoneLabel.Text = "Customer Phone:";
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(615, 152);
@@ -213,16 +252,6 @@
             this.tableAdapterManager.WorkersTableAdapter = null;
             this.tableAdapterManager.WorkersToTeamsTableAdapter = null;
             // 
-            // customerIdLabel
-            // 
-            customerIdLabel.AutoSize = true;
-            customerIdLabel.Location = new System.Drawing.Point(612, 12);
-            customerIdLabel.Name = "customerIdLabel";
-            customerIdLabel.Size = new System.Drawing.Size(66, 13);
-            customerIdLabel.TabIndex = 18;
-            customerIdLabel.Text = "Customer Id:";
-            customerIdLabel.Click += new System.EventHandler(this.customerIdLabel_Click);
-            // 
             // customerIdTextBox
             // 
             this.customerIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "CustomerId", true));
@@ -231,16 +260,6 @@
             this.customerIdTextBox.Size = new System.Drawing.Size(100, 20);
             this.customerIdTextBox.TabIndex = 19;
             this.customerIdTextBox.TextChanged += new System.EventHandler(this.customerIdTextBox_TextChanged);
-            // 
-            // customerNameLabel
-            // 
-            customerNameLabel.AutoSize = true;
-            customerNameLabel.Location = new System.Drawing.Point(612, 38);
-            customerNameLabel.Name = "customerNameLabel";
-            customerNameLabel.Size = new System.Drawing.Size(85, 13);
-            customerNameLabel.TabIndex = 20;
-            customerNameLabel.Text = "Customer Name:";
-            customerNameLabel.Click += new System.EventHandler(this.customerNameLabel_Click);
             // 
             // customerNameTextBox
             // 
@@ -251,16 +270,6 @@
             this.customerNameTextBox.TabIndex = 21;
             this.customerNameTextBox.TextChanged += new System.EventHandler(this.customerNameTextBox_TextChanged);
             // 
-            // customerAddressLabel
-            // 
-            customerAddressLabel.AutoSize = true;
-            customerAddressLabel.Location = new System.Drawing.Point(612, 90);
-            customerAddressLabel.Name = "customerAddressLabel";
-            customerAddressLabel.Size = new System.Drawing.Size(95, 13);
-            customerAddressLabel.TabIndex = 24;
-            customerAddressLabel.Text = "Customer Address:";
-            customerAddressLabel.Click += new System.EventHandler(this.customerAddressLabel_Click);
-            // 
             // customerAddressTextBox
             // 
             this.customerAddressTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "CustomerAddress", true));
@@ -270,19 +279,11 @@
             this.customerAddressTextBox.TabIndex = 25;
             this.customerAddressTextBox.TextChanged += new System.EventHandler(this.customerAddressTextBox_TextChanged);
             // 
-            // customerPhoneLabel
-            // 
-            customerPhoneLabel.AutoSize = true;
-            customerPhoneLabel.Location = new System.Drawing.Point(612, 63);
-            customerPhoneLabel.Name = "customerPhoneLabel";
-            customerPhoneLabel.Size = new System.Drawing.Size(88, 13);
-            customerPhoneLabel.TabIndex = 25;
-            customerPhoneLabel.Text = "Customer Phone:";
-            // 
             // customerPhoneMaskedTextBox
             // 
             this.customerPhoneMaskedTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "CustomerPhone", true));
             this.customerPhoneMaskedTextBox.Location = new System.Drawing.Point(713, 60);
+            this.customerPhoneMaskedTextBox.Mask = "000-0000000";
             this.customerPhoneMaskedTextBox.Name = "customerPhoneMaskedTextBox";
             this.customerPhoneMaskedTextBox.Size = new System.Drawing.Size(100, 20);
             this.customerPhoneMaskedTextBox.TabIndex = 26;

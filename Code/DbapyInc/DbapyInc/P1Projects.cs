@@ -56,6 +56,53 @@ namespace DbapyInc
                 return;
             }
 
+            if (projectNameTextBox.Text.Length == 0)
+            {
+                MessageBox.Show("Project Name cannot be empty");
+                return;
+            }
+
+            if (projectIdTextBox.Text.Length == 0)
+            {
+                MessageBox.Show("Project Id cannot be empty");
+                return;
+            }
+
+            if (orderIdComboBox.Text.Length == 0)
+            {
+                MessageBox.Show("Order Id cannot be empty");
+                return;
+            }
+
+            if (managerIdComboBox.Text.Length == 0)
+            {
+                MessageBox.Show("Manager Id cannot be empty");
+                return;
+            }
+
+            if (projectTypeComboBox.Text.Length == 0)
+            {
+                MessageBox.Show("Project Type cannot be empty");
+                return;
+            }
+
+            // Checking for duplicates
+            List<int> idList = new List<int>();
+
+            foreach (DataRow row in databaseDataSet.Projects.Rows)
+            {
+                int id = (int)(row["ProjectId"]);
+                if (idList.Contains(id))
+                {
+                    MessageBox.Show("Project Id Duplicated found, please remove duplicate before saving");
+                    return;
+                }
+
+                idList.Add(id);
+            }
+
+            // Saving
+            projectsBindingSource.EndEdit();
             this.projectsTableAdapter.Update(this.databaseDataSet.Projects);
         }
 

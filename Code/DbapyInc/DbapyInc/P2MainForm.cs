@@ -26,13 +26,5 @@ namespace DbapyInc
         {
             (new P2Teams()).Show();
         }
-
-        private void workersToTeamsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.workersToTeamsBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.databaseDataSet);
-
-        }
     }
 }
