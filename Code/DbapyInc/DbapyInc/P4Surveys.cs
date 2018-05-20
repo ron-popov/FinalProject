@@ -27,6 +27,10 @@ namespace DbapyInc
 
         private void P4Surveys_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'databaseDataSet.Projects' table. You can move, or remove it, as needed.
+            this.projectsTableAdapter.Fill(this.databaseDataSet.Projects);
+            // TODO: This line of code loads data into the 'databaseDataSet.Workers' table. You can move, or remove it, as needed.
+            this.workersTableAdapter.Fill(this.databaseDataSet.Workers);
             // TODO: This line of code loads data into the 'databaseDataSet.Surveys' table. You can move, or remove it, as needed.
             this.surveysTableAdapter.Fill(this.databaseDataSet.Surveys);
 

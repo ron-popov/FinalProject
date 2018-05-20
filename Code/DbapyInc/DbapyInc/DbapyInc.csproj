@@ -202,6 +202,9 @@
     <EmbeddedResource Include="P3MainForm.resx">
       <DependentUpon>P3MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="P3Tests.resx">
+      <DependentUpon>P3Tests.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="P4MainForm.resx">
       <DependentUpon>P4MainForm.cs</DependentUpon>
     </EmbeddedResource>
