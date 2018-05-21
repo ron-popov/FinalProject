@@ -35,5 +35,57 @@ namespace DbapyInc
             this.surveysTableAdapter.Fill(this.databaseDataSet.Surveys);
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            surveysBindingSource.AddNew();
+
+            surveyDateDateTimePicker.MinDate = DateTime.Now;
+            surveyDateDateTimePicker.MaxDate = DateTime.Now;
+
+            int max = 0;
+
+            // Find the max customer Id in the table
+            foreach (DataRow row in databaseDataSet.Surveys.Rows)
+            {
+                int id = int.Parse(row["SurveyId"].ToString());
+
+                if (id > max)
+                {
+                    max = id;
+                }
+
+
+            }
+
+            max += 1;
+
+            surveyIdTextBox.Text = max.ToString();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            surveysBindingSource.RemoveCurrent();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            surveysBindingSource.MoveFirst();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            surveysBindingSource.MoveLast();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            surveysBindingSource.MovePrevious();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            surveysBindingSource.MoveNext();
+        }
     }
 }

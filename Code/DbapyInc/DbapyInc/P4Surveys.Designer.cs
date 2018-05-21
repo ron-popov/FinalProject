@@ -52,16 +52,24 @@
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.surveyIdTextBox = new System.Windows.Forms.TextBox();
             this.projectIdComboBox = new System.Windows.Forms.ComboBox();
+            this.projectsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.surveyDateDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.workerIdComboBox = new System.Windows.Forms.ComboBox();
+            this.workersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.q1ComboBox = new System.Windows.Forms.ComboBox();
             this.q2ComboBox = new System.Windows.Forms.ComboBox();
             this.q3ComboBox = new System.Windows.Forms.ComboBox();
             this.q4ComboBox = new System.Windows.Forms.ComboBox();
-            this.workersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.workersTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.WorkersTableAdapter();
-            this.projectsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.projectsTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.ProjectsTableAdapter();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             surveyIdLabel = new System.Windows.Forms.Label();
             projectIdLabel = new System.Windows.Forms.Label();
             surveyDateLabel = new System.Windows.Forms.Label();
@@ -73,8 +81,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.surveysBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.surveysDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.workersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.workersBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // surveyIdLabel
@@ -196,7 +204,7 @@
             this.surveysDataGridView.DataSource = this.surveysBindingSource;
             this.surveysDataGridView.Location = new System.Drawing.Point(12, 12);
             this.surveysDataGridView.Name = "surveysDataGridView";
-            this.surveysDataGridView.Size = new System.Drawing.Size(854, 299);
+            this.surveysDataGridView.Size = new System.Drawing.Size(854, 392);
             this.surveysDataGridView.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn1
@@ -250,6 +258,7 @@
             // surveyIdTextBox
             // 
             this.surveyIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.surveysBindingSource, "SurveyId", true));
+            this.surveyIdTextBox.Enabled = false;
             this.surveyIdTextBox.Location = new System.Drawing.Point(965, 23);
             this.surveyIdTextBox.Name = "surveyIdTextBox";
             this.surveyIdTextBox.Size = new System.Drawing.Size(200, 20);
@@ -266,6 +275,11 @@
             this.projectIdComboBox.Size = new System.Drawing.Size(200, 21);
             this.projectIdComboBox.TabIndex = 4;
             this.projectIdComboBox.ValueMember = "ProjectId";
+            // 
+            // projectsBindingSource
+            // 
+            this.projectsBindingSource.DataMember = "Projects";
+            this.projectsBindingSource.DataSource = this.databaseDataSet;
             // 
             // surveyDateDateTimePicker
             // 
@@ -286,6 +300,11 @@
             this.workerIdComboBox.Size = new System.Drawing.Size(200, 21);
             this.workerIdComboBox.TabIndex = 8;
             this.workerIdComboBox.ValueMember = "WorkerId";
+            // 
+            // workersBindingSource
+            // 
+            this.workersBindingSource.DataMember = "Workers";
+            this.workersBindingSource.DataSource = this.databaseDataSet;
             // 
             // q1ComboBox
             // 
@@ -367,29 +386,105 @@
             this.q4ComboBox.Size = new System.Drawing.Size(200, 21);
             this.q4ComboBox.TabIndex = 16;
             // 
-            // workersBindingSource
-            // 
-            this.workersBindingSource.DataMember = "Workers";
-            this.workersBindingSource.DataSource = this.databaseDataSet;
-            // 
             // workersTableAdapter
             // 
             this.workersTableAdapter.ClearBeforeFill = true;
-            // 
-            // projectsBindingSource
-            // 
-            this.projectsBindingSource.DataMember = "Projects";
-            this.projectsBindingSource.DataSource = this.databaseDataSet;
             // 
             // projectsTableAdapter
             // 
             this.projectsTableAdapter.ClearBeforeFill = true;
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(1063, 381);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(136, 23);
+            this.button5.TabIndex = 48;
+            this.button5.Text = "למטה";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(929, 380);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(128, 23);
+            this.button6.TabIndex = 47;
+            this.button6.Text = "אחרון";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(1063, 351);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(136, 23);
+            this.button7.TabIndex = 46;
+            this.button7.Text = "למעלה";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(929, 351);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(128, 23);
+            this.button8.TabIndex = 45;
+            this.button8.Text = "ראשון";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(1063, 287);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(136, 23);
+            this.button4.TabIndex = 44;
+            this.button4.Text = "שמירה";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(929, 286);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(128, 23);
+            this.button3.TabIndex = 43;
+            this.button3.Text = "עדכון ממסד";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(1063, 257);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(136, 23);
+            this.button2.TabIndex = 42;
+            this.button2.Text = "הסר";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(929, 257);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(128, 23);
+            this.button1.TabIndex = 41;
+            this.button1.Text = "הוסף חדש";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // P4Surveys
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1240, 341);
+            this.ClientSize = new System.Drawing.Size(1240, 416);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.button7);
+            this.Controls.Add(this.button8);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(surveyIdLabel);
             this.Controls.Add(this.surveyIdTextBox);
             this.Controls.Add(projectIdLabel);
@@ -413,8 +508,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.surveysBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.surveysDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.workersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.workersBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -447,5 +542,13 @@
         private DatabaseDataSetTableAdapters.WorkersTableAdapter workersTableAdapter;
         private System.Windows.Forms.BindingSource projectsBindingSource;
         private DatabaseDataSetTableAdapters.ProjectsTableAdapter projectsTableAdapter;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
     }
 }

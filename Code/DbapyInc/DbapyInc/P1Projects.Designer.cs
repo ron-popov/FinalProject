@@ -285,6 +285,7 @@
             // projectIdTextBox
             // 
             this.projectIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.projectsBindingSource, "ProjectId", true));
+            this.projectIdTextBox.Enabled = false;
             this.projectIdTextBox.Location = new System.Drawing.Point(804, 18);
             this.projectIdTextBox.Name = "projectIdTextBox";
             this.projectIdTextBox.Size = new System.Drawing.Size(121, 20);

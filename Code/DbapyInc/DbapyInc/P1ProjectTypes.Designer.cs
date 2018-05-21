@@ -152,6 +152,7 @@
             // typeIdTextBox
             // 
             this.typeIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.projectTypesBindingSource, "TypeId", true));
+            this.typeIdTextBox.Enabled = false;
             this.typeIdTextBox.Location = new System.Drawing.Point(623, 32);
             this.typeIdTextBox.Name = "typeIdTextBox";
             this.typeIdTextBox.Size = new System.Drawing.Size(100, 20);

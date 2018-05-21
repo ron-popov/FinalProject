@@ -37,6 +37,25 @@ namespace DbapyInc
         private void button1_Click(object sender, EventArgs e)
         {
             projectComponentsBindingSource.AddNew();
+
+            int max = 0;
+
+            // Find the max customer Id in the table
+            foreach (DataRow row in databaseDataSet.ProjectComponents.Rows)
+            {
+                int id = int.Parse(row["ComponentId"].ToString());
+
+                if (id > max)
+                {
+                    max = id;
+                }
+
+
+            }
+
+            max += 1;
+
+            componentIdTextBox.Text = max.ToString();
         }
 
         private void button2_Click(object sender, EventArgs e)

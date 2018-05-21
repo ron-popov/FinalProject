@@ -255,6 +255,7 @@
             // customerIdTextBox
             // 
             this.customerIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "CustomerId", true));
+            this.customerIdTextBox.Enabled = false;
             this.customerIdTextBox.Location = new System.Drawing.Point(713, 9);
             this.customerIdTextBox.Name = "customerIdTextBox";
             this.customerIdTextBox.Size = new System.Drawing.Size(100, 20);

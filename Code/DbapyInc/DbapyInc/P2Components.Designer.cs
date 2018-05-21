@@ -36,6 +36,7 @@
             this.projectComponentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.projectComponentsTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.ProjectComponentsTableAdapter();
             this.tableAdapterManager = new DbapyInc.DatabaseDataSetTableAdapters.TableAdapterManager();
+            this.projectsTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.ProjectsTableAdapter();
             this.projectComponentsDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,7 +45,6 @@
             this.componentNameTextBox = new System.Windows.Forms.TextBox();
             this.projectIdComboBox = new System.Windows.Forms.ComboBox();
             this.projectsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.projectsTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.ProjectsTableAdapter();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
@@ -61,6 +61,33 @@
             ((System.ComponentModel.ISupportInitialize)(this.projectComponentsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectsBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // componentIdLabel
+            // 
+            componentIdLabel.AutoSize = true;
+            componentIdLabel.Location = new System.Drawing.Point(674, 25);
+            componentIdLabel.Name = "componentIdLabel";
+            componentIdLabel.Size = new System.Drawing.Size(76, 13);
+            componentIdLabel.TabIndex = 1;
+            componentIdLabel.Text = "Component Id:";
+            // 
+            // componentNameLabel
+            // 
+            componentNameLabel.AutoSize = true;
+            componentNameLabel.Location = new System.Drawing.Point(674, 51);
+            componentNameLabel.Name = "componentNameLabel";
+            componentNameLabel.Size = new System.Drawing.Size(95, 13);
+            componentNameLabel.TabIndex = 3;
+            componentNameLabel.Text = "Component Name:";
+            // 
+            // projectIdLabel
+            // 
+            projectIdLabel.AutoSize = true;
+            projectIdLabel.Location = new System.Drawing.Point(674, 77);
+            projectIdLabel.Name = "projectIdLabel";
+            projectIdLabel.Size = new System.Drawing.Size(55, 13);
+            projectIdLabel.TabIndex = 5;
+            projectIdLabel.Text = "Project Id:";
             // 
             // databaseDataSet
             // 
@@ -92,6 +119,10 @@
             this.tableAdapterManager.UpdateOrder = DbapyInc.DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.WorkersTableAdapter = null;
             this.tableAdapterManager.WorkersToTeamsTableAdapter = null;
+            // 
+            // projectsTableAdapter
+            // 
+            this.projectsTableAdapter.ClearBeforeFill = true;
             // 
             // projectComponentsDataGridView
             // 
@@ -125,31 +156,14 @@
             this.dataGridViewTextBoxColumn3.HeaderText = "ProjectId";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
-            // componentIdLabel
-            // 
-            componentIdLabel.AutoSize = true;
-            componentIdLabel.Location = new System.Drawing.Point(674, 25);
-            componentIdLabel.Name = "componentIdLabel";
-            componentIdLabel.Size = new System.Drawing.Size(76, 13);
-            componentIdLabel.TabIndex = 1;
-            componentIdLabel.Text = "Component Id:";
-            // 
             // componentIdTextBox
             // 
             this.componentIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.projectComponentsBindingSource, "ComponentId", true));
+            this.componentIdTextBox.Enabled = false;
             this.componentIdTextBox.Location = new System.Drawing.Point(775, 22);
             this.componentIdTextBox.Name = "componentIdTextBox";
             this.componentIdTextBox.Size = new System.Drawing.Size(121, 20);
             this.componentIdTextBox.TabIndex = 2;
-            // 
-            // componentNameLabel
-            // 
-            componentNameLabel.AutoSize = true;
-            componentNameLabel.Location = new System.Drawing.Point(674, 51);
-            componentNameLabel.Name = "componentNameLabel";
-            componentNameLabel.Size = new System.Drawing.Size(95, 13);
-            componentNameLabel.TabIndex = 3;
-            componentNameLabel.Text = "Component Name:";
             // 
             // componentNameTextBox
             // 
@@ -158,15 +172,6 @@
             this.componentNameTextBox.Name = "componentNameTextBox";
             this.componentNameTextBox.Size = new System.Drawing.Size(121, 20);
             this.componentNameTextBox.TabIndex = 4;
-            // 
-            // projectIdLabel
-            // 
-            projectIdLabel.AutoSize = true;
-            projectIdLabel.Location = new System.Drawing.Point(674, 77);
-            projectIdLabel.Name = "projectIdLabel";
-            projectIdLabel.Size = new System.Drawing.Size(55, 13);
-            projectIdLabel.TabIndex = 5;
-            projectIdLabel.Text = "Project Id:";
             // 
             // projectIdComboBox
             // 
@@ -184,10 +189,6 @@
             // 
             this.projectsBindingSource.DataMember = "Projects";
             this.projectsBindingSource.DataSource = this.databaseDataSet;
-            // 
-            // projectsTableAdapter
-            // 
-            this.projectsTableAdapter.ClearBeforeFill = true;
             // 
             // button5
             // 

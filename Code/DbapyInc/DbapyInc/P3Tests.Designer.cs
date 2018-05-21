@@ -37,6 +37,8 @@
             this.testsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.testsTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.TestsTableAdapter();
             this.tableAdapterManager = new DbapyInc.DatabaseDataSetTableAdapters.TableAdapterManager();
+            this.projectsTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.ProjectsTableAdapter();
+            this.workersTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.WorkersTableAdapter();
             this.testsDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,7 +47,9 @@
             this.testIdTextBox = new System.Windows.Forms.TextBox();
             this.testDateDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.projectIdComboBox = new System.Windows.Forms.ComboBox();
+            this.projectsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.workerIdComboBox = new System.Windows.Forms.ComboBox();
+            this.workersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
@@ -54,10 +58,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.projectsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.projectsTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.ProjectsTableAdapter();
-            this.workersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.workersTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.WorkersTableAdapter();
             testIdLabel = new System.Windows.Forms.Label();
             testDateLabel = new System.Windows.Forms.Label();
             projectIdLabel = new System.Windows.Forms.Label();
@@ -68,6 +68,42 @@
             ((System.ComponentModel.ISupportInitialize)(this.projectsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.workersBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // testIdLabel
+            // 
+            testIdLabel.AutoSize = true;
+            testIdLabel.Location = new System.Drawing.Point(603, 15);
+            testIdLabel.Name = "testIdLabel";
+            testIdLabel.Size = new System.Drawing.Size(43, 13);
+            testIdLabel.TabIndex = 1;
+            testIdLabel.Text = "Test Id:";
+            // 
+            // testDateLabel
+            // 
+            testDateLabel.AutoSize = true;
+            testDateLabel.Location = new System.Drawing.Point(603, 42);
+            testDateLabel.Name = "testDateLabel";
+            testDateLabel.Size = new System.Drawing.Size(57, 13);
+            testDateLabel.TabIndex = 3;
+            testDateLabel.Text = "Test Date:";
+            // 
+            // projectIdLabel
+            // 
+            projectIdLabel.AutoSize = true;
+            projectIdLabel.Location = new System.Drawing.Point(603, 67);
+            projectIdLabel.Name = "projectIdLabel";
+            projectIdLabel.Size = new System.Drawing.Size(55, 13);
+            projectIdLabel.TabIndex = 5;
+            projectIdLabel.Text = "Project Id:";
+            // 
+            // workerIdLabel
+            // 
+            workerIdLabel.AutoSize = true;
+            workerIdLabel.Location = new System.Drawing.Point(603, 94);
+            workerIdLabel.Name = "workerIdLabel";
+            workerIdLabel.Size = new System.Drawing.Size(57, 13);
+            workerIdLabel.TabIndex = 7;
+            workerIdLabel.Text = "Worker Id:";
             // 
             // databaseDataSet
             // 
@@ -99,6 +135,14 @@
             this.tableAdapterManager.UpdateOrder = DbapyInc.DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.WorkersTableAdapter = this.workersTableAdapter;
             this.tableAdapterManager.WorkersToTeamsTableAdapter = null;
+            // 
+            // projectsTableAdapter
+            // 
+            this.projectsTableAdapter.ClearBeforeFill = true;
+            // 
+            // workersTableAdapter
+            // 
+            this.workersTableAdapter.ClearBeforeFill = true;
             // 
             // testsDataGridView
             // 
@@ -139,31 +183,14 @@
             this.dataGridViewTextBoxColumn4.HeaderText = "WorkerId";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
-            // testIdLabel
-            // 
-            testIdLabel.AutoSize = true;
-            testIdLabel.Location = new System.Drawing.Point(603, 15);
-            testIdLabel.Name = "testIdLabel";
-            testIdLabel.Size = new System.Drawing.Size(43, 13);
-            testIdLabel.TabIndex = 1;
-            testIdLabel.Text = "Test Id:";
-            // 
             // testIdTextBox
             // 
             this.testIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.testsBindingSource, "TestId", true));
+            this.testIdTextBox.Enabled = false;
             this.testIdTextBox.Location = new System.Drawing.Point(666, 12);
             this.testIdTextBox.Name = "testIdTextBox";
             this.testIdTextBox.Size = new System.Drawing.Size(200, 20);
             this.testIdTextBox.TabIndex = 2;
-            // 
-            // testDateLabel
-            // 
-            testDateLabel.AutoSize = true;
-            testDateLabel.Location = new System.Drawing.Point(603, 42);
-            testDateLabel.Name = "testDateLabel";
-            testDateLabel.Size = new System.Drawing.Size(57, 13);
-            testDateLabel.TabIndex = 3;
-            testDateLabel.Text = "Test Date:";
             // 
             // testDateDateTimePicker
             // 
@@ -172,15 +199,6 @@
             this.testDateDateTimePicker.Name = "testDateDateTimePicker";
             this.testDateDateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.testDateDateTimePicker.TabIndex = 4;
-            // 
-            // projectIdLabel
-            // 
-            projectIdLabel.AutoSize = true;
-            projectIdLabel.Location = new System.Drawing.Point(603, 67);
-            projectIdLabel.Name = "projectIdLabel";
-            projectIdLabel.Size = new System.Drawing.Size(55, 13);
-            projectIdLabel.TabIndex = 5;
-            projectIdLabel.Text = "Project Id:";
             // 
             // projectIdComboBox
             // 
@@ -194,14 +212,10 @@
             this.projectIdComboBox.TabIndex = 6;
             this.projectIdComboBox.ValueMember = "ProjectId";
             // 
-            // workerIdLabel
+            // projectsBindingSource
             // 
-            workerIdLabel.AutoSize = true;
-            workerIdLabel.Location = new System.Drawing.Point(603, 94);
-            workerIdLabel.Name = "workerIdLabel";
-            workerIdLabel.Size = new System.Drawing.Size(57, 13);
-            workerIdLabel.TabIndex = 7;
-            workerIdLabel.Text = "Worker Id:";
+            this.projectsBindingSource.DataMember = "Projects";
+            this.projectsBindingSource.DataSource = this.databaseDataSet;
             // 
             // workerIdComboBox
             // 
@@ -215,6 +229,11 @@
             this.workerIdComboBox.TabIndex = 8;
             this.workerIdComboBox.ValueMember = "WorkerId";
             // 
+            // workersBindingSource
+            // 
+            this.workersBindingSource.DataMember = "Workers";
+            this.workersBindingSource.DataSource = this.databaseDataSet;
+            // 
             // button5
             // 
             this.button5.Location = new System.Drawing.Point(730, 278);
@@ -223,6 +242,7 @@
             this.button5.TabIndex = 40;
             this.button5.Text = "למטה";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
@@ -232,6 +252,7 @@
             this.button6.TabIndex = 39;
             this.button6.Text = "אחרון";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button7
             // 
@@ -241,6 +262,7 @@
             this.button7.TabIndex = 38;
             this.button7.Text = "למעלה";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button8
             // 
@@ -250,6 +272,7 @@
             this.button8.TabIndex = 37;
             this.button8.Text = "ראשון";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button4
             // 
@@ -259,6 +282,7 @@
             this.button4.TabIndex = 36;
             this.button4.Text = "שמירה";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -268,6 +292,7 @@
             this.button3.TabIndex = 35;
             this.button3.Text = "עדכון ממסד";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -277,6 +302,7 @@
             this.button2.TabIndex = 34;
             this.button2.Text = "הסר";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -286,24 +312,7 @@
             this.button1.TabIndex = 33;
             this.button1.Text = "הוסף חדש";
             this.button1.UseVisualStyleBackColor = true;
-            // 
-            // projectsBindingSource
-            // 
-            this.projectsBindingSource.DataMember = "Projects";
-            this.projectsBindingSource.DataSource = this.databaseDataSet;
-            // 
-            // projectsTableAdapter
-            // 
-            this.projectsTableAdapter.ClearBeforeFill = true;
-            // 
-            // workersBindingSource
-            // 
-            this.workersBindingSource.DataMember = "Workers";
-            this.workersBindingSource.DataSource = this.databaseDataSet;
-            // 
-            // workersTableAdapter
-            // 
-            this.workersTableAdapter.ClearBeforeFill = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // P3Tests
             // 

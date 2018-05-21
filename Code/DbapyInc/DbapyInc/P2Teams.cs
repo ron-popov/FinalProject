@@ -39,6 +39,25 @@ namespace DbapyInc
         private void button1_Click(object sender, EventArgs e)
         {
             teamsBindingSource.AddNew();
+
+            int max = 0;
+
+            // Find the max customer Id in the table
+            foreach (DataRow row in databaseDataSet.Teams.Rows)
+            {
+                int id = int.Parse(row["TeamId"].ToString());
+
+                if (id > max)
+                {
+                    max = id;
+                }
+
+
+            }
+
+            max += 1;
+
+            teamIdTextBox.Text = max.ToString();
         }
 
         private void button2_Click(object sender, EventArgs e)

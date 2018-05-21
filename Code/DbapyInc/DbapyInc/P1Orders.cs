@@ -17,20 +17,9 @@ namespace DbapyInc
             InitializeComponent();
         }
 
-        private void ordersBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.ordersBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.databaseDataSet);
-
-        }
-
+        
         private void P1Orders_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'databaseDataSet.Customers' table. You can move, or remove it, as needed.
-            this.customersTableAdapter.Fill(this.databaseDataSet.Customers);
-            // TODO: This line of code loads data into the 'databaseDataSet.Orders' table. You can move, or remove it, as needed.
-            this.ordersTableAdapter.Fill(this.databaseDataSet.Orders);
             // TODO: This line of code loads data into the 'databaseDataSet.Customers' table. You can move, or remove it, as needed.
             this.customersTableAdapter.Fill(this.databaseDataSet.Customers);
             // TODO: This line of code loads data into the 'databaseDataSet.Orders' table. You can move, or remove it, as needed.
@@ -41,6 +30,27 @@ namespace DbapyInc
         private void button1_Click(object sender, EventArgs e)
         {
             customersBindingSource.AddNew();
+            orderDateDateTimePicker.MinDate = DateTime.Today;
+            orderDateDateTimePicker.MaxDate = DateTime.Today;
+
+            int max = 0;
+
+            // Find the max customer Id in the table
+            foreach (DataRow row in databaseDataSet.Orders.Rows)
+            {
+                int id = int.Parse(row["OrderId"].ToString());
+
+                if (id > max)
+                {
+                    max = id;
+                }
+
+
+            }
+
+            max += 1;
+
+            orderIdTextBox.Text = max.ToString();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -150,12 +160,6 @@ namespace DbapyInc
             }*/
         }
 
-        private void ordersBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.ordersBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.databaseDataSet);
-
-        }
+      
     }
 }

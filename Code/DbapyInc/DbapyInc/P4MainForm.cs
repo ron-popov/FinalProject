@@ -21,5 +21,10 @@ namespace DbapyInc
         {
             (new P4Surveys()).Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            (new P4Graphs()).Show();
+        }
     }
 }

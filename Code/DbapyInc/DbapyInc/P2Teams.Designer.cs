@@ -186,6 +186,7 @@
             // teamIdTextBox
             // 
             this.teamIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teamsBindingSource, "TeamId", true));
+            this.teamIdTextBox.Enabled = false;
             this.teamIdTextBox.Location = new System.Drawing.Point(894, 22);
             this.teamIdTextBox.Name = "teamIdTextBox";
             this.teamIdTextBox.Size = new System.Drawing.Size(121, 20);

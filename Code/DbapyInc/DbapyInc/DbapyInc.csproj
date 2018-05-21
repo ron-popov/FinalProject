@@ -34,6 +34,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -146,6 +147,12 @@
     <Compile Include="P3Tests.Designer.cs">
       <DependentUpon>P3Tests.cs</DependentUpon>
     </Compile>
+    <Compile Include="P4Graphs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="P4Graphs.Designer.cs">
+      <DependentUpon>P4Graphs.cs</DependentUpon>
+    </Compile>
     <Compile Include="P4MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -207,6 +214,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="P3Tests.resx">
       <DependentUpon>P3Tests.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="P4Graphs.resx">
+      <DependentUpon>P4Graphs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="P4MainForm.resx">
       <DependentUpon>P4MainForm.cs</DependentUpon>

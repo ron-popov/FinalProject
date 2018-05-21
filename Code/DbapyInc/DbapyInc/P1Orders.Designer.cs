@@ -40,27 +40,53 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.databaseDataSet = new DbapyInc.DatabaseDataSet();
-            this.ordersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ordersTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.OrdersTableAdapter();
-            this.tableAdapterManager = new DbapyInc.DatabaseDataSetTableAdapters.TableAdapterManager();
             this.ordersDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orderIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orderDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ordersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.databaseDataSet = new DbapyInc.DatabaseDataSet();
             this.orderIdTextBox = new System.Windows.Forms.TextBox();
             this.orderDateDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.customerIdComboBox = new System.Windows.Forms.ComboBox();
             this.customersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ordersTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.OrdersTableAdapter();
             this.customersTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.CustomersTableAdapter();
             orderIdLabel = new System.Windows.Forms.Label();
             orderDateLabel = new System.Windows.Forms.Label();
             customerIdLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordersDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // orderIdLabel
+            // 
+            orderIdLabel.AutoSize = true;
+            orderIdLabel.Location = new System.Drawing.Point(626, 21);
+            orderIdLabel.Name = "orderIdLabel";
+            orderIdLabel.Size = new System.Drawing.Size(48, 13);
+            orderIdLabel.TabIndex = 41;
+            orderIdLabel.Text = "Order Id:";
+            // 
+            // orderDateLabel
+            // 
+            orderDateLabel.AutoSize = true;
+            orderDateLabel.Location = new System.Drawing.Point(626, 54);
+            orderDateLabel.Name = "orderDateLabel";
+            orderDateLabel.Size = new System.Drawing.Size(62, 13);
+            orderDateLabel.TabIndex = 43;
+            orderDateLabel.Text = "Order Date:";
+            // 
+            // customerIdLabel
+            // 
+            customerIdLabel.AutoSize = true;
+            customerIdLabel.Location = new System.Drawing.Point(626, 76);
+            customerIdLabel.Name = "customerIdLabel";
+            customerIdLabel.Size = new System.Drawing.Size(66, 13);
+            customerIdLabel.TabIndex = 45;
+            customerIdLabel.Text = "Customer Id:";
             // 
             // button5
             // 
@@ -142,121 +168,73 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // databaseDataSet
-            // 
-            this.databaseDataSet.DataSetName = "DatabaseDataSet";
-            this.databaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // ordersBindingSource
-            // 
-            this.ordersBindingSource.DataMember = "Orders";
-            this.ordersBindingSource.DataSource = this.databaseDataSet;
-            // 
-            // ordersTableAdapter
-            // 
-            this.ordersTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.BugsTableAdapter = null;
-            this.tableAdapterManager.BugsToTestsTableAdapter = null;
-            this.tableAdapterManager.CustomersTableAdapter = this.customersTableAdapter;
-            this.tableAdapterManager.OrdersTableAdapter = this.ordersTableAdapter;
-            this.tableAdapterManager.ProjectComponentsTableAdapter = null;
-            this.tableAdapterManager.ProjectsTableAdapter = null;
-            this.tableAdapterManager.ProjectTypesTableAdapter = null;
-            this.tableAdapterManager.SurveysTableAdapter = null;
-            this.tableAdapterManager.TeamsTableAdapter = null;
-            this.tableAdapterManager.TestsTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = DbapyInc.DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.WorkersTableAdapter = null;
-            this.tableAdapterManager.WorkersToTeamsTableAdapter = null;
-            // 
             // ordersDataGridView
             // 
             this.ordersDataGridView.AutoGenerateColumns = false;
             this.ordersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ordersDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3});
+            this.orderIdDataGridViewTextBoxColumn,
+            this.orderDateDataGridViewTextBoxColumn,
+            this.customerIdDataGridViewTextBoxColumn});
             this.ordersDataGridView.DataSource = this.ordersBindingSource;
             this.ordersDataGridView.Location = new System.Drawing.Point(12, 12);
             this.ordersDataGridView.Name = "ordersDataGridView";
             this.ordersDataGridView.Size = new System.Drawing.Size(599, 243);
             this.ordersDataGridView.TabIndex = 41;
             // 
-            // dataGridViewTextBoxColumn1
+            // orderIdDataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "OrderId";
-            this.dataGridViewTextBoxColumn1.HeaderText = "OrderId";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.orderIdDataGridViewTextBoxColumn.DataPropertyName = "OrderId";
+            this.orderIdDataGridViewTextBoxColumn.HeaderText = "OrderId";
+            this.orderIdDataGridViewTextBoxColumn.Name = "orderIdDataGridViewTextBoxColumn";
             // 
-            // dataGridViewTextBoxColumn2
+            // orderDateDataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "OrderDate";
-            this.dataGridViewTextBoxColumn2.HeaderText = "OrderDate";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.orderDateDataGridViewTextBoxColumn.DataPropertyName = "OrderDate";
+            this.orderDateDataGridViewTextBoxColumn.HeaderText = "OrderDate";
+            this.orderDateDataGridViewTextBoxColumn.Name = "orderDateDataGridViewTextBoxColumn";
             // 
-            // dataGridViewTextBoxColumn3
+            // customerIdDataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "CustomerId";
-            this.dataGridViewTextBoxColumn3.HeaderText = "CustomerId";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.customerIdDataGridViewTextBoxColumn.DataPropertyName = "CustomerId";
+            this.customerIdDataGridViewTextBoxColumn.HeaderText = "CustomerId";
+            this.customerIdDataGridViewTextBoxColumn.Name = "customerIdDataGridViewTextBoxColumn";
             // 
-            // orderIdLabel
+            // ordersBindingSource
             // 
-            orderIdLabel.AutoSize = true;
-            orderIdLabel.Location = new System.Drawing.Point(626, 21);
-            orderIdLabel.Name = "orderIdLabel";
-            orderIdLabel.Size = new System.Drawing.Size(48, 13);
-            orderIdLabel.TabIndex = 41;
-            orderIdLabel.Text = "Order Id:";
+            this.ordersBindingSource.DataMember = "Orders";
+            this.ordersBindingSource.DataSource = this.databaseDataSet;
+            // 
+            // databaseDataSet
+            // 
+            this.databaseDataSet.DataSetName = "DatabaseDataSet";
+            this.databaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // orderIdTextBox
             // 
             this.orderIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ordersBindingSource, "OrderId", true));
+            this.orderIdTextBox.Enabled = false;
             this.orderIdTextBox.Location = new System.Drawing.Point(698, 18);
             this.orderIdTextBox.Name = "orderIdTextBox";
             this.orderIdTextBox.Size = new System.Drawing.Size(200, 20);
             this.orderIdTextBox.TabIndex = 42;
             // 
-            // orderDateLabel
-            // 
-            orderDateLabel.AutoSize = true;
-            orderDateLabel.Location = new System.Drawing.Point(626, 75);
-            orderDateLabel.Name = "orderDateLabel";
-            orderDateLabel.Size = new System.Drawing.Size(62, 13);
-            orderDateLabel.TabIndex = 43;
-            orderDateLabel.Text = "Order Date:";
-            orderDateLabel.Visible = false;
-            // 
             // orderDateDateTimePicker
             // 
-            this.orderDateDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.ordersBindingSource, "OrderDate", true));
-            this.orderDateDateTimePicker.Location = new System.Drawing.Point(698, 71);
+            this.orderDateDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ordersBindingSource, "OrderDate", true));
+            this.orderDateDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.orderDateDateTimePicker.Location = new System.Drawing.Point(698, 47);
             this.orderDateDateTimePicker.Name = "orderDateDateTimePicker";
             this.orderDateDateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.orderDateDateTimePicker.TabIndex = 44;
-            this.orderDateDateTimePicker.Visible = false;
-            // 
-            // customerIdLabel
-            // 
-            customerIdLabel.AutoSize = true;
-            customerIdLabel.Location = new System.Drawing.Point(626, 47);
-            customerIdLabel.Name = "customerIdLabel";
-            customerIdLabel.Size = new System.Drawing.Size(66, 13);
-            customerIdLabel.TabIndex = 45;
-            customerIdLabel.Text = "Customer Id:";
             // 
             // customerIdComboBox
             // 
             this.customerIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ordersBindingSource, "CustomerId", true));
             this.customerIdComboBox.DataSource = this.customersBindingSource;
-            this.customerIdComboBox.DisplayMember = "CustomerName";
+            this.customerIdComboBox.DisplayMember = "CustomerId";
             this.customerIdComboBox.FormattingEnabled = true;
-            this.customerIdComboBox.Location = new System.Drawing.Point(698, 44);
+            this.customerIdComboBox.Location = new System.Drawing.Point(698, 73);
             this.customerIdComboBox.Name = "customerIdComboBox";
             this.customerIdComboBox.Size = new System.Drawing.Size(200, 21);
             this.customerIdComboBox.TabIndex = 46;
@@ -267,6 +245,10 @@
             this.customersBindingSource.DataMember = "Customers";
             this.customersBindingSource.DataSource = this.databaseDataSet;
             // 
+            // ordersTableAdapter
+            // 
+            this.ordersTableAdapter.ClearBeforeFill = true;
+            // 
             // customersTableAdapter
             // 
             this.customersTableAdapter.ClearBeforeFill = true;
@@ -275,7 +257,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(930, 271);
+            this.ClientSize = new System.Drawing.Size(925, 271);
             this.Controls.Add(orderIdLabel);
             this.Controls.Add(this.orderIdTextBox);
             this.Controls.Add(orderDateLabel);
@@ -294,9 +276,9 @@
             this.Name = "P1Orders";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.P1Orders_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordersDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -312,18 +294,17 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private DatabaseDataSet databaseDataSet;
-        private System.Windows.Forms.BindingSource ordersBindingSource;
-        private DatabaseDataSetTableAdapters.OrdersTableAdapter ordersTableAdapter;
-        private DatabaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private DatabaseDataSetTableAdapters.CustomersTableAdapter customersTableAdapter;
         private System.Windows.Forms.DataGridView ordersDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.TextBox orderIdTextBox;
         private System.Windows.Forms.DateTimePicker orderDateDateTimePicker;
         private System.Windows.Forms.ComboBox customerIdComboBox;
+        private DatabaseDataSet databaseDataSet;
+        private System.Windows.Forms.BindingSource ordersBindingSource;
+        private DatabaseDataSetTableAdapters.OrdersTableAdapter ordersTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn orderIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn orderDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn customerIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource customersBindingSource;
+        private DatabaseDataSetTableAdapters.CustomersTableAdapter customersTableAdapter;
     }
 }

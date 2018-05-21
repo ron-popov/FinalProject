@@ -15,6 +15,7 @@ namespace DbapyInc
         public P2Workers()
         {
             InitializeComponent();
+
         }
 
         private void workersBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -30,21 +31,48 @@ namespace DbapyInc
             // TODO: This line of code loads data into the 'databaseDataSet.Workers' table. You can move, or remove it, as needed.
             this.workersTableAdapter.Fill(this.databaseDataSet.Workers);
 
+            UpdateWorkerDetails();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             workersBindingSource.AddNew();
+
+            workerJoinDateDateTimePicker.MinDate = DateTime.Now;
+            workerJoinDateDateTimePicker.MaxDate = DateTime.Now;
+
+            int max = 0;
+
+            // Find the max customer Id in the table
+            foreach (DataRow row in databaseDataSet.Workers.Rows)
+            {
+                int id = int.Parse(row["WorkerId"].ToString());
+
+                if (id > max)
+                {
+                    max = id;
+                }
+
+
+            }
+
+            max += 1;
+
+            workerIdTextBox.Text = max.ToString();
+
+            UpdateWorkerDetails();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             workersBindingSource.RemoveCurrent();
+            UpdateWorkerDetails();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             this.workersTableAdapter.Fill(this.databaseDataSet.Workers);
+            UpdateWorkerDetails();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -59,8 +87,6 @@ namespace DbapyInc
                 return;
             }
 
-
-            workerJoinDateDateTimePicker.Value = DateTime.Now;
 
             // Looking for empty fields
             if (workerIdTextBox.Text.Length == 0)
@@ -112,21 +138,25 @@ namespace DbapyInc
         private void button8_Click(object sender, EventArgs e)
         {
             workersBindingSource.MoveFirst();
+            UpdateWorkerDetails();
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
             workersBindingSource.MoveLast();
+            UpdateWorkerDetails();
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
             workersBindingSource.MovePrevious();
+            UpdateWorkerDetails();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             workersBindingSource.MoveNext();
+            UpdateWorkerDetails();
         }
 
         private void workerPhoneLabel_Click(object sender, EventArgs e)
@@ -142,6 +172,104 @@ namespace DbapyInc
         private void workerBirthDateLabel_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            string name = textBox1.Text;
+
+            DataView dv = new DataView(databaseDataSet.Workers);
+            dv.RowFilter = "WorkerName Like '%" + name + "%'";
+            workersDataGridView.DataSource = dv;
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            DataView dv = new DataView(databaseDataSet.Workers);
+            workersDataGridView.DataSource = dv;
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            string id = textBox2.Text;
+
+            DataView dv = new DataView(databaseDataSet.Workers);
+            dv.RowFilter = "WorkerId = " + id;
+            workersDataGridView.DataSource = dv;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void UpdateWorkerDetails()
+        {
+            if (workerIdTextBox.Text.Equals(""))
+            {
+                MessageBox.Show("Please select worker first");
+                textBox3.Text = "";
+                return;
+            }
+
+            // Calculate years of experience
+            TimeSpan Experience = DateTime.Now - workerJoinDateDateTimePicker.Value;
+            textBox3.Text = ((Experience).Days / 365).ToString();
+
+            // Calculate years of experience
+            TimeSpan Age = DateTime.Now - workerBirthDateDateTimePicker.Value;
+            textBox4.Text = ((Age).Days / 365).ToString();
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            Pen p = new Pen(Brushes.Black, 2.5f);
+
+            // Date
+            e.Graphics.DrawString(DateTime.Now.ToShortDateString(), new Font("Arial", 20, FontStyle.Bold), Brushes.Black, new Point(0, 0));
+
+            // Title
+            e.Graphics.DrawString("דוח עובד", new Font("Arial", 30, FontStyle.Bold), Brushes.Black, new Point(300, 100));
+
+            // Worker fields
+            e.Graphics.DrawString(workerIdTextBox.Text + " : קוד עובד", new Font("Arial", 20, FontStyle.Regular), Brushes.Black, new Point(500, 150));
+
+            e.Graphics.DrawString(workerNameTextBox.Text + " : שם עובד", new Font("Arial", 20, FontStyle.Regular), Brushes.Black, new Point(500, 175));
+
+            e.Graphics.DrawString(workerPhoneMaskedTextBox.Text + " : מספר טלפון עובד", new Font("Arial", 20, FontStyle.Regular), Brushes.Black, new Point(500, 200));
+
+            e.Graphics.DrawString(workerAddressTextBox.Text + " : כתובת עובד", new Font("Arial", 20, FontStyle.Regular), Brushes.Black, new Point(500, 225));
+
+            e.Graphics.DrawString(workerBirthDateDateTimePicker.Value.ToShortDateString() + " : תאריך לידה עובד", new Font("Arial", 20, FontStyle.Regular), Brushes.Black, new Point(500, 250));
+
+            e.Graphics.DrawString(workerJoinDateDateTimePicker.Value.ToShortDateString() + " : תאריך הצטרפות עובד", new Font("Arial", 20, FontStyle.Regular), Brushes.Black, new Point(500, 275));
+
+            // Calculate years of experience
+            TimeSpan Experience = DateTime.Now - workerJoinDateDateTimePicker.Value;
+            string experience = ((Experience).Days / 365).ToString();
+
+            e.Graphics.DrawString(experience + " : שנות וותק עובד", new Font("Arial", 20, FontStyle.Regular), Brushes.Black, new Point(500, 300));
+
+            // Calculate years of experience
+            TimeSpan Age = DateTime.Now - workerBirthDateDateTimePicker.Value;
+            string age = ((Age).Days / 365).ToString();
+
+            e.Graphics.DrawString(age + " : גיל עובד", new Font("Arial", 20, FontStyle.Regular), Brushes.Black, new Point(500, 325));
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            printPreviewDialog1.Document = printDocument1;
+            printPreviewDialog1.ShowDialog();
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            DialogResult prbutton = printDialog1.ShowDialog();
+            if(prbutton.Equals(DialogResult.OK))
+            {
+                printDocument1.Print();
+            }
         }
     }
 }
