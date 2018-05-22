@@ -130,5 +130,49 @@ namespace DbapyInc
         {
             projectComponentsBindingSource.MoveNext();
         }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            string projectId = textBox2.Text;
+
+            DataView dv = new DataView(databaseDataSet.ProjectComponents);
+
+            dv.RowFilter = "ProjectId = " + projectId;
+
+            projectComponentsDataGridView.DataSource = dv;
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            string projectName = textBox1.Text;
+
+            List<int> idList = new List<int>();
+
+            foreach (DataRow row in databaseDataSet.Projects.Rows)
+            {
+                if (row["ProjectName"].ToString().ToLower().Contains(projectName))
+                {
+                    idList.Add((int)row["ProjectId"]);
+                }
+            }
+
+            string filter = "";
+
+            foreach(int i in idList)
+            {
+                filter += "ProjectId = " + i + " OR";
+            }
+
+            if (filter.Length > 3)
+            {
+                filter = filter.Remove(filter.Length - 3);
+            }
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            DataView dv = new DataView(databaseDataSet.ProjectComponents);
+            projectComponentsDataGridView.DataSource = dv;
+        }
     }
 }

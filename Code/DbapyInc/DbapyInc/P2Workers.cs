@@ -28,6 +28,8 @@ namespace DbapyInc
 
         private void P2Workers_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'databaseDataSet.WorkersToTeams' table. You can move, or remove it, as needed.
+            this.workersToTeamsTableAdapter.Fill(this.databaseDataSet.WorkersToTeams);
             // TODO: This line of code loads data into the 'databaseDataSet.Workers' table. You can move, or remove it, as needed.
             this.workersTableAdapter.Fill(this.databaseDataSet.Workers);
 
@@ -219,6 +221,17 @@ namespace DbapyInc
             // Calculate years of experience
             TimeSpan Age = DateTime.Now - workerBirthDateDateTimePicker.Value;
             textBox4.Text = ((Age).Days / 365).ToString();
+
+            listBox1.Items.Clear();
+
+            // Find worker teams
+            foreach (DataRow r in databaseDataSet.WorkersToTeams)
+            {
+                if (r["WorkerId"].ToString().Equals(workerIdTextBox.Text))
+                {
+                    listBox1.Items.Add(r["TeamId"].ToString());
+                }
+            }
         }
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)

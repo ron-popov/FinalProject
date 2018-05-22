@@ -76,6 +76,10 @@
             this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
             this.button12 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.workersToTeamsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.workersToTeamsTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.WorkersToTeamsTableAdapter();
             workerIdLabel = new System.Windows.Forms.Label();
             workerNameLabel = new System.Windows.Forms.Label();
             workerPhoneLabel = new System.Windows.Forms.Label();
@@ -85,6 +89,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.workersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.workersDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.workersToTeamsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // workerIdLabel
@@ -214,7 +219,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(980, 270);
+            this.button4.Location = new System.Drawing.Point(980, 282);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(136, 23);
             this.button4.TabIndex = 28;
@@ -224,7 +229,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(846, 269);
+            this.button3.Location = new System.Drawing.Point(846, 281);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(128, 23);
             this.button3.TabIndex = 27;
@@ -234,7 +239,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(980, 240);
+            this.button2.Location = new System.Drawing.Point(980, 252);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(136, 23);
             this.button2.TabIndex = 26;
@@ -244,7 +249,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(846, 240);
+            this.button1.Location = new System.Drawing.Point(846, 252);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(128, 23);
             this.button1.TabIndex = 25;
@@ -266,7 +271,7 @@
             this.workersDataGridView.DataSource = this.workersBindingSource;
             this.workersDataGridView.Location = new System.Drawing.Point(12, 12);
             this.workersDataGridView.Name = "workersDataGridView";
-            this.workersDataGridView.Size = new System.Drawing.Size(788, 378);
+            this.workersDataGridView.Size = new System.Drawing.Size(788, 374);
             this.workersDataGridView.TabIndex = 32;
             // 
             // dataGridViewTextBoxColumn1
@@ -356,7 +361,7 @@
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(146, 445);
+            this.button9.Location = new System.Drawing.Point(149, 431);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(100, 59);
             this.button9.TabIndex = 44;
@@ -366,21 +371,21 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(146, 419);
+            this.textBox1.Location = new System.Drawing.Point(149, 405);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 45;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(284, 419);
+            this.textBox2.Location = new System.Drawing.Point(287, 405);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 47;
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(284, 445);
+            this.button10.Location = new System.Drawing.Point(287, 431);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(100, 59);
             this.button10.TabIndex = 46;
@@ -390,7 +395,7 @@
             // 
             // button11
             // 
-            this.button11.Location = new System.Drawing.Point(12, 419);
+            this.button11.Location = new System.Drawing.Point(15, 405);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(100, 85);
             this.button11.TabIndex = 48;
@@ -451,7 +456,7 @@
             // 
             // button12
             // 
-            this.button12.Location = new System.Drawing.Point(413, 419);
+            this.button12.Location = new System.Drawing.Point(416, 405);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(90, 40);
             this.button12.TabIndex = 54;
@@ -461,7 +466,7 @@
             // 
             // button13
             // 
-            this.button13.Location = new System.Drawing.Point(413, 465);
+            this.button13.Location = new System.Drawing.Point(416, 451);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(90, 39);
             this.button13.TabIndex = 55;
@@ -469,11 +474,39 @@
             this.button13.UseVisualStyleBackColor = true;
             this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(534, 431);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(120, 56);
+            this.listBox1.TabIndex = 56;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(563, 405);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 13);
+            this.label3.TabIndex = 57;
+            this.label3.Text = "צוותי עובד";
+            // 
+            // workersToTeamsBindingSource
+            // 
+            this.workersToTeamsBindingSource.DataMember = "WorkersToTeams";
+            this.workersToTeamsBindingSource.DataSource = this.databaseDataSet;
+            // 
+            // workersToTeamsTableAdapter
+            // 
+            this.workersToTeamsTableAdapter.ClearBeforeFill = true;
+            // 
             // P2Workers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1149, 549);
+            this.ClientSize = new System.Drawing.Size(1150, 502);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.button13);
             this.Controls.Add(this.button12);
             this.Controls.Add(this.label2);
@@ -512,6 +545,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.workersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.workersDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.workersToTeamsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -559,5 +593,9 @@
         private System.Windows.Forms.PageSetupDialog pageSetupDialog1;
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.BindingSource workersToTeamsBindingSource;
+        private DatabaseDataSetTableAdapters.WorkersToTeamsTableAdapter workersToTeamsTableAdapter;
     }
 }
