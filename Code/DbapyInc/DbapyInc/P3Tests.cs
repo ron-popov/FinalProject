@@ -34,14 +34,16 @@ namespace DbapyInc
             // TODO: This line of code loads data into the 'databaseDataSet.Tests' table. You can move, or remove it, as needed.
             this.testsTableAdapter.Fill(this.databaseDataSet.Tests);
 
+            testDateDateTimePicker.Enabled = false;
+
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             testsBindingSource.AddNew();
 
-            testDateDateTimePicker.MinDate = DateTime.Now;
-            testDateDateTimePicker.MaxDate = DateTime.Now;
+            testDateDateTimePicker.Value = DateTime.Today;
 
             int max = 0;
 

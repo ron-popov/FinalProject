@@ -31,6 +31,10 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label testIdLabel;
             System.Windows.Forms.Label bugIdLabel;
+            System.Windows.Forms.Label bugNameLabel;
+            System.Windows.Forms.Label bugDescriptionLabel;
+            System.Windows.Forms.Label label2;
+            System.Windows.Forms.Label label1;
             this.databaseDataSet = new DbapyInc.DatabaseDataSet();
             this.bugsToTestsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bugsToTestsTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.BugsToTestsTableAdapter();
@@ -54,8 +58,16 @@
             this.button1 = new System.Windows.Forms.Button();
             this.bugsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bugsBugsToTestsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bugNameTextBox = new System.Windows.Forms.TextBox();
+            this.bugDescriptionRichTextBox = new System.Windows.Forms.RichTextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             testIdLabel = new System.Windows.Forms.Label();
             bugIdLabel = new System.Windows.Forms.Label();
+            bugNameLabel = new System.Windows.Forms.Label();
+            bugDescriptionLabel = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
+            label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bugsToTestsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bugsToTestsDataGridView)).BeginInit();
@@ -68,7 +80,7 @@
             // testIdLabel
             // 
             testIdLabel.AutoSize = true;
-            testIdLabel.Location = new System.Drawing.Point(502, 25);
+            testIdLabel.Location = new System.Drawing.Point(523, 15);
             testIdLabel.Name = "testIdLabel";
             testIdLabel.Size = new System.Drawing.Size(43, 13);
             testIdLabel.TabIndex = 1;
@@ -77,7 +89,7 @@
             // bugIdLabel
             // 
             bugIdLabel.AutoSize = true;
-            bugIdLabel.Location = new System.Drawing.Point(502, 52);
+            bugIdLabel.Location = new System.Drawing.Point(525, 146);
             bugIdLabel.Name = "bugIdLabel";
             bugIdLabel.Size = new System.Drawing.Size(41, 13);
             bugIdLabel.TabIndex = 3;
@@ -132,7 +144,7 @@
             this.bugsToTestsDataGridView.DataSource = this.bugsToTestsBindingSource;
             this.bugsToTestsDataGridView.Location = new System.Drawing.Point(12, 12);
             this.bugsToTestsDataGridView.Name = "bugsToTestsDataGridView";
-            this.bugsToTestsDataGridView.Size = new System.Drawing.Size(457, 239);
+            this.bugsToTestsDataGridView.Size = new System.Drawing.Size(457, 466);
             this.bugsToTestsDataGridView.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn1
@@ -153,11 +165,12 @@
             this.testIdComboBox.DataSource = this.testsBindingSource;
             this.testIdComboBox.DisplayMember = "TestId";
             this.testIdComboBox.FormattingEnabled = true;
-            this.testIdComboBox.Location = new System.Drawing.Point(551, 22);
+            this.testIdComboBox.Location = new System.Drawing.Point(582, 12);
             this.testIdComboBox.Name = "testIdComboBox";
             this.testIdComboBox.Size = new System.Drawing.Size(121, 21);
             this.testIdComboBox.TabIndex = 2;
             this.testIdComboBox.ValueMember = "TestId";
+            this.testIdComboBox.SelectedIndexChanged += new System.EventHandler(this.testIdComboBox_SelectedIndexChanged);
             // 
             // testsBindingSource
             // 
@@ -170,11 +183,12 @@
             this.bugIdComboBox.DataSource = this.bugsBindingSource1;
             this.bugIdComboBox.DisplayMember = "BugName";
             this.bugIdComboBox.FormattingEnabled = true;
-            this.bugIdComboBox.Location = new System.Drawing.Point(551, 49);
+            this.bugIdComboBox.Location = new System.Drawing.Point(582, 143);
             this.bugIdComboBox.Name = "bugIdComboBox";
             this.bugIdComboBox.Size = new System.Drawing.Size(121, 21);
             this.bugIdComboBox.TabIndex = 4;
             this.bugIdComboBox.ValueMember = "BugId";
+            this.bugIdComboBox.SelectedIndexChanged += new System.EventHandler(this.bugIdComboBox_SelectedIndexChanged);
             // 
             // bugsBindingSource1
             // 
@@ -183,7 +197,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(595, 218);
+            this.button5.Location = new System.Drawing.Point(607, 434);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(100, 23);
             this.button5.TabIndex = 48;
@@ -193,7 +207,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(497, 217);
+            this.button6.Location = new System.Drawing.Point(509, 433);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(92, 23);
             this.button6.TabIndex = 47;
@@ -203,7 +217,7 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(595, 188);
+            this.button7.Location = new System.Drawing.Point(607, 404);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(100, 23);
             this.button7.TabIndex = 46;
@@ -213,7 +227,7 @@
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(497, 188);
+            this.button8.Location = new System.Drawing.Point(509, 404);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(92, 23);
             this.button8.TabIndex = 45;
@@ -223,7 +237,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(595, 124);
+            this.button4.Location = new System.Drawing.Point(607, 340);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(100, 23);
             this.button4.TabIndex = 44;
@@ -233,7 +247,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(497, 123);
+            this.button3.Location = new System.Drawing.Point(509, 339);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(92, 23);
             this.button3.TabIndex = 43;
@@ -243,7 +257,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(595, 94);
+            this.button2.Location = new System.Drawing.Point(607, 310);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 23);
             this.button2.TabIndex = 42;
@@ -253,7 +267,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(497, 94);
+            this.button1.Location = new System.Drawing.Point(509, 310);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(92, 23);
             this.button1.TabIndex = 41;
@@ -271,11 +285,92 @@
             this.bugsBugsToTestsBindingSource.DataMember = "BugsBugsToTests";
             this.bugsBugsToTestsBindingSource.DataSource = this.bugsBindingSource;
             // 
+            // bugNameLabel
+            // 
+            bugNameLabel.AutoSize = true;
+            bugNameLabel.Location = new System.Drawing.Point(506, 173);
+            bugNameLabel.Name = "bugNameLabel";
+            bugNameLabel.Size = new System.Drawing.Size(60, 13);
+            bugNameLabel.TabIndex = 49;
+            bugNameLabel.Text = "Bug Name:";
+            // 
+            // bugNameTextBox
+            // 
+            this.bugNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bugsBindingSource, "BugName", true));
+            this.bugNameTextBox.Enabled = false;
+            this.bugNameTextBox.Location = new System.Drawing.Point(582, 170);
+            this.bugNameTextBox.Name = "bugNameTextBox";
+            this.bugNameTextBox.Size = new System.Drawing.Size(121, 20);
+            this.bugNameTextBox.TabIndex = 50;
+            // 
+            // bugDescriptionLabel
+            // 
+            bugDescriptionLabel.AutoSize = true;
+            bugDescriptionLabel.Location = new System.Drawing.Point(481, 199);
+            bugDescriptionLabel.Name = "bugDescriptionLabel";
+            bugDescriptionLabel.Size = new System.Drawing.Size(85, 13);
+            bugDescriptionLabel.TabIndex = 51;
+            bugDescriptionLabel.Text = "Bug Description:";
+            // 
+            // bugDescriptionRichTextBox
+            // 
+            this.bugDescriptionRichTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bugsBindingSource, "BugDescription", true));
+            this.bugDescriptionRichTextBox.Enabled = false;
+            this.bugDescriptionRichTextBox.Location = new System.Drawing.Point(582, 196);
+            this.bugDescriptionRichTextBox.Name = "bugDescriptionRichTextBox";
+            this.bugDescriptionRichTextBox.Size = new System.Drawing.Size(121, 96);
+            this.bugDescriptionRichTextBox.TabIndex = 52;
+            this.bugDescriptionRichTextBox.Text = "";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(489, 70);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(79, 13);
+            label2.TabIndex = 55;
+            label2.Text = "Worker Name :";
+            // 
+            // textBox2
+            // 
+            this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.testsBindingSource, "TestId", true));
+            this.textBox2.Enabled = false;
+            this.textBox2.Location = new System.Drawing.Point(582, 67);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(121, 20);
+            this.textBox2.TabIndex = 56;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(489, 44);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(77, 13);
+            label1.TabIndex = 53;
+            label1.Text = "Project Name :";
+            // 
+            // textBox1
+            // 
+            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.testsBindingSource, "TestId", true));
+            this.textBox1.Enabled = false;
+            this.textBox1.Location = new System.Drawing.Point(582, 41);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(121, 20);
+            this.textBox1.TabIndex = 54;
+            // 
             // P3BugsToTests
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(737, 278);
+            this.ClientSize = new System.Drawing.Size(737, 490);
+            this.Controls.Add(label2);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(label1);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(bugDescriptionLabel);
+            this.Controls.Add(this.bugDescriptionRichTextBox);
+            this.Controls.Add(bugNameLabel);
+            this.Controls.Add(this.bugNameTextBox);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button7);
@@ -329,5 +424,9 @@
         private System.Windows.Forms.BindingSource testsBindingSource;
         private System.Windows.Forms.BindingSource bugsBindingSource1;
         private System.Windows.Forms.BindingSource bugsBugsToTestsBindingSource;
+        private System.Windows.Forms.TextBox bugNameTextBox;
+        private System.Windows.Forms.RichTextBox bugDescriptionRichTextBox;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

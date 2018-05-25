@@ -76,5 +76,62 @@ namespace DbapyInc
         {
             bugsToTestsBindingSource.MoveNext();
         }
+
+        private void bugIdComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void testIdComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            object selection = testIdComboBox.SelectedValue;
+
+            if (selection == null)
+            {
+                return;
+            }
+
+            int testId = (int)selection;
+
+            foreach(DataRow row in databaseDataSet.Tests.Rows)
+            {
+                if ((int)row["TestId"] == testId)
+                {
+                    UpdateWorkerName((int)row["WorkerId"]);
+                    UpdateProjectName((int)row["ProjectId"]);
+                }
+            }
+        }
+
+
+        private void UpdateWorkerName(int workerId)
+        {
+            int managerId = workerId;
+
+            foreach (DataRow row in databaseDataSet.Workers.Rows)
+            {
+                if (managerId == (int)row["WorkerId"])
+                {
+                    textBox2.Text = row["WorkerName"].ToString();
+                    return;
+                }
+            }
+
+            MessageBox.Show("Worker Not Found");
+        }
+
+        private void UpdateProjectName(int projectId)
+        {
+            foreach (DataRow row in databaseDataSet.Projects.Rows)
+            {
+                if (projectId == (int)row["ProjectId"])
+                {
+                    textBox1.Text = row["ProjectName"].ToString();
+                    return;
+                }
+            }
+
+            MessageBox.Show("Project Not Found");
+        }
     }
 }
