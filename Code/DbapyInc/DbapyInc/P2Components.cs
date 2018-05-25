@@ -24,6 +24,13 @@ namespace DbapyInc
             // TODO: This line of code loads data into the 'databaseDataSet.ProjectComponents' table. You can move, or remove it, as needed.
             this.projectComponentsTableAdapter.Fill(this.databaseDataSet.ProjectComponents);
 
+
+            // Loading Project Id's to combobox
+            foreach (DataRow row in databaseDataSet.Projects.Rows)
+            {
+                projectIdComboBox.Items.Add((int)row["ProjectId"]);
+            }
+
             UpdateDetails();
 
         }
@@ -58,6 +65,8 @@ namespace DbapyInc
             max += 1;
 
             componentIdTextBox.Text = max.ToString();
+
+            finishedCheckBox.Checked = false;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -179,7 +188,9 @@ namespace DbapyInc
 
         private void UpdateDetails()
         {
-            object selection = projectIdComboBox.SelectedValue;
+
+
+            object selection = projectIdComboBox.SelectedItem;
 
             if (selection == null)
             {
@@ -203,6 +214,16 @@ namespace DbapyInc
         }
 
         private void projectIdComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            finishedCheckBox.Checked = true;
+        }
+
+        private void projectIdComboBox_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             UpdateDetails();
         }
