@@ -20,6 +20,12 @@ namespace DbapyInc
         
         private void P1Orders_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'databaseDataSet.Projects' table. You can move, or remove it, as needed.
+            this.projectsTableAdapter.Fill(this.databaseDataSet.Projects);
+            // TODO: This line of code loads data into the 'databaseDataSet.Projects' table. You can move, or remove it, as needed.
+            this.projectsTableAdapter.Fill(this.databaseDataSet.Projects);
+            // TODO: This line of code loads data into the 'databaseDataSet.Projects' table. You can move, or remove it, as needed.
+            this.projectsTableAdapter.Fill(this.databaseDataSet.Projects);
             // TODO: This line of code loads data into the 'databaseDataSet.Customers' table. You can move, or remove it, as needed.
             this.customersTableAdapter.Fill(this.databaseDataSet.Customers);
             // TODO: This line of code loads data into the 'databaseDataSet.Orders' table. You can move, or remove it, as needed.
@@ -29,7 +35,8 @@ namespace DbapyInc
 
         private void button1_Click(object sender, EventArgs e)
         {
-            customersBindingSource.AddNew();
+
+            ordersBindingSource.AddNew();
             orderDateDateTimePicker.MinDate = DateTime.Today;
             orderDateDateTimePicker.MaxDate = DateTime.Today;
 
