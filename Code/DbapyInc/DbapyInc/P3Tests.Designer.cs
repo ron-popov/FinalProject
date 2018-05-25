@@ -33,6 +33,8 @@
             System.Windows.Forms.Label testDateLabel;
             System.Windows.Forms.Label projectIdLabel;
             System.Windows.Forms.Label workerIdLabel;
+            System.Windows.Forms.Label label1;
+            System.Windows.Forms.Label label2;
             this.databaseDataSet = new DbapyInc.DatabaseDataSet();
             this.testsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.testsTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.TestsTableAdapter();
@@ -58,10 +60,14 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             testIdLabel = new System.Windows.Forms.Label();
             testDateLabel = new System.Windows.Forms.Label();
             projectIdLabel = new System.Windows.Forms.Label();
             workerIdLabel = new System.Windows.Forms.Label();
+            label1 = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.testsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.testsDataGridView)).BeginInit();
@@ -99,7 +105,7 @@
             // workerIdLabel
             // 
             workerIdLabel.AutoSize = true;
-            workerIdLabel.Location = new System.Drawing.Point(603, 94);
+            workerIdLabel.Location = new System.Drawing.Point(603, 118);
             workerIdLabel.Name = "workerIdLabel";
             workerIdLabel.Size = new System.Drawing.Size(57, 13);
             workerIdLabel.TabIndex = 7;
@@ -156,7 +162,7 @@
             this.testsDataGridView.DataSource = this.testsBindingSource;
             this.testsDataGridView.Location = new System.Drawing.Point(12, 12);
             this.testsDataGridView.Name = "testsDataGridView";
-            this.testsDataGridView.Size = new System.Drawing.Size(560, 292);
+            this.testsDataGridView.Size = new System.Drawing.Size(560, 377);
             this.testsDataGridView.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn1
@@ -204,13 +210,14 @@
             // 
             this.projectIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.testsBindingSource, "ProjectId", true));
             this.projectIdComboBox.DataSource = this.projectsBindingSource;
-            this.projectIdComboBox.DisplayMember = "ProjectName";
+            this.projectIdComboBox.DisplayMember = "ProjectId";
             this.projectIdComboBox.FormattingEnabled = true;
             this.projectIdComboBox.Location = new System.Drawing.Point(666, 64);
             this.projectIdComboBox.Name = "projectIdComboBox";
             this.projectIdComboBox.Size = new System.Drawing.Size(200, 21);
             this.projectIdComboBox.TabIndex = 6;
             this.projectIdComboBox.ValueMember = "ProjectId";
+            this.projectIdComboBox.SelectedIndexChanged += new System.EventHandler(this.projectIdComboBox_SelectedIndexChanged);
             // 
             // projectsBindingSource
             // 
@@ -221,13 +228,14 @@
             // 
             this.workerIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.testsBindingSource, "WorkerId", true));
             this.workerIdComboBox.DataSource = this.workersBindingSource;
-            this.workerIdComboBox.DisplayMember = "WorkerName";
+            this.workerIdComboBox.DisplayMember = "WorkerId";
             this.workerIdComboBox.FormattingEnabled = true;
-            this.workerIdComboBox.Location = new System.Drawing.Point(666, 91);
+            this.workerIdComboBox.Location = new System.Drawing.Point(666, 115);
             this.workerIdComboBox.Name = "workerIdComboBox";
             this.workerIdComboBox.Size = new System.Drawing.Size(200, 21);
             this.workerIdComboBox.TabIndex = 8;
             this.workerIdComboBox.ValueMember = "WorkerId";
+            this.workerIdComboBox.SelectedIndexChanged += new System.EventHandler(this.workerIdComboBox_SelectedIndexChanged);
             // 
             // workersBindingSource
             // 
@@ -236,7 +244,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(730, 278);
+            this.button5.Location = new System.Drawing.Point(730, 362);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(136, 23);
             this.button5.TabIndex = 40;
@@ -246,7 +254,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(596, 277);
+            this.button6.Location = new System.Drawing.Point(596, 361);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(128, 23);
             this.button6.TabIndex = 39;
@@ -256,7 +264,7 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(730, 248);
+            this.button7.Location = new System.Drawing.Point(730, 332);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(136, 23);
             this.button7.TabIndex = 38;
@@ -266,7 +274,7 @@
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(596, 248);
+            this.button8.Location = new System.Drawing.Point(596, 332);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(128, 23);
             this.button8.TabIndex = 37;
@@ -276,7 +284,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(730, 184);
+            this.button4.Location = new System.Drawing.Point(730, 268);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(136, 23);
             this.button4.TabIndex = 36;
@@ -286,7 +294,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(596, 183);
+            this.button3.Location = new System.Drawing.Point(596, 267);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(128, 23);
             this.button3.TabIndex = 35;
@@ -296,7 +304,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(730, 154);
+            this.button2.Location = new System.Drawing.Point(730, 238);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(136, 23);
             this.button2.TabIndex = 34;
@@ -306,7 +314,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(596, 154);
+            this.button1.Location = new System.Drawing.Point(596, 238);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(128, 23);
             this.button1.TabIndex = 33;
@@ -314,11 +322,51 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(581, 94);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(77, 13);
+            label1.TabIndex = 41;
+            label1.Text = "Project Name :";
+            // 
+            // textBox1
+            // 
+            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.testsBindingSource, "TestId", true));
+            this.textBox1.Enabled = false;
+            this.textBox1.Location = new System.Drawing.Point(666, 91);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(200, 20);
+            this.textBox1.TabIndex = 42;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(581, 145);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(79, 13);
+            label2.TabIndex = 43;
+            label2.Text = "Worker Name :";
+            // 
+            // textBox2
+            // 
+            this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.testsBindingSource, "TestId", true));
+            this.textBox2.Enabled = false;
+            this.textBox2.Location = new System.Drawing.Point(666, 142);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(200, 20);
+            this.textBox2.TabIndex = 44;
+            // 
             // P3Tests
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(888, 331);
+            this.ClientSize = new System.Drawing.Size(888, 401);
+            this.Controls.Add(label2);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(label1);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button7);
@@ -376,5 +424,7 @@
         private System.Windows.Forms.BindingSource projectsBindingSource;
         private DatabaseDataSetTableAdapters.WorkersTableAdapter workersTableAdapter;
         private System.Windows.Forms.BindingSource workersBindingSource;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }

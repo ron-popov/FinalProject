@@ -102,5 +102,63 @@ namespace DbapyInc
         {
             testsBindingSource.MoveNext();
         }
+
+        private void projectIdComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateProjectName();
+        }
+
+        private void UpdateWorkerName()
+        {
+            object selection = workerIdComboBox.SelectedValue;
+
+            if (selection == null)
+            {
+                textBox2.Text = "";
+                return;
+            }
+
+            int managerId = (int)selection;
+
+            foreach (DataRow row in databaseDataSet.Workers.Rows)
+            {
+                if (managerId == (int)row["WorkerId"])
+                {
+                    textBox2.Text = row["WorkerName"].ToString();
+                    return;
+                }
+            }
+
+            MessageBox.Show("Worker Not Found");
+        }
+
+        private void UpdateProjectName()
+        {
+            object selection = projectIdComboBox.SelectedValue;
+
+            if (selection == null)
+            {
+                textBox1.Text = "";
+                return;
+            }
+
+            int projectId = (int)selection;
+
+            foreach (DataRow row in databaseDataSet.Projects.Rows)
+            {
+                if (projectId == (int)row["ProjectId"])
+                {
+                    textBox1.Text = row["ProjectName"].ToString();
+                    return;
+                }
+            }
+
+            MessageBox.Show("Project Not Found");
+        }
+
+        private void workerIdComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateWorkerName();
+        }
     }
 }
