@@ -19,7 +19,8 @@ namespace DbapyInc
 
         private void button1_Click(object sender, EventArgs e)
         {
-            (new P4Surveys()).Show();
+            P4Surveys form = new P4Surveys();
+            form.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
