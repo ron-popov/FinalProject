@@ -27,6 +27,8 @@ namespace DbapyInc
 
         private void P2Teams_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'databaseDataSet.Projects' table. You can move, or remove it, as needed.
+            this.projectsTableAdapter.Fill(this.databaseDataSet.Projects);
             // TODO: This line of code loads data into the 'databaseDataSet.ProjectComponents' table. You can move, or remove it, as needed.
             this.projectComponentsTableAdapter.Fill(this.databaseDataSet.ProjectComponents);
             // TODO: This line of code loads data into the 'databaseDataSet.Workers' table. You can move, or remove it, as needed.
@@ -134,6 +136,85 @@ namespace DbapyInc
         private void button5_Click(object sender, EventArgs e)
         {
             teamsBindingSource.MoveNext();
+        }
+
+        private void manageridComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateManagerName();
+        }
+
+        private void UpdateManagerName()
+        {
+
+            object selection = manageridComboBox.SelectedValue;
+
+            if (selection == null)
+            {
+                textBox1.Text = "";
+                return;
+            }
+
+            int managerId = (int)selection;
+
+            foreach (DataRow row in databaseDataSet.Workers.Rows)
+            {
+                if (managerId == (int)row["WorkerId"])
+                {
+                    textBox1.Text = row["WorkerName"].ToString();
+                    return;
+                }
+            }
+
+            MessageBox.Show("Worker Not Found");
+        }
+
+        private void UpdateComponentName()
+        {
+            object selection = componentIdComboBox.SelectedValue;
+
+            if (selection == null)
+            {
+                textBox2.Text = "";
+                textBox3.Text = "";
+                return;
+            }
+
+            int componentId = (int)selection;
+
+            foreach (DataRow row in databaseDataSet.ProjectComponents.Rows)
+            {
+                if (componentId == (int)row["ComponentId"])
+                {
+                    textBox2.Text = row["ComponentName"].ToString();
+
+                    int ProjectId = (int)row["ProjectId"];
+
+                    foreach (DataRow r in databaseDataSet.Projects.Rows)
+                    {
+                        if (ProjectId == (int)r["ProjectId"])
+                        {
+                            textBox3.Text = r["ProjectName"].ToString();
+                        }
+                    }
+
+                    return;
+                }
+            }
+
+            MessageBox.Show("Component Not Found");
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void componentIdComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateComponentName();
         }
     }
 }

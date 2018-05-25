@@ -111,6 +111,15 @@
             projectIdLabel.TabIndex = 59;
             projectIdLabel.Text = "Project Id:";
             // 
+            // finishedLabel
+            // 
+            finishedLabel.AutoSize = true;
+            finishedLabel.Location = new System.Drawing.Point(702, 130);
+            finishedLabel.Name = "finishedLabel";
+            finishedLabel.Size = new System.Drawing.Size(49, 13);
+            finishedLabel.TabIndex = 60;
+            finishedLabel.Text = "Finished:";
+            // 
             // databaseDataSet
             // 
             this.databaseDataSet.DataSetName = "DatabaseDataSet";
@@ -283,7 +292,6 @@
             // componentIdTextBox
             // 
             this.componentIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.projectComponentsBindingSource, "ComponentId", true));
-            this.componentIdTextBox.Enabled = false;
             this.componentIdTextBox.Location = new System.Drawing.Point(775, 21);
             this.componentIdTextBox.Name = "componentIdTextBox";
             this.componentIdTextBox.Size = new System.Drawing.Size(121, 20);
@@ -311,19 +319,9 @@
             // 
             this.projectComponentsTableAdapter.ClearBeforeFill = true;
             // 
-            // finishedLabel
-            // 
-            finishedLabel.AutoSize = true;
-            finishedLabel.Location = new System.Drawing.Point(702, 130);
-            finishedLabel.Name = "finishedLabel";
-            finishedLabel.Size = new System.Drawing.Size(49, 13);
-            finishedLabel.TabIndex = 60;
-            finishedLabel.Text = "Finished:";
-            // 
             // finishedCheckBox
             // 
             this.finishedCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.projectComponentsBindingSource, "Finished", true));
-            this.finishedCheckBox.Enabled = false;
             this.finishedCheckBox.Location = new System.Drawing.Point(775, 125);
             this.finishedCheckBox.Name = "finishedCheckBox";
             this.finishedCheckBox.Size = new System.Drawing.Size(104, 24);

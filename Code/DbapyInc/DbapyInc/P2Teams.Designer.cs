@@ -33,6 +33,9 @@
             System.Windows.Forms.Label teamNameLabel;
             System.Windows.Forms.Label manageridLabel;
             System.Windows.Forms.Label componentIdLabel;
+            System.Windows.Forms.Label label1;
+            System.Windows.Forms.Label label2;
+            System.Windows.Forms.Label label3;
             this.databaseDataSet = new DbapyInc.DatabaseDataSet();
             this.teamsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.teamsTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.TeamsTableAdapter();
@@ -58,21 +61,30 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.projectsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.projectsTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.ProjectsTableAdapter();
             teamIdLabel = new System.Windows.Forms.Label();
             teamNameLabel = new System.Windows.Forms.Label();
             manageridLabel = new System.Windows.Forms.Label();
             componentIdLabel = new System.Windows.Forms.Label();
+            label1 = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
+            label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teamsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teamsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.workersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectComponentsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // teamIdLabel
             // 
             teamIdLabel.AutoSize = true;
-            teamIdLabel.Location = new System.Drawing.Point(812, 25);
+            teamIdLabel.Location = new System.Drawing.Point(820, 25);
             teamIdLabel.Name = "teamIdLabel";
             teamIdLabel.Size = new System.Drawing.Size(49, 13);
             teamIdLabel.TabIndex = 1;
@@ -90,16 +102,16 @@
             // manageridLabel
             // 
             manageridLabel.AutoSize = true;
-            manageridLabel.Location = new System.Drawing.Point(812, 77);
+            manageridLabel.Location = new System.Drawing.Point(820, 82);
             manageridLabel.Name = "manageridLabel";
-            manageridLabel.Size = new System.Drawing.Size(60, 13);
+            manageridLabel.Size = new System.Drawing.Size(67, 13);
             manageridLabel.TabIndex = 5;
-            manageridLabel.Text = "Managerid:";
+            manageridLabel.Text = "Manager Id :";
             // 
             // componentIdLabel
             // 
             componentIdLabel.AutoSize = true;
-            componentIdLabel.Location = new System.Drawing.Point(812, 104);
+            componentIdLabel.Location = new System.Drawing.Point(812, 133);
             componentIdLabel.Name = "componentIdLabel";
             componentIdLabel.Size = new System.Drawing.Size(76, 13);
             componentIdLabel.TabIndex = 7;
@@ -156,7 +168,7 @@
             this.teamsDataGridView.DataSource = this.teamsBindingSource;
             this.teamsDataGridView.Location = new System.Drawing.Point(12, 12);
             this.teamsDataGridView.Name = "teamsDataGridView";
-            this.teamsDataGridView.Size = new System.Drawing.Size(766, 276);
+            this.teamsDataGridView.Size = new System.Drawing.Size(766, 383);
             this.teamsDataGridView.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn1
@@ -204,13 +216,14 @@
             // 
             this.manageridComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teamsBindingSource, "Managerid", true));
             this.manageridComboBox.DataSource = this.workersBindingSource;
-            this.manageridComboBox.DisplayMember = "WorkerName";
+            this.manageridComboBox.DisplayMember = "WorkerId";
             this.manageridComboBox.FormattingEnabled = true;
             this.manageridComboBox.Location = new System.Drawing.Point(894, 74);
             this.manageridComboBox.Name = "manageridComboBox";
             this.manageridComboBox.Size = new System.Drawing.Size(121, 21);
             this.manageridComboBox.TabIndex = 6;
             this.manageridComboBox.ValueMember = "WorkerId";
+            this.manageridComboBox.SelectedIndexChanged += new System.EventHandler(this.manageridComboBox_SelectedIndexChanged);
             // 
             // workersBindingSource
             // 
@@ -221,13 +234,14 @@
             // 
             this.componentIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teamsBindingSource, "ComponentId", true));
             this.componentIdComboBox.DataSource = this.projectComponentsBindingSource;
-            this.componentIdComboBox.DisplayMember = "ComponentName";
+            this.componentIdComboBox.DisplayMember = "ComponentId";
             this.componentIdComboBox.FormattingEnabled = true;
-            this.componentIdComboBox.Location = new System.Drawing.Point(894, 101);
+            this.componentIdComboBox.Location = new System.Drawing.Point(894, 130);
             this.componentIdComboBox.Name = "componentIdComboBox";
             this.componentIdComboBox.Size = new System.Drawing.Size(121, 21);
             this.componentIdComboBox.TabIndex = 8;
             this.componentIdComboBox.ValueMember = "ComponentId";
+            this.componentIdComboBox.SelectedIndexChanged += new System.EventHandler(this.componentIdComboBox_SelectedIndexChanged);
             // 
             // projectComponentsBindingSource
             // 
@@ -236,7 +250,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(915, 266);
+            this.button5.Location = new System.Drawing.Point(915, 376);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(100, 23);
             this.button5.TabIndex = 40;
@@ -246,7 +260,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(817, 265);
+            this.button6.Location = new System.Drawing.Point(817, 375);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(92, 23);
             this.button6.TabIndex = 39;
@@ -256,7 +270,7 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(915, 236);
+            this.button7.Location = new System.Drawing.Point(915, 346);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(100, 23);
             this.button7.TabIndex = 38;
@@ -266,7 +280,7 @@
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(817, 236);
+            this.button8.Location = new System.Drawing.Point(817, 346);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(92, 23);
             this.button8.TabIndex = 37;
@@ -276,7 +290,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(915, 172);
+            this.button4.Location = new System.Drawing.Point(915, 282);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(100, 23);
             this.button4.TabIndex = 36;
@@ -286,7 +300,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(817, 171);
+            this.button3.Location = new System.Drawing.Point(817, 281);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(92, 23);
             this.button3.TabIndex = 35;
@@ -296,7 +310,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(915, 142);
+            this.button2.Location = new System.Drawing.Point(915, 252);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 23);
             this.button2.TabIndex = 34;
@@ -306,7 +320,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(817, 142);
+            this.button1.Location = new System.Drawing.Point(817, 252);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(92, 23);
             this.button1.TabIndex = 33;
@@ -314,11 +328,82 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(802, 107);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(86, 13);
+            label1.TabIndex = 41;
+            label1.Text = "Manager Name :";
+            // 
+            // textBox1
+            // 
+            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teamsBindingSource, "TeamName", true));
+            this.textBox1.Enabled = false;
+            this.textBox1.Location = new System.Drawing.Point(894, 104);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(121, 20);
+            this.textBox1.TabIndex = 42;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(790, 160);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(98, 13);
+            label2.TabIndex = 43;
+            label2.Text = "Component Name :";
+            // 
+            // textBox2
+            // 
+            this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teamsBindingSource, "TeamName", true));
+            this.textBox2.Enabled = false;
+            this.textBox2.Location = new System.Drawing.Point(894, 157);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(121, 20);
+            this.textBox2.TabIndex = 44;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new System.Drawing.Point(802, 186);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(77, 13);
+            label3.TabIndex = 45;
+            label3.Text = "Project Name :";
+            // 
+            // textBox3
+            // 
+            this.textBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teamsBindingSource, "TeamName", true));
+            this.textBox3.Enabled = false;
+            this.textBox3.Location = new System.Drawing.Point(894, 183);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(121, 20);
+            this.textBox3.TabIndex = 46;
+            // 
+            // projectsBindingSource
+            // 
+            this.projectsBindingSource.DataMember = "Projects";
+            this.projectsBindingSource.DataSource = this.databaseDataSet;
+            // 
+            // projectsTableAdapter
+            // 
+            this.projectsTableAdapter.ClearBeforeFill = true;
+            // 
             // P2Teams
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1054, 308);
+            this.ClientSize = new System.Drawing.Size(1043, 407);
+            this.Controls.Add(label3);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(label2);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(label1);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button7);
@@ -344,6 +429,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.teamsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.workersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectComponentsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -376,5 +462,10 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.BindingSource projectsBindingSource;
+        private DatabaseDataSetTableAdapters.ProjectsTableAdapter projectsTableAdapter;
     }
 }
