@@ -24,6 +24,8 @@ namespace DbapyInc
             // TODO: This line of code loads data into the 'databaseDataSet.ProjectComponents' table. You can move, or remove it, as needed.
             this.projectComponentsTableAdapter.Fill(this.databaseDataSet.ProjectComponents);
 
+            UpdateDetails();
+
         }
 
         private void projectComponentsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -173,6 +175,36 @@ namespace DbapyInc
         {
             DataView dv = new DataView(databaseDataSet.ProjectComponents);
             projectComponentsDataGridView.DataSource = dv;
+        }
+
+        private void UpdateDetails()
+        {
+            object selection = projectIdComboBox.SelectedValue;
+
+            if (selection == null)
+            {
+                textBox3.Text = "";
+                return;
+            }
+
+            int projectId = (int)selection;
+
+            foreach (DataRow row in databaseDataSet.Projects.Rows)
+            {
+                if(projectId == (int)row["ProjectId"])
+                {
+                    textBox3.Text = row["ProjectName"].ToString();
+                    return;
+                }
+            }
+
+            MessageBox.Show("Project Not Found");
+
+        }
+
+        private void projectIdComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateDetails();
         }
     }
 }

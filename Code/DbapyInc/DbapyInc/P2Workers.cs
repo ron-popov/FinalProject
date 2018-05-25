@@ -40,8 +40,8 @@ namespace DbapyInc
         {
             workersBindingSource.AddNew();
 
-            workerJoinDateDateTimePicker.MinDate = DateTime.Now;
-            workerJoinDateDateTimePicker.MaxDate = DateTime.Now;
+            workerJoinDateDateTimePicker.Value = DateTime.Now;
+
 
             int max = 0;
 
@@ -79,6 +79,10 @@ namespace DbapyInc
 
         private void button4_Click(object sender, EventArgs e)
         {
+
+
+
+
             // Check if the worker is 18 yet
             DateTime birthDate = workerBirthDateDateTimePicker.Value;
             TimeSpan age = DateTime.Now - birthDate;

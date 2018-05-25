@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label typeIdLabel;
             System.Windows.Forms.Label typeNameLabel;
-            System.Windows.Forms.Label typePriceLabel;
             this.databaseDataSet = new DbapyInc.DatabaseDataSet();
             this.projectTypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.projectTypesTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.ProjectTypesTableAdapter();
@@ -39,10 +38,8 @@
             this.projectTypesDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.typeIdTextBox = new System.Windows.Forms.TextBox();
             this.typeNameTextBox = new System.Windows.Forms.TextBox();
-            this.typePriceTextBox = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
@@ -53,7 +50,6 @@
             this.button1 = new System.Windows.Forms.Button();
             typeIdLabel = new System.Windows.Forms.Label();
             typeNameLabel = new System.Windows.Forms.Label();
-            typePriceLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectTypesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectTypesDataGridView)).BeginInit();
@@ -76,15 +72,6 @@
             typeNameLabel.Size = new System.Drawing.Size(65, 13);
             typeNameLabel.TabIndex = 3;
             typeNameLabel.Text = "Type Name:";
-            // 
-            // typePriceLabel
-            // 
-            typePriceLabel.AutoSize = true;
-            typePriceLabel.Location = new System.Drawing.Point(552, 87);
-            typePriceLabel.Name = "typePriceLabel";
-            typePriceLabel.Size = new System.Drawing.Size(61, 13);
-            typePriceLabel.TabIndex = 5;
-            typePriceLabel.Text = "Type Price:";
             // 
             // databaseDataSet
             // 
@@ -123,8 +110,7 @@
             this.projectTypesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.projectTypesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3});
+            this.dataGridViewTextBoxColumn2});
             this.projectTypesDataGridView.DataSource = this.projectTypesBindingSource;
             this.projectTypesDataGridView.Location = new System.Drawing.Point(12, 12);
             this.projectTypesDataGridView.Name = "projectTypesDataGridView";
@@ -143,12 +129,6 @@
             this.dataGridViewTextBoxColumn2.HeaderText = "TypeName";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "TypePrice";
-            this.dataGridViewTextBoxColumn3.HeaderText = "TypePrice";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
             // typeIdTextBox
             // 
             this.typeIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.projectTypesBindingSource, "TypeId", true));
@@ -165,14 +145,6 @@
             this.typeNameTextBox.Name = "typeNameTextBox";
             this.typeNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.typeNameTextBox.TabIndex = 4;
-            // 
-            // typePriceTextBox
-            // 
-            this.typePriceTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.projectTypesBindingSource, "TypePrice", true));
-            this.typePriceTextBox.Location = new System.Drawing.Point(623, 84);
-            this.typePriceTextBox.Name = "typePriceTextBox";
-            this.typePriceTextBox.Size = new System.Drawing.Size(100, 20);
-            this.typePriceTextBox.TabIndex = 6;
             // 
             // button5
             // 
@@ -271,8 +243,6 @@
             this.Controls.Add(this.typeIdTextBox);
             this.Controls.Add(typeNameLabel);
             this.Controls.Add(this.typeNameTextBox);
-            this.Controls.Add(typePriceLabel);
-            this.Controls.Add(this.typePriceTextBox);
             this.Controls.Add(this.projectTypesDataGridView);
             this.Name = "P1ProjectTypes";
             this.Text = "P1ProjectTypes";
@@ -294,10 +264,8 @@
         private System.Windows.Forms.DataGridView projectTypesDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.TextBox typeIdTextBox;
         private System.Windows.Forms.TextBox typeNameTextBox;
-        private System.Windows.Forms.TextBox typePriceTextBox;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;

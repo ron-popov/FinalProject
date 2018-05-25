@@ -27,14 +27,22 @@ namespace DbapyInc
 
         private void P1Projects_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'databaseDataSet.WorkersToTeams' table. You can move, or remove it, as needed.
+            this.workersToTeamsTableAdapter.Fill(this.databaseDataSet.WorkersToTeams);
             // TODO: This line of code loads data into the 'databaseDataSet.ProjectTypes' table. You can move, or remove it, as needed.
             this.projectTypesTableAdapter.Fill(this.databaseDataSet.ProjectTypes);
-            // TODO: This line of code loads data into the 'databaseDataSet.Orders' table. You can move, or remove it, as needed.
-            this.ordersTableAdapter.Fill(this.databaseDataSet.Orders);
             // TODO: This line of code loads data into the 'databaseDataSet.Workers' table. You can move, or remove it, as needed.
             this.workersTableAdapter.Fill(this.databaseDataSet.Workers);
+            // TODO: This line of code loads data into the 'databaseDataSet.Orders' table. You can move, or remove it, as needed.
+            this.ordersTableAdapter.Fill(this.databaseDataSet.Orders);
             // TODO: This line of code loads data into the 'databaseDataSet.Projects' table. You can move, or remove it, as needed.
             this.projectsTableAdapter.Fill(this.databaseDataSet.Projects);
+
+            UpdateWorkerDetails();
+            UpdateProjectTypeDetails();
+            CalcManagerTeams();
+
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -58,11 +66,15 @@ namespace DbapyInc
 
             projectIdTextBox.Text = max.ToString();
 
+            
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             projectsBindingSource.RemoveCurrent();
+
+            
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -122,6 +134,8 @@ namespace DbapyInc
             // Saving
             projectsBindingSource.EndEdit();
             this.projectsTableAdapter.Update(this.databaseDataSet.Projects);
+
+            MessageBox.Show("Saved !");
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -133,21 +147,123 @@ namespace DbapyInc
         private void button8_Click(object sender, EventArgs e)
         {
             projectsBindingSource.MoveFirst();
+            
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
             projectsBindingSource.MoveLast();
+            
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
             projectsBindingSource.MovePrevious();
+            
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             projectsBindingSource.MoveNext();
+            
+        }
+
+        private void projectsBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.projectsBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.databaseDataSet);
+
+        }
+
+        private void UpdateWorkerDetails()
+        {
+            object selection = managerIdComboBox.SelectedValue;
+            if (selection == null)
+            {
+                textBox1.Text = "";
+                textBox2.Text = "";
+                return;
+            }
+
+            int managerId = (int)selection;
+
+            foreach (DataRow row in databaseDataSet.Workers.Rows)
+            {
+                if ((int)row["WorkerId"] == managerId)
+                {
+                    textBox1.Text = row["WorkerName"].ToString();
+                    textBox2.Text = ((DateTime.Now - (DateTime)row["WorkerJoinDate"]).Days / 365).ToString();
+                    return;
+                }
+            }
+
+            MessageBox.Show("Manger Id Not Found");
+        }
+
+        private void UpdateProjectTypeDetails()
+        {
+            object selection = projectTypeComboBox.SelectedValue;
+            if (selection == null)
+            {
+                textBox3.Text = "";
+                return;
+            }
+
+            int managerId = (int)selection;
+
+            foreach (DataRow row in databaseDataSet.ProjectTypes.Rows)
+            {
+                if ((int)row["TypeId"] == managerId)
+                {
+                    textBox3.Text = row["TypeName"].ToString();
+                    return;
+                }
+            }
+
+            MessageBox.Show("Project Type Id Not Found");
+        }
+
+        private void CalcManagerTeams()
+        {
+            object selection = managerIdComboBox.SelectedValue;
+            if (selection == null)
+            {
+                textBox1.Text = "";
+                textBox2.Text = "";
+                return;
+            }
+
+            int managerId = (int)selection;
+
+            int counter = 0;
+
+            foreach(DataRow row in databaseDataSet.WorkersToTeams.Rows)
+            {
+                if((int)row["WorkerId"] == managerId)
+                {
+                    counter++;
+                }
+            }
+
+            textBox4.Text = counter.ToString();
+        }
+
+        private void managerIdComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateWorkerDetails();
+            CalcManagerTeams();
+        }
+
+        private void projectTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateProjectTypeDetails();
+        }
+
+        private void managerIdComboBox_ValueMemberChanged(object sender, EventArgs e)
+        {
+            UpdateWorkerDetails();
+            CalcManagerTeams();
         }
     }
 }

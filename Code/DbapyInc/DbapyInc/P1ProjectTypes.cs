@@ -81,12 +81,6 @@ namespace DbapyInc
                 return;
             }
 
-            if (typePriceTextBox.Text.Length == 0)
-            {
-                MessageBox.Show("Project Type Price cannot be empty");
-                return;
-            }
-
 
             // Checking for duplicates
             List<int> idList = new List<int>();

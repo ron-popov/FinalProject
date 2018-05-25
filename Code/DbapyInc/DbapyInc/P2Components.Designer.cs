@@ -32,6 +32,7 @@
             System.Windows.Forms.Label componentIdLabel;
             System.Windows.Forms.Label componentNameLabel;
             System.Windows.Forms.Label projectIdLabel;
+            System.Windows.Forms.Label label1;
             this.databaseDataSet = new DbapyInc.DatabaseDataSet();
             this.projectComponentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.projectComponentsTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.ProjectComponentsTableAdapter();
@@ -58,9 +59,11 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button10 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             componentIdLabel = new System.Windows.Forms.Label();
             componentNameLabel = new System.Windows.Forms.Label();
             projectIdLabel = new System.Windows.Forms.Label();
+            label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectComponentsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectComponentsDataGridView)).BeginInit();
@@ -93,6 +96,15 @@
             projectIdLabel.Size = new System.Drawing.Size(55, 13);
             projectIdLabel.TabIndex = 5;
             projectIdLabel.Text = "Project Id:";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(674, 102);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(77, 13);
+            label1.TabIndex = 54;
+            label1.Text = "Project Name :";
             // 
             // databaseDataSet
             // 
@@ -182,13 +194,14 @@
             // 
             this.projectIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.projectComponentsBindingSource, "ProjectId", true));
             this.projectIdComboBox.DataSource = this.projectsBindingSource;
-            this.projectIdComboBox.DisplayMember = "ProjectName";
+            this.projectIdComboBox.DisplayMember = "ProjectId";
             this.projectIdComboBox.FormattingEnabled = true;
             this.projectIdComboBox.Location = new System.Drawing.Point(775, 74);
             this.projectIdComboBox.Name = "projectIdComboBox";
             this.projectIdComboBox.Size = new System.Drawing.Size(121, 21);
             this.projectIdComboBox.TabIndex = 6;
             this.projectIdComboBox.ValueMember = "ProjectId";
+            this.projectIdComboBox.SelectedIndexChanged += new System.EventHandler(this.projectIdComboBox_SelectedIndexChanged);
             // 
             // projectsBindingSource
             // 
@@ -319,11 +332,22 @@
             this.button11.UseVisualStyleBackColor = true;
             this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
+            // textBox3
+            // 
+            this.textBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.projectComponentsBindingSource, "ComponentId", true));
+            this.textBox3.Enabled = false;
+            this.textBox3.Location = new System.Drawing.Point(775, 101);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(121, 20);
+            this.textBox3.TabIndex = 55;
+            // 
             // P2Components
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(925, 421);
+            this.ClientSize = new System.Drawing.Size(909, 421);
+            this.Controls.Add(label1);
+            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.button11);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.button10);
@@ -384,5 +408,6 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.TextBox textBox3;
     }
 }

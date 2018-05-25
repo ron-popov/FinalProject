@@ -22,14 +22,13 @@ namespace DbapyInc
         {
             // TODO: This line of code loads data into the 'databaseDataSet.Projects' table. You can move, or remove it, as needed.
             this.projectsTableAdapter.Fill(this.databaseDataSet.Projects);
-            // TODO: This line of code loads data into the 'databaseDataSet.Projects' table. You can move, or remove it, as needed.
-            this.projectsTableAdapter.Fill(this.databaseDataSet.Projects);
-            // TODO: This line of code loads data into the 'databaseDataSet.Projects' table. You can move, or remove it, as needed.
-            this.projectsTableAdapter.Fill(this.databaseDataSet.Projects);
             // TODO: This line of code loads data into the 'databaseDataSet.Customers' table. You can move, or remove it, as needed.
             this.customersTableAdapter.Fill(this.databaseDataSet.Customers);
             // TODO: This line of code loads data into the 'databaseDataSet.Orders' table. You can move, or remove it, as needed.
             this.ordersTableAdapter.Fill(this.databaseDataSet.Orders);
+
+            UpdateCustomerName();
+            UpdatePrice();
 
         }
 
@@ -58,11 +57,15 @@ namespace DbapyInc
             max += 1;
 
             orderIdTextBox.Text = max.ToString();
+
+            UpdatePrice();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             customersBindingSource.RemoveCurrent();
+
+            UpdatePrice();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -101,11 +104,14 @@ namespace DbapyInc
             this.customersTableAdapter.Update(this.databaseDataSet.Customers);
 
             MessageBox.Show("Saved !");
+
+            UpdatePrice();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             this.customersTableAdapter.Fill(this.databaseDataSet.Customers);
+            UpdatePrice();
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -121,15 +127,19 @@ namespace DbapyInc
         private void button7_Click(object sender, EventArgs e)
         {
             customersBindingSource.MovePrevious();
+            UpdatePrice();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             customersBindingSource.MoveNext();
+            UpdatePrice();
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
+            UpdatePrice();
+
             /*string customerName = textBox1.Text;
 
             // A list of wanted customer id's
@@ -167,6 +177,56 @@ namespace DbapyInc
             }*/
         }
 
-      
+        private void UpdateCustomerName()
+        {
+            object selection = customerIdComboBox.SelectedValue;
+            if (selection == null)
+            {
+                textBox2.Text = "";
+                return;
+            }
+
+            int customerId = (int)selection;
+
+            foreach (DataRow row in databaseDataSet.Customers.Rows)
+            {
+                if ((int)row["CustomerId"] == customerId)
+                {
+                    textBox2.Text = row["CustomerName"].ToString();
+                    return;
+                }
+            }
+
+            MessageBox.Show("Customer Id Not Found");
+        }
+
+        private void UpdatePrice()
+        {
+            string selection = orderIdTextBox.Text;
+            if (selection.Length == 0)
+            {
+                textBox1.Text = "";
+                return;
+            }
+
+            int orderId = int.Parse(selection);
+
+            int priceCounter = 0;
+
+            foreach (DataRow row in databaseDataSet.Projects.Rows)
+            {
+                if((int)row["OrderId"] == orderId)
+                {
+                    priceCounter += (int)row["ProjectPrice"];
+                }
+            }
+
+            textBox1.Text = priceCounter.ToString();
+        }
+        
+        private void customerIdComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateCustomerName();
+        }
     }
 }
