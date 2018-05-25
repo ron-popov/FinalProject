@@ -95,6 +95,42 @@
             bugIdLabel.TabIndex = 3;
             bugIdLabel.Text = "Bug Id:";
             // 
+            // bugNameLabel
+            // 
+            bugNameLabel.AutoSize = true;
+            bugNameLabel.Location = new System.Drawing.Point(506, 173);
+            bugNameLabel.Name = "bugNameLabel";
+            bugNameLabel.Size = new System.Drawing.Size(60, 13);
+            bugNameLabel.TabIndex = 49;
+            bugNameLabel.Text = "Bug Name:";
+            // 
+            // bugDescriptionLabel
+            // 
+            bugDescriptionLabel.AutoSize = true;
+            bugDescriptionLabel.Location = new System.Drawing.Point(481, 199);
+            bugDescriptionLabel.Name = "bugDescriptionLabel";
+            bugDescriptionLabel.Size = new System.Drawing.Size(85, 13);
+            bugDescriptionLabel.TabIndex = 51;
+            bugDescriptionLabel.Text = "Bug Description:";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(489, 70);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(79, 13);
+            label2.TabIndex = 55;
+            label2.Text = "Worker Name :";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(489, 44);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(77, 13);
+            label1.TabIndex = 53;
+            label1.Text = "Project Name :";
+            // 
             // databaseDataSet
             // 
             this.databaseDataSet.DataSetName = "DatabaseDataSet";
@@ -162,6 +198,7 @@
             // testIdComboBox
             // 
             this.testIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bugsToTestsBindingSource, "TestId", true));
+            this.testIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.testsBindingSource, "TestId", true));
             this.testIdComboBox.DataSource = this.testsBindingSource;
             this.testIdComboBox.DisplayMember = "TestId";
             this.testIdComboBox.FormattingEnabled = true;
@@ -180,8 +217,9 @@
             // bugIdComboBox
             // 
             this.bugIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bugsToTestsBindingSource, "BugId", true));
+            this.bugIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bugsBindingSource1, "BugId", true));
             this.bugIdComboBox.DataSource = this.bugsBindingSource1;
-            this.bugIdComboBox.DisplayMember = "BugName";
+            this.bugIdComboBox.DisplayMember = "BugId";
             this.bugIdComboBox.FormattingEnabled = true;
             this.bugIdComboBox.Location = new System.Drawing.Point(582, 143);
             this.bugIdComboBox.Name = "bugIdComboBox";
@@ -285,15 +323,6 @@
             this.bugsBugsToTestsBindingSource.DataMember = "BugsBugsToTests";
             this.bugsBugsToTestsBindingSource.DataSource = this.bugsBindingSource;
             // 
-            // bugNameLabel
-            // 
-            bugNameLabel.AutoSize = true;
-            bugNameLabel.Location = new System.Drawing.Point(506, 173);
-            bugNameLabel.Name = "bugNameLabel";
-            bugNameLabel.Size = new System.Drawing.Size(60, 13);
-            bugNameLabel.TabIndex = 49;
-            bugNameLabel.Text = "Bug Name:";
-            // 
             // bugNameTextBox
             // 
             this.bugNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bugsBindingSource, "BugName", true));
@@ -302,15 +331,6 @@
             this.bugNameTextBox.Name = "bugNameTextBox";
             this.bugNameTextBox.Size = new System.Drawing.Size(121, 20);
             this.bugNameTextBox.TabIndex = 50;
-            // 
-            // bugDescriptionLabel
-            // 
-            bugDescriptionLabel.AutoSize = true;
-            bugDescriptionLabel.Location = new System.Drawing.Point(481, 199);
-            bugDescriptionLabel.Name = "bugDescriptionLabel";
-            bugDescriptionLabel.Size = new System.Drawing.Size(85, 13);
-            bugDescriptionLabel.TabIndex = 51;
-            bugDescriptionLabel.Text = "Bug Description:";
             // 
             // bugDescriptionRichTextBox
             // 
@@ -322,15 +342,6 @@
             this.bugDescriptionRichTextBox.TabIndex = 52;
             this.bugDescriptionRichTextBox.Text = "";
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(489, 70);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(79, 13);
-            label2.TabIndex = 55;
-            label2.Text = "Worker Name :";
-            // 
             // textBox2
             // 
             this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.testsBindingSource, "TestId", true));
@@ -339,15 +350,6 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(121, 20);
             this.textBox2.TabIndex = 56;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(489, 44);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(77, 13);
-            label1.TabIndex = 53;
-            label1.Text = "Project Name :";
             // 
             // textBox1
             // 

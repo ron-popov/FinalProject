@@ -111,6 +111,24 @@
             workerIdLabel.TabIndex = 7;
             workerIdLabel.Text = "Worker Id:";
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(581, 94);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(77, 13);
+            label1.TabIndex = 41;
+            label1.Text = "Project Name :";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(581, 145);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(79, 13);
+            label2.TabIndex = 43;
+            label2.Text = "Worker Name :";
+            // 
             // databaseDataSet
             // 
             this.databaseDataSet.DataSetName = "DatabaseDataSet";
@@ -322,32 +340,14 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(581, 94);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(77, 13);
-            label1.TabIndex = 41;
-            label1.Text = "Project Name :";
-            // 
             // textBox1
             // 
             this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.testsBindingSource, "TestId", true));
             this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(666, 91);
+            this.textBox1.Location = new System.Drawing.Point(664, 89);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(200, 20);
             this.textBox1.TabIndex = 42;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(581, 145);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(79, 13);
-            label2.TabIndex = 43;
-            label2.Text = "Worker Name :";
             // 
             // textBox2
             // 

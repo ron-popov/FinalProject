@@ -36,6 +36,7 @@
             System.Windows.Forms.Label label1;
             System.Windows.Forms.Label label2;
             System.Windows.Forms.Label label3;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(P2Teams));
             this.databaseDataSet = new DbapyInc.DatabaseDataSet();
             this.teamsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.teamsTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.TeamsTableAdapter();
@@ -66,6 +67,12 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.projectsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.projectsTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.ProjectsTableAdapter();
+            this.button13 = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
+            this.printDialog1 = new System.Windows.Forms.PrintDialog();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
             teamIdLabel = new System.Windows.Forms.Label();
             teamNameLabel = new System.Windows.Forms.Label();
             manageridLabel = new System.Windows.Forms.Label();
@@ -116,6 +123,33 @@
             componentIdLabel.Size = new System.Drawing.Size(76, 13);
             componentIdLabel.TabIndex = 7;
             componentIdLabel.Text = "Component Id:";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(802, 107);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(86, 13);
+            label1.TabIndex = 41;
+            label1.Text = "Manager Name :";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(790, 160);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(98, 13);
+            label2.TabIndex = 43;
+            label2.Text = "Component Name :";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new System.Drawing.Point(802, 186);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(77, 13);
+            label3.TabIndex = 45;
+            label3.Text = "Project Name :";
             // 
             // databaseDataSet
             // 
@@ -328,15 +362,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(802, 107);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(86, 13);
-            label1.TabIndex = 41;
-            label1.Text = "Manager Name :";
-            // 
             // textBox1
             // 
             this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teamsBindingSource, "TeamName", true));
@@ -347,15 +372,6 @@
             this.textBox1.TabIndex = 42;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(790, 160);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(98, 13);
-            label2.TabIndex = 43;
-            label2.Text = "Component Name :";
-            // 
             // textBox2
             // 
             this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teamsBindingSource, "TeamName", true));
@@ -365,15 +381,6 @@
             this.textBox2.Size = new System.Drawing.Size(121, 20);
             this.textBox2.TabIndex = 44;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new System.Drawing.Point(802, 186);
-            label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(77, 13);
-            label3.TabIndex = 45;
-            label3.Text = "Project Name :";
             // 
             // textBox3
             // 
@@ -393,11 +400,51 @@
             // 
             this.projectsTableAdapter.ClearBeforeFill = true;
             // 
+            // button13
+            // 
+            this.button13.Location = new System.Drawing.Point(108, 410);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(90, 39);
+            this.button13.TabIndex = 57;
+            this.button13.Text = "הדפס דוח צוותים";
+            this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
+            // 
+            // button12
+            // 
+            this.button12.Location = new System.Drawing.Point(12, 410);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(90, 40);
+            this.button12.TabIndex = 56;
+            this.button12.Text = "הצג דוח צוותים";
+            this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
+            // 
+            // printDialog1
+            // 
+            this.printDialog1.UseEXDialog = true;
+            // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            // 
             // P2Teams
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1043, 407);
+            this.ClientSize = new System.Drawing.Size(1043, 462);
+            this.Controls.Add(this.button13);
+            this.Controls.Add(this.button12);
             this.Controls.Add(label3);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(label2);
@@ -467,5 +514,11 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.BindingSource projectsBindingSource;
         private DatabaseDataSetTableAdapters.ProjectsTableAdapter projectsTableAdapter;
+        private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.PrintDialog printDialog1;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private System.Windows.Forms.PageSetupDialog pageSetupDialog1;
     }
 }

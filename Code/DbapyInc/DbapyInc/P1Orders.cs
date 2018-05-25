@@ -36,6 +36,7 @@ namespace DbapyInc
         {
 
             ordersBindingSource.AddNew();
+
             orderDateDateTimePicker.MinDate = DateTime.Today;
             orderDateDateTimePicker.MaxDate = DateTime.Today;
 
@@ -57,15 +58,12 @@ namespace DbapyInc
             max += 1;
 
             orderIdTextBox.Text = max.ToString();
-
-            UpdatePrice();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             customersBindingSource.RemoveCurrent();
 
-            UpdatePrice();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -104,14 +102,11 @@ namespace DbapyInc
             this.customersTableAdapter.Update(this.databaseDataSet.Customers);
 
             MessageBox.Show("Saved !");
-
-            UpdatePrice();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             this.customersTableAdapter.Fill(this.databaseDataSet.Customers);
-            UpdatePrice();
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -127,19 +122,15 @@ namespace DbapyInc
         private void button7_Click(object sender, EventArgs e)
         {
             customersBindingSource.MovePrevious();
-            UpdatePrice();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             customersBindingSource.MoveNext();
-            UpdatePrice();
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
-            UpdatePrice();
-
             /*string customerName = textBox1.Text;
 
             // A list of wanted customer id's
@@ -227,6 +218,20 @@ namespace DbapyInc
         private void customerIdComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             UpdateCustomerName();
+        }
+
+        private void orderIdTextBox_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

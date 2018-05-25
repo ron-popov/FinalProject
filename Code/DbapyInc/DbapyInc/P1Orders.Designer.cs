@@ -74,11 +74,12 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(622, 97);
+            label1.Location = new System.Drawing.Point(647, 120);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(37, 13);
             label1.TabIndex = 47;
             label1.Text = "Price :";
+            label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // orderIdLabel
             // 
@@ -107,9 +108,18 @@
             customerIdLabel.TabIndex = 52;
             customerIdLabel.Text = "Customer Id:";
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(600, 94);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(88, 13);
+            label2.TabIndex = 54;
+            label2.Text = "Customer Name :";
+            // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(773, 233);
+            this.button5.Location = new System.Drawing.Point(772, 270);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(100, 23);
             this.button5.TabIndex = 40;
@@ -119,7 +129,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(675, 232);
+            this.button6.Location = new System.Drawing.Point(674, 269);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(92, 23);
             this.button6.TabIndex = 39;
@@ -129,7 +139,7 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(773, 203);
+            this.button7.Location = new System.Drawing.Point(772, 240);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(100, 23);
             this.button7.TabIndex = 38;
@@ -139,7 +149,7 @@
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(675, 203);
+            this.button8.Location = new System.Drawing.Point(674, 240);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(92, 23);
             this.button8.TabIndex = 37;
@@ -149,7 +159,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(773, 159);
+            this.button4.Location = new System.Drawing.Point(772, 196);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(100, 23);
             this.button4.TabIndex = 36;
@@ -159,7 +169,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(675, 158);
+            this.button3.Location = new System.Drawing.Point(674, 195);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(92, 23);
             this.button3.TabIndex = 35;
@@ -169,7 +179,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(773, 129);
+            this.button2.Location = new System.Drawing.Point(772, 166);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 23);
             this.button2.TabIndex = 34;
@@ -179,7 +189,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(675, 129);
+            this.button1.Location = new System.Drawing.Point(674, 166);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(92, 23);
             this.button1.TabIndex = 33;
@@ -205,10 +215,11 @@
             // 
             this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ordersBindingSource, "OrderId", true));
             this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(694, 93);
+            this.textBox1.Location = new System.Drawing.Point(694, 117);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(200, 20);
             this.textBox1.TabIndex = 48;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // tableAdapterManager
             // 
@@ -234,10 +245,12 @@
             // orderIdTextBox
             // 
             this.orderIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ordersBindingSource, "OrderId", true));
+            this.orderIdTextBox.Enabled = false;
             this.orderIdTextBox.Location = new System.Drawing.Point(694, 13);
             this.orderIdTextBox.Name = "orderIdTextBox";
             this.orderIdTextBox.Size = new System.Drawing.Size(200, 20);
             this.orderIdTextBox.TabIndex = 49;
+            this.orderIdTextBox.TextChanged += new System.EventHandler(this.orderIdTextBox_TextChanged);
             // 
             // orderDateDateTimePicker
             // 
@@ -276,7 +289,7 @@
             this.ordersDataGridView.DataSource = this.ordersBindingSource;
             this.ordersDataGridView.Location = new System.Drawing.Point(12, 6);
             this.ordersDataGridView.Name = "ordersDataGridView";
-            this.ordersDataGridView.Size = new System.Drawing.Size(591, 250);
+            this.ordersDataGridView.Size = new System.Drawing.Size(582, 250);
             this.ordersDataGridView.TabIndex = 48;
             // 
             // dataGridViewTextBoxColumn1
@@ -306,29 +319,20 @@
             // 
             this.projectsTableAdapter.ClearBeforeFill = true;
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(917, 68);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(41, 13);
-            label2.TabIndex = 54;
-            label2.Text = "Name :";
-            // 
             // textBox2
             // 
             this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ordersBindingSource, "OrderId", true));
             this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(960, 65);
+            this.textBox2.Location = new System.Drawing.Point(694, 91);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(128, 20);
+            this.textBox2.Size = new System.Drawing.Size(200, 20);
             this.textBox2.TabIndex = 55;
             // 
             // P1Orders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1132, 277);
+            this.ClientSize = new System.Drawing.Size(910, 315);
             this.Controls.Add(label2);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(orderIdLabel);

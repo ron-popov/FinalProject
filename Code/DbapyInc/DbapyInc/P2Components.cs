@@ -28,6 +28,7 @@ namespace DbapyInc
             // Loading Project Id's to combobox
             foreach (DataRow row in databaseDataSet.Projects.Rows)
             {
+                string data = row["ProjectId"].ToString();
                 projectIdComboBox.Items.Add((int)row["ProjectId"]);
             }
 

@@ -249,29 +249,29 @@ namespace DbapyInc
             e.Graphics.DrawString("דוח עובד", new Font("Arial", 30, FontStyle.Bold), Brushes.Black, new Point(300, 100));
 
             // Worker fields
-            e.Graphics.DrawString(workerIdTextBox.Text + " : קוד עובד", new Font("Arial", 20, FontStyle.Regular), Brushes.Black, new Point(500, 150));
+            e.Graphics.DrawString(workerIdTextBox.Text + " : קוד עובד", new Font("Arial", 20, FontStyle.Regular), Brushes.Black, new Point(300, 150));
 
-            e.Graphics.DrawString(workerNameTextBox.Text + " : שם עובד", new Font("Arial", 20, FontStyle.Regular), Brushes.Black, new Point(500, 175));
+            e.Graphics.DrawString(workerNameTextBox.Text + " : שם עובד", new Font("Arial", 20, FontStyle.Regular), Brushes.Black, new Point(300, 175));
 
-            e.Graphics.DrawString(workerPhoneMaskedTextBox.Text + " : מספר טלפון עובד", new Font("Arial", 20, FontStyle.Regular), Brushes.Black, new Point(500, 200));
+            e.Graphics.DrawString(workerPhoneMaskedTextBox.Text + " : מספר טלפון עובד", new Font("Arial", 20, FontStyle.Regular), Brushes.Black, new Point(300, 200));
 
-            e.Graphics.DrawString(workerAddressTextBox.Text + " : כתובת עובד", new Font("Arial", 20, FontStyle.Regular), Brushes.Black, new Point(500, 225));
+            e.Graphics.DrawString(workerAddressTextBox.Text + " : כתובת עובד", new Font("Arial", 20, FontStyle.Regular), Brushes.Black, new Point(300, 225));
 
-            e.Graphics.DrawString(workerBirthDateDateTimePicker.Value.ToShortDateString() + " : תאריך לידה עובד", new Font("Arial", 20, FontStyle.Regular), Brushes.Black, new Point(500, 250));
+            e.Graphics.DrawString(workerBirthDateDateTimePicker.Value.ToShortDateString() + " : תאריך לידה עובד", new Font("Arial", 20, FontStyle.Regular), Brushes.Black, new Point(300, 250));
 
-            e.Graphics.DrawString(workerJoinDateDateTimePicker.Value.ToShortDateString() + " : תאריך הצטרפות עובד", new Font("Arial", 20, FontStyle.Regular), Brushes.Black, new Point(500, 275));
+            e.Graphics.DrawString(workerJoinDateDateTimePicker.Value.ToShortDateString() + " : תאריך הצטרפות עובד", new Font("Arial", 20, FontStyle.Regular), Brushes.Black, new Point(300, 275));
 
             // Calculate years of experience
             TimeSpan Experience = DateTime.Now - workerJoinDateDateTimePicker.Value;
             string experience = ((Experience).Days / 365).ToString();
 
-            e.Graphics.DrawString(experience + " : שנות וותק עובד", new Font("Arial", 20, FontStyle.Regular), Brushes.Black, new Point(500, 300));
+            e.Graphics.DrawString(experience + " : שנות וותק עובד", new Font("Arial", 20, FontStyle.Regular), Brushes.Black, new Point(300, 300));
 
             // Calculate years of experience
             TimeSpan Age = DateTime.Now - workerBirthDateDateTimePicker.Value;
             string age = ((Age).Days / 365).ToString();
 
-            e.Graphics.DrawString(age + " : גיל עובד", new Font("Arial", 20, FontStyle.Regular), Brushes.Black, new Point(500, 325));
+            e.Graphics.DrawString(age + " : גיל עובד", new Font("Arial", 20, FontStyle.Regular), Brushes.Black, new Point(300, 325));
         }
 
         private void button12_Click(object sender, EventArgs e)
