@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.Label label1;
             System.Windows.Forms.Label componentIdLabel;
             System.Windows.Forms.Label componentNameLabel;
             System.Windows.Forms.Label projectIdLabel;
-            System.Windows.Forms.Label label1;
             this.databaseDataSet = new DbapyInc.DatabaseDataSet();
             this.projectComponentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.projectComponentsTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.ProjectComponentsTableAdapter();
@@ -42,9 +42,6 @@
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.componentIdTextBox = new System.Windows.Forms.TextBox();
-            this.componentNameTextBox = new System.Windows.Forms.TextBox();
-            this.projectIdComboBox = new System.Windows.Forms.ComboBox();
             this.projectsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
@@ -60,42 +57,18 @@
             this.button10 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.componentIdTextBox = new System.Windows.Forms.TextBox();
+            this.componentNameTextBox = new System.Windows.Forms.TextBox();
+            this.projectIdComboBox = new System.Windows.Forms.ComboBox();
+            label1 = new System.Windows.Forms.Label();
             componentIdLabel = new System.Windows.Forms.Label();
             componentNameLabel = new System.Windows.Forms.Label();
             projectIdLabel = new System.Windows.Forms.Label();
-            label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectComponentsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectComponentsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectsBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // componentIdLabel
-            // 
-            componentIdLabel.AutoSize = true;
-            componentIdLabel.Location = new System.Drawing.Point(674, 25);
-            componentIdLabel.Name = "componentIdLabel";
-            componentIdLabel.Size = new System.Drawing.Size(76, 13);
-            componentIdLabel.TabIndex = 1;
-            componentIdLabel.Text = "Component Id:";
-            // 
-            // componentNameLabel
-            // 
-            componentNameLabel.AutoSize = true;
-            componentNameLabel.Location = new System.Drawing.Point(674, 51);
-            componentNameLabel.Name = "componentNameLabel";
-            componentNameLabel.Size = new System.Drawing.Size(95, 13);
-            componentNameLabel.TabIndex = 3;
-            componentNameLabel.Text = "Component Name:";
-            // 
-            // projectIdLabel
-            // 
-            projectIdLabel.AutoSize = true;
-            projectIdLabel.Location = new System.Drawing.Point(674, 77);
-            projectIdLabel.Name = "projectIdLabel";
-            projectIdLabel.Size = new System.Drawing.Size(55, 13);
-            projectIdLabel.TabIndex = 5;
-            projectIdLabel.Text = "Project Id:";
             // 
             // label1
             // 
@@ -172,36 +145,6 @@
             this.dataGridViewTextBoxColumn3.DataPropertyName = "ProjectId";
             this.dataGridViewTextBoxColumn3.HeaderText = "ProjectId";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // componentIdTextBox
-            // 
-            this.componentIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.projectComponentsBindingSource, "ComponentId", true));
-            this.componentIdTextBox.Enabled = false;
-            this.componentIdTextBox.Location = new System.Drawing.Point(775, 22);
-            this.componentIdTextBox.Name = "componentIdTextBox";
-            this.componentIdTextBox.Size = new System.Drawing.Size(121, 20);
-            this.componentIdTextBox.TabIndex = 2;
-            // 
-            // componentNameTextBox
-            // 
-            this.componentNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.projectComponentsBindingSource, "ComponentName", true));
-            this.componentNameTextBox.Location = new System.Drawing.Point(775, 48);
-            this.componentNameTextBox.Name = "componentNameTextBox";
-            this.componentNameTextBox.Size = new System.Drawing.Size(121, 20);
-            this.componentNameTextBox.TabIndex = 4;
-            // 
-            // projectIdComboBox
-            // 
-            this.projectIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.projectComponentsBindingSource, "ProjectId", true));
-            this.projectIdComboBox.DataSource = this.projectsBindingSource;
-            this.projectIdComboBox.DisplayMember = "ProjectId";
-            this.projectIdComboBox.FormattingEnabled = true;
-            this.projectIdComboBox.Location = new System.Drawing.Point(775, 74);
-            this.projectIdComboBox.Name = "projectIdComboBox";
-            this.projectIdComboBox.Size = new System.Drawing.Size(121, 21);
-            this.projectIdComboBox.TabIndex = 6;
-            this.projectIdComboBox.ValueMember = "ProjectId";
-            this.projectIdComboBox.SelectedIndexChanged += new System.EventHandler(this.projectIdComboBox_SelectedIndexChanged);
             // 
             // projectsBindingSource
             // 
@@ -341,11 +284,73 @@
             this.textBox3.Size = new System.Drawing.Size(121, 20);
             this.textBox3.TabIndex = 55;
             // 
+            // componentIdLabel
+            // 
+            componentIdLabel.AutoSize = true;
+            componentIdLabel.Location = new System.Drawing.Point(674, 24);
+            componentIdLabel.Name = "componentIdLabel";
+            componentIdLabel.Size = new System.Drawing.Size(76, 13);
+            componentIdLabel.TabIndex = 55;
+            componentIdLabel.Text = "Component Id:";
+            // 
+            // componentIdTextBox
+            // 
+            this.componentIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.projectComponentsBindingSource, "ComponentId", true));
+            this.componentIdTextBox.Enabled = false;
+            this.componentIdTextBox.Location = new System.Drawing.Point(775, 21);
+            this.componentIdTextBox.Name = "componentIdTextBox";
+            this.componentIdTextBox.Size = new System.Drawing.Size(121, 20);
+            this.componentIdTextBox.TabIndex = 56;
+            // 
+            // componentNameLabel
+            // 
+            componentNameLabel.AutoSize = true;
+            componentNameLabel.Location = new System.Drawing.Point(674, 50);
+            componentNameLabel.Name = "componentNameLabel";
+            componentNameLabel.Size = new System.Drawing.Size(95, 13);
+            componentNameLabel.TabIndex = 57;
+            componentNameLabel.Text = "Component Name:";
+            // 
+            // componentNameTextBox
+            // 
+            this.componentNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.projectComponentsBindingSource, "ComponentName", true));
+            this.componentNameTextBox.Location = new System.Drawing.Point(775, 47);
+            this.componentNameTextBox.Name = "componentNameTextBox";
+            this.componentNameTextBox.Size = new System.Drawing.Size(121, 20);
+            this.componentNameTextBox.TabIndex = 58;
+            // 
+            // projectIdLabel
+            // 
+            projectIdLabel.AutoSize = true;
+            projectIdLabel.Location = new System.Drawing.Point(674, 76);
+            projectIdLabel.Name = "projectIdLabel";
+            projectIdLabel.Size = new System.Drawing.Size(55, 13);
+            projectIdLabel.TabIndex = 59;
+            projectIdLabel.Text = "Project Id:";
+            // 
+            // projectIdComboBox
+            // 
+            this.projectIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.projectComponentsBindingSource, "ProjectId", true));
+            this.projectIdComboBox.DataSource = this.projectsBindingSource;
+            this.projectIdComboBox.DisplayMember = "ProjectId";
+            this.projectIdComboBox.FormattingEnabled = true;
+            this.projectIdComboBox.Location = new System.Drawing.Point(775, 73);
+            this.projectIdComboBox.Name = "projectIdComboBox";
+            this.projectIdComboBox.Size = new System.Drawing.Size(121, 21);
+            this.projectIdComboBox.TabIndex = 60;
+            this.projectIdComboBox.ValueMember = "ProjectId";
+            // 
             // P2Components
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(909, 421);
+            this.ClientSize = new System.Drawing.Size(921, 429);
+            this.Controls.Add(componentIdLabel);
+            this.Controls.Add(this.componentIdTextBox);
+            this.Controls.Add(componentNameLabel);
+            this.Controls.Add(this.componentNameTextBox);
+            this.Controls.Add(projectIdLabel);
+            this.Controls.Add(this.projectIdComboBox);
             this.Controls.Add(label1);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.button11);
@@ -361,12 +366,6 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(componentIdLabel);
-            this.Controls.Add(this.componentIdTextBox);
-            this.Controls.Add(componentNameLabel);
-            this.Controls.Add(this.componentNameTextBox);
-            this.Controls.Add(projectIdLabel);
-            this.Controls.Add(this.projectIdComboBox);
             this.Controls.Add(this.projectComponentsDataGridView);
             this.Name = "P2Components";
             this.Text = "P2Components";
@@ -391,9 +390,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.TextBox componentIdTextBox;
-        private System.Windows.Forms.TextBox componentNameTextBox;
-        private System.Windows.Forms.ComboBox projectIdComboBox;
         private System.Windows.Forms.BindingSource projectsBindingSource;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
@@ -409,5 +405,8 @@
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox componentIdTextBox;
+        private System.Windows.Forms.TextBox componentNameTextBox;
+        private System.Windows.Forms.ComboBox projectIdComboBox;
     }
 }
