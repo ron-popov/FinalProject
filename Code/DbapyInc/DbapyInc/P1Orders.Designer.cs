@@ -175,7 +175,7 @@
             // 
             // priceTextBox
             // 
-            this.priceTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ordersBindingSource, "OrderId", true));
+            //this.priceTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ordersBindingSource, "OrderId", true));
             this.priceTextBox.Enabled = false;
             this.priceTextBox.Location = new System.Drawing.Point(708, 86);
             this.priceTextBox.Name = "priceTextBox";

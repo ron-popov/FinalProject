@@ -50,6 +50,8 @@ namespace DbapyInc
             {
                 int id = int.Parse(row["OrderId"].ToString());
 
+                MessageBox.Show(id.ToString());
+
                 if (id > max)
                 {
                     max = id;
@@ -64,6 +66,8 @@ namespace DbapyInc
 
 
             UpdateComboBox();
+
+            UpdatePrice();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -72,6 +76,8 @@ namespace DbapyInc
 
 
             UpdateComboBox();
+
+            UpdatePrice();
 
         }
 
@@ -94,6 +100,8 @@ namespace DbapyInc
 
             UpdateComboBox();
 
+            UpdatePrice();
+
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -101,6 +109,8 @@ namespace DbapyInc
             ordersBindingSource.MoveFirst();
 
             UpdateComboBox();
+
+            UpdatePrice();
 
         }
 
@@ -110,6 +120,8 @@ namespace DbapyInc
 
             UpdateComboBox();
 
+            UpdatePrice();
+
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -118,6 +130,7 @@ namespace DbapyInc
 
             UpdateComboBox();
 
+            UpdatePrice();
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -126,13 +139,15 @@ namespace DbapyInc
 
             UpdateComboBox();
 
+            UpdatePrice();
+
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
             string customerName = priceTextBox.Text;
 
-            /*
+            
             // A list of wanted customer id's
             List<int> customerId = new List<int>();
             
@@ -165,12 +180,12 @@ namespace DbapyInc
                 DataView dv = new DataView(databaseDataSet.Customers);
                 dv.RowFilter = query;
                 ordersDataGridView.DataSource = dv;
-            }*/
+            }
         }
 
         private void UpdatePrice()
         {
-            string selection = orderIdTextBox.Text;
+            string selection = string.Copy(orderIdTextBox.Text);
             if (selection.Length == 0)
             {
                 priceTextBox.Text = "";
@@ -189,7 +204,7 @@ namespace DbapyInc
                 }
             }
 
-            //priceTextBox.Text = priceCounter.ToString();
+            priceTextBox.Text = priceCounter.ToString();
         }
         
         private void customerIdComboBox_SelectedIndexChanged(object sender, EventArgs e)
