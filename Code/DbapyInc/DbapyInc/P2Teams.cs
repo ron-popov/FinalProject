@@ -230,6 +230,54 @@ namespace DbapyInc
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
+            int i = 0;
+            int j;
+            int x = 100;
+            int y = 100;
+            int w = 100;
+            int h = 30;
+
+            Pen P = new Pen(Brushes.Black, 2.5f);
+
+            while (i < databaseDataSet.Teams.Columns.Count)
+            {
+                e.Graphics.FillRectangle(Brushes.DarkGray, new Rectangle(x, y, w, h));
+
+                e.Graphics.DrawRectangle(P, new Rectangle(x, y, w, h));
+
+                e.Graphics.DrawString(databaseDataSet.Teams.Columns[i].ColumnName.ToString(), new Font("Ariel", 10, FontStyle.Regular), Brushes.Black, new Rectangle(x + 10, y, w, h));
+
+                i++;
+                x += 100;
+            }
+
+            i = 0;
+
+            while (i < databaseDataSet.Teams.Rows.Count)
+            {
+                x = 100;
+                y += 30;
+                w = 100;
+                h = 30;
+                j = 0;
+
+                while (j < databaseDataSet.Teams.Columns.Count)
+                {
+                    e.Graphics.DrawRectangle(P, new Rectangle(x, y, w, h));
+
+                    e.Graphics.DrawString(databaseDataSet.Teams.Rows[i][j].ToString(), new Font("Ariel", 10, FontStyle.Regular), Brushes.Black, new Rectangle(x + 10, y, w, h));
+
+                    j++;
+
+                    x += 100;
+                }
+
+                i++;
+            }
+        }
+
+        private void printDocument2_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
 
         }
     }

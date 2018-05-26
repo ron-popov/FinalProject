@@ -272,6 +272,57 @@ namespace DbapyInc
             string age = ((Age).Days / 365).ToString();
 
             e.Graphics.DrawString(age + " : גיל עובד", new Font("Arial", 20, FontStyle.Regular), Brushes.Black, new Point(300, 325));
+
+
+
+            int i = 0;
+            int j;
+            int x = 100;
+            int y = 600;
+            int w = 100;
+            int h = 30;
+
+            Pen P = new Pen(Brushes.Black, 2.5f);
+
+            while (i < databaseDataSet.WorkersToTeams.Columns.Count)
+            {
+                e.Graphics.FillRectangle(Brushes.DarkGray, new Rectangle(x, y, w, h));
+
+                e.Graphics.DrawRectangle(P, new Rectangle(x, y, w, h));
+
+                e.Graphics.DrawString(databaseDataSet.WorkersToTeams.Columns[i].ColumnName.ToString(), new Font("Ariel", 10, FontStyle.Regular), Brushes.Black, new Rectangle(x + 10, y, w, h));
+
+                i++;
+                x += 100;
+            }
+
+            i = 0;
+
+            while (i < databaseDataSet.WorkersToTeams.Rows.Count)
+            {
+                x = 100;
+                y += 30;
+                w = 100;
+                h = 30;
+                j = 0;
+
+                if (databaseDataSet.Workers.Rows[i][1].ToString() == workerIdTextBox.ToString())
+                {
+                    while (j < databaseDataSet.WorkersToTeams.Columns.Count)
+                    {
+
+                        e.Graphics.DrawRectangle(P, new Rectangle(x, y, w, h));
+
+                        e.Graphics.DrawString(databaseDataSet.WorkersToTeams.Rows[i][j].ToString(), new Font("Ariel", 10, FontStyle.Regular), Brushes.Black, new Rectangle(x + 10, y, w, h));
+
+                        j++;
+
+                        x += 100;
+                    }
+
+                    i++;
+                }
+            }
         }
 
         private void button12_Click(object sender, EventArgs e)
@@ -286,6 +337,71 @@ namespace DbapyInc
             if(prbutton.Equals(DialogResult.OK))
             {
                 printDocument1.Print();
+            }
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            printPreviewDialog1.Document = printDocument2;
+            printPreviewDialog1.ShowDialog();
+
+
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            DialogResult prbutton = printDialog1.ShowDialog();
+            if (prbutton.Equals(DialogResult.OK))
+            {
+                printDocument2.Print();
+            }
+        }
+
+        private void printDocument2_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            int i = 0;
+            int j;
+            int x = 100;
+            int y = 100;
+            int w = 100;
+            int h = 30;
+
+            Pen P = new Pen(Brushes.Black, 2.5f);
+
+            while (i < databaseDataSet.Workers.Columns.Count)
+            {
+                e.Graphics.FillRectangle(Brushes.DarkGray, new Rectangle(x, y, w, h));
+
+                e.Graphics.DrawRectangle(P, new Rectangle(x, y, w, h));
+
+                e.Graphics.DrawString(databaseDataSet.Workers.Columns[i].ColumnName.ToString(), new Font("Ariel", 10, FontStyle.Regular), Brushes.Black, new Rectangle(x + 10, y, w, h));
+
+                i++;
+                x += 100;
+            }
+
+            i = 0;
+
+            while (i < databaseDataSet.Workers.Rows.Count)
+            {
+                x = 100;
+                y += 30;
+                w = 100;
+                h = 30;
+                j = 0;
+
+                while (j < databaseDataSet.Workers.Columns.Count)
+                {
+                    e.Graphics.DrawRectangle(P, new Rectangle(x, y, w, h));
+
+                    e.Graphics.DrawString(databaseDataSet.Workers.Rows[i][j].ToString(), new Font("Ariel", 10, FontStyle.Regular), Brushes.Black, new Rectangle(x + 10, y, w, h));
+
+                    j++;
+
+                    x += 100;
+                }
+
+                i++;
             }
         }
     }

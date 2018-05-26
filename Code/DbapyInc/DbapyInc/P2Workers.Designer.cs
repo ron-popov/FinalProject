@@ -35,8 +35,8 @@
             System.Windows.Forms.Label workerAddressLabel;
             System.Windows.Forms.Label workerJoinDateLabel;
             System.Windows.Forms.Label workerBirthDateLabel;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(P2Workers));
             this.databaseDataSet = new DbapyInc.DatabaseDataSet();
             this.workersBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -84,6 +84,9 @@
             this.workersToTeamsTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.WorkersToTeamsTableAdapter();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
+            this.button14 = new System.Windows.Forms.Button();
+            this.button15 = new System.Windows.Forms.Button();
+            this.printDocument2 = new System.Drawing.Printing.PrintDocument();
             workerIdLabel = new System.Windows.Forms.Label();
             workerNameLabel = new System.Windows.Forms.Label();
             workerPhoneLabel = new System.Windows.Forms.Label();
@@ -305,16 +308,16 @@
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.DataPropertyName = "WorkerJoinDate";
-            dataGridViewCellStyle1.Format = "dd/MM/yyyy";
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Format = "dd/MM/yyyy";
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewTextBoxColumn5.HeaderText = "WorkerJoinDate";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.DataPropertyName = "WorkerBirthDate";
-            dataGridViewCellStyle2.Format = "dd/MM/yyyy";
-            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Format = "dd/MM/yyyy";
+            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewTextBoxColumn6.HeaderText = "WorkerBirthDate";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             // 
@@ -525,11 +528,37 @@
             this.textBox5.Size = new System.Drawing.Size(183, 20);
             this.textBox5.TabIndex = 58;
             // 
+            // button14
+            // 
+            this.button14.Location = new System.Drawing.Point(670, 448);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(90, 39);
+            this.button14.TabIndex = 61;
+            this.button14.Text = "הדפס דוח עובדים";
+            this.button14.UseVisualStyleBackColor = true;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
+            // 
+            // button15
+            // 
+            this.button15.Location = new System.Drawing.Point(670, 402);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(90, 40);
+            this.button15.TabIndex = 60;
+            this.button15.Text = "הצג דוח עובדים";
+            this.button15.UseVisualStyleBackColor = true;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
+            // 
+            // printDocument2
+            // 
+            this.printDocument2.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument2_PrintPage);
+            // 
             // P2Workers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1150, 502);
+            this.Controls.Add(this.button14);
+            this.Controls.Add(this.button15);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.label3);
@@ -626,5 +655,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.Button button15;
+        private System.Drawing.Printing.PrintDocument printDocument2;
     }
 }
