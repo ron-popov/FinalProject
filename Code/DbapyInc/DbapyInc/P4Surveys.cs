@@ -34,10 +34,25 @@ namespace DbapyInc
             // TODO: This line of code loads data into the 'databaseDataSet.Surveys' table. You can move, or remove it, as needed.
             this.surveysTableAdapter.Fill(this.databaseDataSet.Surveys);
 
+            // Changing printDocument1 to be in landscape mode
             printDocument1.DefaultPageSettings.Landscape = true;
+
+            // Iterating over workers and adding their names to the workers combobox
+            foreach(DataRow row in databaseDataSet.Workers.Rows)
+            {
+                comboBox1.Items.Add(row["WorkerName"].ToString());
+            }
+
+
+            // Iterating over Projects and adding their names to the Projects combobox
+            foreach (DataRow row in databaseDataSet.Projects.Rows)
+            {
+                comboBox2.Items.Add(row["ProjectName"].ToString());
+            }
 
         }
 
+        // Handler for the add new button
         private void button1_Click(object sender, EventArgs e)
         {
             surveysBindingSource.AddNew();
@@ -65,35 +80,54 @@ namespace DbapyInc
             surveyIdTextBox.Text = max.ToString();
         }
 
+        // handler for the remove button
         private void button2_Click(object sender, EventArgs e)
         {
             surveysBindingSource.RemoveCurrent();
+
+
+            UpdateWorkerComboBox();
         }
 
+        // Handler for the first button
         private void button8_Click(object sender, EventArgs e)
         {
             surveysBindingSource.MoveFirst();
+
+
+            UpdateWorkerComboBox();
         }
 
+        // handler for the last button
         private void button6_Click(object sender, EventArgs e)
         {
             surveysBindingSource.MoveLast();
+
+
+            UpdateWorkerComboBox();
         }
 
+        // handler for the up button
         private void button7_Click(object sender, EventArgs e)
         {
             surveysBindingSource.MovePrevious();
+
+            UpdateWorkerComboBox();
         }
 
+        // handler for the down button
         private void button5_Click(object sender, EventArgs e)
         {
             surveysBindingSource.MoveNext();
+
+
+            UpdateWorkerComboBox();
         }
 
+        // Sets the content of printDocument1
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
 
-            
             int i = 0;
             int j;
             int x = 100;
@@ -141,11 +175,105 @@ namespace DbapyInc
             }
         }
 
+        // Handler for the show report button
         private void button14_Click(object sender, EventArgs e)
         {
             printPreviewDialog1.Document = printDocument1;
 
             printPreviewDialog1.ShowDialog();
+        }
+        
+        // Updates the selected combobox item according to the project id
+        private void UpdateProjectCombobox()
+        {
+
+        }
+
+        // Updates the content of the project id text box according to the combobox item selected
+        private void UpdateProjectIdTextBox()
+        {
+            if (comboBox2.SelectedItem == null)
+            {
+                return;
+            }
+
+            string projectname = comboBox2.SelectedItem.ToString();
+
+            foreach (DataRow row in databaseDataSet.Projects.Rows)
+            {
+                if (projectname.Equals(row["ProjectName"].ToString()))
+                {
+                    projectIdTextBox.Text = row["ProjectId"].ToString();
+                    return;
+                }
+            }
+        }
+
+        // Updates the selected combobox item according to the worker id
+        private void UpdateWorkerComboBox()
+        {
+            if(workerIdTextBox.Text.Length == 0)
+            {
+                return;
+            }
+
+            int workerId = int.Parse(workerIdTextBox.Text);
+
+            foreach(DataRow row in databaseDataSet.Workers.Rows)
+            {
+                if((int)row["WorkerId"] == workerId)
+                {
+                    comboBox1.SelectedText = row["WorkerName"].ToString();
+                }
+            }
+        }
+
+        // Updates the content of the worker id text box according to the combobox item selected
+        private void UpdateWorkerIdTextBox()
+        {
+            if (comboBox1.SelectedItem == null)
+            {
+                return;
+            }
+
+            string workerName = comboBox1.SelectedItem.ToString();
+
+            foreach (DataRow row in databaseDataSet.Workers.Rows)
+            {
+                if (workerName.Equals(row["WorkerName"].ToString()))
+                {
+                    workerIdTextBox.Text = row["WorkerId"].ToString();
+                    return;
+                }
+            }
+        }
+
+        // Handler for the worker id selection event
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateWorkerIdTextBox();
+        }
+
+        // Handler for the Project id selection event
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateProjectIdTextBox();
+        }
+
+        // handler for the save button
+        private void button4_Click(object sender, EventArgs e)
+        {
+            surveysBindingSource.EndEdit();
+            this.surveysTableAdapter.Update(this.databaseDataSet.Surveys);
+        }
+
+        // handler for the update from database button
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.surveysTableAdapter.Fill(this.databaseDataSet.Surveys);
+
+
+            UpdateWorkerComboBox();
         }
     }
 }

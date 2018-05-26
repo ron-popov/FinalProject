@@ -17,14 +17,17 @@ namespace DbapyInc
             InitializeComponent();
         }
 
+        // Handler for the surveys button
         private void button1_Click(object sender, EventArgs e)
         {
-            P4Surveys form = new P4Surveys();
-            form.Show();
+            // Creating an anonymous P4Surveys objects and calling it's show method
+            (new P4Surveys()).Show();
         }
 
+        // Handler for the graphs button
         private void button2_Click(object sender, EventArgs e)
         {
+            // Creating an anonymous P4Graphs objects and calling it's show method
             (new P4Graphs()).Show();
         }
     }

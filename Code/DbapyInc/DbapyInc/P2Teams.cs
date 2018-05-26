@@ -100,21 +100,6 @@ namespace DbapyInc
                 return;
             }
 
-            // Checking for duplicates
-            List<int> idList = new List<int>();
-
-            foreach (DataRow row in databaseDataSet.Teams.Rows)
-            {
-                int id = (int)(row["TeamId"]);
-                if (idList.Contains(id))
-                {
-                    MessageBox.Show("Team Id Duplicated found, please remove duplicate before saving");
-                    return;
-                }
-
-                idList.Add(id);
-            }
-
             // Saving to database
             teamsBindingSource.EndEdit();
             this.teamsTableAdapter.Update(this.databaseDataSet.Teams);

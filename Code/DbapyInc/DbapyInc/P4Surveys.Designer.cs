@@ -30,14 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label surveyIdLabel;
-            System.Windows.Forms.Label projectIdLabel;
             System.Windows.Forms.Label surveyDateLabel;
-            System.Windows.Forms.Label workerIdLabel;
             System.Windows.Forms.Label q1Label;
             System.Windows.Forms.Label q2Label;
             System.Windows.Forms.Label q3Label;
             System.Windows.Forms.Label q4Label;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(P4Surveys));
+            System.Windows.Forms.Label workerIdLabel;
+            System.Windows.Forms.Label projectIdLabel;
             this.databaseDataSet = new DbapyInc.DatabaseDataSet();
             this.surveysBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.surveysTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.SurveysTableAdapter();
@@ -52,10 +52,8 @@
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.surveyIdTextBox = new System.Windows.Forms.TextBox();
-            this.projectIdComboBox = new System.Windows.Forms.ComboBox();
             this.projectsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.surveyDateDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.workerIdComboBox = new System.Windows.Forms.ComboBox();
             this.workersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.q1ComboBox = new System.Windows.Forms.ComboBox();
             this.q2ComboBox = new System.Windows.Forms.ComboBox();
@@ -77,14 +75,18 @@
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.workerIdTextBox = new System.Windows.Forms.TextBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.projectIdTextBox = new System.Windows.Forms.TextBox();
             surveyIdLabel = new System.Windows.Forms.Label();
-            projectIdLabel = new System.Windows.Forms.Label();
             surveyDateLabel = new System.Windows.Forms.Label();
-            workerIdLabel = new System.Windows.Forms.Label();
             q1Label = new System.Windows.Forms.Label();
             q2Label = new System.Windows.Forms.Label();
             q3Label = new System.Windows.Forms.Label();
             q4Label = new System.Windows.Forms.Label();
+            workerIdLabel = new System.Windows.Forms.Label();
+            projectIdLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.surveysBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.surveysDataGridView)).BeginInit();
@@ -101,15 +103,6 @@
             surveyIdLabel.TabIndex = 1;
             surveyIdLabel.Text = "Survey Id:";
             // 
-            // projectIdLabel
-            // 
-            projectIdLabel.AutoSize = true;
-            projectIdLabel.Location = new System.Drawing.Point(890, 52);
-            projectIdLabel.Name = "projectIdLabel";
-            projectIdLabel.Size = new System.Drawing.Size(55, 13);
-            projectIdLabel.TabIndex = 3;
-            projectIdLabel.Text = "Project Id:";
-            // 
             // surveyDateLabel
             // 
             surveyDateLabel.AutoSize = true;
@@ -118,15 +111,6 @@
             surveyDateLabel.Size = new System.Drawing.Size(69, 13);
             surveyDateLabel.TabIndex = 5;
             surveyDateLabel.Text = "Survey Date:";
-            // 
-            // workerIdLabel
-            // 
-            workerIdLabel.AutoSize = true;
-            workerIdLabel.Location = new System.Drawing.Point(890, 105);
-            workerIdLabel.Name = "workerIdLabel";
-            workerIdLabel.Size = new System.Drawing.Size(57, 13);
-            workerIdLabel.TabIndex = 7;
-            workerIdLabel.Text = "Worker Id:";
             // 
             // q1Label
             // 
@@ -271,18 +255,6 @@
             this.surveyIdTextBox.Size = new System.Drawing.Size(200, 20);
             this.surveyIdTextBox.TabIndex = 2;
             // 
-            // projectIdComboBox
-            // 
-            this.projectIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.surveysBindingSource, "ProjectId", true));
-            this.projectIdComboBox.DataSource = this.projectsBindingSource;
-            this.projectIdComboBox.DisplayMember = "ProjectName";
-            this.projectIdComboBox.FormattingEnabled = true;
-            this.projectIdComboBox.Location = new System.Drawing.Point(965, 49);
-            this.projectIdComboBox.Name = "projectIdComboBox";
-            this.projectIdComboBox.Size = new System.Drawing.Size(200, 21);
-            this.projectIdComboBox.TabIndex = 4;
-            this.projectIdComboBox.ValueMember = "ProjectId";
-            // 
             // projectsBindingSource
             // 
             this.projectsBindingSource.DataMember = "Projects";
@@ -295,18 +267,6 @@
             this.surveyDateDateTimePicker.Name = "surveyDateDateTimePicker";
             this.surveyDateDateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.surveyDateDateTimePicker.TabIndex = 6;
-            // 
-            // workerIdComboBox
-            // 
-            this.workerIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.surveysBindingSource, "WorkerId", true));
-            this.workerIdComboBox.DataSource = this.workersBindingSource;
-            this.workerIdComboBox.DisplayMember = "WorkerName";
-            this.workerIdComboBox.FormattingEnabled = true;
-            this.workerIdComboBox.Location = new System.Drawing.Point(965, 102);
-            this.workerIdComboBox.Name = "workerIdComboBox";
-            this.workerIdComboBox.Size = new System.Drawing.Size(200, 21);
-            this.workerIdComboBox.TabIndex = 8;
-            this.workerIdComboBox.ValueMember = "WorkerId";
             // 
             // workersBindingSource
             // 
@@ -322,12 +282,7 @@
             "2",
             "3",
             "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10"});
+            "5"});
             this.q1ComboBox.Location = new System.Drawing.Point(965, 129);
             this.q1ComboBox.Name = "q1ComboBox";
             this.q1ComboBox.Size = new System.Drawing.Size(200, 21);
@@ -342,12 +297,7 @@
             "2",
             "3",
             "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10"});
+            "5"});
             this.q2ComboBox.Location = new System.Drawing.Point(965, 156);
             this.q2ComboBox.Name = "q2ComboBox";
             this.q2ComboBox.Size = new System.Drawing.Size(200, 21);
@@ -362,12 +312,7 @@
             "2",
             "3",
             "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10"});
+            "5"});
             this.q3ComboBox.Location = new System.Drawing.Point(965, 183);
             this.q3ComboBox.Name = "q3ComboBox";
             this.q3ComboBox.Size = new System.Drawing.Size(200, 21);
@@ -382,12 +327,7 @@
             "2",
             "3",
             "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10"});
+            "5"});
             this.q4ComboBox.Location = new System.Drawing.Point(965, 210);
             this.q4ComboBox.Name = "q4ComboBox";
             this.q4ComboBox.Size = new System.Drawing.Size(200, 21);
@@ -449,6 +389,7 @@
             this.button4.TabIndex = 44;
             this.button4.Text = "שמירה";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -458,6 +399,7 @@
             this.button3.TabIndex = 43;
             this.button3.Text = "עדכון ממסד";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -516,11 +458,69 @@
             // 
             this.printDialog1.UseEXDialog = true;
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(1172, 101);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 64;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // workerIdLabel
+            // 
+            workerIdLabel.AutoSize = true;
+            workerIdLabel.Location = new System.Drawing.Point(890, 104);
+            workerIdLabel.Name = "workerIdLabel";
+            workerIdLabel.Size = new System.Drawing.Size(57, 13);
+            workerIdLabel.TabIndex = 64;
+            workerIdLabel.Text = "Worker Id:";
+            // 
+            // workerIdTextBox
+            // 
+            this.workerIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.surveysBindingSource, "WorkerId", true));
+            this.workerIdTextBox.Location = new System.Drawing.Point(965, 101);
+            this.workerIdTextBox.Name = "workerIdTextBox";
+            this.workerIdTextBox.Size = new System.Drawing.Size(201, 20);
+            this.workerIdTextBox.TabIndex = 65;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(1171, 49);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(121, 21);
+            this.comboBox2.TabIndex = 66;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // 
+            // projectIdLabel
+            // 
+            projectIdLabel.AutoSize = true;
+            projectIdLabel.Location = new System.Drawing.Point(892, 52);
+            projectIdLabel.Name = "projectIdLabel";
+            projectIdLabel.Size = new System.Drawing.Size(55, 13);
+            projectIdLabel.TabIndex = 66;
+            projectIdLabel.Text = "Project Id:";
+            // 
+            // projectIdTextBox
+            // 
+            this.projectIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.surveysBindingSource, "ProjectId", true));
+            this.projectIdTextBox.Location = new System.Drawing.Point(965, 49);
+            this.projectIdTextBox.Name = "projectIdTextBox";
+            this.projectIdTextBox.Size = new System.Drawing.Size(200, 20);
+            this.projectIdTextBox.TabIndex = 67;
+            // 
             // P4Surveys
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1240, 467);
+            this.ClientSize = new System.Drawing.Size(1330, 476);
+            this.Controls.Add(projectIdLabel);
+            this.Controls.Add(this.projectIdTextBox);
+            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(workerIdLabel);
+            this.Controls.Add(this.workerIdTextBox);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button14);
             this.Controls.Add(this.button15);
             this.Controls.Add(this.button5);
@@ -533,12 +533,8 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(surveyIdLabel);
             this.Controls.Add(this.surveyIdTextBox);
-            this.Controls.Add(projectIdLabel);
-            this.Controls.Add(this.projectIdComboBox);
             this.Controls.Add(surveyDateLabel);
             this.Controls.Add(this.surveyDateDateTimePicker);
-            this.Controls.Add(workerIdLabel);
-            this.Controls.Add(this.workerIdComboBox);
             this.Controls.Add(q1Label);
             this.Controls.Add(this.q1ComboBox);
             this.Controls.Add(q2Label);
@@ -577,9 +573,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.TextBox surveyIdTextBox;
-        private System.Windows.Forms.ComboBox projectIdComboBox;
         private System.Windows.Forms.DateTimePicker surveyDateDateTimePicker;
-        private System.Windows.Forms.ComboBox workerIdComboBox;
         private System.Windows.Forms.ComboBox q1ComboBox;
         private System.Windows.Forms.ComboBox q2ComboBox;
         private System.Windows.Forms.ComboBox q3ComboBox;
@@ -602,5 +596,9 @@
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
         private System.Windows.Forms.PrintDialog printDialog1;
         private System.Windows.Forms.PageSetupDialog pageSetupDialog1;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox workerIdTextBox;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.TextBox projectIdTextBox;
     }
 }

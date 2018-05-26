@@ -118,21 +118,6 @@ namespace DbapyInc
                 return;
             }
 
-            // Checking for duplicates
-            List<int> idList = new List<int>();
-
-            foreach (DataRow row in databaseDataSet.Projects.Rows)
-            {
-                int id = (int)(row["ProjectId"]);
-                if (idList.Contains(id))
-                {
-                    MessageBox.Show("Project Id Duplicated found, please remove duplicate before saving");
-                    return;
-                }
-
-                idList.Add(id);
-            }
-
             // Saving
             projectsBindingSource.EndEdit();
             this.projectsTableAdapter.Update(this.databaseDataSet.Projects);
@@ -142,7 +127,6 @@ namespace DbapyInc
 
         private void button3_Click(object sender, EventArgs e)
         {
-            projectsBindingSource.EndEdit();
             this.projectsTableAdapter.Fill(this.databaseDataSet.Projects);
         }
 
