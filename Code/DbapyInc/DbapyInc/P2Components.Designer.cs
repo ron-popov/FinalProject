@@ -29,12 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.Label label1;
             System.Windows.Forms.Label componentIdLabel;
             System.Windows.Forms.Label componentNameLabel;
-            System.Windows.Forms.Label projectIdLabel;
             System.Windows.Forms.Label finishedLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(P2Components));
+            System.Windows.Forms.Label projectIdLabel;
             this.databaseDataSet = new DbapyInc.DatabaseDataSet();
             this.projectComponentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableAdapterManager = new DbapyInc.DatabaseDataSetTableAdapters.TableAdapterManager();
@@ -53,10 +52,8 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button10 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.componentIdTextBox = new System.Windows.Forms.TextBox();
             this.componentNameTextBox = new System.Windows.Forms.TextBox();
-            this.projectIdComboBox = new System.Windows.Forms.ComboBox();
             this.projectComponentsTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.ProjectComponentsTableAdapter();
             this.finishedCheckBox = new System.Windows.Forms.CheckBox();
             this.button12 = new System.Windows.Forms.Button();
@@ -71,25 +68,17 @@
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
-            label1 = new System.Windows.Forms.Label();
+            this.projectIdTextBox = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             componentIdLabel = new System.Windows.Forms.Label();
             componentNameLabel = new System.Windows.Forms.Label();
-            projectIdLabel = new System.Windows.Forms.Label();
             finishedLabel = new System.Windows.Forms.Label();
+            projectIdLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectComponentsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectComponentsDataGridView)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(674, 102);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(77, 13);
-            label1.TabIndex = 54;
-            label1.Text = "Project Name :";
             // 
             // componentIdLabel
             // 
@@ -109,19 +98,10 @@
             componentNameLabel.TabIndex = 57;
             componentNameLabel.Text = "Component Name:";
             // 
-            // projectIdLabel
-            // 
-            projectIdLabel.AutoSize = true;
-            projectIdLabel.Location = new System.Drawing.Point(674, 76);
-            projectIdLabel.Name = "projectIdLabel";
-            projectIdLabel.Size = new System.Drawing.Size(55, 13);
-            projectIdLabel.TabIndex = 59;
-            projectIdLabel.Text = "Project Id:";
-            // 
             // finishedLabel
             // 
             finishedLabel.AutoSize = true;
-            finishedLabel.Location = new System.Drawing.Point(702, 130);
+            finishedLabel.Location = new System.Drawing.Point(702, 106);
             finishedLabel.Name = "finishedLabel";
             finishedLabel.Size = new System.Drawing.Size(49, 13);
             finishedLabel.TabIndex = 60;
@@ -287,15 +267,6 @@
             this.button11.UseVisualStyleBackColor = true;
             this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
-            // textBox3
-            // 
-            this.textBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.projectComponentsBindingSource, "ComponentId", true));
-            this.textBox3.Enabled = false;
-            this.textBox3.Location = new System.Drawing.Point(775, 101);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(121, 20);
-            this.textBox3.TabIndex = 55;
-            // 
             // componentIdTextBox
             // 
             this.componentIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.projectComponentsBindingSource, "ComponentId", true));
@@ -312,16 +283,6 @@
             this.componentNameTextBox.Size = new System.Drawing.Size(121, 20);
             this.componentNameTextBox.TabIndex = 58;
             // 
-            // projectIdComboBox
-            // 
-            this.projectIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.projectComponentsBindingSource, "ProjectId", true));
-            this.projectIdComboBox.FormattingEnabled = true;
-            this.projectIdComboBox.Location = new System.Drawing.Point(775, 73);
-            this.projectIdComboBox.Name = "projectIdComboBox";
-            this.projectIdComboBox.Size = new System.Drawing.Size(121, 21);
-            this.projectIdComboBox.TabIndex = 60;
-            this.projectIdComboBox.SelectedIndexChanged += new System.EventHandler(this.projectIdComboBox_SelectedIndexChanged_1);
-            // 
             // projectComponentsTableAdapter
             // 
             this.projectComponentsTableAdapter.ClearBeforeFill = true;
@@ -329,7 +290,7 @@
             // finishedCheckBox
             // 
             this.finishedCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.projectComponentsBindingSource, "Finished", true));
-            this.finishedCheckBox.Location = new System.Drawing.Point(775, 125);
+            this.finishedCheckBox.Location = new System.Drawing.Point(775, 101);
             this.finishedCheckBox.Name = "finishedCheckBox";
             this.finishedCheckBox.Size = new System.Drawing.Size(104, 24);
             this.finishedCheckBox.TabIndex = 61;
@@ -421,11 +382,42 @@
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
+            // projectIdLabel
+            // 
+            projectIdLabel.AutoSize = true;
+            projectIdLabel.Location = new System.Drawing.Point(702, 80);
+            projectIdLabel.Name = "projectIdLabel";
+            projectIdLabel.Size = new System.Drawing.Size(55, 13);
+            projectIdLabel.TabIndex = 64;
+            projectIdLabel.Text = "Project Id:";
+            // 
+            // projectIdTextBox
+            // 
+            this.projectIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.projectComponentsBindingSource, "ProjectId", true));
+            this.projectIdTextBox.Enabled = false;
+            this.projectIdTextBox.Location = new System.Drawing.Point(775, 75);
+            this.projectIdTextBox.Name = "projectIdTextBox";
+            this.projectIdTextBox.Size = new System.Drawing.Size(121, 20);
+            this.projectIdTextBox.TabIndex = 65;
+            this.projectIdTextBox.TextChanged += new System.EventHandler(this.projectIdTextBox_TextChanged);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(912, 73);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 66;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
             // P2Components
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(921, 429);
+            this.ClientSize = new System.Drawing.Size(1152, 429);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(projectIdLabel);
+            this.Controls.Add(this.projectIdTextBox);
             this.Controls.Add(this.button13);
             this.Controls.Add(this.button14);
             this.Controls.Add(this.projectComponentsDataGridView);
@@ -436,10 +428,6 @@
             this.Controls.Add(this.componentIdTextBox);
             this.Controls.Add(componentNameLabel);
             this.Controls.Add(this.componentNameTextBox);
-            this.Controls.Add(projectIdLabel);
-            this.Controls.Add(this.projectIdComboBox);
-            this.Controls.Add(label1);
-            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.button11);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.button10);
@@ -485,10 +473,8 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox componentIdTextBox;
         private System.Windows.Forms.TextBox componentNameTextBox;
-        private System.Windows.Forms.ComboBox projectIdComboBox;
         private DatabaseDataSetTableAdapters.ProjectComponentsTableAdapter projectComponentsTableAdapter;
         private System.Windows.Forms.CheckBox finishedCheckBox;
         private System.Windows.Forms.Button button12;
@@ -503,5 +489,7 @@
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
         private System.Windows.Forms.PageSetupDialog pageSetupDialog1;
+        private System.Windows.Forms.TextBox projectIdTextBox;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

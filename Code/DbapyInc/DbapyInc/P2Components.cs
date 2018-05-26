@@ -29,7 +29,7 @@ namespace DbapyInc
             foreach (DataRow row in databaseDataSet.Projects.Rows)
             {
                 string data = row["ProjectId"].ToString();
-                projectIdComboBox.Items.Add((int)row["ProjectId"]);
+                comboBox1.Items.Add(row["ProjectName"].ToString());
             }
 
             UpdateDetails();
@@ -94,7 +94,7 @@ namespace DbapyInc
                 return;
             }
 
-            if (projectIdComboBox.Text.Length == 0)
+            if (projectIdTextBox.Text.Length == 0)
             {
                 MessageBox.Show("Project Id cannot be empty");
                 return;
@@ -189,28 +189,22 @@ namespace DbapyInc
 
         private void UpdateDetails()
         {
-
-
-            object selection = projectIdComboBox.SelectedItem;
-
-            if (selection == null)
+            if(comboBox1.SelectedItem == null)
             {
-                textBox3.Text = "";
                 return;
             }
 
-            int projectId = (int)selection;
+            string projectName = comboBox1.SelectedItem.ToString() ;
 
-            foreach (DataRow row in databaseDataSet.Projects.Rows)
+            MessageBox.Show(projectName);
+
+            foreach(DataRow row in databaseDataSet.Projects.Rows)
             {
-                if(projectId == (int)row["ProjectId"])
+                if (row["ProjectName"].ToString().Equals(projectName))
                 {
-                    textBox3.Text = row["ProjectName"].ToString();
-                    return;
+                    projectIdTextBox.Text = row["ProjectId"].ToString();
                 }
             }
-
-            MessageBox.Show("Project Not Found");
 
         }
 
@@ -282,6 +276,16 @@ namespace DbapyInc
         {
             printPreviewDialog1.Document = printDocument1;
             printPreviewDialog1.ShowDialog();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateDetails();
+        }
+
+        private void projectIdTextBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
