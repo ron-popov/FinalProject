@@ -27,8 +27,14 @@ namespace DbapyInc
             // TODO: This line of code loads data into the 'databaseDataSet.Orders' table. You can move, or remove it, as needed.
             this.ordersTableAdapter.Fill(this.databaseDataSet.Orders);
 
-            UpdateCustomerName();
             UpdatePrice();
+
+            foreach(DataRow row in databaseDataSet.Customers)
+            {
+                comboBox1.Items.Add(row["CustomerName"].ToString());
+            }
+
+            UpdateComboBox();
 
         }
 
@@ -36,9 +42,6 @@ namespace DbapyInc
         {
 
             ordersBindingSource.AddNew();
-
-            orderDateDateTimePicker.MinDate = DateTime.Today;
-            orderDateDateTimePicker.MaxDate = DateTime.Today;
 
             int max = 0;
 
@@ -58,81 +61,78 @@ namespace DbapyInc
             max += 1;
 
             orderIdTextBox.Text = max.ToString();
+
+
+            UpdateComboBox();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            customersBindingSource.RemoveCurrent();
+            ordersBindingSource.RemoveCurrent();
+
+
+            UpdateComboBox();
 
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if(orderIdTextBox.Text.Length == 0)
-            {
-                MessageBox.Show("Order Id Cannot be empty");
-                return;
-            }
-
-            if (customerIdComboBox.Text.Length == 0)
-            {
-                MessageBox.Show("Order Id Cannot be empty");
-                return;
-            }
-
             orderDateDateTimePicker.Value = DateTime.Now;
 
-            // Checking for duplicates
-            List<int> idList = new List<int>();
-
-            foreach (DataRow row in databaseDataSet.Orders.Rows)
-            {
-                int id = (int)(row["OrderId"]);
-                if (idList.Contains(id))
-                {
-                    MessageBox.Show("Order Id Duplicated found, please remove duplicate before saving");
-                    return;
-                }
-
-                idList.Add(id);
-            }
-
             // Saving to database
-            customersBindingSource.EndEdit();
-            this.customersTableAdapter.Update(this.databaseDataSet.Customers);
+            ordersBindingSource.EndEdit();
+
+            this.ordersTableAdapter.Update(this.databaseDataSet.Orders);
 
             MessageBox.Show("Saved !");
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            this.customersTableAdapter.Fill(this.databaseDataSet.Customers);
+            // TODO: This line of code loads data into the 'databaseDataSet.Orders' table. You can move, or remove it, as needed.
+            this.ordersTableAdapter.Fill(this.databaseDataSet.Orders);
+
+            UpdateComboBox();
+
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            customersBindingSource.MoveFirst();
+            ordersBindingSource.MoveFirst();
+
+            UpdateComboBox();
+
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            customersBindingSource.MoveLast();
+            ordersBindingSource.MoveLast();
+
+            UpdateComboBox();
+
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            customersBindingSource.MovePrevious();
+            ordersBindingSource.MovePrevious();
+
+            UpdateComboBox();
+
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            customersBindingSource.MoveNext();
+            ordersBindingSource.MoveNext();
+
+            UpdateComboBox();
+
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
-            /*string customerName = textBox1.Text;
+            string customerName = priceTextBox.Text;
 
+            /*
             // A list of wanted customer id's
             List<int> customerId = new List<int>();
             
@@ -168,35 +168,12 @@ namespace DbapyInc
             }*/
         }
 
-        private void UpdateCustomerName()
-        {
-            object selection = customerIdComboBox.SelectedValue;
-            if (selection == null)
-            {
-                textBox2.Text = "";
-                return;
-            }
-
-            int customerId = (int)selection;
-
-            foreach (DataRow row in databaseDataSet.Customers.Rows)
-            {
-                if ((int)row["CustomerId"] == customerId)
-                {
-                    textBox2.Text = row["CustomerName"].ToString();
-                    return;
-                }
-            }
-
-            MessageBox.Show("Customer Id Not Found");
-        }
-
         private void UpdatePrice()
         {
             string selection = orderIdTextBox.Text;
             if (selection.Length == 0)
             {
-                textBox1.Text = "";
+                priceTextBox.Text = "";
                 return;
             }
 
@@ -212,12 +189,11 @@ namespace DbapyInc
                 }
             }
 
-            textBox1.Text = priceCounter.ToString();
+            //priceTextBox.Text = priceCounter.ToString();
         }
         
         private void customerIdComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            UpdateCustomerName();
         }
 
         private void orderIdTextBox_TextChanged(object sender, EventArgs e)
@@ -232,6 +208,60 @@ namespace DbapyInc
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateProjectIdTextBox();
+        }
+
+        private void customerIdTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void UpdateComboBox()
+        {
+            if (customerIdTextBox.Text.Length == 0)
+            {
+                return;
+            }
+
+            int projectId = int.Parse(customerIdTextBox.Text);
+
+            foreach (DataRow row in databaseDataSet.Customers.Rows)
+            {
+                try
+                {
+                    if (projectId == (int)row["CustomerId"])
+                    {
+                        comboBox1.Text = row["CustomerName"].ToString();
+                        return;
+                    }
+                }
+                catch(DeletedRowInaccessibleException)
+                {
+                }
+            }
+        }
+
+        private void UpdateProjectIdTextBox()
+        {
+            if (comboBox1.SelectedItem == null)
+            {
+                return;
+            }
+
+            string projectName = comboBox1.SelectedItem.ToString();
+
+            foreach (DataRow row in databaseDataSet.Customers.Rows)
+            {
+                if (row["CustomerName"].ToString().Equals(projectName))
+                {
+                    customerIdTextBox.Text = row["CustomerId"].ToString();
+                    return;
+                }
+            }
         }
     }
 }

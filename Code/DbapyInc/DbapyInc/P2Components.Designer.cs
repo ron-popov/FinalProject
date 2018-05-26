@@ -32,8 +32,8 @@
             System.Windows.Forms.Label componentIdLabel;
             System.Windows.Forms.Label componentNameLabel;
             System.Windows.Forms.Label finishedLabel;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(P2Components));
             System.Windows.Forms.Label projectIdLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(P2Components));
             this.databaseDataSet = new DbapyInc.DatabaseDataSet();
             this.projectComponentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableAdapterManager = new DbapyInc.DatabaseDataSetTableAdapters.TableAdapterManager();
@@ -106,6 +106,15 @@
             finishedLabel.Size = new System.Drawing.Size(49, 13);
             finishedLabel.TabIndex = 60;
             finishedLabel.Text = "Finished:";
+            // 
+            // projectIdLabel
+            // 
+            projectIdLabel.AutoSize = true;
+            projectIdLabel.Location = new System.Drawing.Point(702, 80);
+            projectIdLabel.Name = "projectIdLabel";
+            projectIdLabel.Size = new System.Drawing.Size(55, 13);
+            projectIdLabel.TabIndex = 64;
+            projectIdLabel.Text = "Project Id:";
             // 
             // databaseDataSet
             // 
@@ -382,15 +391,6 @@
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
-            // projectIdLabel
-            // 
-            projectIdLabel.AutoSize = true;
-            projectIdLabel.Location = new System.Drawing.Point(702, 80);
-            projectIdLabel.Name = "projectIdLabel";
-            projectIdLabel.Size = new System.Drawing.Size(55, 13);
-            projectIdLabel.TabIndex = 64;
-            projectIdLabel.Text = "Project Id:";
-            // 
             // projectIdTextBox
             // 
             this.projectIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.projectComponentsBindingSource, "ProjectId", true));
@@ -399,7 +399,6 @@
             this.projectIdTextBox.Name = "projectIdTextBox";
             this.projectIdTextBox.Size = new System.Drawing.Size(121, 20);
             this.projectIdTextBox.TabIndex = 65;
-            this.projectIdTextBox.TextChanged += new System.EventHandler(this.projectIdTextBox_TextChanged);
             // 
             // comboBox1
             // 
@@ -414,7 +413,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1152, 429);
+            this.ClientSize = new System.Drawing.Size(1057, 429);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(projectIdLabel);
             this.Controls.Add(this.projectIdTextBox);

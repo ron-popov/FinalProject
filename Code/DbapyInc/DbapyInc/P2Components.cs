@@ -32,7 +32,7 @@ namespace DbapyInc
                 comboBox1.Items.Add(row["ProjectName"].ToString());
             }
 
-            UpdateDetails();
+            UpdateComboBox();
 
         }
 
@@ -68,16 +68,23 @@ namespace DbapyInc
             componentIdTextBox.Text = max.ToString();
 
             finishedCheckBox.Checked = false;
+
+            UpdateComboBox();
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             projectComponentsBindingSource.RemoveCurrent();
+
+            UpdateComboBox();
+
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             this.projectComponentsTableAdapter.Fill(this.databaseDataSet.ProjectComponents);
+
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -106,19 +113,28 @@ namespace DbapyInc
 
             foreach (DataRow row in databaseDataSet.ProjectComponents.Rows)
             {
-                int id = (int)(row["ComponentId"]);
-                if (idList.Contains(id))
+                try
                 {
-                    MessageBox.Show("Component Id Duplicated found, please remove duplicate before saving");
-                    return;
+                    int id = (int)(row["ComponentId"]);
+                    if (idList.Contains(id))
+                    {
+                        MessageBox.Show("Component Id Duplicated found, please remove duplicate before saving");
+                        return;
+                    }
+
+                    idList.Add(id);
+                }
+                catch(DeletedRowInaccessibleException)
+                {
+
                 }
 
-                idList.Add(id);
             }
 
             // Saving to database
             projectComponentsBindingSource.EndEdit();
             this.projectComponentsTableAdapter.Update(this.databaseDataSet.ProjectComponents);
+
 
             MessageBox.Show("Saved !");
         }
@@ -126,21 +142,31 @@ namespace DbapyInc
         private void button8_Click(object sender, EventArgs e)
         {
             projectComponentsBindingSource.MoveFirst();
+
+            UpdateComboBox();
+
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
             projectComponentsBindingSource.MoveLast();
+
+            UpdateComboBox();
+
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
             projectComponentsBindingSource.MovePrevious();
+
+            UpdateComboBox();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             projectComponentsBindingSource.MoveNext();
+
+            UpdateComboBox();
         }
 
         private void button10_Click(object sender, EventArgs e)
@@ -187,40 +213,9 @@ namespace DbapyInc
             projectComponentsDataGridView.DataSource = dv;
         }
 
-        private void UpdateDetails()
-        {
-            if(comboBox1.SelectedItem == null)
-            {
-                return;
-            }
-
-            string projectName = comboBox1.SelectedItem.ToString() ;
-
-            MessageBox.Show(projectName);
-
-            foreach(DataRow row in databaseDataSet.Projects.Rows)
-            {
-                if (row["ProjectName"].ToString().Equals(projectName))
-                {
-                    projectIdTextBox.Text = row["ProjectId"].ToString();
-                }
-            }
-
-        }
-
-        private void projectIdComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button12_Click(object sender, EventArgs e)
         {
             finishedCheckBox.Checked = true;
-        }
-
-        private void projectIdComboBox_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-            UpdateDetails();
         }
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
@@ -278,14 +273,47 @@ namespace DbapyInc
             printPreviewDialog1.ShowDialog();
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void UpdateComboBox()
         {
-            UpdateDetails();
+            if(projectIdTextBox.Text.Length == 0)
+            {
+                return;
+            }
+
+            int projectId = int.Parse(projectIdTextBox.Text);
+
+            foreach(DataRow row in databaseDataSet.Projects.Rows)
+            {
+                if(projectId == (int)row["ProjectId"])
+                {
+                    comboBox1.Text = row["ProjectName"].ToString();
+                    return;
+                }
+            }
         }
 
-        private void projectIdTextBox_TextChanged(object sender, EventArgs e)
+        private void UpdateProjectIdTextBox()
         {
+            if(comboBox1.SelectedItem == null)
+            {
+                return;
+            }
 
+            string projectName = comboBox1.SelectedItem.ToString();
+
+            foreach(DataRow row in databaseDataSet.Projects.Rows)
+            {
+                if(row["ProjectName"].ToString().Equals(projectName))
+                {
+                    projectIdTextBox.Text = row["ProjectId"].ToString();
+                    return;
+                }
+            }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateProjectIdTextBox();
         }
     }
 }

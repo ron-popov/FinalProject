@@ -33,7 +33,6 @@
             System.Windows.Forms.Label orderIdLabel;
             System.Windows.Forms.Label orderDateLabel;
             System.Windows.Forms.Label customerIdLabel;
-            System.Windows.Forms.Label label2;
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
@@ -45,81 +44,44 @@
             this.ordersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.databaseDataSet = new DbapyInc.DatabaseDataSet();
             this.ordersTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.OrdersTableAdapter();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.priceTextBox = new System.Windows.Forms.TextBox();
             this.tableAdapterManager = new DbapyInc.DatabaseDataSetTableAdapters.TableAdapterManager();
             this.customersTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.CustomersTableAdapter();
-            this.orderIdTextBox = new System.Windows.Forms.TextBox();
-            this.orderDateDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.customerIdComboBox = new System.Windows.Forms.ComboBox();
             this.customersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.projectsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.projectsTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.ProjectsTableAdapter();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.ordersDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.projectsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.projectsTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.ProjectsTableAdapter();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.orderIdTextBox = new System.Windows.Forms.TextBox();
+            this.orderDateDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.customerIdTextBox = new System.Windows.Forms.TextBox();
             label1 = new System.Windows.Forms.Label();
             orderIdLabel = new System.Windows.Forms.Label();
             orderDateLabel = new System.Windows.Forms.Label();
             customerIdLabel = new System.Windows.Forms.Label();
-            label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ordersDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ordersDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(647, 120);
+            label1.Location = new System.Drawing.Point(661, 89);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(37, 13);
             label1.TabIndex = 47;
             label1.Text = "Price :";
             label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // orderIdLabel
-            // 
-            orderIdLabel.AutoSize = true;
-            orderIdLabel.Location = new System.Drawing.Point(622, 16);
-            orderIdLabel.Name = "orderIdLabel";
-            orderIdLabel.Size = new System.Drawing.Size(48, 13);
-            orderIdLabel.TabIndex = 48;
-            orderIdLabel.Text = "Order Id:";
-            // 
-            // orderDateLabel
-            // 
-            orderDateLabel.AutoSize = true;
-            orderDateLabel.Location = new System.Drawing.Point(622, 43);
-            orderDateLabel.Name = "orderDateLabel";
-            orderDateLabel.Size = new System.Drawing.Size(62, 13);
-            orderDateLabel.TabIndex = 50;
-            orderDateLabel.Text = "Order Date:";
-            // 
-            // customerIdLabel
-            // 
-            customerIdLabel.AutoSize = true;
-            customerIdLabel.Location = new System.Drawing.Point(622, 68);
-            customerIdLabel.Name = "customerIdLabel";
-            customerIdLabel.Size = new System.Drawing.Size(66, 13);
-            customerIdLabel.TabIndex = 52;
-            customerIdLabel.Text = "Customer Id:";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(600, 94);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(88, 13);
-            label2.TabIndex = 54;
-            label2.Text = "Customer Name :";
-            // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(772, 270);
+            this.button5.Location = new System.Drawing.Point(771, 231);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(100, 23);
             this.button5.TabIndex = 40;
@@ -129,7 +91,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(674, 269);
+            this.button6.Location = new System.Drawing.Point(673, 230);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(92, 23);
             this.button6.TabIndex = 39;
@@ -139,7 +101,7 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(772, 240);
+            this.button7.Location = new System.Drawing.Point(771, 201);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(100, 23);
             this.button7.TabIndex = 38;
@@ -149,7 +111,7 @@
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(674, 240);
+            this.button8.Location = new System.Drawing.Point(673, 201);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(92, 23);
             this.button8.TabIndex = 37;
@@ -159,7 +121,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(772, 196);
+            this.button4.Location = new System.Drawing.Point(771, 157);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(100, 23);
             this.button4.TabIndex = 36;
@@ -169,7 +131,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(674, 195);
+            this.button3.Location = new System.Drawing.Point(673, 156);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(92, 23);
             this.button3.TabIndex = 35;
@@ -179,7 +141,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(772, 166);
+            this.button2.Location = new System.Drawing.Point(771, 127);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 23);
             this.button2.TabIndex = 34;
@@ -189,7 +151,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(674, 166);
+            this.button1.Location = new System.Drawing.Point(673, 127);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(92, 23);
             this.button1.TabIndex = 33;
@@ -211,15 +173,15 @@
             // 
             this.ordersTableAdapter.ClearBeforeFill = true;
             // 
-            // textBox1
+            // priceTextBox
             // 
-            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ordersBindingSource, "OrderId", true));
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(694, 117);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(200, 20);
-            this.textBox1.TabIndex = 48;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.priceTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ordersBindingSource, "OrderId", true));
+            this.priceTextBox.Enabled = false;
+            this.priceTextBox.Location = new System.Drawing.Point(708, 86);
+            this.priceTextBox.Name = "priceTextBox";
+            this.priceTextBox.Size = new System.Drawing.Size(200, 20);
+            this.priceTextBox.TabIndex = 48;
+            this.priceTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // tableAdapterManager
             // 
@@ -242,41 +204,28 @@
             // 
             this.customersTableAdapter.ClearBeforeFill = true;
             // 
-            // orderIdTextBox
-            // 
-            this.orderIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ordersBindingSource, "OrderId", true));
-            this.orderIdTextBox.Enabled = false;
-            this.orderIdTextBox.Location = new System.Drawing.Point(694, 13);
-            this.orderIdTextBox.Name = "orderIdTextBox";
-            this.orderIdTextBox.Size = new System.Drawing.Size(200, 20);
-            this.orderIdTextBox.TabIndex = 49;
-            this.orderIdTextBox.TextChanged += new System.EventHandler(this.orderIdTextBox_TextChanged);
-            // 
-            // orderDateDateTimePicker
-            // 
-            this.orderDateDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.ordersBindingSource, "OrderDate", true));
-            this.orderDateDateTimePicker.Location = new System.Drawing.Point(694, 39);
-            this.orderDateDateTimePicker.Name = "orderDateDateTimePicker";
-            this.orderDateDateTimePicker.Size = new System.Drawing.Size(200, 20);
-            this.orderDateDateTimePicker.TabIndex = 51;
-            // 
-            // customerIdComboBox
-            // 
-            this.customerIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ordersBindingSource, "CustomerId", true));
-            this.customerIdComboBox.DataSource = this.customersBindingSource;
-            this.customerIdComboBox.DisplayMember = "CustomerId";
-            this.customerIdComboBox.FormattingEnabled = true;
-            this.customerIdComboBox.Location = new System.Drawing.Point(694, 65);
-            this.customerIdComboBox.Name = "customerIdComboBox";
-            this.customerIdComboBox.Size = new System.Drawing.Size(200, 21);
-            this.customerIdComboBox.TabIndex = 53;
-            this.customerIdComboBox.ValueMember = "CustomerId";
-            this.customerIdComboBox.SelectedIndexChanged += new System.EventHandler(this.customerIdComboBox_SelectedIndexChanged);
-            // 
             // customersBindingSource
             // 
             this.customersBindingSource.DataMember = "Customers";
             this.customersBindingSource.DataSource = this.databaseDataSet;
+            // 
+            // projectsBindingSource
+            // 
+            this.projectsBindingSource.DataMember = "Projects";
+            this.projectsBindingSource.DataSource = this.databaseDataSet;
+            // 
+            // projectsTableAdapter
+            // 
+            this.projectsTableAdapter.ClearBeforeFill = true;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(914, 60);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 53;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // ordersDataGridView
             // 
@@ -287,10 +236,10 @@
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3});
             this.ordersDataGridView.DataSource = this.ordersBindingSource;
-            this.ordersDataGridView.Location = new System.Drawing.Point(12, 6);
+            this.ordersDataGridView.Location = new System.Drawing.Point(12, 12);
             this.ordersDataGridView.Name = "ordersDataGridView";
-            this.ordersDataGridView.Size = new System.Drawing.Size(582, 250);
-            this.ordersDataGridView.TabIndex = 48;
+            this.ordersDataGridView.Size = new System.Drawing.Size(610, 241);
+            this.ordersDataGridView.TabIndex = 53;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -310,40 +259,72 @@
             this.dataGridViewTextBoxColumn3.HeaderText = "CustomerId";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
-            // projectsBindingSource
+            // orderIdLabel
             // 
-            this.projectsBindingSource.DataMember = "Projects";
-            this.projectsBindingSource.DataSource = this.databaseDataSet;
+            orderIdLabel.AutoSize = true;
+            orderIdLabel.Location = new System.Drawing.Point(636, 12);
+            orderIdLabel.Name = "orderIdLabel";
+            orderIdLabel.Size = new System.Drawing.Size(48, 13);
+            orderIdLabel.TabIndex = 53;
+            orderIdLabel.Text = "Order Id:";
             // 
-            // projectsTableAdapter
+            // orderIdTextBox
             // 
-            this.projectsTableAdapter.ClearBeforeFill = true;
+            this.orderIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ordersBindingSource, "OrderId", true));
+            this.orderIdTextBox.Location = new System.Drawing.Point(708, 9);
+            this.orderIdTextBox.Name = "orderIdTextBox";
+            this.orderIdTextBox.Size = new System.Drawing.Size(200, 20);
+            this.orderIdTextBox.TabIndex = 54;
             // 
-            // textBox2
+            // orderDateLabel
             // 
-            this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ordersBindingSource, "OrderId", true));
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(694, 91);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(200, 20);
-            this.textBox2.TabIndex = 55;
+            orderDateLabel.AutoSize = true;
+            orderDateLabel.Location = new System.Drawing.Point(636, 39);
+            orderDateLabel.Name = "orderDateLabel";
+            orderDateLabel.Size = new System.Drawing.Size(62, 13);
+            orderDateLabel.TabIndex = 55;
+            orderDateLabel.Text = "Order Date:";
+            // 
+            // orderDateDateTimePicker
+            // 
+            this.orderDateDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.ordersBindingSource, "OrderDate", true));
+            this.orderDateDateTimePicker.Location = new System.Drawing.Point(708, 35);
+            this.orderDateDateTimePicker.Name = "orderDateDateTimePicker";
+            this.orderDateDateTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.orderDateDateTimePicker.TabIndex = 56;
+            // 
+            // customerIdLabel
+            // 
+            customerIdLabel.AutoSize = true;
+            customerIdLabel.Location = new System.Drawing.Point(636, 64);
+            customerIdLabel.Name = "customerIdLabel";
+            customerIdLabel.Size = new System.Drawing.Size(66, 13);
+            customerIdLabel.TabIndex = 57;
+            customerIdLabel.Text = "Customer Id:";
+            // 
+            // customerIdTextBox
+            // 
+            this.customerIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ordersBindingSource, "CustomerId", true));
+            this.customerIdTextBox.Location = new System.Drawing.Point(708, 61);
+            this.customerIdTextBox.Name = "customerIdTextBox";
+            this.customerIdTextBox.Size = new System.Drawing.Size(200, 20);
+            this.customerIdTextBox.TabIndex = 58;
             // 
             // P1Orders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(910, 315);
-            this.Controls.Add(label2);
-            this.Controls.Add(this.textBox2);
+            this.ClientSize = new System.Drawing.Size(1064, 274);
             this.Controls.Add(orderIdLabel);
             this.Controls.Add(this.orderIdTextBox);
             this.Controls.Add(orderDateLabel);
             this.Controls.Add(this.orderDateDateTimePicker);
             this.Controls.Add(customerIdLabel);
-            this.Controls.Add(this.customerIdComboBox);
+            this.Controls.Add(this.customerIdTextBox);
             this.Controls.Add(this.ordersDataGridView);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.priceTextBox);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button7);
@@ -357,8 +338,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ordersDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ordersDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -376,19 +357,19 @@
         private DatabaseDataSet databaseDataSet;
         private System.Windows.Forms.BindingSource ordersBindingSource;
         private DatabaseDataSetTableAdapters.OrdersTableAdapter ordersTableAdapter;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox priceTextBox;
         private DatabaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.TextBox orderIdTextBox;
-        private System.Windows.Forms.DateTimePicker orderDateDateTimePicker;
         private DatabaseDataSetTableAdapters.CustomersTableAdapter customersTableAdapter;
-        private System.Windows.Forms.ComboBox customerIdComboBox;
         private System.Windows.Forms.BindingSource customersBindingSource;
+        private System.Windows.Forms.BindingSource projectsBindingSource;
+        private DatabaseDataSetTableAdapters.ProjectsTableAdapter projectsTableAdapter;
+        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.DataGridView ordersDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.BindingSource projectsBindingSource;
-        private DatabaseDataSetTableAdapters.ProjectsTableAdapter projectsTableAdapter;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox orderIdTextBox;
+        private System.Windows.Forms.DateTimePicker orderDateDateTimePicker;
+        private System.Windows.Forms.TextBox customerIdTextBox;
     }
 }
