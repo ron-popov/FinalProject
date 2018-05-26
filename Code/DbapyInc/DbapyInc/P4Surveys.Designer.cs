@@ -35,9 +35,9 @@
             System.Windows.Forms.Label q2Label;
             System.Windows.Forms.Label q3Label;
             System.Windows.Forms.Label q4Label;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(P4Surveys));
             System.Windows.Forms.Label workerIdLabel;
             System.Windows.Forms.Label projectIdLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(P4Surveys));
             this.databaseDataSet = new DbapyInc.DatabaseDataSet();
             this.surveysBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.surveysTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.SurveysTableAdapter();
@@ -79,6 +79,11 @@
             this.workerIdTextBox = new System.Windows.Forms.TextBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.projectIdTextBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             surveyIdLabel = new System.Windows.Forms.Label();
             surveyDateLabel = new System.Windows.Forms.Label();
             q1Label = new System.Windows.Forms.Label();
@@ -147,6 +152,24 @@
             q4Label.Size = new System.Drawing.Size(24, 13);
             q4Label.TabIndex = 15;
             q4Label.Text = "Q4:";
+            // 
+            // workerIdLabel
+            // 
+            workerIdLabel.AutoSize = true;
+            workerIdLabel.Location = new System.Drawing.Point(890, 104);
+            workerIdLabel.Name = "workerIdLabel";
+            workerIdLabel.Size = new System.Drawing.Size(57, 13);
+            workerIdLabel.TabIndex = 64;
+            workerIdLabel.Text = "Worker Id:";
+            // 
+            // projectIdLabel
+            // 
+            projectIdLabel.AutoSize = true;
+            projectIdLabel.Location = new System.Drawing.Point(892, 52);
+            projectIdLabel.Name = "projectIdLabel";
+            projectIdLabel.Size = new System.Drawing.Size(55, 13);
+            projectIdLabel.TabIndex = 66;
+            projectIdLabel.Text = "Project Id:";
             // 
             // databaseDataSet
             // 
@@ -425,7 +448,7 @@
             // 
             this.button14.Location = new System.Drawing.Point(12, 416);
             this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(90, 39);
+            this.button14.Size = new System.Drawing.Size(90, 74);
             this.button14.TabIndex = 63;
             this.button14.Text = "הצג דוח סקרים";
             this.button14.UseVisualStyleBackColor = true;
@@ -433,9 +456,9 @@
             // 
             // button15
             // 
-            this.button15.Location = new System.Drawing.Point(108, 416);
+            this.button15.Location = new System.Drawing.Point(12, 499);
             this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(90, 40);
+            this.button15.Size = new System.Drawing.Size(90, 65);
             this.button15.TabIndex = 62;
             this.button15.Text = "הדפס דוח צוותים";
             this.button15.UseVisualStyleBackColor = true;
@@ -467,15 +490,6 @@
             this.comboBox1.TabIndex = 64;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // workerIdLabel
-            // 
-            workerIdLabel.AutoSize = true;
-            workerIdLabel.Location = new System.Drawing.Point(890, 104);
-            workerIdLabel.Name = "workerIdLabel";
-            workerIdLabel.Size = new System.Drawing.Size(57, 13);
-            workerIdLabel.TabIndex = 64;
-            workerIdLabel.Text = "Worker Id:";
-            // 
             // workerIdTextBox
             // 
             this.workerIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.surveysBindingSource, "WorkerId", true));
@@ -493,15 +507,6 @@
             this.comboBox2.TabIndex = 66;
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
-            // projectIdLabel
-            // 
-            projectIdLabel.AutoSize = true;
-            projectIdLabel.Location = new System.Drawing.Point(892, 52);
-            projectIdLabel.Name = "projectIdLabel";
-            projectIdLabel.Size = new System.Drawing.Size(55, 13);
-            projectIdLabel.TabIndex = 66;
-            projectIdLabel.Text = "Project Id:";
-            // 
             // projectIdTextBox
             // 
             this.projectIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.surveysBindingSource, "ProjectId", true));
@@ -510,11 +515,66 @@
             this.projectIdTextBox.Size = new System.Drawing.Size(200, 20);
             this.projectIdTextBox.TabIndex = 67;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.label1.Location = new System.Drawing.Point(537, 416);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(104, 20);
+            this.label1.TabIndex = 68;
+            this.label1.Text = "שאלות הסקר";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(515, 455);
+            this.label5.Name = "label5";
+            this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label5.Size = new System.Drawing.Size(155, 13);
+            this.label5.TabIndex = 72;
+            this.label5.Text = "1. האם אתה מרוצה מהפרויקט";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(455, 499);
+            this.label2.Name = "label2";
+            this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label2.Size = new System.Drawing.Size(266, 13);
+            this.label2.TabIndex = 73;
+            this.label2.Text = "3. האם אתה מרוצה מדיווחי ההתקדמות על הפרויקט";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(491, 477);
+            this.label3.Name = "label3";
+            this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label3.Size = new System.Drawing.Size(195, 13);
+            this.label3.TabIndex = 74;
+            this.label3.Text = "2. האם אתה מרוצה ממקצועיות הצוות";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(472, 524);
+            this.label4.Name = "label4";
+            this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label4.Size = new System.Drawing.Size(214, 13);
+            this.label4.TabIndex = 75;
+            this.label4.Text = "4. האם אתה מרוצה מהספק העבודה שלנו ";
+            // 
             // P4Surveys
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1330, 476);
+            this.ClientSize = new System.Drawing.Size(1330, 572);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label1);
             this.Controls.Add(projectIdLabel);
             this.Controls.Add(this.projectIdTextBox);
             this.Controls.Add(this.comboBox2);
@@ -600,5 +660,10 @@
         private System.Windows.Forms.TextBox workerIdTextBox;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.TextBox projectIdTextBox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }

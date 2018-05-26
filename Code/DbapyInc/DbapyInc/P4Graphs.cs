@@ -50,24 +50,32 @@ namespace DbapyInc
             chart1.Series["Series1"].Points.AddXY(3, scores[0, 2]);
             chart1.Series["Series1"].Points.AddXY(4, scores[0, 3]);
             chart1.Series["Series1"].Points.AddXY(5, scores[0, 4]);
+            chart1.ChartAreas["ChartArea1"].AxisX.Title = "Scores";
+            chart1.ChartAreas["ChartArea1"].AxisY.Title = "Count";
 
             chart2.Series["Series1"].Points.AddXY(1, scores[1, 0]);
             chart2.Series["Series1"].Points.AddXY(2, scores[1, 1]);
             chart2.Series["Series1"].Points.AddXY(3, scores[1, 2]);
             chart2.Series["Series1"].Points.AddXY(4, scores[1, 3]);
             chart2.Series["Series1"].Points.AddXY(5, scores[1, 4]);
+            chart2.ChartAreas["ChartArea1"].AxisX.Title = "Scores";
+            chart2.ChartAreas["ChartArea1"].AxisY.Title = "Count";
 
             chart4.Series["Series1"].Points.AddXY(1, scores[2, 0]);
             chart4.Series["Series1"].Points.AddXY(2, scores[2, 1]);
             chart4.Series["Series1"].Points.AddXY(3, scores[2, 2]);
             chart4.Series["Series1"].Points.AddXY(4, scores[2, 3]);
             chart4.Series["Series1"].Points.AddXY(5, scores[2, 4]);
+            chart4.ChartAreas["ChartArea1"].AxisX.Title = "Scores";
+            chart4.ChartAreas["ChartArea1"].AxisY.Title = "Count";
 
             chart5.Series["Series1"].Points.AddXY(1, scores[3, 0]);
             chart5.Series["Series1"].Points.AddXY(2, scores[3, 1]);
             chart5.Series["Series1"].Points.AddXY(3, scores[3, 2]);
             chart5.Series["Series1"].Points.AddXY(4, scores[3, 3]);
             chart5.Series["Series1"].Points.AddXY(5, scores[3, 4]);
+            chart5.ChartAreas["ChartArea1"].AxisX.Title = "Scores";
+            chart5.ChartAreas["ChartArea1"].AxisY.Title = "Count";
 
         }
 
@@ -80,6 +88,11 @@ namespace DbapyInc
         }
 
         private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chart2_Click(object sender, EventArgs e)
         {
 
         }
