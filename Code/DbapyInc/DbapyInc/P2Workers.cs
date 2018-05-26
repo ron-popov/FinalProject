@@ -28,6 +28,8 @@ namespace DbapyInc
 
         private void P2Workers_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'databaseDataSet.Teams' table. You can move, or remove it, as needed.
+            this.teamsTableAdapter.Fill(this.databaseDataSet.Teams);
             // TODO: This line of code loads data into the 'databaseDataSet.WorkersToTeams' table. You can move, or remove it, as needed.
             this.workersToTeamsTableAdapter.Fill(this.databaseDataSet.WorkersToTeams);
             // TODO: This line of code loads data into the 'databaseDataSet.Workers' table. You can move, or remove it, as needed.
@@ -233,7 +235,15 @@ namespace DbapyInc
             {
                 if (r["WorkerId"].ToString().Equals(workerIdTextBox.Text))
                 {
-                    listBox1.Items.Add(r["TeamId"].ToString());
+                    int teamId = (int)r["TeamId"];
+
+                    foreach (DataRow row in databaseDataSet.Teams.Rows)
+                    {
+                        if((int)row["TeamId"] == teamId)
+                        {
+                            listBox1.Items.Add(row["TeamName"].ToString());
+                        }
+                    }
                 }
             }
         }

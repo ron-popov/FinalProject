@@ -35,8 +35,8 @@
             System.Windows.Forms.Label workerAddressLabel;
             System.Windows.Forms.Label workerJoinDateLabel;
             System.Windows.Forms.Label workerBirthDateLabel;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(P2Workers));
             this.databaseDataSet = new DbapyInc.DatabaseDataSet();
             this.workersBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -87,6 +87,8 @@
             this.button14 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
             this.printDocument2 = new System.Drawing.Printing.PrintDocument();
+            this.teamsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.teamsTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.TeamsTableAdapter();
             workerIdLabel = new System.Windows.Forms.Label();
             workerNameLabel = new System.Windows.Forms.Label();
             workerPhoneLabel = new System.Windows.Forms.Label();
@@ -97,6 +99,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.workersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.workersDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.workersToTeamsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teamsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // workerIdLabel
@@ -308,16 +311,16 @@
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.DataPropertyName = "WorkerJoinDate";
-            dataGridViewCellStyle5.Format = "dd/MM/yyyy";
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle3.Format = "dd/MM/yyyy";
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewTextBoxColumn5.HeaderText = "WorkerJoinDate";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.DataPropertyName = "WorkerBirthDate";
-            dataGridViewCellStyle6.Format = "dd/MM/yyyy";
-            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle4.Format = "dd/MM/yyyy";
+            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewTextBoxColumn6.HeaderText = "WorkerBirthDate";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             // 
@@ -552,11 +555,20 @@
             // 
             this.printDocument2.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument2_PrintPage);
             // 
+            // teamsBindingSource
+            // 
+            this.teamsBindingSource.DataMember = "Teams";
+            this.teamsBindingSource.DataSource = this.databaseDataSet;
+            // 
+            // teamsTableAdapter
+            // 
+            this.teamsTableAdapter.ClearBeforeFill = true;
+            // 
             // P2Workers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1150, 502);
+            this.ClientSize = new System.Drawing.Size(1150, 510);
             this.Controls.Add(this.button14);
             this.Controls.Add(this.button15);
             this.Controls.Add(this.label4);
@@ -602,6 +614,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.workersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.workersDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.workersToTeamsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teamsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -658,5 +671,7 @@
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.Button button15;
         private System.Drawing.Printing.PrintDocument printDocument2;
+        private System.Windows.Forms.BindingSource teamsBindingSource;
+        private DatabaseDataSetTableAdapters.TeamsTableAdapter teamsTableAdapter;
     }
 }

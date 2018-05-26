@@ -198,13 +198,19 @@ namespace DbapyInc
 
             foreach(int i in idList)
             {
-                filter += "ProjectId = " + i + " OR";
+                filter += "ProjectId = " + i + " OR ";
             }
 
             if (filter.Length > 3)
             {
                 filter = filter.Remove(filter.Length - 3);
             }
+
+            MessageBox.Show(filter);
+
+            DataView dv = new DataView(databaseDataSet.ProjectComponents);
+            dv.RowFilter = filter;
+            projectComponentsDataGridView.DataSource = dv;
         }
 
         private void button11_Click(object sender, EventArgs e)
