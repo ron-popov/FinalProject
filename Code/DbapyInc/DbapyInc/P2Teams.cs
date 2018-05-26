@@ -429,5 +429,10 @@ namespace DbapyInc
             printPreviewDialog1.Document = printDocument2;
             printPreviewDialog1.ShowDialog();
         }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            (new P2TeamsGraph()).Show();
+        }
     }
 }

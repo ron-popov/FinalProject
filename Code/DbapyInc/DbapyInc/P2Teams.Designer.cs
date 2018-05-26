@@ -78,6 +78,7 @@
             this.printDocument2 = new System.Drawing.Printing.PrintDocument();
             this.workersToTeamsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.workersToTeamsTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.WorkersToTeamsTableAdapter();
+            this.button11 = new System.Windows.Forms.Button();
             teamIdLabel = new System.Windows.Forms.Label();
             teamNameLabel = new System.Windows.Forms.Label();
             manageridLabel = new System.Windows.Forms.Label();
@@ -370,7 +371,6 @@
             // 
             // textBox1
             // 
-            //this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teamsBindingSource, "TeamName", true));
             this.textBox1.Enabled = false;
             this.textBox1.Location = new System.Drawing.Point(894, 104);
             this.textBox1.Name = "textBox1";
@@ -380,7 +380,6 @@
             // 
             // textBox2
             // 
-            //this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teamsBindingSource, "TeamName", true));
             this.textBox2.Enabled = false;
             this.textBox2.Location = new System.Drawing.Point(894, 157);
             this.textBox2.Name = "textBox2";
@@ -390,7 +389,6 @@
             // 
             // textBox3
             // 
-            //this.textBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teamsBindingSource, "TeamName", true));
             this.textBox3.Enabled = false;
             this.textBox3.Location = new System.Drawing.Point(894, 183);
             this.textBox3.Name = "textBox3";
@@ -477,11 +475,22 @@
             // 
             this.workersToTeamsTableAdapter.ClearBeforeFill = true;
             // 
+            // button11
+            // 
+            this.button11.Location = new System.Drawing.Point(502, 409);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(90, 39);
+            this.button11.TabIndex = 60;
+            this.button11.Text = "גרף מספר עובדים בצוות";
+            this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
+            // 
             // P2Teams
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1043, 459);
+            this.Controls.Add(this.button11);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.button10);
             this.Controls.Add(this.button13);
@@ -567,5 +576,6 @@
         private System.Drawing.Printing.PrintDocument printDocument2;
         private System.Windows.Forms.BindingSource workersToTeamsBindingSource;
         private DatabaseDataSetTableAdapters.WorkersToTeamsTableAdapter workersToTeamsTableAdapter;
+        private System.Windows.Forms.Button button11;
     }
 }

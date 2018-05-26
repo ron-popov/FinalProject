@@ -193,6 +193,7 @@
             this.chart5.Size = new System.Drawing.Size(330, 218);
             this.chart5.TabIndex = 8;
             this.chart5.Text = "chart5";
+            this.chart5.Click += new System.EventHandler(this.chart5_Click);
             // 
             // P4Graphs
             // 

@@ -96,5 +96,10 @@ namespace DbapyInc
         {
 
         }
+
+        private void chart5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -111,6 +111,12 @@
     <Compile Include="P2Teams.Designer.cs">
       <DependentUpon>P2Teams.cs</DependentUpon>
     </Compile>
+    <Compile Include="P2TeamsGraph.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="P2TeamsGraph.Designer.cs">
+      <DependentUpon>P2TeamsGraph.cs</DependentUpon>
+    </Compile>
     <Compile Include="P2Workers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -196,6 +202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="P2Teams.resx">
       <DependentUpon>P2Teams.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="P2TeamsGraph.resx">
+      <DependentUpon>P2TeamsGraph.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="P2Workers.resx">
       <DependentUpon>P2Workers.cs</DependentUpon>
