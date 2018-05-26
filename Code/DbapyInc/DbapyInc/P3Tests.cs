@@ -38,6 +38,19 @@ namespace DbapyInc
 
             testDateDateTimePicker.Enabled = false;
 
+            foreach(DataRow row in databaseDataSet.Projects.Rows)
+            {
+                comboBox1.Items.Add(row["ProjectName"].ToString());
+            }
+
+            foreach (DataRow row in databaseDataSet.Workers.Rows)
+            {
+                comboBox2.Items.Add(row["WorkerName"].ToString());
+            }
+
+            UpdateProjectComboBox();
+            UpdateWorkerComboBox();
+
 
         }
 
@@ -70,6 +83,9 @@ namespace DbapyInc
         private void button2_Click(object sender, EventArgs e)
         {
             testsBindingSource.RemoveCurrent();
+
+            UpdateProjectComboBox();
+            UpdateWorkerComboBox();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -90,79 +106,43 @@ namespace DbapyInc
         private void button8_Click(object sender, EventArgs e)
         {
             testsBindingSource.MoveFirst();
+
+            UpdateProjectComboBox();
+            UpdateWorkerComboBox();
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
             testsBindingSource.MoveLast();
+
+            UpdateProjectComboBox();
+            UpdateWorkerComboBox();
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
             testsBindingSource.MovePrevious();
+
+            UpdateProjectComboBox();
+            UpdateWorkerComboBox();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             testsBindingSource.MoveNext();
+
+            UpdateProjectComboBox();
+            UpdateWorkerComboBox();
         }
 
         private void projectIdComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            UpdateProjectName();
         }
 
-        private void UpdateWorkerName()
-        {
-            object selection = workerIdComboBox.SelectedValue;
-
-            if (selection == null)
-            {
-                textBox2.Text = "";
-                return;
-            }
-
-            int managerId = (int)selection;
-
-            foreach (DataRow row in databaseDataSet.Workers.Rows)
-            {
-                if (managerId == (int)row["WorkerId"])
-                {
-                    textBox2.Text = row["WorkerName"].ToString();
-                    return;
-                }
-            }
-
-            MessageBox.Show("Worker Not Found");
-        }
-
-        private void UpdateProjectName()
-        {
-            object selection = projectIdComboBox.SelectedValue;
-
-            if (selection == null)
-            {
-                textBox1.Text = "";
-                return;
-            }
-
-            int projectId = (int)selection;
-
-            foreach (DataRow row in databaseDataSet.Projects.Rows)
-            {
-                if (projectId == (int)row["ProjectId"])
-                {
-                    textBox1.Text = row["ProjectName"].ToString();
-                    return;
-                }
-            }
-
-            MessageBox.Show("Project Not Found");
-        }
 
         private void workerIdComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            UpdateWorkerName();
+
         }
 
         private void button15_Click(object sender, EventArgs e)
@@ -244,6 +224,111 @@ namespace DbapyInc
 
                 i++;
             }
+        }
+
+        private void projectIdLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(comboBox1.SelectedItem == null)
+            {
+                return;
+            }
+
+            string projectName = comboBox1.SelectedItem.ToString();
+
+            foreach(DataRow row in databaseDataSet.Projects)
+            {
+                if(row["ProjectName"].ToString().Equals(projectName))
+                {
+                    projectIdTextBox.Text = row["ProjectId"].ToString();
+                    return;
+                }
+            }
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox2.SelectedItem == null)
+            {
+                return;
+            }
+
+            string workerName = comboBox2.SelectedItem.ToString();
+
+            foreach (DataRow row in databaseDataSet.Workers)
+            {
+                if (row["WorkerName"].ToString().Equals(workerName))
+                {
+                    workerIdTextBox.Text = row["WorkerId"].ToString();
+                    return;
+                }
+            }
+        }
+
+        private void UpdateProjectComboBox()
+        {
+            int id = -1;
+            try
+            {
+                id = int.Parse(projectIdTextBox.Text);
+            }
+            catch(Exception)
+            {
+
+            }
+
+            foreach(DataRow row in databaseDataSet.Projects.Rows)
+            {
+                if((int)row["ProjectId"] == id)
+                {
+                    string projectName = row["ProjectName"].ToString();
+
+                    for(int i = 0; i < comboBox1.Items.Count; i++)
+                    {
+                        if(comboBox1.Items[i].ToString().Equals(projectName))
+                        {
+                            comboBox1.SelectedIndex = i;
+                            return;
+                        }
+                    }
+                }
+            }
+
+        }
+
+        private void UpdateWorkerComboBox()
+        {
+            int id = -1;
+            try
+            {
+                id = int.Parse(workerIdTextBox.Text);
+            }
+            catch (Exception)
+            {
+
+            }
+
+            foreach (DataRow row in databaseDataSet.Workers.Rows)
+            {
+                if ((int)row["WorkerId"] == id)
+                {
+                    string WorkerName = row["WorkerName"].ToString();
+
+                    for (int i = 0; i < comboBox2.Items.Count; i++)
+                    {
+                        if (comboBox2.Items[i].ToString().Equals(WorkerName))
+                        {
+                            comboBox2.SelectedIndex = i;
+                            return;
+                        }
+                    }
+                }
+            }
+
         }
     }
 }
