@@ -50,6 +50,8 @@ namespace DbapyInc
                 comboBox2.Items.Add(row["ProjectName"].ToString());
             }
 
+            UpdateWorkerComboBox();
+
         }
 
         // Handler for the add new button
@@ -186,7 +188,28 @@ namespace DbapyInc
         // Updates the selected combobox item according to the project id
         private void UpdateProjectCombobox()
         {
+            if (projectIdTextBox.Text.Length == 0)
+            {
+                return;
+            }
 
+            int projectId = int.Parse(projectIdTextBox.Text);
+
+            foreach (DataRow row in databaseDataSet.Projects.Rows)
+            {
+                if ((int)row["ProjectId"] == projectId)
+                {
+                    string projectName = row["ProjectName"].ToString();
+                    for (int i = 0; i < comboBox2.Items.Count; i++)
+                    {
+                        if (projectName.Equals(comboBox2.Items[i]))
+                        {
+                            comboBox2.SelectedIndex = i;
+                            return;
+                        }
+                    }
+                }
+            }
         }
 
         // Updates the content of the project id text box according to the combobox item selected
@@ -212,7 +235,9 @@ namespace DbapyInc
         // Updates the selected combobox item according to the worker id
         private void UpdateWorkerComboBox()
         {
-            if(workerIdTextBox.Text.Length == 0)
+            UpdateProjectCombobox();
+
+            if (workerIdTextBox.Text.Length == 0)
             {
                 return;
             }
@@ -223,7 +248,15 @@ namespace DbapyInc
             {
                 if((int)row["WorkerId"] == workerId)
                 {
-                    comboBox1.SelectedText = row["WorkerName"].ToString();
+                    string workerName = row["WorkerName"].ToString();
+                    for(int i = 0; i < comboBox1.Items.Count; i++)
+                    {
+                        if(workerName.Equals(comboBox1.Items[i]))
+                        {
+                            comboBox1.SelectedIndex = i;
+                            return;
+                        }
+                    }
                 }
             }
         }
@@ -274,6 +307,7 @@ namespace DbapyInc
 
 
             UpdateWorkerComboBox();
+
         }
     }
 }
