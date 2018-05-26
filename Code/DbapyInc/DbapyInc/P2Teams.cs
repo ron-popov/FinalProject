@@ -27,6 +27,8 @@ namespace DbapyInc
 
         private void P2Teams_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'databaseDataSet.WorkersToTeams' table. You can move, or remove it, as needed.
+            this.workersToTeamsTableAdapter.Fill(this.databaseDataSet.WorkersToTeams);
             // TODO: This line of code loads data into the 'databaseDataSet.Projects' table. You can move, or remove it, as needed.
             this.projectsTableAdapter.Fill(this.databaseDataSet.Projects);
             // TODO: This line of code loads data into the 'databaseDataSet.ProjectComponents' table. You can move, or remove it, as needed.
@@ -251,6 +253,10 @@ namespace DbapyInc
                 x += 100;
             }
 
+
+            i++;
+            x += 100;
+
             i = 0;
 
             while (i < databaseDataSet.Teams.Rows.Count)
@@ -271,6 +277,7 @@ namespace DbapyInc
 
                     x += 100;
                 }
+
 
                 i++;
             }
@@ -304,6 +311,8 @@ namespace DbapyInc
                 x += 100;
             }
 
+
+
             i = teamsDataGridView.CurrentRow.Index;
 
             x = 100;
@@ -324,6 +333,7 @@ namespace DbapyInc
                 x += 100;
             }
 
+
             i = 0;
             j = 0;
             x = 100;
@@ -333,15 +343,27 @@ namespace DbapyInc
 
             while (i < databaseDataSet.WorkersToTeams.Columns.Count)
             {
-                e.Graphics.FillRectangle(Brushes.DarkGray, new Rectangle(x, y, w, h));
+                {
+                    e.Graphics.FillRectangle(Brushes.DarkGray, new Rectangle(x, y, w, h));
 
-                e.Graphics.DrawRectangle(P, new Rectangle(x, y, w, h));
+                    e.Graphics.DrawRectangle(P, new Rectangle(x, y, w, h));
 
-                e.Graphics.DrawString(databaseDataSet.WorkersToTeams.Columns[i].ColumnName.ToString(), new Font("Ariel", 10, FontStyle.Regular), Brushes.Black, new Rectangle(x + 10, y, w, h));
+                    e.Graphics.DrawString(databaseDataSet.WorkersToTeams.Columns[i].ColumnName.ToString(), new Font("Ariel", 10, FontStyle.Regular), Brushes.Black, new Rectangle(x + 10, y, w, h));
 
+                    x += 100;
+                }
+                
                 i++;
-                x += 100;
+
             }
+
+
+            e.Graphics.FillRectangle(Brushes.DarkGray, new Rectangle(x, y, w, h));
+
+            e.Graphics.DrawRectangle(P, new Rectangle(x, y, w, h));
+
+            e.Graphics.DrawString("Worker Name", new Font("Ariel", 10, FontStyle.Regular), Brushes.Black, new Rectangle(x + 10, y, w, h));
+
 
             i = 0;
 
@@ -353,16 +375,34 @@ namespace DbapyInc
                 h = 30;
                 j = 0;
 
-
-                while (j < databaseDataSet.WorkersToTeams.Columns.Count)
+                if (databaseDataSet.WorkersToTeams.Rows[i][0].ToString().Equals(teamIdTextBox.Text))
                 {
+                    while (j < databaseDataSet.WorkersToTeams.Columns.Count)
+                    {
+                        e.Graphics.DrawRectangle(P, new Rectangle(x, y, w, h));
+
+                        e.Graphics.DrawString(databaseDataSet.WorkersToTeams.Rows[i][j].ToString(), new Font("Ariel", 10, FontStyle.Regular), Brushes.Black, new Rectangle(x + 10, y, w, h));
+
+                        j++;
+
+                        x += 100;
+                    }
+
+                    int workerId = (int)databaseDataSet.WorkersToTeams.Rows[i][1];
+                    string name = "";
+
+
+                    foreach (DataRow row in databaseDataSet.Workers.Rows)
+                    {
+                        if ((int)row["WorkerId"] == workerId)
+                        {
+                            name = row["WorkerName"].ToString();
+                        }
+                    }
+
                     e.Graphics.DrawRectangle(P, new Rectangle(x, y, w, h));
 
-                    e.Graphics.DrawString(databaseDataSet.WorkersToTeams.Rows[i][j].ToString(), new Font("Ariel", 10, FontStyle.Regular), Brushes.Black, new Rectangle(x + 10, y, w, h));
-
-                    j++;
-
-                    x += 100;
+                    e.Graphics.DrawString(name, new Font("Ariel", 10, FontStyle.Regular), Brushes.Black, new Rectangle(x + 10, y, w, h));
                 }
 
                 i++;

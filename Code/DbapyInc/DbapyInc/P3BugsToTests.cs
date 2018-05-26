@@ -27,6 +27,10 @@ namespace DbapyInc
 
         private void P3BugsToTests_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'databaseDataSet.Workers' table. You can move, or remove it, as needed.
+            this.workersTableAdapter.Fill(this.databaseDataSet.Workers);
+            // TODO: This line of code loads data into the 'databaseDataSet.Projects' table. You can move, or remove it, as needed.
+            this.projectsTableAdapter.Fill(this.databaseDataSet.Projects);
             // TODO: This line of code loads data into the 'databaseDataSet.Tests' table. You can move, or remove it, as needed.
             this.testsTableAdapter.Fill(this.databaseDataSet.Tests);
             // TODO: This line of code loads data into the 'databaseDataSet.Bugs' table. You can move, or remove it, as needed.

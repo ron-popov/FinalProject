@@ -76,6 +76,8 @@
             this.button9 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.printDocument2 = new System.Drawing.Printing.PrintDocument();
+            this.workersToTeamsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.workersToTeamsTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.WorkersToTeamsTableAdapter();
             teamIdLabel = new System.Windows.Forms.Label();
             teamNameLabel = new System.Windows.Forms.Label();
             manageridLabel = new System.Windows.Forms.Label();
@@ -89,6 +91,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.workersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectComponentsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.workersToTeamsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // teamIdLabel
@@ -465,11 +468,20 @@
             // 
             this.printDocument2.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument2_PrintPage_1);
             // 
+            // workersToTeamsBindingSource
+            // 
+            this.workersToTeamsBindingSource.DataMember = "WorkersToTeams";
+            this.workersToTeamsBindingSource.DataSource = this.databaseDataSet;
+            // 
+            // workersToTeamsTableAdapter
+            // 
+            this.workersToTeamsTableAdapter.ClearBeforeFill = true;
+            // 
             // P2Teams
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1043, 462);
+            this.ClientSize = new System.Drawing.Size(1043, 459);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.button10);
             this.Controls.Add(this.button13);
@@ -506,6 +518,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.workersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectComponentsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.workersToTeamsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -552,5 +565,7 @@
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button10;
         private System.Drawing.Printing.PrintDocument printDocument2;
+        private System.Windows.Forms.BindingSource workersToTeamsBindingSource;
+        private DatabaseDataSetTableAdapters.WorkersToTeamsTableAdapter workersToTeamsTableAdapter;
     }
 }

@@ -62,6 +62,10 @@
             this.bugDescriptionRichTextBox = new System.Windows.Forms.RichTextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.projectsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.projectsTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.ProjectsTableAdapter();
+            this.workersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.workersTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.WorkersTableAdapter();
             testIdLabel = new System.Windows.Forms.Label();
             bugIdLabel = new System.Windows.Forms.Label();
             bugNameLabel = new System.Windows.Forms.Label();
@@ -75,6 +79,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.bugsBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bugsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bugsBugsToTestsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.workersBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // testIdLabel
@@ -217,7 +223,6 @@
             // bugIdComboBox
             // 
             this.bugIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bugsToTestsBindingSource, "BugId", true));
-            this.bugIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bugsBindingSource1, "BugId", true));
             this.bugIdComboBox.DataSource = this.bugsBindingSource1;
             this.bugIdComboBox.DisplayMember = "BugId";
             this.bugIdComboBox.FormattingEnabled = true;
@@ -360,11 +365,29 @@
             this.textBox1.Size = new System.Drawing.Size(121, 20);
             this.textBox1.TabIndex = 54;
             // 
+            // projectsBindingSource
+            // 
+            this.projectsBindingSource.DataMember = "Projects";
+            this.projectsBindingSource.DataSource = this.databaseDataSet;
+            // 
+            // projectsTableAdapter
+            // 
+            this.projectsTableAdapter.ClearBeforeFill = true;
+            // 
+            // workersBindingSource
+            // 
+            this.workersBindingSource.DataMember = "Workers";
+            this.workersBindingSource.DataSource = this.databaseDataSet;
+            // 
+            // workersTableAdapter
+            // 
+            this.workersTableAdapter.ClearBeforeFill = true;
+            // 
             // P3BugsToTests
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(737, 490);
+            this.ClientSize = new System.Drawing.Size(727, 498);
             this.Controls.Add(label2);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(label1);
@@ -396,6 +419,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.bugsBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bugsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bugsBugsToTestsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.workersBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -430,5 +455,9 @@
         private System.Windows.Forms.RichTextBox bugDescriptionRichTextBox;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.BindingSource projectsBindingSource;
+        private DatabaseDataSetTableAdapters.ProjectsTableAdapter projectsTableAdapter;
+        private System.Windows.Forms.BindingSource workersBindingSource;
+        private DatabaseDataSetTableAdapters.WorkersTableAdapter workersTableAdapter;
     }
 }

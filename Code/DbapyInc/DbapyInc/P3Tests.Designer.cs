@@ -35,6 +35,7 @@
             System.Windows.Forms.Label workerIdLabel;
             System.Windows.Forms.Label label1;
             System.Windows.Forms.Label label2;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(P3Tests));
             this.databaseDataSet = new DbapyInc.DatabaseDataSet();
             this.testsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.testsTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.TestsTableAdapter();
@@ -62,6 +63,14 @@
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.button14 = new System.Windows.Forms.Button();
+            this.button15 = new System.Windows.Forms.Button();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printDialog1 = new System.Windows.Forms.PrintDialog();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
+            this.bugsToTestsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bugsToTestsTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.BugsToTestsTableAdapter();
             testIdLabel = new System.Windows.Forms.Label();
             testDateLabel = new System.Windows.Forms.Label();
             projectIdLabel = new System.Windows.Forms.Label();
@@ -73,6 +82,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.testsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.workersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bugsToTestsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // testIdLabel
@@ -262,7 +272,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(730, 362);
+            this.button5.Location = new System.Drawing.Point(728, 306);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(136, 23);
             this.button5.TabIndex = 40;
@@ -272,7 +282,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(596, 361);
+            this.button6.Location = new System.Drawing.Point(594, 305);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(128, 23);
             this.button6.TabIndex = 39;
@@ -282,7 +292,7 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(730, 332);
+            this.button7.Location = new System.Drawing.Point(728, 276);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(136, 23);
             this.button7.TabIndex = 38;
@@ -292,7 +302,7 @@
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(596, 332);
+            this.button8.Location = new System.Drawing.Point(594, 276);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(128, 23);
             this.button8.TabIndex = 37;
@@ -302,7 +312,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(730, 268);
+            this.button4.Location = new System.Drawing.Point(728, 212);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(136, 23);
             this.button4.TabIndex = 36;
@@ -312,7 +322,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(596, 267);
+            this.button3.Location = new System.Drawing.Point(594, 211);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(128, 23);
             this.button3.TabIndex = 35;
@@ -322,7 +332,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(730, 238);
+            this.button2.Location = new System.Drawing.Point(728, 182);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(136, 23);
             this.button2.TabIndex = 34;
@@ -332,7 +342,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(596, 238);
+            this.button1.Location = new System.Drawing.Point(594, 182);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(128, 23);
             this.button1.TabIndex = 33;
@@ -358,11 +368,59 @@
             this.textBox2.Size = new System.Drawing.Size(200, 20);
             this.textBox2.TabIndex = 44;
             // 
+            // button14
+            // 
+            this.button14.Location = new System.Drawing.Point(728, 350);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(136, 39);
+            this.button14.TabIndex = 63;
+            this.button14.Text = "הדפס דוח בדיקות";
+            this.button14.UseVisualStyleBackColor = true;
+            // 
+            // button15
+            // 
+            this.button15.Location = new System.Drawing.Point(594, 349);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(128, 40);
+            this.button15.TabIndex = 62;
+            this.button15.Text = "הצג דוח בדיקות";
+            this.button15.UseVisualStyleBackColor = true;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
+            // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
+            // printDialog1
+            // 
+            this.printDialog1.UseEXDialog = true;
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            // 
+            // bugsToTestsBindingSource
+            // 
+            this.bugsToTestsBindingSource.DataMember = "BugsToTests";
+            this.bugsToTestsBindingSource.DataSource = this.databaseDataSet;
+            // 
+            // bugsToTestsTableAdapter
+            // 
+            this.bugsToTestsTableAdapter.ClearBeforeFill = true;
+            // 
             // P3Tests
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(888, 401);
+            this.ClientSize = new System.Drawing.Size(881, 409);
+            this.Controls.Add(this.button14);
+            this.Controls.Add(this.button15);
             this.Controls.Add(label2);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(label1);
@@ -392,6 +450,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.testsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.workersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bugsToTestsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -426,5 +485,13 @@
         private System.Windows.Forms.BindingSource workersBindingSource;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.Button button15;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.PrintDialog printDialog1;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private System.Windows.Forms.PageSetupDialog pageSetupDialog1;
+        private System.Windows.Forms.BindingSource bugsToTestsBindingSource;
+        private DatabaseDataSetTableAdapters.BugsToTestsTableAdapter bugsToTestsTableAdapter;
     }
 }

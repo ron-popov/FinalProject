@@ -86,6 +86,9 @@
             this.button10 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
+            this.printDocument2 = new System.Drawing.Printing.PrintDocument();
+            this.projectComponentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.projectComponentsTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.ProjectComponentsTableAdapter();
             projectIdLabel = new System.Windows.Forms.Label();
             projectNameLabel = new System.Windows.Forms.Label();
             orderIdLabel = new System.Windows.Forms.Label();
@@ -104,6 +107,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.projectTypesBindingSource)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.workersToTeamsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectComponentsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // projectIdLabel
@@ -552,7 +556,7 @@
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(204, 23);
             this.button11.TabIndex = 47;
-            this.button11.Text = "הדפס דוח תקלות";
+            this.button11.Text = "הדפס דוח פרויקט";
             this.button11.UseVisualStyleBackColor = true;
             // 
             // button12
@@ -561,14 +565,28 @@
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(203, 23);
             this.button12.TabIndex = 46;
-            this.button12.Text = "הצג דוח תקלות";
+            this.button12.Text = "הצג דוח פרויקט";
             this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
+            // 
+            // printDocument2
+            // 
+            this.printDocument2.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument2_PrintPage);
+            // 
+            // projectComponentsBindingSource
+            // 
+            this.projectComponentsBindingSource.DataMember = "ProjectComponents";
+            this.projectComponentsBindingSource.DataSource = this.databaseDataSet;
+            // 
+            // projectComponentsTableAdapter
+            // 
+            this.projectComponentsTableAdapter.ClearBeforeFill = true;
             // 
             // P1Projects
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1177, 361);
+            this.ClientSize = new System.Drawing.Size(1186, 357);
             this.Controls.Add(this.button11);
             this.Controls.Add(this.button12);
             this.Controls.Add(this.button10);
@@ -609,6 +627,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.workersToTeamsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectComponentsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -661,5 +680,8 @@
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button button12;
+        private System.Drawing.Printing.PrintDocument printDocument2;
+        private System.Windows.Forms.BindingSource projectComponentsBindingSource;
+        private DatabaseDataSetTableAdapters.ProjectComponentsTableAdapter projectComponentsTableAdapter;
     }
 }
