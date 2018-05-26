@@ -64,6 +64,7 @@ namespace DbapyInc
 
             orderIdTextBox.Text = max.ToString();
 
+            orderDateDateTimePicker.Value = DateTime.Today;
 
             UpdateComboBox();
 
