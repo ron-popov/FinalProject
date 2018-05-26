@@ -370,7 +370,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teamsBindingSource, "TeamName", true));
+            //this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teamsBindingSource, "TeamName", true));
             this.textBox1.Enabled = false;
             this.textBox1.Location = new System.Drawing.Point(894, 104);
             this.textBox1.Name = "textBox1";
@@ -380,7 +380,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teamsBindingSource, "TeamName", true));
+            //this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teamsBindingSource, "TeamName", true));
             this.textBox2.Enabled = false;
             this.textBox2.Location = new System.Drawing.Point(894, 157);
             this.textBox2.Name = "textBox2";
@@ -390,7 +390,7 @@
             // 
             // textBox3
             // 
-            this.textBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teamsBindingSource, "TeamName", true));
+            //this.textBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teamsBindingSource, "TeamName", true));
             this.textBox3.Enabled = false;
             this.textBox3.Location = new System.Drawing.Point(894, 183);
             this.textBox3.Name = "textBox3";
