@@ -28,6 +28,8 @@ namespace DbapyInc
 
         private void P2Workers_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'databaseDataSet.ProjectComponents' table. You can move, or remove it, as needed.
+            this.projectComponentsTableAdapter.Fill(this.databaseDataSet.ProjectComponents);
             // TODO: This line of code loads data into the 'databaseDataSet.Teams' table. You can move, or remove it, as needed.
             this.teamsTableAdapter.Fill(this.databaseDataSet.Teams);
             // TODO: This line of code loads data into the 'databaseDataSet.WorkersToTeams' table. You can move, or remove it, as needed.
@@ -246,6 +248,38 @@ namespace DbapyInc
                     }
                 }
             }
+
+            int counter = 0;
+
+            foreach(DataRow r1 in databaseDataSet.WorkersToTeams.Rows)
+            {
+                int teamId = (int)r1["TeamId"];
+                int workerId = (int)r1["WorkerId"];
+
+                if (workerId == int.Parse(workerIdTextBox.Text))
+                {
+                    foreach(DataRow r2 in databaseDataSet.Teams.Rows)
+                    {
+                        if (teamId == (int)r2["TeamId"])
+                        {
+                            int componentId = (int)r2["ComponentId"];
+
+                            foreach(DataRow r3 in databaseDataSet.ProjectComponents.Rows)
+                            {
+                                if((int)r3["ComponentId"] == componentId)
+                                {
+                                    if(!(bool)r3["Finished"])
+                                    {
+                                        counter++;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            textBox5.Text = counter.ToString();
         }
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
@@ -308,15 +342,16 @@ namespace DbapyInc
 
             i = 0;
 
+            y += 30;
+
             while (i < databaseDataSet.WorkersToTeams.Rows.Count)
             {
                 x = 100;
-                y += 30;
                 w = 100;
                 h = 30;
                 j = 0;
 
-                if (databaseDataSet.Workers.Rows[i][1].ToString() == workerIdTextBox.ToString())
+                if (databaseDataSet.WorkersToTeams.Rows[i]["WorkerId"].ToString().Equals(workerIdTextBox.Text))
                 {
                     while (j < databaseDataSet.WorkersToTeams.Columns.Count)
                     {
@@ -330,8 +365,11 @@ namespace DbapyInc
                         x += 100;
                     }
 
-                    i++;
+                    y += 30;
                 }
+
+                i++;
+
             }
         }
 

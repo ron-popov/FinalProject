@@ -100,6 +100,31 @@ namespace DbapyInc
                 return;
             }
 
+            List<int> componentIdList = new List<int>();
+            foreach(DataGridViewRow r in teamsDataGridView.Rows)
+            {
+                DataRow row = null;
+                try
+                {
+                    row = ((DataRowView)r.DataBoundItem).Row;
+
+                }
+                catch (Exception)
+                {
+
+                }
+
+                int componentId = (int)row["ComponentId"];
+
+                if (componentIdList.Contains(componentId))
+                {
+                    MessageBox.Show("you cannot assign two teams to the same project component");
+                    return;
+                }
+
+                componentIdList.Add(componentId);
+            }
+
             // Saving to database
             teamsBindingSource.EndEdit();
             this.teamsTableAdapter.Update(this.databaseDataSet.Teams);
