@@ -84,6 +84,8 @@
             this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
             this.button9 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
             projectIdLabel = new System.Windows.Forms.Label();
             projectNameLabel = new System.Windows.Forms.Label();
             orderIdLabel = new System.Windows.Forms.Label();
@@ -544,11 +546,31 @@
             this.button10.Text = "הדפס דוח פרויקטים";
             this.button10.UseVisualStyleBackColor = true;
             // 
+            // button11
+            // 
+            this.button11.Location = new System.Drawing.Point(949, 221);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(204, 23);
+            this.button11.TabIndex = 47;
+            this.button11.Text = "הדפס דוח תקלות";
+            this.button11.UseVisualStyleBackColor = true;
+            // 
+            // button12
+            // 
+            this.button12.Location = new System.Drawing.Point(950, 192);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(203, 23);
+            this.button12.TabIndex = 46;
+            this.button12.Text = "הצג דוח תקלות";
+            this.button12.UseVisualStyleBackColor = true;
+            // 
             // P1Projects
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1177, 361);
+            this.Controls.Add(this.button11);
+            this.Controls.Add(this.button12);
             this.Controls.Add(this.button10);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.panel1);
@@ -637,5 +659,7 @@
         private System.Windows.Forms.PageSetupDialog pageSetupDialog1;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button button12;
     }
 }

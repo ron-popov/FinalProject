@@ -73,6 +73,9 @@
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
+            this.printDocument2 = new System.Drawing.Printing.PrintDocument();
             teamIdLabel = new System.Windows.Forms.Label();
             teamNameLabel = new System.Windows.Forms.Label();
             manageridLabel = new System.Windows.Forms.Label();
@@ -438,11 +441,37 @@
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(361, 409);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(90, 39);
+            this.button9.TabIndex = 59;
+            this.button9.Text = "הדפס דוח צוות";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(265, 409);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(90, 40);
+            this.button10.TabIndex = 58;
+            this.button10.Text = "הצג דוח צוות";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
+            // printDocument2
+            // 
+            this.printDocument2.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument2_PrintPage_1);
+            // 
             // P2Teams
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1043, 462);
+            this.Controls.Add(this.button9);
+            this.Controls.Add(this.button10);
             this.Controls.Add(this.button13);
             this.Controls.Add(this.button12);
             this.Controls.Add(label3);
@@ -520,5 +549,8 @@
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
         private System.Windows.Forms.PageSetupDialog pageSetupDialog1;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button10;
+        private System.Drawing.Printing.PrintDocument printDocument2;
     }
 }

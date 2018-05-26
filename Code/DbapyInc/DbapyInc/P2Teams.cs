@@ -280,5 +280,104 @@ namespace DbapyInc
         {
 
         }
+
+        private void printDocument2_PrintPage_1(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            int i = 0;
+            int j;
+            int x = 100;
+            int y = 100;
+            int w = 100;
+            int h = 30;
+
+            Pen P = new Pen(Brushes.Black, 2.5f);
+
+            while (i < databaseDataSet.Teams.Columns.Count)
+            {
+                e.Graphics.FillRectangle(Brushes.DarkGray, new Rectangle(x, y, w, h));
+
+                e.Graphics.DrawRectangle(P, new Rectangle(x, y, w, h));
+
+                e.Graphics.DrawString(databaseDataSet.Teams.Columns[i].ColumnName.ToString(), new Font("Ariel", 10, FontStyle.Regular), Brushes.Black, new Rectangle(x + 10, y, w, h));
+
+                i++;
+                x += 100;
+            }
+
+            i = teamsDataGridView.CurrentRow.Index;
+
+            x = 100;
+            y += 30;
+            w = 100;
+            h = 30;
+            j = 0;
+
+
+            while (j < databaseDataSet.Teams.Columns.Count)
+            {
+                e.Graphics.DrawRectangle(P, new Rectangle(x, y, w, h));
+
+                e.Graphics.DrawString(databaseDataSet.Teams.Rows[i][j].ToString(), new Font("Ariel", 10, FontStyle.Regular), Brushes.Black, new Rectangle(x + 10, y, w, h));
+
+                j++;
+
+                x += 100;
+            }
+
+            i = 0;
+            j = 0;
+            x = 100;
+            y = 400;
+            w = 100;
+            h = 30;
+
+            while (i < databaseDataSet.WorkersToTeams.Columns.Count)
+            {
+                e.Graphics.FillRectangle(Brushes.DarkGray, new Rectangle(x, y, w, h));
+
+                e.Graphics.DrawRectangle(P, new Rectangle(x, y, w, h));
+
+                e.Graphics.DrawString(databaseDataSet.WorkersToTeams.Columns[i].ColumnName.ToString(), new Font("Ariel", 10, FontStyle.Regular), Brushes.Black, new Rectangle(x + 10, y, w, h));
+
+                i++;
+                x += 100;
+            }
+
+            i = 0;
+
+            while (i < databaseDataSet.WorkersToTeams.Rows.Count)
+            {
+                x = 100;
+                y += 30;
+                w = 100;
+                h = 30;
+                j = 0;
+
+
+                while (j < databaseDataSet.WorkersToTeams.Columns.Count)
+                {
+                    e.Graphics.DrawRectangle(P, new Rectangle(x, y, w, h));
+
+                    e.Graphics.DrawString(databaseDataSet.WorkersToTeams.Rows[i][j].ToString(), new Font("Ariel", 10, FontStyle.Regular), Brushes.Black, new Rectangle(x + 10, y, w, h));
+
+                    j++;
+
+                    x += 100;
+                }
+
+                i++;
+            }
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            printPreviewDialog1.Document = printDocument2;
+            printPreviewDialog1.ShowDialog();
+        }
     }
 }
