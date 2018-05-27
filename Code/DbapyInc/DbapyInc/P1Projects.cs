@@ -40,11 +40,26 @@ namespace DbapyInc
             // TODO: This line of code loads data into the 'databaseDataSet.Projects' table. You can move, or remove it, as needed.
             this.projectsTableAdapter.Fill(this.databaseDataSet.Projects);
 
+
+            foreach(DataRow row in databaseDataSet.Workers)
+            {
+                comboBox1.Items.Add(row["WorkerName"].ToString());
+            }
+
+            foreach(DataRow row in databaseDataSet.ProjectTypes)
+            {
+                comboBox2.Items.Add(row["TypeName"].ToString());
+            }
+
+
+            UpdateTypeComboBox();
+            UpdateManagerComboBox();
+
             UpdateWorkerDetails();
-            UpdateProjectTypeDetails();
             CalcManagerTeams();
 
-            
+
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -76,7 +91,13 @@ namespace DbapyInc
         {
             projectsBindingSource.RemoveCurrent();
 
-            
+            UpdateTypeComboBox();
+            UpdateManagerComboBox();
+
+            UpdateWorkerDetails();
+            CalcManagerTeams();
+
+
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -106,18 +127,6 @@ namespace DbapyInc
                 return;
             }
 
-            if (managerIdComboBox.Text.Length == 0)
-            {
-                MessageBox.Show("Manager Id cannot be empty");
-                return;
-            }
-
-            if (projectTypeComboBox.Text.Length == 0)
-            {
-                MessageBox.Show("Project Type cannot be empty");
-                return;
-            }
-
             // Saving
             projectsBindingSource.EndEdit();
             this.projectsTableAdapter.Update(this.databaseDataSet.Projects);
@@ -128,30 +137,60 @@ namespace DbapyInc
         private void button3_Click(object sender, EventArgs e)
         {
             this.projectsTableAdapter.Fill(this.databaseDataSet.Projects);
+
+            UpdateTypeComboBox();
+            UpdateManagerComboBox();
+
+            UpdateWorkerDetails();
+            CalcManagerTeams();
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
             projectsBindingSource.MoveFirst();
-            
+
+            UpdateTypeComboBox();
+            UpdateManagerComboBox();
+
+            UpdateWorkerDetails();
+            CalcManagerTeams();
+
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
             projectsBindingSource.MoveLast();
-            
+
+            UpdateTypeComboBox();
+            UpdateManagerComboBox();
+
+            UpdateWorkerDetails();
+            CalcManagerTeams();
+
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
             projectsBindingSource.MovePrevious();
-            
+
+            UpdateTypeComboBox();
+            UpdateManagerComboBox();
+
+            UpdateWorkerDetails();
+            CalcManagerTeams();
+
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             projectsBindingSource.MoveNext();
-            
+
+            UpdateTypeComboBox();
+            UpdateManagerComboBox();
+
+            UpdateWorkerDetails();
+            CalcManagerTeams();
+
         }
 
         private void projectsBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
@@ -164,21 +203,17 @@ namespace DbapyInc
 
         private void UpdateWorkerDetails()
         {
-            object selection = managerIdComboBox.SelectedValue;
-            if (selection == null)
+            if (managerIdTextBox.Text.Length == 0)
             {
-                textBox1.Text = "";
-                textBox2.Text = "";
                 return;
             }
 
-            int managerId = (int)selection;
+            int managerId = int.Parse(managerIdTextBox.Text);
 
             foreach (DataRow row in databaseDataSet.Workers.Rows)
             {
                 if ((int)row["WorkerId"] == managerId)
                 {
-                    textBox1.Text = row["WorkerName"].ToString();
                     textBox2.Text = ((DateTime.Now - (DateTime)row["WorkerJoinDate"]).Days / 365).ToString();
                     return;
                 }
@@ -187,40 +222,14 @@ namespace DbapyInc
             MessageBox.Show("Manger Id Not Found");
         }
 
-        private void UpdateProjectTypeDetails()
-        {
-            object selection = projectTypeComboBox.SelectedValue;
-            if (selection == null)
-            {
-                textBox3.Text = "";
-                return;
-            }
-
-            int managerId = (int)selection;
-
-            foreach (DataRow row in databaseDataSet.ProjectTypes.Rows)
-            {
-                if ((int)row["TypeId"] == managerId)
-                {
-                    textBox3.Text = row["TypeName"].ToString();
-                    return;
-                }
-            }
-
-            MessageBox.Show("Project Type Id Not Found");
-        }
-
         private void CalcManagerTeams()
         {
-            object selection = managerIdComboBox.SelectedValue;
-            if (selection == null)
+            if (managerIdTextBox.Text.Length == 0)
             {
-                textBox1.Text = "";
-                textBox2.Text = "";
                 return;
             }
 
-            int managerId = (int)selection;
+            int managerId = int.Parse(managerIdTextBox.Text);
 
             int counter = 0;
 
@@ -232,25 +241,9 @@ namespace DbapyInc
                 }
             }
 
-            textBox4.Text = counter.ToString();
+            textBox1.Text = counter.ToString();
         }
 
-        private void managerIdComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            UpdateWorkerDetails();
-            CalcManagerTeams();
-        }
-
-        private void projectTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            UpdateProjectTypeDetails();
-        }
-
-        private void managerIdComboBox_ValueMemberChanged(object sender, EventArgs e)
-        {
-            UpdateWorkerDetails();
-            CalcManagerTeams();
-        }
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
@@ -408,6 +401,104 @@ namespace DbapyInc
                 }
 
                 i++;
+            }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(comboBox1.SelectedItem == null)
+            {
+                return;
+            }
+
+            string workerName = comboBox1.SelectedItem.ToString();
+            
+            foreach(DataRow row in databaseDataSet.Workers.Rows)
+            {
+                if(row["WorkerName"].ToString().Equals(workerName))
+                {
+                    int id = (int)row["WorkerId"];
+                    managerIdTextBox.Text = id.ToString();
+                }
+            }
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox2.SelectedItem == null)
+            {
+                return;
+            }
+
+            string typeName = comboBox2.SelectedItem.ToString();
+
+            foreach (DataRow row in databaseDataSet.ProjectTypes.Rows)
+            {
+                if (row["TypeName"].ToString().Equals(typeName))
+                {
+                    int id = (int)row["TypeId"];
+                    projectTypeTextBox.Text = id.ToString();
+                }
+            }
+        }
+
+        private void UpdateManagerComboBox()
+        {
+            int id = -1;
+            try
+            {
+                id = int.Parse(managerIdTextBox.Text);
+            }
+            catch (Exception)
+            {
+
+            }
+
+            foreach (DataRow row in databaseDataSet.Workers.Rows)
+            {
+                if ((int)row["WorkerId"] == id)
+                {
+                    string WorkerName = row["WorkerName"].ToString();
+
+                    for (int i = 0; i < comboBox1.Items.Count; i++)
+                    {
+                        if (comboBox1.Items[i].ToString().Equals(WorkerName))
+                        {
+                            comboBox1.SelectedIndex = i;
+                            return;
+                        }
+                    }
+                }
+            }
+        }
+
+        private void UpdateTypeComboBox()
+        {
+            int id = -1;
+            try
+            {
+                id = int.Parse(projectTypeTextBox.Text);
+            }
+            catch (Exception)
+            {
+
+            }
+
+            foreach (DataRow row in databaseDataSet.ProjectTypes.Rows)
+            {
+                if ((int)row["TypeId"] == id)
+                {
+                    string TypeName = row["TypeName"].ToString();
+
+                    for (int i = 0; i < comboBox2.Items.Count; i++)
+                    {
+                        if (comboBox2.Items[i].ToString().Equals(TypeName))
+                        {
+                            comboBox2.SelectedIndex = i;
+                            return;
+                        }
+                    }
+                }
             }
         }
     }
