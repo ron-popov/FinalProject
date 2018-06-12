@@ -27,6 +27,8 @@ namespace DbapyInc
 
         private void P3Bugs_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'databaseDataSet.BugsToTests' table. You can move, or remove it, as needed.
+            this.bugsToTestsTableAdapter.Fill(this.databaseDataSet.BugsToTests);
             // TODO: This line of code loads data into the 'databaseDataSet.Bugs' table. You can move, or remove it, as needed.
             this.bugsTableAdapter.Fill(this.databaseDataSet.Bugs);
 
@@ -113,6 +115,37 @@ namespace DbapyInc
         private void button3_Click(object sender, EventArgs e)
         {
             this.bugsTableAdapter.Fill(this.databaseDataSet.Bugs);
+        }
+
+        private void bugIdTextBox_TextChanged(object sender, EventArgs e)
+        {
+            UpdateBugCount();
+        }
+
+        private void UpdateBugCount()
+        {
+            int bugId = -1;
+            try
+            {
+                bugId = int.Parse(bugIdTextBox.Text);
+            }
+            catch
+            {
+                textBox1.Text = "";
+                return;
+            }
+
+            int count = 0;
+
+            foreach(DataRow row in databaseDataSet.BugsToTests)
+            {
+                if((int)row["BugId"] == bugId)
+                {
+                    count++;
+                }
+            }
+
+            textBox1.Text = count.ToString();
         }
     }
 }

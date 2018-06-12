@@ -37,6 +37,7 @@
             System.Windows.Forms.Label label2;
             System.Windows.Forms.Label label3;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(P2Teams));
+            System.Windows.Forms.Label label4;
             this.databaseDataSet = new DbapyInc.DatabaseDataSet();
             this.teamsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.teamsTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.TeamsTableAdapter();
@@ -79,6 +80,7 @@
             this.workersToTeamsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.workersToTeamsTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.WorkersToTeamsTableAdapter();
             this.button11 = new System.Windows.Forms.Button();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             teamIdLabel = new System.Windows.Forms.Label();
             teamNameLabel = new System.Windows.Forms.Label();
             manageridLabel = new System.Windows.Forms.Label();
@@ -86,6 +88,7 @@
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
+            label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teamsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teamsDataGridView)).BeginInit();
@@ -244,6 +247,7 @@
             this.teamIdTextBox.Name = "teamIdTextBox";
             this.teamIdTextBox.Size = new System.Drawing.Size(121, 20);
             this.teamIdTextBox.TabIndex = 2;
+            this.teamIdTextBox.TextChanged += new System.EventHandler(this.teamIdTextBox_TextChanged);
             // 
             // teamNameTextBox
             // 
@@ -485,11 +489,30 @@
             this.button11.UseVisualStyleBackColor = true;
             this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new System.Drawing.Point(802, 212);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(84, 13);
+            label4.TabIndex = 61;
+            label4.Text = "Workers Count :";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Enabled = false;
+            this.textBox4.Location = new System.Drawing.Point(894, 209);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(121, 20);
+            this.textBox4.TabIndex = 62;
+            // 
             // P2Teams
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1043, 459);
+            this.Controls.Add(label4);
+            this.Controls.Add(this.textBox4);
             this.Controls.Add(this.button11);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.button10);
@@ -577,5 +600,6 @@
         private System.Windows.Forms.BindingSource workersToTeamsBindingSource;
         private DatabaseDataSetTableAdapters.WorkersToTeamsTableAdapter workersToTeamsTableAdapter;
         private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.TextBox textBox4;
     }
 }

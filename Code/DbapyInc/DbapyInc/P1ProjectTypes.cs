@@ -27,6 +27,8 @@ namespace DbapyInc
 
         private void P1ProjectTypes_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'databaseDataSet.Projects' table. You can move, or remove it, as needed.
+            this.projectsTableAdapter.Fill(this.databaseDataSet.Projects);
             // TODO: This line of code loads data into the 'databaseDataSet.ProjectTypes' table. You can move, or remove it, as needed.
             this.projectTypesTableAdapter.Fill(this.databaseDataSet.ProjectTypes);
 
@@ -177,6 +179,39 @@ namespace DbapyInc
 
                 i++;
             }
+        }
+
+        private void typeIdTextBox_TextChanged(object sender, EventArgs e)
+        {
+            int typeId = -1;
+            try
+            {
+                typeId = int.Parse(typeIdTextBox.Text);
+            }
+            catch
+            {
+                textBox1.Text = "";
+                return;
+            }
+
+            int count = 0;
+
+            foreach (DataRow row in databaseDataSet.Projects.Rows)
+            {
+                try
+                {
+                    if((int)row["ProjectType"] == typeId)
+                    {
+                        count++;
+                    }
+                }
+                catch(DeletedRowInaccessibleException)
+                {
+
+                }
+            }
+
+            textBox1.Text = count.ToString() ;
         }
     }
 }

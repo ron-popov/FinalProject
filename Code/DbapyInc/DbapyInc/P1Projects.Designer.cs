@@ -33,9 +33,10 @@
             System.Windows.Forms.Label projectNameLabel;
             System.Windows.Forms.Label orderIdLabel;
             System.Windows.Forms.Label projectPriceLabel;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(P1Projects));
             System.Windows.Forms.Label managerIdLabel;
             System.Windows.Forms.Label projectTypeLabel;
+            System.Windows.Forms.Label label4;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(P1Projects));
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
@@ -88,12 +89,16 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.teamsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.teamsTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.TeamsTableAdapter();
             projectIdLabel = new System.Windows.Forms.Label();
             projectNameLabel = new System.Windows.Forms.Label();
             orderIdLabel = new System.Windows.Forms.Label();
             projectPriceLabel = new System.Windows.Forms.Label();
             managerIdLabel = new System.Windows.Forms.Label();
             projectTypeLabel = new System.Windows.Forms.Label();
+            label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectsDataGridView)).BeginInit();
@@ -103,6 +108,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.workersToTeamsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectComponentsBindingSource)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.teamsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // projectIdLabel
@@ -140,6 +146,33 @@
             projectPriceLabel.Size = new System.Drawing.Size(70, 13);
             projectPriceLabel.TabIndex = 35;
             projectPriceLabel.Text = "Project Price:";
+            // 
+            // managerIdLabel
+            // 
+            managerIdLabel.AutoSize = true;
+            managerIdLabel.Location = new System.Drawing.Point(724, 99);
+            managerIdLabel.Name = "managerIdLabel";
+            managerIdLabel.Size = new System.Drawing.Size(64, 13);
+            managerIdLabel.TabIndex = 48;
+            managerIdLabel.Text = "Manager Id:";
+            // 
+            // projectTypeLabel
+            // 
+            projectTypeLabel.AutoSize = true;
+            projectTypeLabel.Location = new System.Drawing.Point(728, 127);
+            projectTypeLabel.Name = "projectTypeLabel";
+            projectTypeLabel.Size = new System.Drawing.Size(70, 13);
+            projectTypeLabel.TabIndex = 49;
+            projectTypeLabel.Text = "Project Type:";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new System.Drawing.Point(714, 180);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(84, 13);
+            label4.TabIndex = 59;
+            label4.Text = "Workers Count :";
             // 
             // button5
             // 
@@ -183,7 +216,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(825, 222);
+            this.button4.Location = new System.Drawing.Point(829, 240);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(100, 23);
             this.button4.TabIndex = 20;
@@ -193,7 +226,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(727, 221);
+            this.button3.Location = new System.Drawing.Point(731, 239);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(92, 23);
             this.button3.TabIndex = 19;
@@ -203,7 +236,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(825, 192);
+            this.button2.Location = new System.Drawing.Point(829, 210);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 23);
             this.button2.TabIndex = 18;
@@ -213,7 +246,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(727, 192);
+            this.button1.Location = new System.Drawing.Point(731, 210);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(92, 23);
             this.button1.TabIndex = 17;
@@ -325,6 +358,7 @@
             this.projectIdTextBox.Name = "projectIdTextBox";
             this.projectIdTextBox.Size = new System.Drawing.Size(121, 20);
             this.projectIdTextBox.TabIndex = 26;
+            this.projectIdTextBox.TextChanged += new System.EventHandler(this.projectIdTextBox_TextChanged);
             // 
             // projectNameTextBox
             // 
@@ -417,7 +451,7 @@
             // 
             // button11
             // 
-            this.button11.Location = new System.Drawing.Point(949, 221);
+            this.button11.Location = new System.Drawing.Point(953, 239);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(204, 23);
             this.button11.TabIndex = 47;
@@ -426,7 +460,7 @@
             // 
             // button12
             // 
-            this.button12.Location = new System.Drawing.Point(950, 192);
+            this.button12.Location = new System.Drawing.Point(954, 210);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(203, 23);
             this.button12.TabIndex = 46;
@@ -447,15 +481,6 @@
             // 
             this.projectComponentsTableAdapter.ClearBeforeFill = true;
             // 
-            // managerIdLabel
-            // 
-            managerIdLabel.AutoSize = true;
-            managerIdLabel.Location = new System.Drawing.Point(724, 99);
-            managerIdLabel.Name = "managerIdLabel";
-            managerIdLabel.Size = new System.Drawing.Size(64, 13);
-            managerIdLabel.TabIndex = 48;
-            managerIdLabel.Text = "Manager Id:";
-            // 
             // managerIdTextBox
             // 
             this.managerIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.projectsBindingSource, "ManagerId", true));
@@ -464,15 +489,6 @@
             this.managerIdTextBox.Name = "managerIdTextBox";
             this.managerIdTextBox.Size = new System.Drawing.Size(121, 20);
             this.managerIdTextBox.TabIndex = 49;
-            // 
-            // projectTypeLabel
-            // 
-            projectTypeLabel.AutoSize = true;
-            projectTypeLabel.Location = new System.Drawing.Point(728, 127);
-            projectTypeLabel.Name = "projectTypeLabel";
-            projectTypeLabel.Size = new System.Drawing.Size(70, 13);
-            projectTypeLabel.TabIndex = 49;
-            projectTypeLabel.Text = "Project Type:";
             // 
             // projectTypeTextBox
             // 
@@ -553,11 +569,29 @@
             this.label3.TabIndex = 58;
             this.label3.Text = "פרטי מנהל פרויקט";
             // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(804, 177);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(121, 20);
+            this.textBox3.TabIndex = 60;
+            // 
+            // teamsBindingSource
+            // 
+            this.teamsBindingSource.DataMember = "Teams";
+            this.teamsBindingSource.DataSource = this.databaseDataSet;
+            // 
+            // teamsTableAdapter
+            // 
+            this.teamsTableAdapter.ClearBeforeFill = true;
+            // 
             // P1Projects
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1262, 359);
+            this.ClientSize = new System.Drawing.Size(1262, 356);
+            this.Controls.Add(label4);
+            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.comboBox2);
@@ -600,6 +634,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.projectComponentsBindingSource)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.teamsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -658,5 +693,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.BindingSource teamsBindingSource;
+        private DatabaseDataSetTableAdapters.TeamsTableAdapter teamsTableAdapter;
     }
 }

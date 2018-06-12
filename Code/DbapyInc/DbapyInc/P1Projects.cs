@@ -27,6 +27,8 @@ namespace DbapyInc
 
         private void P1Projects_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'databaseDataSet.Teams' table. You can move, or remove it, as needed.
+            this.teamsTableAdapter.Fill(this.databaseDataSet.Teams);
             // TODO: This line of code loads data into the 'databaseDataSet.ProjectComponents' table. You can move, or remove it, as needed.
             this.projectComponentsTableAdapter.Fill(this.databaseDataSet.ProjectComponents);
             // TODO: This line of code loads data into the 'databaseDataSet.WorkersToTeams' table. You can move, or remove it, as needed.
@@ -54,6 +56,7 @@ namespace DbapyInc
 
             UpdateTypeComboBox();
             UpdateManagerComboBox();
+            UpdateWorkersCount();
 
             UpdateWorkerDetails();
             CalcManagerTeams();
@@ -93,6 +96,7 @@ namespace DbapyInc
 
             UpdateTypeComboBox();
             UpdateManagerComboBox();
+            UpdateWorkersCount();
 
             UpdateWorkerDetails();
             CalcManagerTeams();
@@ -140,6 +144,7 @@ namespace DbapyInc
 
             UpdateTypeComboBox();
             UpdateManagerComboBox();
+            UpdateWorkersCount();
 
             UpdateWorkerDetails();
             CalcManagerTeams();
@@ -151,6 +156,7 @@ namespace DbapyInc
 
             UpdateTypeComboBox();
             UpdateManagerComboBox();
+            UpdateWorkersCount();
 
             UpdateWorkerDetails();
             CalcManagerTeams();
@@ -163,6 +169,7 @@ namespace DbapyInc
 
             UpdateTypeComboBox();
             UpdateManagerComboBox();
+            UpdateWorkersCount();
 
             UpdateWorkerDetails();
             CalcManagerTeams();
@@ -175,6 +182,7 @@ namespace DbapyInc
 
             UpdateTypeComboBox();
             UpdateManagerComboBox();
+            UpdateWorkersCount();
 
             UpdateWorkerDetails();
             CalcManagerTeams();
@@ -187,6 +195,7 @@ namespace DbapyInc
 
             UpdateTypeComboBox();
             UpdateManagerComboBox();
+            UpdateWorkersCount();
 
             UpdateWorkerDetails();
             CalcManagerTeams();
@@ -500,6 +509,60 @@ namespace DbapyInc
                     }
                 }
             }
+        }
+
+        private void UpdateWorkersCount()
+        {
+            int projectId = -1;
+
+            try
+            {
+                projectId = int.Parse(projectIdTextBox.Text);
+            }
+            catch
+            {
+                textBox3.Text = "";
+            }
+
+            int count = 0;
+
+            HashSet<int> workers = new HashSet<int>();
+            HashSet<int> projectComponents = new HashSet<int>();
+            HashSet<int> teams = new HashSet<int>();
+
+            
+
+            foreach(DataRow row in databaseDataSet.ProjectComponents)
+            {
+                if((int)row["ProjectId"] == projectId)
+                {
+                    projectComponents.Add((int)row["ComponentId"]);
+                }
+            }
+
+            foreach(DataRow row in databaseDataSet.Teams)
+            {
+                if(projectComponents.Contains((int)row["ComponentId"]))
+                {
+                    teams.Add((int)row["TeamId"]);
+                }
+            }
+
+            foreach(DataRow row in databaseDataSet.WorkersToTeams)
+            {
+                if(teams.Contains((int)row["TeamId"]))
+                {
+                    workers.Add((int)row["WorkerId"]);
+                }
+            }
+
+            textBox3.Text = workers.Count.ToString();
+
+        }
+
+        private void projectIdTextBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

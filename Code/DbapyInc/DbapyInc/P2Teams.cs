@@ -180,6 +180,32 @@ namespace DbapyInc
             MessageBox.Show("Worker Not Found");
         }
 
+        private void UpdateWorkersCount()
+        {
+            int teamId = -1;
+            try
+            {
+                teamId = int.Parse(teamIdTextBox.Text);
+            }
+            catch
+            {
+                textBox4.Text = "";
+                return;
+            }
+
+            int count = 0;
+
+            foreach(DataRow row in databaseDataSet.WorkersToTeams)
+            {
+                if((int)row["TeamId"] == teamId)
+                {
+                    count++;
+                }
+            }
+
+            textBox4.Text = count.ToString();
+        }
+
         private void UpdateComponentName()
         {
             object selection = componentIdComboBox.SelectedValue;
@@ -433,6 +459,11 @@ namespace DbapyInc
         private void button11_Click(object sender, EventArgs e)
         {
             (new P2TeamsGraph()).Show();
+        }
+
+        private void teamIdTextBox_TextChanged(object sender, EventArgs e)
+        {
+            UpdateWorkersCount();
         }
     }
 }

@@ -96,6 +96,18 @@ namespace DbapyInc
 
         private void button4_Click(object sender, EventArgs e)
         {
+            if (projectIdTextBox.Text.Length == 0)
+            {
+                MessageBox.Show("Project Id Cannot be empty");
+                return;
+            }
+
+            if (workerIdTextBox.Text.Length == 0)
+            {
+                MessageBox.Show("Worker Id Cannot be empty");
+                return;
+            }
+
             testsBindingSource.EndEdit();
 
             // TODO: This line of code loads data into the 'databaseDataSet.Tests' table. You can move, or remove it, as needed.
@@ -231,6 +243,32 @@ namespace DbapyInc
 
         }
 
+        private void UpdateBugCount()
+        {
+            int testId = -1;
+            try
+            {
+                testId = int.Parse(testIdTextBox.Text);
+            }
+            catch
+            {
+                textBox1.Text = "";
+                return;
+            }
+
+            int count = 0;
+
+            foreach (DataRow row in databaseDataSet.BugsToTests)
+            {
+                if ((int)row["TestId"] == testId)
+                {
+                    count++;
+                }
+            }
+
+            textBox1.Text = count.ToString();
+        }
+
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(comboBox1.SelectedItem == null)
@@ -329,6 +367,11 @@ namespace DbapyInc
                 }
             }
 
+        }
+
+        private void testIdTextBox_TextChanged(object sender, EventArgs e)
+        {
+            UpdateBugCount();
         }
     }
 }

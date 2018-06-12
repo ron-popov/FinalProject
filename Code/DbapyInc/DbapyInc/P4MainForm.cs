@@ -30,5 +30,10 @@ namespace DbapyInc
             // Creating an anonymous P4Graphs objects and calling it's show method
             (new P4Graphs()).Show();
         }
+
+        private void P4MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

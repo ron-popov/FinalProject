@@ -57,6 +57,18 @@ namespace DbapyInc
 
         private void button4_Click(object sender, EventArgs e)
         {
+            if (bugIdComboBox.Text.Length == 0)
+            {
+                MessageBox.Show("Bug Id Cannot be empty");
+                return;
+            }
+
+            if (testIdComboBox.Text.Length == 0)
+            {
+                MessageBox.Show("Test Id Cannot be empty");
+                return;
+            }
+
             bugsToTestsBindingSource.EndEdit();
             this.bugsToTestsTableAdapter.Update(this.databaseDataSet.BugsToTests);
         }

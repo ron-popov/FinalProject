@@ -51,13 +51,45 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.bugDescriptionRichTextBox = new System.Windows.Forms.RichTextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.bugsToTestsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bugsToTestsTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.BugsToTestsTableAdapter();
             bugIdLabel = new System.Windows.Forms.Label();
             bugNameLabel = new System.Windows.Forms.Label();
             bugDescriptionLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bugsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bugsDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bugsToTestsBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // bugIdLabel
+            // 
+            bugIdLabel.AutoSize = true;
+            bugIdLabel.Location = new System.Drawing.Point(565, 26);
+            bugIdLabel.Name = "bugIdLabel";
+            bugIdLabel.Size = new System.Drawing.Size(41, 13);
+            bugIdLabel.TabIndex = 1;
+            bugIdLabel.Text = "Bug Id:";
+            // 
+            // bugNameLabel
+            // 
+            bugNameLabel.AutoSize = true;
+            bugNameLabel.Location = new System.Drawing.Point(565, 52);
+            bugNameLabel.Name = "bugNameLabel";
+            bugNameLabel.Size = new System.Drawing.Size(60, 13);
+            bugNameLabel.TabIndex = 3;
+            bugNameLabel.Text = "Bug Name:";
+            // 
+            // bugDescriptionLabel
+            // 
+            bugDescriptionLabel.AutoSize = true;
+            bugDescriptionLabel.Location = new System.Drawing.Point(565, 85);
+            bugDescriptionLabel.Name = "bugDescriptionLabel";
+            bugDescriptionLabel.Size = new System.Drawing.Size(85, 13);
+            bugDescriptionLabel.TabIndex = 48;
+            bugDescriptionLabel.Text = "Bug Description:";
             // 
             // databaseDataSet
             // 
@@ -122,15 +154,6 @@
             this.dataGridViewTextBoxColumn3.HeaderText = "BugDescription";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
-            // bugIdLabel
-            // 
-            bugIdLabel.AutoSize = true;
-            bugIdLabel.Location = new System.Drawing.Point(565, 26);
-            bugIdLabel.Name = "bugIdLabel";
-            bugIdLabel.Size = new System.Drawing.Size(41, 13);
-            bugIdLabel.TabIndex = 1;
-            bugIdLabel.Text = "Bug Id:";
-            // 
             // bugIdTextBox
             // 
             this.bugIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bugsBindingSource, "BugId", true));
@@ -138,15 +161,7 @@
             this.bugIdTextBox.Name = "bugIdTextBox";
             this.bugIdTextBox.Size = new System.Drawing.Size(100, 20);
             this.bugIdTextBox.TabIndex = 2;
-            // 
-            // bugNameLabel
-            // 
-            bugNameLabel.AutoSize = true;
-            bugNameLabel.Location = new System.Drawing.Point(565, 52);
-            bugNameLabel.Name = "bugNameLabel";
-            bugNameLabel.Size = new System.Drawing.Size(60, 13);
-            bugNameLabel.TabIndex = 3;
-            bugNameLabel.Text = "Bug Name:";
+            this.bugIdTextBox.TextChanged += new System.EventHandler(this.bugIdTextBox_TextChanged);
             // 
             // bugNameTextBox
             // 
@@ -236,29 +251,47 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // bugDescriptionLabel
-            // 
-            bugDescriptionLabel.AutoSize = true;
-            bugDescriptionLabel.Location = new System.Drawing.Point(565, 85);
-            bugDescriptionLabel.Name = "bugDescriptionLabel";
-            bugDescriptionLabel.Size = new System.Drawing.Size(85, 13);
-            bugDescriptionLabel.TabIndex = 48;
-            bugDescriptionLabel.Text = "Bug Description:";
-            // 
             // bugDescriptionRichTextBox
             // 
             this.bugDescriptionRichTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bugsBindingSource, "BugDescription", true));
             this.bugDescriptionRichTextBox.Location = new System.Drawing.Point(656, 82);
             this.bugDescriptionRichTextBox.Name = "bugDescriptionRichTextBox";
-            this.bugDescriptionRichTextBox.Size = new System.Drawing.Size(100, 96);
+            this.bugDescriptionRichTextBox.Size = new System.Drawing.Size(100, 69);
             this.bugDescriptionRichTextBox.TabIndex = 49;
             this.bugDescriptionRichTextBox.Text = "";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(656, 158);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 50;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(565, 161);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(63, 13);
+            this.label1.TabIndex = 51;
+            this.label1.Text = "Bug Count :";
+            // 
+            // bugsToTestsBindingSource
+            // 
+            this.bugsToTestsBindingSource.DataMember = "BugsToTests";
+            this.bugsToTestsBindingSource.DataSource = this.databaseDataSet;
+            // 
+            // bugsToTestsTableAdapter
+            // 
+            this.bugsToTestsTableAdapter.ClearBeforeFill = true;
             // 
             // P3Bugs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(783, 352);
+            this.ClientSize = new System.Drawing.Size(775, 355);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(bugDescriptionLabel);
             this.Controls.Add(this.bugDescriptionRichTextBox);
             this.Controls.Add(this.button5);
@@ -280,6 +313,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bugsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bugsDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bugsToTestsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -306,5 +340,9 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.RichTextBox bugDescriptionRichTextBox;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.BindingSource bugsToTestsBindingSource;
+        private DatabaseDataSetTableAdapters.BugsToTestsTableAdapter bugsToTestsTableAdapter;
     }
 }

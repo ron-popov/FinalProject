@@ -32,6 +32,7 @@
             System.Windows.Forms.Label typeIdLabel;
             System.Windows.Forms.Label typeNameLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(P1ProjectTypes));
+            System.Windows.Forms.Label label1;
             this.databaseDataSet = new DbapyInc.DatabaseDataSet();
             this.projectTypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.projectTypesTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.ProjectTypesTableAdapter();
@@ -54,11 +55,16 @@
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.projectsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.projectsTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.ProjectsTableAdapter();
             typeIdLabel = new System.Windows.Forms.Label();
             typeNameLabel = new System.Windows.Forms.Label();
+            label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectTypesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectTypesDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // typeIdLabel
@@ -143,6 +149,7 @@
             this.typeIdTextBox.Name = "typeIdTextBox";
             this.typeIdTextBox.Size = new System.Drawing.Size(100, 20);
             this.typeIdTextBox.TabIndex = 2;
+            this.typeIdTextBox.TextChanged += new System.EventHandler(this.typeIdTextBox_TextChanged);
             // 
             // typeNameTextBox
             // 
@@ -269,11 +276,38 @@
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(623, 84);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 67;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(541, 87);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(76, 13);
+            label1.TabIndex = 68;
+            label1.Text = "Projects Count";
+            // 
+            // projectsBindingSource
+            // 
+            this.projectsBindingSource.DataMember = "Projects";
+            this.projectsBindingSource.DataSource = this.databaseDataSet;
+            // 
+            // projectsTableAdapter
+            // 
+            this.projectsTableAdapter.ClearBeforeFill = true;
+            // 
             // P1ProjectTypes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(755, 333);
+            this.ClientSize = new System.Drawing.Size(756, 346);
+            this.Controls.Add(label1);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button13);
             this.Controls.Add(this.button14);
             this.Controls.Add(this.button5);
@@ -295,6 +329,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectTypesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectTypesDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -324,5 +359,8 @@
         private System.Windows.Forms.PrintDialog printDialog1;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.BindingSource projectsBindingSource;
+        private DatabaseDataSetTableAdapters.ProjectsTableAdapter projectsTableAdapter;
     }
 }

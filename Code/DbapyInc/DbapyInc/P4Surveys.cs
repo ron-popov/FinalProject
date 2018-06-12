@@ -59,9 +59,6 @@ namespace DbapyInc
         {
             surveysBindingSource.AddNew();
 
-            surveyDateDateTimePicker.MinDate = DateTime.Now;
-            surveyDateDateTimePicker.MaxDate = DateTime.Now;
-
             int max = 0;
 
             // Find the max customer Id in the table
@@ -80,6 +77,8 @@ namespace DbapyInc
             max += 1;
 
             surveyIdTextBox.Text = max.ToString();
+
+            surveyDateDateTimePicker.Value = DateTime.Now;
         }
 
         // handler for the remove button
@@ -296,6 +295,42 @@ namespace DbapyInc
         // handler for the save button
         private void button4_Click(object sender, EventArgs e)
         {
+            if (projectIdTextBox.Text.Length == 0)
+            {
+                MessageBox.Show("Project Id Cannot be empty");
+                return;
+            }
+
+            if (workerIdTextBox.Text.Length == 0)
+            {
+                MessageBox.Show("Worker Id Cannot be empty");
+                return;
+            }
+
+            if (q1ComboBox.Text.Length == 0)
+            {
+                MessageBox.Show("Q1 Answer Cannot be empty");
+                return;
+            }
+
+            if (q1ComboBox.Text.Length == 0)
+            {
+                MessageBox.Show("Q2 Answer Cannot be empty");
+                return;
+            }
+
+            if (q1ComboBox.Text.Length == 0)
+            {
+                MessageBox.Show("Q3 Answer Cannot be empty");
+                return;
+            }
+
+            if (q1ComboBox.Text.Length == 0)
+            {
+                MessageBox.Show("Q4 Answer Cannot be empty");
+                return;
+            }
+
             surveysBindingSource.EndEdit();
             this.surveysTableAdapter.Update(this.databaseDataSet.Surveys);
         }

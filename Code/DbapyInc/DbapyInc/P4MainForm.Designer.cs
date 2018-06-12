@@ -76,6 +76,7 @@
             this.Controls.Add(this.label1);
             this.Name = "P4MainForm";
             this.Text = "P4MainForm";
+            this.Load += new System.EventHandler(this.P4MainForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

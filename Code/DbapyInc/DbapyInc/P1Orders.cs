@@ -86,6 +86,14 @@ namespace DbapyInc
         {
             orderDateDateTimePicker.Value = DateTime.Now;
 
+            if(customerIdTextBox.Text.Length == 0)
+            {
+                MessageBox.Show("Customer Id Cannot be empty");
+                return;
+            }
+
+
+
             // Saving to database
             ordersBindingSource.EndEdit();
 
