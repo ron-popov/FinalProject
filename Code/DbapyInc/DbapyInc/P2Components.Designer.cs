@@ -362,6 +362,7 @@
             this.button13.TabIndex = 64;
             this.button13.Text = "הדפס דוח רכיבים";
             this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // button14
             // 

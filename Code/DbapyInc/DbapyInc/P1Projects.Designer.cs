@@ -36,6 +36,7 @@
             System.Windows.Forms.Label managerIdLabel;
             System.Windows.Forms.Label projectTypeLabel;
             System.Windows.Forms.Label label4;
+            System.Windows.Forms.Label label5;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(P1Projects));
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
@@ -92,6 +93,9 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.teamsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.teamsTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.TeamsTableAdapter();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.surveysBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.surveysTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.SurveysTableAdapter();
             projectIdLabel = new System.Windows.Forms.Label();
             projectNameLabel = new System.Windows.Forms.Label();
             orderIdLabel = new System.Windows.Forms.Label();
@@ -99,6 +103,7 @@
             managerIdLabel = new System.Windows.Forms.Label();
             projectTypeLabel = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
+            label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectsDataGridView)).BeginInit();
@@ -109,6 +114,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.projectComponentsBindingSource)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.teamsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.surveysBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // projectIdLabel
@@ -116,67 +122,76 @@
             projectIdLabel.AutoSize = true;
             projectIdLabel.Location = new System.Drawing.Point(724, 21);
             projectIdLabel.Name = "projectIdLabel";
-            projectIdLabel.Size = new System.Drawing.Size(55, 13);
+            projectIdLabel.Size = new System.Drawing.Size(66, 13);
             projectIdLabel.TabIndex = 25;
-            projectIdLabel.Text = "Project Id:";
+            projectIdLabel.Text = "קוד פרויקט";
             // 
             // projectNameLabel
             // 
             projectNameLabel.AutoSize = true;
             projectNameLabel.Location = new System.Drawing.Point(724, 47);
             projectNameLabel.Name = "projectNameLabel";
-            projectNameLabel.Size = new System.Drawing.Size(74, 13);
+            projectNameLabel.Size = new System.Drawing.Size(63, 13);
             projectNameLabel.TabIndex = 27;
-            projectNameLabel.Text = "Project Name:";
+            projectNameLabel.Text = "שם פרויקט";
             // 
             // orderIdLabel
             // 
             orderIdLabel.AutoSize = true;
             orderIdLabel.Location = new System.Drawing.Point(724, 73);
             orderIdLabel.Name = "orderIdLabel";
-            orderIdLabel.Size = new System.Drawing.Size(48, 13);
+            orderIdLabel.Size = new System.Drawing.Size(60, 13);
             orderIdLabel.TabIndex = 29;
-            orderIdLabel.Text = "Order Id:";
+            orderIdLabel.Text = "קוד הזמנה";
             // 
             // projectPriceLabel
             // 
             projectPriceLabel.AutoSize = true;
             projectPriceLabel.Location = new System.Drawing.Point(724, 154);
             projectPriceLabel.Name = "projectPriceLabel";
-            projectPriceLabel.Size = new System.Drawing.Size(70, 13);
+            projectPriceLabel.Size = new System.Drawing.Size(72, 13);
             projectPriceLabel.TabIndex = 35;
-            projectPriceLabel.Text = "Project Price:";
+            projectPriceLabel.Text = "מחיר פרויקט";
             // 
             // managerIdLabel
             // 
             managerIdLabel.AutoSize = true;
             managerIdLabel.Location = new System.Drawing.Point(724, 99);
             managerIdLabel.Name = "managerIdLabel";
-            managerIdLabel.Size = new System.Drawing.Size(64, 13);
+            managerIdLabel.Size = new System.Drawing.Size(73, 13);
             managerIdLabel.TabIndex = 48;
-            managerIdLabel.Text = "Manager Id:";
+            managerIdLabel.Text = "מנהל פרויקט";
             // 
             // projectTypeLabel
             // 
             projectTypeLabel.AutoSize = true;
-            projectTypeLabel.Location = new System.Drawing.Point(728, 127);
+            projectTypeLabel.Location = new System.Drawing.Point(719, 130);
             projectTypeLabel.Name = "projectTypeLabel";
-            projectTypeLabel.Size = new System.Drawing.Size(70, 13);
+            projectTypeLabel.Size = new System.Drawing.Size(78, 13);
             projectTypeLabel.TabIndex = 49;
-            projectTypeLabel.Text = "Project Type:";
+            projectTypeLabel.Text = "טיפוס פרויקט";
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Location = new System.Drawing.Point(714, 180);
             label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(84, 13);
+            label4.Size = new System.Drawing.Size(75, 13);
             label4.TabIndex = 59;
-            label4.Text = "Workers Count :";
+            label4.Text = "מספר עובדים";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new System.Drawing.Point(712, 206);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(76, 13);
+            label5.TabIndex = 61;
+            label5.Text = "דירוג פרויקט";
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(825, 316);
+            this.button5.Location = new System.Drawing.Point(823, 363);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(100, 23);
             this.button5.TabIndex = 24;
@@ -186,7 +201,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(727, 315);
+            this.button6.Location = new System.Drawing.Point(725, 362);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(92, 23);
             this.button6.TabIndex = 23;
@@ -196,7 +211,7 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(825, 286);
+            this.button7.Location = new System.Drawing.Point(823, 333);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(100, 23);
             this.button7.TabIndex = 22;
@@ -206,7 +221,7 @@
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(727, 286);
+            this.button8.Location = new System.Drawing.Point(725, 333);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(92, 23);
             this.button8.TabIndex = 21;
@@ -216,7 +231,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(829, 240);
+            this.button4.Location = new System.Drawing.Point(827, 287);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(100, 23);
             this.button4.TabIndex = 20;
@@ -226,7 +241,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(731, 239);
+            this.button3.Location = new System.Drawing.Point(729, 286);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(92, 23);
             this.button3.TabIndex = 19;
@@ -236,7 +251,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(829, 210);
+            this.button2.Location = new System.Drawing.Point(827, 257);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 23);
             this.button2.TabIndex = 18;
@@ -246,7 +261,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(731, 210);
+            this.button1.Location = new System.Drawing.Point(729, 257);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(92, 23);
             this.button1.TabIndex = 17;
@@ -311,43 +326,43 @@
             this.projectsDataGridView.DataSource = this.projectsBindingSource;
             this.projectsDataGridView.Location = new System.Drawing.Point(12, 12);
             this.projectsDataGridView.Name = "projectsDataGridView";
-            this.projectsDataGridView.Size = new System.Drawing.Size(674, 326);
+            this.projectsDataGridView.Size = new System.Drawing.Size(674, 378);
             this.projectsDataGridView.TabIndex = 25;
             // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "ProjectId";
-            this.dataGridViewTextBoxColumn1.HeaderText = "ProjectId";
+            this.dataGridViewTextBoxColumn1.HeaderText = "קוד פרויקט";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "ProjectName";
-            this.dataGridViewTextBoxColumn2.HeaderText = "ProjectName";
+            this.dataGridViewTextBoxColumn2.HeaderText = "שם פרויקט";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "OrderId";
-            this.dataGridViewTextBoxColumn3.HeaderText = "OrderId";
+            this.dataGridViewTextBoxColumn3.HeaderText = "קוד הזמנה";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.DataPropertyName = "ManagerId";
-            this.dataGridViewTextBoxColumn4.HeaderText = "ManagerId";
+            this.dataGridViewTextBoxColumn4.HeaderText = "קוד מנהל";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.DataPropertyName = "ProjectType";
-            this.dataGridViewTextBoxColumn5.HeaderText = "ProjectType";
+            this.dataGridViewTextBoxColumn5.HeaderText = "קוד סוג פרויקט";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.DataPropertyName = "ProjectPrice";
-            this.dataGridViewTextBoxColumn6.HeaderText = "ProjectPrice";
+            this.dataGridViewTextBoxColumn6.HeaderText = "מחיר פרויקט";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             // 
             // projectIdTextBox
@@ -432,7 +447,7 @@
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(955, 286);
+            this.button9.Location = new System.Drawing.Point(953, 333);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(203, 23);
             this.button9.TabIndex = 44;
@@ -442,25 +457,27 @@
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(954, 315);
+            this.button10.Location = new System.Drawing.Point(952, 362);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(204, 23);
             this.button10.TabIndex = 45;
             this.button10.Text = "הדפס דוח פרויקטים";
             this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // button11
             // 
-            this.button11.Location = new System.Drawing.Point(953, 239);
+            this.button11.Location = new System.Drawing.Point(951, 286);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(204, 23);
             this.button11.TabIndex = 47;
             this.button11.Text = "הדפס דוח פרויקט";
             this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // button12
             // 
-            this.button12.Location = new System.Drawing.Point(954, 210);
+            this.button12.Location = new System.Drawing.Point(952, 257);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(203, 23);
             this.button12.TabIndex = 46;
@@ -585,11 +602,29 @@
             // 
             this.teamsTableAdapter.ClearBeforeFill = true;
             // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(802, 203);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(121, 20);
+            this.textBox4.TabIndex = 62;
+            // 
+            // surveysBindingSource
+            // 
+            this.surveysBindingSource.DataMember = "Surveys";
+            this.surveysBindingSource.DataSource = this.databaseDataSet;
+            // 
+            // surveysTableAdapter
+            // 
+            this.surveysTableAdapter.ClearBeforeFill = true;
+            // 
             // P1Projects
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1262, 356);
+            this.ClientSize = new System.Drawing.Size(1262, 413);
+            this.Controls.Add(label5);
+            this.Controls.Add(this.textBox4);
             this.Controls.Add(label4);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label3);
@@ -635,6 +670,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.teamsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.surveysBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -655,12 +691,6 @@
         private DatabaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private DatabaseDataSetTableAdapters.OrdersTableAdapter ordersTableAdapter;
         private System.Windows.Forms.DataGridView projectsDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.TextBox projectIdTextBox;
         private System.Windows.Forms.TextBox projectNameTextBox;
         private System.Windows.Forms.ComboBox orderIdComboBox;
@@ -696,5 +726,14 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.BindingSource teamsBindingSource;
         private DatabaseDataSetTableAdapters.TeamsTableAdapter teamsTableAdapter;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.BindingSource surveysBindingSource;
+        private DatabaseDataSetTableAdapters.SurveysTableAdapter surveysTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
     }
 }

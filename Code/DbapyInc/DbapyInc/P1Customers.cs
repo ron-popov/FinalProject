@@ -26,6 +26,10 @@ namespace DbapyInc
 
         private void P1Customers_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'databaseDataSet.Projects' table. You can move, or remove it, as needed.
+            this.projectsTableAdapter.Fill(this.databaseDataSet.Projects);
+            // TODO: This line of code loads data into the 'databaseDataSet.Orders' table. You can move, or remove it, as needed.
+            this.ordersTableAdapter.Fill(this.databaseDataSet.Orders);
             // TODO: This line of code loads data into the 'databaseDataSet.Customers' table. You can move, or remove it, as needed.
             this.customersTableAdapter.Fill(this.databaseDataSet.Customers);
 
@@ -152,7 +156,41 @@ namespace DbapyInc
 
         private void customerIdTextBox_TextChanged(object sender, EventArgs e)
         {
+            int customerId = -1;
+            try
+            {
+                customerId = int.Parse(customerIdTextBox.Text);
+            }
+            catch
+            {
+                textBox1.Text = "";
+                textBox2.Text = "";
+                return;
+            }
 
+            int projectsCount = 0;
+            int totalPrice = 0;
+            HashSet<int> orders = new HashSet<int>();
+
+            foreach(DataRow row in databaseDataSet.Orders.Rows)
+            {
+                if((int)row["CustomerId"] == customerId)
+                {
+                    orders.Add((int)row["OrderId"]);
+                }
+            }
+
+            foreach(DataRow row in databaseDataSet.Projects.Rows)
+            {
+                if(orders.Contains((int)row["OrderId"]))
+                {
+                    projectsCount++;
+                    totalPrice += (int)row["ProjectPrice"];
+                }
+            }
+
+            textBox1.Text = projectsCount.ToString();
+            textBox2.Text = totalPrice.ToString();
         }
 
         private void customerNameLabel_Click(object sender, EventArgs e)
@@ -181,6 +219,11 @@ namespace DbapyInc
         }
 
         private void customerAddressTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }

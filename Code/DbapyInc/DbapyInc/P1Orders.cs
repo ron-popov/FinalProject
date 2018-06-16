@@ -287,5 +287,31 @@ namespace DbapyInc
                 }
             }
         }
+
+        private void orderIdTextBox_TextChanged_1(object sender, EventArgs e)
+        {
+            int orderId = -1;
+            try
+            {
+                orderId = int.Parse(orderIdTextBox.Text);
+            }
+            catch
+            {
+                textBox1.Text = "";
+                return;
+            }
+
+            int count = 0;
+
+            foreach(DataRow row in databaseDataSet.Projects.Rows)
+            {
+                if((int)row["OrderId"] == orderId)
+                {
+                    count++;
+                }
+            }
+
+            textBox1.Text = count.ToString();
+        }
     }
 }

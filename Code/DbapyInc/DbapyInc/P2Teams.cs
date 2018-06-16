@@ -263,7 +263,12 @@ namespace DbapyInc
 
         private void button13_Click(object sender, EventArgs e)
         {
-
+            printDialog1.Document = printDocument1;
+            DialogResult prbutton = printDialog1.ShowDialog();
+            if (prbutton.Equals(DialogResult.OK))
+            {
+                printDocument1.Print();
+            }
         }
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
@@ -447,7 +452,12 @@ namespace DbapyInc
 
         private void button9_Click(object sender, EventArgs e)
         {
-
+            printDialog1.Document = printDocument2;
+            DialogResult prbutton = printDialog1.ShowDialog();
+            if (prbutton.Equals(DialogResult.OK))
+            {
+                printDocument2.Print();
+            }
         }
 
         private void button10_Click(object sender, EventArgs e)

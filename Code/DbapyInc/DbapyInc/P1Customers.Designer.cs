@@ -42,10 +42,6 @@
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.customersDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.databaseDataSet = new DbapyInc.DatabaseDataSet();
             this.customersTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.CustomersTableAdapter();
@@ -54,6 +50,18 @@
             this.customerNameTextBox = new System.Windows.Forms.TextBox();
             this.customerAddressTextBox = new System.Windows.Forms.TextBox();
             this.customerPhoneMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.ordersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ordersTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.OrdersTableAdapter();
+            this.projectsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.projectsTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.ProjectsTableAdapter();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             customerIdLabel = new System.Windows.Forms.Label();
             customerNameLabel = new System.Windows.Forms.Label();
             customerAddressLabel = new System.Windows.Forms.Label();
@@ -61,6 +69,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.customersDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // customerIdLabel
@@ -68,9 +78,9 @@
             customerIdLabel.AutoSize = true;
             customerIdLabel.Location = new System.Drawing.Point(612, 12);
             customerIdLabel.Name = "customerIdLabel";
-            customerIdLabel.Size = new System.Drawing.Size(66, 13);
+            customerIdLabel.Size = new System.Drawing.Size(55, 13);
             customerIdLabel.TabIndex = 18;
-            customerIdLabel.Text = "Customer Id:";
+            customerIdLabel.Text = "קוד לקוח";
             customerIdLabel.Click += new System.EventHandler(this.customerIdLabel_Click);
             // 
             // customerNameLabel
@@ -78,9 +88,9 @@
             customerNameLabel.AutoSize = true;
             customerNameLabel.Location = new System.Drawing.Point(612, 38);
             customerNameLabel.Name = "customerNameLabel";
-            customerNameLabel.Size = new System.Drawing.Size(85, 13);
+            customerNameLabel.Size = new System.Drawing.Size(52, 13);
             customerNameLabel.TabIndex = 20;
-            customerNameLabel.Text = "Customer Name:";
+            customerNameLabel.Text = "שם לקוח";
             customerNameLabel.Click += new System.EventHandler(this.customerNameLabel_Click);
             // 
             // customerAddressLabel
@@ -88,9 +98,9 @@
             customerAddressLabel.AutoSize = true;
             customerAddressLabel.Location = new System.Drawing.Point(612, 90);
             customerAddressLabel.Name = "customerAddressLabel";
-            customerAddressLabel.Size = new System.Drawing.Size(95, 13);
+            customerAddressLabel.Size = new System.Drawing.Size(69, 13);
             customerAddressLabel.TabIndex = 24;
-            customerAddressLabel.Text = "Customer Address:";
+            customerAddressLabel.Text = "כתובת לקוח";
             customerAddressLabel.Click += new System.EventHandler(this.customerAddressLabel_Click);
             // 
             // customerPhoneLabel
@@ -98,13 +108,13 @@
             customerPhoneLabel.AutoSize = true;
             customerPhoneLabel.Location = new System.Drawing.Point(612, 63);
             customerPhoneLabel.Name = "customerPhoneLabel";
-            customerPhoneLabel.Size = new System.Drawing.Size(88, 13);
+            customerPhoneLabel.Size = new System.Drawing.Size(67, 13);
             customerPhoneLabel.TabIndex = 25;
-            customerPhoneLabel.Text = "Customer Phone:";
+            customerPhoneLabel.Text = "טלפון לקוח";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(615, 152);
+            this.button1.Location = new System.Drawing.Point(615, 243);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(92, 23);
             this.button1.TabIndex = 9;
@@ -114,7 +124,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(713, 152);
+            this.button2.Location = new System.Drawing.Point(713, 243);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 23);
             this.button2.TabIndex = 10;
@@ -124,7 +134,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(615, 181);
+            this.button3.Location = new System.Drawing.Point(615, 272);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(92, 23);
             this.button3.TabIndex = 11;
@@ -134,7 +144,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(713, 182);
+            this.button4.Location = new System.Drawing.Point(713, 273);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(100, 23);
             this.button4.TabIndex = 12;
@@ -144,7 +154,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(713, 276);
+            this.button5.Location = new System.Drawing.Point(713, 367);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(100, 23);
             this.button5.TabIndex = 16;
@@ -154,7 +164,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(615, 275);
+            this.button6.Location = new System.Drawing.Point(615, 366);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(92, 23);
             this.button6.TabIndex = 15;
@@ -164,7 +174,7 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(713, 246);
+            this.button7.Location = new System.Drawing.Point(713, 337);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(100, 23);
             this.button7.TabIndex = 14;
@@ -174,7 +184,7 @@
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(615, 246);
+            this.button8.Location = new System.Drawing.Point(615, 337);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(92, 23);
             this.button8.TabIndex = 13;
@@ -194,32 +204,8 @@
             this.customersDataGridView.DataSource = this.customersBindingSource;
             this.customersDataGridView.Location = new System.Drawing.Point(12, 12);
             this.customersDataGridView.Name = "customersDataGridView";
-            this.customersDataGridView.Size = new System.Drawing.Size(584, 286);
+            this.customersDataGridView.Size = new System.Drawing.Size(584, 381);
             this.customersDataGridView.TabIndex = 18;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "CustomerId";
-            this.dataGridViewTextBoxColumn1.HeaderText = "CustomerId";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "CustomerName";
-            this.dataGridViewTextBoxColumn2.HeaderText = "CustomerName";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "CustomerPhone";
-            this.dataGridViewTextBoxColumn3.HeaderText = "CustomerPhone";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "CustomerAddress";
-            this.dataGridViewTextBoxColumn4.HeaderText = "CustomerAddress";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
             // customersBindingSource
             // 
@@ -289,11 +275,90 @@
             this.customerPhoneMaskedTextBox.Size = new System.Drawing.Size(100, 20);
             this.customerPhoneMaskedTextBox.TabIndex = 26;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(612, 116);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(86, 13);
+            this.label1.TabIndex = 27;
+            this.label1.Text = "מספר פרויקטים";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(714, 113);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 28;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(714, 139);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.TabIndex = 30;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(612, 142);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(75, 13);
+            this.label2.TabIndex = 29;
+            this.label2.Text = "סה\"כ הוצאות";
+            // 
+            // ordersBindingSource
+            // 
+            this.ordersBindingSource.DataMember = "Orders";
+            this.ordersBindingSource.DataSource = this.databaseDataSet;
+            // 
+            // ordersTableAdapter
+            // 
+            this.ordersTableAdapter.ClearBeforeFill = true;
+            // 
+            // projectsBindingSource
+            // 
+            this.projectsBindingSource.DataMember = "Projects";
+            this.projectsBindingSource.DataSource = this.databaseDataSet;
+            // 
+            // projectsTableAdapter
+            // 
+            this.projectsTableAdapter.ClearBeforeFill = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "CustomerId";
+            this.dataGridViewTextBoxColumn1.HeaderText = "קוד לקוח";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "CustomerName";
+            this.dataGridViewTextBoxColumn2.HeaderText = "שם לקוח";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "CustomerPhone";
+            this.dataGridViewTextBoxColumn3.HeaderText = "טלפון לקוח";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "CustomerAddress";
+            this.dataGridViewTextBoxColumn4.HeaderText = "כתובת לקוח";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
             // P1Customers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(826, 320);
+            this.ClientSize = new System.Drawing.Size(843, 411);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label1);
             this.Controls.Add(customerPhoneLabel);
             this.Controls.Add(this.customerPhoneMaskedTextBox);
             this.Controls.Add(customerIdLabel);
@@ -317,6 +382,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.customersDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -336,13 +403,21 @@
         private DatabaseDataSetTableAdapters.CustomersTableAdapter customersTableAdapter;
         private DatabaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.DataGridView customersDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.TextBox customerIdTextBox;
         private System.Windows.Forms.TextBox customerNameTextBox;
         private System.Windows.Forms.TextBox customerAddressTextBox;
         private System.Windows.Forms.MaskedTextBox customerPhoneMaskedTextBox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.BindingSource ordersBindingSource;
+        private DatabaseDataSetTableAdapters.OrdersTableAdapter ordersTableAdapter;
+        private System.Windows.Forms.BindingSource projectsBindingSource;
+        private DatabaseDataSetTableAdapters.ProjectsTableAdapter projectsTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
     }
 }

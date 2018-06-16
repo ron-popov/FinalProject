@@ -27,6 +27,8 @@ namespace DbapyInc
 
         private void P1ProjectTypes_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'databaseDataSet.Surveys' table. You can move, or remove it, as needed.
+            this.surveysTableAdapter.Fill(this.databaseDataSet.Surveys);
             // TODO: This line of code loads data into the 'databaseDataSet.Projects' table. You can move, or remove it, as needed.
             this.projectsTableAdapter.Fill(this.databaseDataSet.Projects);
             // TODO: This line of code loads data into the 'databaseDataSet.ProjectTypes' table. You can move, or remove it, as needed.
@@ -194,7 +196,10 @@ namespace DbapyInc
                 return;
             }
 
-            int count = 0;
+            Dictionary<int, DataRow> dict = new Dictionary<int, DataRow>();
+            HashSet<int> projects = new HashSet<int>();
+
+            // Projects Count
 
             foreach (DataRow row in databaseDataSet.Projects.Rows)
             {
@@ -202,7 +207,7 @@ namespace DbapyInc
                 {
                     if((int)row["ProjectType"] == typeId)
                     {
-                        count++;
+                        projects.Add((int)row["ProjectId"]);
                     }
                 }
                 catch(DeletedRowInaccessibleException)
@@ -211,7 +216,61 @@ namespace DbapyInc
                 }
             }
 
-            textBox1.Text = count.ToString() ;
+            textBox1.Text = projects.Count.ToString();
+
+
+            // Average rating
+            foreach(DataRow row in databaseDataSet.Surveys.Rows)
+            {
+                if (projects.Contains((int)row["ProjectId"]))
+                {
+                    dict[(int)row["ProjectId"]] = row;
+                }
+            }
+
+            int[] scores = new int[4];
+            for (int i = 0; i < 4; i++)
+            {
+                scores[i] = 0;
+            }
+
+            foreach (int key in dict.Keys)
+            {
+                scores[0] += (int)dict[key]["Q1"];
+                scores[1] += (int)dict[key]["Q2"];
+                scores[2] += (int)dict[key]["Q3"];
+                scores[3] += (int)dict[key]["Q4"];
+            }
+
+            if (dict.Keys.Count == 0)
+            {
+                textBox2.Text = "טרם נעשו סקרים";
+                return;
+            }
+
+            for (int i = 0; i < 4; i++)
+            {
+                scores[i] = (int)(scores[i] / dict.Keys.Count);
+            }
+
+            float average = scores[0] + scores[1] + scores[2] + scores[3];
+            average = average / 4;
+            textBox2.Text = average.ToString("0.00");
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            printDialog1.Document = printDocument1;
+            DialogResult prbutton = printDialog1.ShowDialog();
+            if (prbutton.Equals(DialogResult.OK))
+            {
+                printDocument1.Print();
+            }
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

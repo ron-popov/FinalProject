@@ -344,5 +344,15 @@ namespace DbapyInc
             UpdateWorkerComboBox();
 
         }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            printDialog1.Document = printDocument1;
+            DialogResult prbutton = printDialog1.ShowDialog();
+            if(prbutton.Equals(DialogResult.OK))
+            {
+                printDocument1.Print();
+            }
+        }
     }
 }

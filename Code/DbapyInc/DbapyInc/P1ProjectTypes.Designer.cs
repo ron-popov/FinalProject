@@ -31,15 +31,14 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label typeIdLabel;
             System.Windows.Forms.Label typeNameLabel;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(P1ProjectTypes));
             System.Windows.Forms.Label label1;
+            System.Windows.Forms.Label label2;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(P1ProjectTypes));
             this.databaseDataSet = new DbapyInc.DatabaseDataSet();
             this.projectTypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.projectTypesTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.ProjectTypesTableAdapter();
             this.tableAdapterManager = new DbapyInc.DatabaseDataSetTableAdapters.TableAdapterManager();
             this.projectTypesDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.typeIdTextBox = new System.Windows.Forms.TextBox();
             this.typeNameTextBox = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
@@ -58,32 +57,57 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.projectsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.projectsTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.ProjectsTableAdapter();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.surveysBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.surveysTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.SurveysTableAdapter();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             typeIdLabel = new System.Windows.Forms.Label();
             typeNameLabel = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectTypesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectTypesDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.surveysBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // typeIdLabel
             // 
             typeIdLabel.AutoSize = true;
-            typeIdLabel.Location = new System.Drawing.Point(552, 35);
+            typeIdLabel.Location = new System.Drawing.Point(535, 35);
             typeIdLabel.Name = "typeIdLabel";
-            typeIdLabel.Size = new System.Drawing.Size(46, 13);
+            typeIdLabel.Size = new System.Drawing.Size(100, 13);
             typeIdLabel.TabIndex = 1;
-            typeIdLabel.Text = "Type Id:";
+            typeIdLabel.Text = "קוד טיפוס פרויקט";
             // 
             // typeNameLabel
             // 
             typeNameLabel.AutoSize = true;
-            typeNameLabel.Location = new System.Drawing.Point(552, 61);
+            typeNameLabel.Location = new System.Drawing.Point(538, 61);
             typeNameLabel.Name = "typeNameLabel";
-            typeNameLabel.Size = new System.Drawing.Size(65, 13);
+            typeNameLabel.Size = new System.Drawing.Size(97, 13);
             typeNameLabel.TabIndex = 3;
-            typeNameLabel.Text = "Type Name:";
+            typeNameLabel.Text = "שם טיפוס פרויקט";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(549, 87);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(86, 13);
+            label1.TabIndex = 68;
+            label1.Text = "מספר פרויקטים";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(563, 113);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(72, 13);
+            label2.TabIndex = 70;
+            label2.Text = "דירוג ממוצע";
             // 
             // databaseDataSet
             // 
@@ -129,23 +153,11 @@
             this.projectTypesDataGridView.Size = new System.Drawing.Size(510, 262);
             this.projectTypesDataGridView.TabIndex = 1;
             // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "TypeId";
-            this.dataGridViewTextBoxColumn1.HeaderText = "TypeId";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "TypeName";
-            this.dataGridViewTextBoxColumn2.HeaderText = "TypeName";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
             // typeIdTextBox
             // 
             this.typeIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.projectTypesBindingSource, "TypeId", true));
             this.typeIdTextBox.Enabled = false;
-            this.typeIdTextBox.Location = new System.Drawing.Point(623, 32);
+            this.typeIdTextBox.Location = new System.Drawing.Point(641, 32);
             this.typeIdTextBox.Name = "typeIdTextBox";
             this.typeIdTextBox.Size = new System.Drawing.Size(100, 20);
             this.typeIdTextBox.TabIndex = 2;
@@ -154,7 +166,7 @@
             // typeNameTextBox
             // 
             this.typeNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.projectTypesBindingSource, "TypeName", true));
-            this.typeNameTextBox.Location = new System.Drawing.Point(623, 58);
+            this.typeNameTextBox.Location = new System.Drawing.Point(641, 58);
             this.typeNameTextBox.Name = "typeNameTextBox";
             this.typeNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.typeNameTextBox.TabIndex = 4;
@@ -201,7 +213,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(641, 157);
+            this.button4.Location = new System.Drawing.Point(641, 178);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(100, 23);
             this.button4.TabIndex = 28;
@@ -211,7 +223,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(543, 156);
+            this.button3.Location = new System.Drawing.Point(543, 177);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(92, 23);
             this.button3.TabIndex = 27;
@@ -221,7 +233,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(641, 127);
+            this.button2.Location = new System.Drawing.Point(641, 148);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 23);
             this.button2.TabIndex = 26;
@@ -231,7 +243,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(543, 127);
+            this.button1.Location = new System.Drawing.Point(543, 148);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(92, 23);
             this.button1.TabIndex = 25;
@@ -247,6 +259,7 @@
             this.button13.TabIndex = 66;
             this.button13.Text = "הדפס דוח סוגי פרויקטים";
             this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // button14
             // 
@@ -278,19 +291,10 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(623, 84);
+            this.textBox1.Location = new System.Drawing.Point(641, 84);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 67;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(541, 87);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(76, 13);
-            label1.TabIndex = 68;
-            label1.Text = "Projects Count";
             // 
             // projectsBindingSource
             // 
@@ -301,11 +305,42 @@
             // 
             this.projectsTableAdapter.ClearBeforeFill = true;
             // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(641, 110);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.TabIndex = 69;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            // 
+            // surveysBindingSource
+            // 
+            this.surveysBindingSource.DataMember = "Surveys";
+            this.surveysBindingSource.DataSource = this.databaseDataSet;
+            // 
+            // surveysTableAdapter
+            // 
+            this.surveysTableAdapter.ClearBeforeFill = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "TypeId";
+            this.dataGridViewTextBoxColumn1.HeaderText = "קוד טיפוס פרויקט";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "TypeName";
+            this.dataGridViewTextBoxColumn2.HeaderText = "שם טיפוס פרויקט";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
             // P1ProjectTypes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(756, 346);
+            this.ClientSize = new System.Drawing.Size(769, 338);
+            this.Controls.Add(label2);
+            this.Controls.Add(this.textBox2);
             this.Controls.Add(label1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button13);
@@ -330,6 +365,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.projectTypesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectTypesDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.surveysBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -342,8 +378,6 @@
         private DatabaseDataSetTableAdapters.ProjectTypesTableAdapter projectTypesTableAdapter;
         private DatabaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.DataGridView projectTypesDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.TextBox typeIdTextBox;
         private System.Windows.Forms.TextBox typeNameTextBox;
         private System.Windows.Forms.Button button5;
@@ -362,5 +396,10 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.BindingSource projectsBindingSource;
         private DatabaseDataSetTableAdapters.ProjectsTableAdapter projectsTableAdapter;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.BindingSource surveysBindingSource;
+        private DatabaseDataSetTableAdapters.SurveysTableAdapter surveysTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
     }
 }

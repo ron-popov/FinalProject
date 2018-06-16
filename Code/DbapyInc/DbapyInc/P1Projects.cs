@@ -27,6 +27,8 @@ namespace DbapyInc
 
         private void P1Projects_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'databaseDataSet.Surveys' table. You can move, or remove it, as needed.
+            this.surveysTableAdapter.Fill(this.databaseDataSet.Surveys);
             // TODO: This line of code loads data into the 'databaseDataSet.Teams' table. You can move, or remove it, as needed.
             this.teamsTableAdapter.Fill(this.databaseDataSet.Teams);
             // TODO: This line of code loads data into the 'databaseDataSet.ProjectComponents' table. You can move, or remove it, as needed.
@@ -562,7 +564,55 @@ namespace DbapyInc
 
         private void projectIdTextBox_TextChanged(object sender, EventArgs e)
         {
+            int projectId = -1;
+            try
+            {
+                projectId = int.Parse(projectIdTextBox.Text);
+            }
+            catch
+            {
+                textBox4.Text = "";
+            }
 
+            DataRow latestSurvey = null;
+            foreach(DataRow row in databaseDataSet.Surveys.Rows)
+            {
+                if((int)row["ProjectId"] == projectId)
+                {
+                    latestSurvey = row;
+                }
+            }
+
+            if(latestSurvey == null)
+            {
+                textBox4.Text = "טרם נעשו סקרים";
+            }
+            else
+            {
+                float average = (int)latestSurvey["Q1"] + (int)latestSurvey["Q2"] + (int)latestSurvey["Q3"] + (int)latestSurvey["Q4"];
+                average = average / 4;
+                textBox4.Text = average.ToString("0.00");
+            }
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            printDialog1.Document = printDocument2;
+            DialogResult prbutton = printDialog1.ShowDialog();
+            if (prbutton.Equals(DialogResult.OK))
+            {
+                printDocument2.Print();
+            }
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            printDialog1.Document = printDocument1;
+            DialogResult prbutton = printDialog1.ShowDialog();
+            if (prbutton.Equals(DialogResult.OK))
+            {
+                printDocument1.Print();
+            }
         }
     }
 }

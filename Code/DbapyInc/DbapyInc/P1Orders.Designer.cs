@@ -33,6 +33,7 @@
             System.Windows.Forms.Label orderIdLabel;
             System.Windows.Forms.Label orderDateLabel;
             System.Windows.Forms.Label customerIdLabel;
+            System.Windows.Forms.Label label2;
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
@@ -52,16 +53,18 @@
             this.projectsTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.ProjectsTableAdapter();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.ordersDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.orderIdTextBox = new System.Windows.Forms.TextBox();
             this.orderDateDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.customerIdTextBox = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             label1 = new System.Windows.Forms.Label();
             orderIdLabel = new System.Windows.Forms.Label();
             orderDateLabel = new System.Windows.Forms.Label();
             customerIdLabel = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).BeginInit();
@@ -72,16 +75,52 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(661, 89);
+            label1.Location = new System.Drawing.Point(630, 89);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(37, 13);
+            label1.Size = new System.Drawing.Size(66, 13);
             label1.TabIndex = 47;
-            label1.Text = "Price :";
+            label1.Text = "מחיר הזמנה";
             label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // orderIdLabel
+            // 
+            orderIdLabel.AutoSize = true;
+            orderIdLabel.Location = new System.Drawing.Point(636, 12);
+            orderIdLabel.Name = "orderIdLabel";
+            orderIdLabel.Size = new System.Drawing.Size(60, 13);
+            orderIdLabel.TabIndex = 53;
+            orderIdLabel.Text = "קוד הזמנה";
+            // 
+            // orderDateLabel
+            // 
+            orderDateLabel.AutoSize = true;
+            orderDateLabel.Location = new System.Drawing.Point(630, 41);
+            orderDateLabel.Name = "orderDateLabel";
+            orderDateLabel.Size = new System.Drawing.Size(74, 13);
+            orderDateLabel.TabIndex = 55;
+            orderDateLabel.Text = "תאריך הזמנה";
+            // 
+            // customerIdLabel
+            // 
+            customerIdLabel.AutoSize = true;
+            customerIdLabel.Location = new System.Drawing.Point(661, 64);
+            customerIdLabel.Name = "customerIdLabel";
+            customerIdLabel.Size = new System.Drawing.Size(33, 13);
+            customerIdLabel.TabIndex = 57;
+            customerIdLabel.Text = "לקוח";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(622, 115);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(86, 13);
+            label2.TabIndex = 59;
+            label2.Text = "מספר פרויקטים";
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(771, 231);
+            this.button5.Location = new System.Drawing.Point(762, 284);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(100, 23);
             this.button5.TabIndex = 40;
@@ -91,7 +130,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(673, 230);
+            this.button6.Location = new System.Drawing.Point(664, 283);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(92, 23);
             this.button6.TabIndex = 39;
@@ -101,7 +140,7 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(771, 201);
+            this.button7.Location = new System.Drawing.Point(762, 254);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(100, 23);
             this.button7.TabIndex = 38;
@@ -111,7 +150,7 @@
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(673, 201);
+            this.button8.Location = new System.Drawing.Point(664, 254);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(92, 23);
             this.button8.TabIndex = 37;
@@ -121,7 +160,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(771, 157);
+            this.button4.Location = new System.Drawing.Point(762, 210);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(100, 23);
             this.button4.TabIndex = 36;
@@ -131,7 +170,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(673, 156);
+            this.button3.Location = new System.Drawing.Point(664, 209);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(92, 23);
             this.button3.TabIndex = 35;
@@ -141,7 +180,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(771, 127);
+            this.button2.Location = new System.Drawing.Point(762, 180);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 23);
             this.button2.TabIndex = 34;
@@ -151,7 +190,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(673, 127);
+            this.button1.Location = new System.Drawing.Point(664, 180);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(92, 23);
             this.button1.TabIndex = 33;
@@ -175,7 +214,6 @@
             // 
             // priceTextBox
             // 
-            //this.priceTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ordersBindingSource, "OrderId", true));
             this.priceTextBox.Enabled = false;
             this.priceTextBox.Location = new System.Drawing.Point(708, 86);
             this.priceTextBox.Name = "priceTextBox";
@@ -238,35 +276,8 @@
             this.ordersDataGridView.DataSource = this.ordersBindingSource;
             this.ordersDataGridView.Location = new System.Drawing.Point(12, 12);
             this.ordersDataGridView.Name = "ordersDataGridView";
-            this.ordersDataGridView.Size = new System.Drawing.Size(610, 241);
+            this.ordersDataGridView.Size = new System.Drawing.Size(610, 301);
             this.ordersDataGridView.TabIndex = 53;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "OrderId";
-            this.dataGridViewTextBoxColumn1.HeaderText = "OrderId";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "OrderDate";
-            this.dataGridViewTextBoxColumn2.HeaderText = "OrderDate";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "CustomerId";
-            this.dataGridViewTextBoxColumn3.HeaderText = "CustomerId";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // orderIdLabel
-            // 
-            orderIdLabel.AutoSize = true;
-            orderIdLabel.Location = new System.Drawing.Point(636, 12);
-            orderIdLabel.Name = "orderIdLabel";
-            orderIdLabel.Size = new System.Drawing.Size(48, 13);
-            orderIdLabel.TabIndex = 53;
-            orderIdLabel.Text = "Order Id:";
             // 
             // orderIdTextBox
             // 
@@ -275,15 +286,7 @@
             this.orderIdTextBox.Name = "orderIdTextBox";
             this.orderIdTextBox.Size = new System.Drawing.Size(200, 20);
             this.orderIdTextBox.TabIndex = 54;
-            // 
-            // orderDateLabel
-            // 
-            orderDateLabel.AutoSize = true;
-            orderDateLabel.Location = new System.Drawing.Point(636, 39);
-            orderDateLabel.Name = "orderDateLabel";
-            orderDateLabel.Size = new System.Drawing.Size(62, 13);
-            orderDateLabel.TabIndex = 55;
-            orderDateLabel.Text = "Order Date:";
+            this.orderIdTextBox.TextChanged += new System.EventHandler(this.orderIdTextBox_TextChanged_1);
             // 
             // orderDateDateTimePicker
             // 
@@ -293,15 +296,6 @@
             this.orderDateDateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.orderDateDateTimePicker.TabIndex = 56;
             // 
-            // customerIdLabel
-            // 
-            customerIdLabel.AutoSize = true;
-            customerIdLabel.Location = new System.Drawing.Point(636, 64);
-            customerIdLabel.Name = "customerIdLabel";
-            customerIdLabel.Size = new System.Drawing.Size(66, 13);
-            customerIdLabel.TabIndex = 57;
-            customerIdLabel.Text = "Customer Id:";
-            // 
             // customerIdTextBox
             // 
             this.customerIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ordersBindingSource, "CustomerId", true));
@@ -310,11 +304,39 @@
             this.customerIdTextBox.Size = new System.Drawing.Size(200, 20);
             this.customerIdTextBox.TabIndex = 58;
             // 
+            // textBox1
+            // 
+            this.textBox1.Enabled = false;
+            this.textBox1.Location = new System.Drawing.Point(708, 112);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(200, 20);
+            this.textBox1.TabIndex = 60;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "OrderId";
+            this.dataGridViewTextBoxColumn1.HeaderText = "קוד הזמנה";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "OrderDate";
+            this.dataGridViewTextBoxColumn2.HeaderText = "תאריך הזמנה";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "CustomerId";
+            this.dataGridViewTextBoxColumn3.HeaderText = "קוד לקוח";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
             // P1Orders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1064, 274);
+            this.ClientSize = new System.Drawing.Size(1064, 325);
+            this.Controls.Add(label2);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(orderIdLabel);
             this.Controls.Add(this.orderIdTextBox);
             this.Controls.Add(orderDateLabel);
@@ -365,11 +387,12 @@
         private DatabaseDataSetTableAdapters.ProjectsTableAdapter projectsTableAdapter;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.DataGridView ordersDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.TextBox orderIdTextBox;
         private System.Windows.Forms.DateTimePicker orderDateDateTimePicker;
         private System.Windows.Forms.TextBox customerIdTextBox;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
     }
 }

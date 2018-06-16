@@ -315,6 +315,7 @@
             this.button14.TabIndex = 63;
             this.button14.Text = "הדפס דוח בדיקות";
             this.button14.UseVisualStyleBackColor = true;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
             // 
             // button15
             // 
