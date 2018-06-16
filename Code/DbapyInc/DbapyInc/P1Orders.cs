@@ -50,8 +50,6 @@ namespace DbapyInc
             {
                 int id = int.Parse(row["OrderId"].ToString());
 
-                MessageBox.Show(id.ToString());
-
                 if (id > max)
                 {
                     max = id;
@@ -91,8 +89,6 @@ namespace DbapyInc
                 MessageBox.Show("Customer Id Cannot be empty");
                 return;
             }
-
-
 
             // Saving to database
             ordersBindingSource.EndEdit();

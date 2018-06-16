@@ -412,9 +412,13 @@ namespace DbapyInc
             int i = 0;
             int j;
             int x = 100;
-            int y = 100;
+            int y = 200;
             int w = 100;
             int h = 30;
+
+            e.Graphics.DrawString(DateTime.Now.ToShortDateString(), new Font("Ariel", 20, FontStyle.Bold), Brushes.Black, new Point(0, 0));
+
+            e.Graphics.DrawString("דוח עובדים", new Font("Ariel", 30, FontStyle.Bold), Brushes.Blue, new Point(300, 100));
 
             Pen P = new Pen(Brushes.Black, 2.5f);
 

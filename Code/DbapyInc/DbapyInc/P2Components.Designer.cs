@@ -58,6 +58,10 @@
             this.finishedCheckBox = new System.Windows.Forms.CheckBox();
             this.button12 = new System.Windows.Forms.Button();
             this.projectComponentsDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.button13 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
@@ -66,10 +70,6 @@
             this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
             this.projectIdTextBox = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             componentIdLabel = new System.Windows.Forms.Label();
             componentNameLabel = new System.Windows.Forms.Label();
             finishedLabel = new System.Windows.Forms.Label();
@@ -330,13 +330,37 @@
             this.projectComponentsDataGridView.Size = new System.Drawing.Size(645, 305);
             this.projectComponentsDataGridView.TabIndex = 62;
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "ComponentId";
+            this.dataGridViewTextBoxColumn1.HeaderText = "קוד חלק";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "ComponentName";
+            this.dataGridViewTextBoxColumn2.HeaderText = "שם חלק";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "ProjectId";
+            this.dataGridViewTextBoxColumn3.HeaderText = "קוד פרויקט";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewCheckBoxColumn1
+            // 
+            this.dataGridViewCheckBoxColumn1.DataPropertyName = "Finished";
+            this.dataGridViewCheckBoxColumn1.HeaderText = "גמור";
+            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
+            // 
             // button13
             // 
             this.button13.Location = new System.Drawing.Point(330, 370);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(90, 39);
             this.button13.TabIndex = 64;
-            this.button13.Text = "הדפס דוח רכיבים";
+            this.button13.Text = "הדפס דוח חלקים";
             this.button13.UseVisualStyleBackColor = true;
             this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
@@ -346,7 +370,7 @@
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(90, 40);
             this.button14.TabIndex = 63;
-            this.button14.Text = "הצג דוח רכיבים";
+            this.button14.Text = "הצג דוח חלקים";
             this.button14.UseVisualStyleBackColor = true;
             this.button14.Click += new System.EventHandler(this.button14_Click);
             // 
@@ -385,30 +409,6 @@
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 66;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "ComponentId";
-            this.dataGridViewTextBoxColumn1.HeaderText = "קוד חלק";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "ComponentName";
-            this.dataGridViewTextBoxColumn2.HeaderText = "שם חלק";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "ProjectId";
-            this.dataGridViewTextBoxColumn3.HeaderText = "קוד פרויקט";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewCheckBoxColumn1
-            // 
-            this.dataGridViewCheckBoxColumn1.DataPropertyName = "Finished";
-            this.dataGridViewCheckBoxColumn1.HeaderText = "גמור";
-            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
             // 
             // P2Components
             // 

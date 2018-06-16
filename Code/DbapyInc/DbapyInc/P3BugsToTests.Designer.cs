@@ -42,6 +42,8 @@
             this.bugsTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.BugsTableAdapter();
             this.testsTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.TestsTableAdapter();
             this.bugsToTestsDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.testIdComboBox = new System.Windows.Forms.ComboBox();
             this.testsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bugIdComboBox = new System.Windows.Forms.ComboBox();
@@ -64,8 +66,6 @@
             this.projectsTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.ProjectsTableAdapter();
             this.workersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.workersTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.WorkersTableAdapter();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             testIdLabel = new System.Windows.Forms.Label();
             bugIdLabel = new System.Windows.Forms.Label();
             bugNameLabel = new System.Windows.Forms.Label();
@@ -88,9 +88,9 @@
             testIdLabel.AutoSize = true;
             testIdLabel.Location = new System.Drawing.Point(512, 15);
             testIdLabel.Name = "testIdLabel";
-            testIdLabel.Size = new System.Drawing.Size(57, 13);
+            testIdLabel.Size = new System.Drawing.Size(62, 13);
             testIdLabel.TabIndex = 1;
-            testIdLabel.Text = "קוד תקלה";
+            testIdLabel.Text = "קוד בדיקה";
             // 
             // bugIdLabel
             // 
@@ -189,10 +189,21 @@
             this.bugsToTestsDataGridView.Size = new System.Drawing.Size(457, 466);
             this.bugsToTestsDataGridView.TabIndex = 1;
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "TestId";
+            this.dataGridViewTextBoxColumn1.HeaderText = "קוד בדיקה";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "BugId";
+            this.dataGridViewTextBoxColumn2.HeaderText = "קוד תקלה";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
             // testIdComboBox
             // 
             this.testIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bugsToTestsBindingSource, "TestId", true));
-            this.testIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.testsBindingSource, "TestId", true));
             this.testIdComboBox.DataSource = this.testsBindingSource;
             this.testIdComboBox.DisplayMember = "TestId";
             this.testIdComboBox.FormattingEnabled = true;
@@ -337,7 +348,6 @@
             // 
             // textBox2
             // 
-            this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.testsBindingSource, "TestId", true));
             this.textBox2.Enabled = false;
             this.textBox2.Location = new System.Drawing.Point(582, 67);
             this.textBox2.Name = "textBox2";
@@ -346,7 +356,6 @@
             // 
             // textBox1
             // 
-            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.testsBindingSource, "TestId", true));
             this.textBox1.Enabled = false;
             this.textBox1.Location = new System.Drawing.Point(582, 41);
             this.textBox1.Name = "textBox1";
@@ -370,18 +379,6 @@
             // workersTableAdapter
             // 
             this.workersTableAdapter.ClearBeforeFill = true;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "TestId";
-            this.dataGridViewTextBoxColumn1.HeaderText = "קוד בדיקה";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "BugId";
-            this.dataGridViewTextBoxColumn2.HeaderText = "קוד תקלה";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
             // P3BugsToTests
             // 

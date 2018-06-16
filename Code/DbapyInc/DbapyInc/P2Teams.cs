@@ -76,6 +76,7 @@ namespace DbapyInc
 
         private void button4_Click(object sender, EventArgs e)
         {
+            // Input validation
             if (teamIdTextBox.Text.Length == 0)
             {
                 MessageBox.Show("Teams Id cannot be empty");
@@ -100,34 +101,45 @@ namespace DbapyInc
                 return;
             }
 
-            List<int> componentIdList = new List<int>();
-            foreach(DataGridViewRow r in teamsDataGridView.Rows)
+
+
+            // Checking if a team is already assigned to that component
+            int componentId = -1;
+            try
             {
-                DataRow row = null;
-                try
+                componentId = int.Parse(componentIdComboBox.Text);
+            }
+            catch
+            {
+                MessageBox.Show("קוד חלק לא תקין");
+                return;
+            }
+
+            int teamId = -1;
+            try
+            {
+                teamId = int.Parse(teamIdTextBox.Text);
+            }
+            catch
+            {
+                MessageBox.Show("קוד צוות לא תקין");
+                return;
+            }
+
+            foreach (DataRow row in databaseDataSet.Teams)
+            {
+                if(((int)row["TeamId"] == teamId) != ((int)row["ComponentId"] == componentId))
                 {
-                    row = ((DataRowView)r.DataBoundItem).Row;
-
-                }
-                catch (Exception)
-                {
-
-                }
-
-                int componentId = (int)row["ComponentId"];
-
-                if (componentIdList.Contains(componentId))
-                {
-                    MessageBox.Show("you cannot assign two teams to the same project component");
+                    MessageBox.Show("כל צוות יכול להיות מוקצה לחלק אחד ולכל חלק מוקצה צוות אחד");
                     return;
                 }
-
-                componentIdList.Add(componentId);
             }
 
             // Saving to database
             teamsBindingSource.EndEdit();
             this.teamsTableAdapter.Update(this.databaseDataSet.Teams);
+
+            MessageBox.Show("Saved");
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -276,9 +288,13 @@ namespace DbapyInc
             int i = 0;
             int j;
             int x = 100;
-            int y = 100;
+            int y = 200;
             int w = 100;
             int h = 30;
+
+            e.Graphics.DrawString(DateTime.Now.ToShortDateString(), new Font("Ariel", 20, FontStyle.Bold), Brushes.Black, new Point(0, 0));
+
+            e.Graphics.DrawString("דוח צוותים", new Font("Ariel", 30, FontStyle.Bold), Brushes.Blue, new Point(300, 100));
 
             Pen P = new Pen(Brushes.Black, 2.5f);
 
@@ -334,9 +350,13 @@ namespace DbapyInc
             int i = 0;
             int j;
             int x = 100;
-            int y = 100;
+            int y = 200;
             int w = 100;
             int h = 30;
+
+            e.Graphics.DrawString(DateTime.Now.ToShortDateString(), new Font("Ariel", 20, FontStyle.Bold), Brushes.Black, new Point(0, 0));
+
+            e.Graphics.DrawString("דוח צוות", new Font("Ariel", 30, FontStyle.Bold), Brushes.Blue, new Point(300, 100));
 
             Pen P = new Pen(Brushes.Black, 2.5f);
 

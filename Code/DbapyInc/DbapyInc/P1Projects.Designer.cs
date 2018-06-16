@@ -165,7 +165,7 @@
             // projectTypeLabel
             // 
             projectTypeLabel.AutoSize = true;
-            projectTypeLabel.Location = new System.Drawing.Point(719, 130);
+            projectTypeLabel.Location = new System.Drawing.Point(712, 127);
             projectTypeLabel.Name = "projectTypeLabel";
             projectTypeLabel.Size = new System.Drawing.Size(78, 13);
             projectTypeLabel.TabIndex = 49;

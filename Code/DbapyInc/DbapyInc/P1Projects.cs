@@ -133,6 +133,18 @@ namespace DbapyInc
                 return;
             }
 
+            if (managerIdTextBox.Text.Length == 0)
+            {
+                MessageBox.Show("Manager Id cannot be empty");
+                return;
+            }
+
+            if (projectTypeTextBox.Text.Length == 0)
+            {
+                MessageBox.Show("Project Type Id cannot be empty");
+                return;
+            }
+
             // Saving
             projectsBindingSource.EndEdit();
             this.projectsTableAdapter.Update(this.databaseDataSet.Projects);
@@ -258,14 +270,19 @@ namespace DbapyInc
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
+            Pen P = new Pen(Brushes.Black, 2.5f);
+
+            e.Graphics.DrawString(DateTime.Now.ToShortDateString(), new Font("Ariel", 20, FontStyle.Bold), Brushes.Black, new Point(0, 0));
+
+            e.Graphics.DrawString("דוח פרויקטים", new Font("Ariel", 30, FontStyle.Bold), Brushes.Blue, new Point(300, 100));
+
             int i = 0;
             int j;
             int x = 100;
-            int y = 100;
+            int y = 200;
             int w = 100;
             int h = 30;
 
-            Pen P = new Pen(Brushes.Black, 2.5f);
 
             while (i < databaseDataSet.Projects.Columns.Count)
             {
@@ -321,11 +338,15 @@ namespace DbapyInc
             int i = 0;
             int j;
             int x = 100;
-            int y = 100;
+            int y = 200;
             int w = 100;
             int h = 30;
 
             Pen P = new Pen(Brushes.Black, 2.5f);
+
+            e.Graphics.DrawString(DateTime.Now.ToShortDateString(), new Font("Ariel", 20, FontStyle.Bold), Brushes.Black, new Point(0, 0));
+
+            e.Graphics.DrawString("דוח פרויקט", new Font("Ariel", 30, FontStyle.Bold), Brushes.Blue, new Point(300, 100));
 
             while (i < databaseDataSet.Projects.Columns.Count)
             {
@@ -365,7 +386,7 @@ namespace DbapyInc
             i = 0;
             j = 0;
             x = 100;
-            y = 400;
+            y = 300;
             w = 100;
             h = 30;
 

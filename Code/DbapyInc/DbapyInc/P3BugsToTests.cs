@@ -95,11 +95,29 @@ namespace DbapyInc
 
         private void bugIdComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            object selection = bugIdComboBox.SelectedValue;
 
+            if (selection == null)
+            {
+                return;
+            }
+
+            int bugId = (int)selection;
+
+            foreach(DataRow row in databaseDataSet.Bugs)
+            {
+                if((int)row["BugId"] == bugId)
+                {
+                    bugNameTextBox.Text = row["BugName"].ToString();
+                    bugDescriptionRichTextBox.Text = row["BugDescription"].ToString();
+                    return;
+                }
+            }
         }
 
         private void testIdComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             object selection = testIdComboBox.SelectedValue;
 
             if (selection == null)
@@ -109,7 +127,8 @@ namespace DbapyInc
 
             int testId = (int)selection;
 
-            foreach(DataRow row in databaseDataSet.Tests.Rows)
+
+            foreach (DataRow row in databaseDataSet.Tests.Rows)
             {
                 if ((int)row["TestId"] == testId)
                 {
