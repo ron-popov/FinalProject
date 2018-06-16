@@ -383,5 +383,10 @@ namespace DbapyInc
                 printDocument1.Print();
             }
         }
+
+        private void workerIdLabel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -35,9 +35,9 @@
             System.Windows.Forms.Label workerAddressLabel;
             System.Windows.Forms.Label workerJoinDateLabel;
             System.Windows.Forms.Label workerBirthDateLabel;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(P2Workers));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.databaseDataSet = new DbapyInc.DatabaseDataSet();
             this.workersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.workersTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.WorkersTableAdapter();
@@ -51,12 +51,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.workersDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.workerIdTextBox = new System.Windows.Forms.TextBox();
             this.workerNameTextBox = new System.Windows.Forms.TextBox();
             this.workerPhoneMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
@@ -91,6 +85,12 @@
             this.teamsTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.TeamsTableAdapter();
             this.projectComponentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.projectComponentsTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.ProjectComponentsTableAdapter();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             workerIdLabel = new System.Windows.Forms.Label();
             workerNameLabel = new System.Windows.Forms.Label();
             workerPhoneLabel = new System.Windows.Forms.Label();
@@ -110,54 +110,54 @@
             workerIdLabel.AutoSize = true;
             workerIdLabel.Location = new System.Drawing.Point(829, 12);
             workerIdLabel.Name = "workerIdLabel";
-            workerIdLabel.Size = new System.Drawing.Size(57, 13);
+            workerIdLabel.Size = new System.Drawing.Size(55, 13);
             workerIdLabel.TabIndex = 32;
-            workerIdLabel.Text = "Worker Id:";
+            workerIdLabel.Text = "קוד עובד";
             // 
             // workerNameLabel
             // 
             workerNameLabel.AutoSize = true;
             workerNameLabel.Location = new System.Drawing.Point(829, 38);
             workerNameLabel.Name = "workerNameLabel";
-            workerNameLabel.Size = new System.Drawing.Size(76, 13);
+            workerNameLabel.Size = new System.Drawing.Size(52, 13);
             workerNameLabel.TabIndex = 34;
-            workerNameLabel.Text = "Worker Name:";
+            workerNameLabel.Text = "שם עובד";
             // 
             // workerPhoneLabel
             // 
             workerPhoneLabel.AutoSize = true;
             workerPhoneLabel.Location = new System.Drawing.Point(829, 64);
             workerPhoneLabel.Name = "workerPhoneLabel";
-            workerPhoneLabel.Size = new System.Drawing.Size(79, 13);
+            workerPhoneLabel.Size = new System.Drawing.Size(67, 13);
             workerPhoneLabel.TabIndex = 36;
-            workerPhoneLabel.Text = "Worker Phone:";
+            workerPhoneLabel.Text = "טלפון עובד";
             // 
             // workerAddressLabel
             // 
             workerAddressLabel.AutoSize = true;
             workerAddressLabel.Location = new System.Drawing.Point(829, 90);
             workerAddressLabel.Name = "workerAddressLabel";
-            workerAddressLabel.Size = new System.Drawing.Size(86, 13);
+            workerAddressLabel.Size = new System.Drawing.Size(69, 13);
             workerAddressLabel.TabIndex = 38;
-            workerAddressLabel.Text = "Worker Address:";
+            workerAddressLabel.Text = "כתובת עובד";
             // 
             // workerJoinDateLabel
             // 
             workerJoinDateLabel.AutoSize = true;
             workerJoinDateLabel.Location = new System.Drawing.Point(829, 143);
             workerJoinDateLabel.Name = "workerJoinDateLabel";
-            workerJoinDateLabel.Size = new System.Drawing.Size(93, 13);
+            workerJoinDateLabel.Size = new System.Drawing.Size(89, 13);
             workerJoinDateLabel.TabIndex = 40;
-            workerJoinDateLabel.Text = "Worker Join Date:";
+            workerJoinDateLabel.Text = "תאריך הצטרפות";
             // 
             // workerBirthDateLabel
             // 
             workerBirthDateLabel.AutoSize = true;
             workerBirthDateLabel.Location = new System.Drawing.Point(829, 117);
             workerBirthDateLabel.Name = "workerBirthDateLabel";
-            workerBirthDateLabel.Size = new System.Drawing.Size(95, 13);
+            workerBirthDateLabel.Size = new System.Drawing.Size(69, 13);
             workerBirthDateLabel.TabIndex = 42;
-            workerBirthDateLabel.Text = "Worker Birth Date:";
+            workerBirthDateLabel.Text = "תאריך לידה";
             // 
             // databaseDataSet
             // 
@@ -287,46 +287,6 @@
             this.workersDataGridView.Size = new System.Drawing.Size(788, 374);
             this.workersDataGridView.TabIndex = 32;
             // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "WorkerId";
-            this.dataGridViewTextBoxColumn1.HeaderText = "WorkerId";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "WorkerName";
-            this.dataGridViewTextBoxColumn2.HeaderText = "WorkerName";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "WorkerPhone";
-            this.dataGridViewTextBoxColumn3.HeaderText = "WorkerPhone";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "WorkerAddress";
-            this.dataGridViewTextBoxColumn4.HeaderText = "WorkerAddress";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "WorkerJoinDate";
-            dataGridViewCellStyle7.Format = "dd/MM/yyyy";
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle7;
-            this.dataGridViewTextBoxColumn5.HeaderText = "WorkerJoinDate";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "WorkerBirthDate";
-            dataGridViewCellStyle8.Format = "dd/MM/yyyy";
-            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle8;
-            this.dataGridViewTextBoxColumn6.HeaderText = "WorkerBirthDate";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
             // workerIdTextBox
             // 
             this.workerIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.workersBindingSource, "WorkerId", true));
@@ -423,9 +383,9 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(947, 165);
+            this.textBox3.Location = new System.Drawing.Point(930, 165);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(183, 20);
+            this.textBox3.Size = new System.Drawing.Size(200, 20);
             this.textBox3.TabIndex = 49;
             // 
             // label1
@@ -433,9 +393,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(829, 168);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 13);
+            this.label1.Size = new System.Drawing.Size(60, 13);
             this.label1.TabIndex = 51;
-            this.label1.Text = "Worker Years Exp :";
+            this.label1.Text = "שנות וותק";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
@@ -443,9 +403,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(829, 194);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 13);
+            this.label2.Size = new System.Drawing.Size(54, 13);
             this.label2.TabIndex = 53;
-            this.label2.Text = "Worker Age :";
+            this.label2.Text = "גיל עובד";
             // 
             // textBox4
             // 
@@ -523,15 +483,15 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(829, 220);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(88, 13);
+            this.label4.Size = new System.Drawing.Size(86, 13);
             this.label4.TabIndex = 59;
-            this.label4.Text = "Current Projects :";
+            this.label4.Text = "מספר פרויקטים";
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(947, 217);
+            this.textBox5.Location = new System.Drawing.Point(930, 217);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(183, 20);
+            this.textBox5.Size = new System.Drawing.Size(200, 20);
             this.textBox5.TabIndex = 58;
             // 
             // button14
@@ -575,6 +535,46 @@
             // projectComponentsTableAdapter
             // 
             this.projectComponentsTableAdapter.ClearBeforeFill = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "WorkerId";
+            this.dataGridViewTextBoxColumn1.HeaderText = "קוד עובד";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "WorkerName";
+            this.dataGridViewTextBoxColumn2.HeaderText = "שם עובד";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "WorkerPhone";
+            this.dataGridViewTextBoxColumn3.HeaderText = "טלפון עובד";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "WorkerAddress";
+            this.dataGridViewTextBoxColumn4.HeaderText = "כתובת עובד";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "WorkerJoinDate";
+            dataGridViewCellStyle1.Format = "dd/MM/yyyy";
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewTextBoxColumn5.HeaderText = "תאריך הצטרפות";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "WorkerBirthDate";
+            dataGridViewCellStyle2.Format = "dd/MM/yyyy";
+            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewTextBoxColumn6.HeaderText = "תאריך לידה";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             // 
             // P2Workers
             // 
@@ -673,12 +673,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.BindingSource workersToTeamsBindingSource;
         private DatabaseDataSetTableAdapters.WorkersToTeamsTableAdapter workersToTeamsTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Button button14;
@@ -688,5 +682,11 @@
         private DatabaseDataSetTableAdapters.TeamsTableAdapter teamsTableAdapter;
         private System.Windows.Forms.BindingSource projectComponentsBindingSource;
         private DatabaseDataSetTableAdapters.ProjectComponentsTableAdapter projectComponentsTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
     }
 }

@@ -58,10 +58,6 @@
             this.finishedCheckBox = new System.Windows.Forms.CheckBox();
             this.button12 = new System.Windows.Forms.Button();
             this.projectComponentsDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.button13 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
@@ -70,6 +66,10 @@
             this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
             this.projectIdTextBox = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             componentIdLabel = new System.Windows.Forms.Label();
             componentNameLabel = new System.Windows.Forms.Label();
             finishedLabel = new System.Windows.Forms.Label();
@@ -83,38 +83,38 @@
             // componentIdLabel
             // 
             componentIdLabel.AutoSize = true;
-            componentIdLabel.Location = new System.Drawing.Point(674, 24);
+            componentIdLabel.Location = new System.Drawing.Point(719, 24);
             componentIdLabel.Name = "componentIdLabel";
-            componentIdLabel.Size = new System.Drawing.Size(76, 13);
+            componentIdLabel.Size = new System.Drawing.Size(50, 13);
             componentIdLabel.TabIndex = 55;
-            componentIdLabel.Text = "Component Id:";
+            componentIdLabel.Text = "קוד חלק";
             // 
             // componentNameLabel
             // 
             componentNameLabel.AutoSize = true;
-            componentNameLabel.Location = new System.Drawing.Point(674, 50);
+            componentNameLabel.Location = new System.Drawing.Point(719, 50);
             componentNameLabel.Name = "componentNameLabel";
-            componentNameLabel.Size = new System.Drawing.Size(95, 13);
+            componentNameLabel.Size = new System.Drawing.Size(47, 13);
             componentNameLabel.TabIndex = 57;
-            componentNameLabel.Text = "Component Name:";
+            componentNameLabel.Text = "שם חלק";
             // 
             // finishedLabel
             // 
             finishedLabel.AutoSize = true;
-            finishedLabel.Location = new System.Drawing.Point(702, 106);
+            finishedLabel.Location = new System.Drawing.Point(735, 106);
             finishedLabel.Name = "finishedLabel";
-            finishedLabel.Size = new System.Drawing.Size(49, 13);
+            finishedLabel.Size = new System.Drawing.Size(31, 13);
             finishedLabel.TabIndex = 60;
-            finishedLabel.Text = "Finished:";
+            finishedLabel.Text = "גמור";
             // 
             // projectIdLabel
             // 
             projectIdLabel.AutoSize = true;
-            projectIdLabel.Location = new System.Drawing.Point(702, 80);
+            projectIdLabel.Location = new System.Drawing.Point(725, 78);
             projectIdLabel.Name = "projectIdLabel";
-            projectIdLabel.Size = new System.Drawing.Size(55, 13);
+            projectIdLabel.Size = new System.Drawing.Size(44, 13);
             projectIdLabel.TabIndex = 64;
-            projectIdLabel.Text = "Project Id:";
+            projectIdLabel.Text = "פרויקט";
             // 
             // databaseDataSet
             // 
@@ -330,30 +330,6 @@
             this.projectComponentsDataGridView.Size = new System.Drawing.Size(645, 305);
             this.projectComponentsDataGridView.TabIndex = 62;
             // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "ComponentId";
-            this.dataGridViewTextBoxColumn1.HeaderText = "ComponentId";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "ComponentName";
-            this.dataGridViewTextBoxColumn2.HeaderText = "ComponentName";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "ProjectId";
-            this.dataGridViewTextBoxColumn3.HeaderText = "ProjectId";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewCheckBoxColumn1
-            // 
-            this.dataGridViewCheckBoxColumn1.DataPropertyName = "Finished";
-            this.dataGridViewCheckBoxColumn1.HeaderText = "Finished";
-            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
-            // 
             // button13
             // 
             this.button13.Location = new System.Drawing.Point(330, 370);
@@ -409,6 +385,30 @@
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 66;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "ComponentId";
+            this.dataGridViewTextBoxColumn1.HeaderText = "קוד חלק";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "ComponentName";
+            this.dataGridViewTextBoxColumn2.HeaderText = "שם חלק";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "ProjectId";
+            this.dataGridViewTextBoxColumn3.HeaderText = "קוד פרויקט";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewCheckBoxColumn1
+            // 
+            this.dataGridViewCheckBoxColumn1.DataPropertyName = "Finished";
+            this.dataGridViewCheckBoxColumn1.HeaderText = "גמור";
+            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
             // 
             // P2Components
             // 
@@ -479,10 +479,6 @@
         private System.Windows.Forms.CheckBox finishedCheckBox;
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.DataGridView projectComponentsDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.PrintDialog printDialog1;
@@ -491,5 +487,9 @@
         private System.Windows.Forms.PageSetupDialog pageSetupDialog1;
         private System.Windows.Forms.TextBox projectIdTextBox;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
     }
 }

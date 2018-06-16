@@ -36,8 +36,8 @@
             System.Windows.Forms.Label label1;
             System.Windows.Forms.Label label2;
             System.Windows.Forms.Label label3;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(P2Teams));
             System.Windows.Forms.Label label4;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(P2Teams));
             this.databaseDataSet = new DbapyInc.DatabaseDataSet();
             this.teamsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.teamsTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.TeamsTableAdapter();
@@ -45,10 +45,6 @@
             this.projectComponentsTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.ProjectComponentsTableAdapter();
             this.workersTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.WorkersTableAdapter();
             this.teamsDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.teamIdTextBox = new System.Windows.Forms.TextBox();
             this.teamNameTextBox = new System.Windows.Forms.TextBox();
             this.manageridComboBox = new System.Windows.Forms.ComboBox();
@@ -81,6 +77,10 @@
             this.workersToTeamsTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.WorkersToTeamsTableAdapter();
             this.button11 = new System.Windows.Forms.Button();
             this.textBox4 = new System.Windows.Forms.TextBox();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             teamIdLabel = new System.Windows.Forms.Label();
             teamNameLabel = new System.Windows.Forms.Label();
             manageridLabel = new System.Windows.Forms.Label();
@@ -101,65 +101,74 @@
             // teamIdLabel
             // 
             teamIdLabel.AutoSize = true;
-            teamIdLabel.Location = new System.Drawing.Point(820, 25);
+            teamIdLabel.Location = new System.Drawing.Point(835, 25);
             teamIdLabel.Name = "teamIdLabel";
-            teamIdLabel.Size = new System.Drawing.Size(49, 13);
+            teamIdLabel.Size = new System.Drawing.Size(53, 13);
             teamIdLabel.TabIndex = 1;
-            teamIdLabel.Text = "Team Id:";
+            teamIdLabel.Text = "קוד צוות";
             // 
             // teamNameLabel
             // 
             teamNameLabel.AutoSize = true;
-            teamNameLabel.Location = new System.Drawing.Point(812, 51);
+            teamNameLabel.Location = new System.Drawing.Point(838, 51);
             teamNameLabel.Name = "teamNameLabel";
-            teamNameLabel.Size = new System.Drawing.Size(68, 13);
+            teamNameLabel.Size = new System.Drawing.Size(50, 13);
             teamNameLabel.TabIndex = 3;
-            teamNameLabel.Text = "Team Name:";
+            teamNameLabel.Text = "שם צוות";
             // 
             // manageridLabel
             // 
             manageridLabel.AutoSize = true;
-            manageridLabel.Location = new System.Drawing.Point(820, 82);
+            manageridLabel.Location = new System.Drawing.Point(833, 77);
             manageridLabel.Name = "manageridLabel";
-            manageridLabel.Size = new System.Drawing.Size(67, 13);
+            manageridLabel.Size = new System.Drawing.Size(55, 13);
             manageridLabel.TabIndex = 5;
-            manageridLabel.Text = "Manager Id :";
+            manageridLabel.Text = "קוד מנהל";
             // 
             // componentIdLabel
             // 
             componentIdLabel.AutoSize = true;
-            componentIdLabel.Location = new System.Drawing.Point(812, 133);
+            componentIdLabel.Location = new System.Drawing.Point(835, 133);
             componentIdLabel.Name = "componentIdLabel";
-            componentIdLabel.Size = new System.Drawing.Size(76, 13);
+            componentIdLabel.Size = new System.Drawing.Size(50, 13);
             componentIdLabel.TabIndex = 7;
-            componentIdLabel.Text = "Component Id:";
+            componentIdLabel.Text = "קוד חלק";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(802, 107);
+            label1.Location = new System.Drawing.Point(836, 107);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(86, 13);
+            label1.Size = new System.Drawing.Size(52, 13);
             label1.TabIndex = 41;
-            label1.Text = "Manager Name :";
+            label1.Text = "שם מנהל";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(790, 160);
+            label2.Location = new System.Drawing.Point(838, 160);
             label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(98, 13);
+            label2.Size = new System.Drawing.Size(47, 13);
             label2.TabIndex = 43;
-            label2.Text = "Component Name :";
+            label2.Text = "שם חלק";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new System.Drawing.Point(802, 186);
+            label3.Location = new System.Drawing.Point(825, 186);
             label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(77, 13);
+            label3.Size = new System.Drawing.Size(63, 13);
             label3.TabIndex = 45;
-            label3.Text = "Project Name :";
+            label3.Text = "שם פרויקט";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new System.Drawing.Point(813, 212);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(75, 13);
+            label4.TabIndex = 61;
+            label4.Text = "מספר עובדים";
             // 
             // databaseDataSet
             // 
@@ -214,30 +223,6 @@
             this.teamsDataGridView.Name = "teamsDataGridView";
             this.teamsDataGridView.Size = new System.Drawing.Size(766, 383);
             this.teamsDataGridView.TabIndex = 1;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "TeamId";
-            this.dataGridViewTextBoxColumn1.HeaderText = "TeamId";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "TeamName";
-            this.dataGridViewTextBoxColumn2.HeaderText = "TeamName";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Managerid";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Managerid";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "ComponentId";
-            this.dataGridViewTextBoxColumn4.HeaderText = "ComponentId";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
             // teamIdTextBox
             // 
@@ -489,15 +474,6 @@
             this.button11.UseVisualStyleBackColor = true;
             this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new System.Drawing.Point(802, 212);
-            label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(84, 13);
-            label4.TabIndex = 61;
-            label4.Text = "Workers Count :";
-            // 
             // textBox4
             // 
             this.textBox4.Enabled = false;
@@ -505,6 +481,30 @@
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(121, 20);
             this.textBox4.TabIndex = 62;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "TeamId";
+            this.dataGridViewTextBoxColumn1.HeaderText = "קוד צוות";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "TeamName";
+            this.dataGridViewTextBoxColumn2.HeaderText = "שם צוות";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Managerid";
+            this.dataGridViewTextBoxColumn3.HeaderText = "קוד מנהל";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "ComponentId";
+            this.dataGridViewTextBoxColumn4.HeaderText = "קוד חלק";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
             // P2Teams
             // 
@@ -563,10 +563,6 @@
         private DatabaseDataSetTableAdapters.TeamsTableAdapter teamsTableAdapter;
         private DatabaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.DataGridView teamsDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private DatabaseDataSetTableAdapters.WorkersTableAdapter workersTableAdapter;
         private System.Windows.Forms.TextBox teamIdTextBox;
         private System.Windows.Forms.TextBox teamNameTextBox;
@@ -601,5 +597,9 @@
         private DatabaseDataSetTableAdapters.WorkersToTeamsTableAdapter workersToTeamsTableAdapter;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
     }
 }

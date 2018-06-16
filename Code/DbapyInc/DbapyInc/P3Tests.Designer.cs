@@ -41,10 +41,6 @@
             this.projectsTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.ProjectsTableAdapter();
             this.workersTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.WorkersTableAdapter();
             this.testsDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.testIdTextBox = new System.Windows.Forms.TextBox();
             this.testDateDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.projectsBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -71,6 +67,10 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             testIdLabel = new System.Windows.Forms.Label();
             testDateLabel = new System.Windows.Forms.Label();
             projectIdLabel = new System.Windows.Forms.Label();
@@ -86,39 +86,40 @@
             // testIdLabel
             // 
             testIdLabel.AutoSize = true;
-            testIdLabel.Location = new System.Drawing.Point(603, 15);
+            testIdLabel.Location = new System.Drawing.Point(598, 15);
             testIdLabel.Name = "testIdLabel";
-            testIdLabel.Size = new System.Drawing.Size(43, 13);
+            testIdLabel.Size = new System.Drawing.Size(62, 13);
             testIdLabel.TabIndex = 1;
-            testIdLabel.Text = "Test Id:";
+            testIdLabel.Text = "קוד בדיקה";
             // 
             // testDateLabel
             // 
             testDateLabel.AutoSize = true;
-            testDateLabel.Location = new System.Drawing.Point(603, 42);
+            testDateLabel.Location = new System.Drawing.Point(584, 44);
             testDateLabel.Name = "testDateLabel";
-            testDateLabel.Size = new System.Drawing.Size(57, 13);
+            testDateLabel.Size = new System.Drawing.Size(76, 13);
             testDateLabel.TabIndex = 3;
-            testDateLabel.Text = "Test Date:";
+            testDateLabel.Text = "תאריך בדיקה";
             // 
             // projectIdLabel
             // 
             projectIdLabel.AutoSize = true;
-            projectIdLabel.Location = new System.Drawing.Point(605, 69);
+            projectIdLabel.Location = new System.Drawing.Point(616, 69);
             projectIdLabel.Name = "projectIdLabel";
-            projectIdLabel.Size = new System.Drawing.Size(55, 13);
+            projectIdLabel.Size = new System.Drawing.Size(44, 13);
             projectIdLabel.TabIndex = 63;
-            projectIdLabel.Text = "Project Id:";
+            projectIdLabel.Text = "פרויקט";
             projectIdLabel.Click += new System.EventHandler(this.projectIdLabel_Click);
             // 
             // workerIdLabel
             // 
             workerIdLabel.AutoSize = true;
-            workerIdLabel.Location = new System.Drawing.Point(603, 95);
+            workerIdLabel.Location = new System.Drawing.Point(627, 95);
             workerIdLabel.Name = "workerIdLabel";
-            workerIdLabel.Size = new System.Drawing.Size(57, 13);
+            workerIdLabel.Size = new System.Drawing.Size(33, 13);
             workerIdLabel.TabIndex = 64;
-            workerIdLabel.Text = "Worker Id:";
+            workerIdLabel.Text = "עובד";
+            workerIdLabel.Click += new System.EventHandler(this.workerIdLabel_Click);
             // 
             // databaseDataSet
             // 
@@ -173,30 +174,6 @@
             this.testsDataGridView.Name = "testsDataGridView";
             this.testsDataGridView.Size = new System.Drawing.Size(560, 377);
             this.testsDataGridView.TabIndex = 1;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "TestId";
-            this.dataGridViewTextBoxColumn1.HeaderText = "TestId";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "TestDate";
-            this.dataGridViewTextBoxColumn2.HeaderText = "TestDate";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "ProjectId";
-            this.dataGridViewTextBoxColumn3.HeaderText = "ProjectId";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "WorkerId";
-            this.dataGridViewTextBoxColumn4.HeaderText = "WorkerId";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
             // testIdTextBox
             // 
@@ -393,11 +370,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(597, 121);
+            this.label1.Location = new System.Drawing.Point(590, 121);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 13);
+            this.label1.Size = new System.Drawing.Size(70, 13);
             this.label1.TabIndex = 69;
-            this.label1.Text = "Bug Count :";
+            this.label1.Text = "מספר תקלות";
             // 
             // textBox1
             // 
@@ -405,6 +382,30 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(200, 20);
             this.textBox1.TabIndex = 68;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "TestId";
+            this.dataGridViewTextBoxColumn1.HeaderText = "קוד בדיקה";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "TestDate";
+            this.dataGridViewTextBoxColumn2.HeaderText = "תאריך בדיקה";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "ProjectId";
+            this.dataGridViewTextBoxColumn3.HeaderText = "קוד פרויקט";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "WorkerId";
+            this.dataGridViewTextBoxColumn4.HeaderText = "קוד עובד";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
             // P3Tests
             // 
@@ -455,10 +456,6 @@
         private DatabaseDataSetTableAdapters.TestsTableAdapter testsTableAdapter;
         private DatabaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.DataGridView testsDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.TextBox testIdTextBox;
         private System.Windows.Forms.DateTimePicker testDateDateTimePicker;
         private DatabaseDataSetTableAdapters.ProjectsTableAdapter projectsTableAdapter;
@@ -487,5 +484,9 @@
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
     }
 }

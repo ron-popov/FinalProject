@@ -37,9 +37,6 @@
             this.bugsTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.BugsTableAdapter();
             this.tableAdapterManager = new DbapyInc.DatabaseDataSetTableAdapters.TableAdapterManager();
             this.bugsDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bugIdTextBox = new System.Windows.Forms.TextBox();
             this.bugNameTextBox = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
@@ -55,6 +52,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.bugsToTestsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bugsToTestsTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.BugsToTestsTableAdapter();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             bugIdLabel = new System.Windows.Forms.Label();
             bugNameLabel = new System.Windows.Forms.Label();
             bugDescriptionLabel = new System.Windows.Forms.Label();
@@ -69,27 +69,27 @@
             bugIdLabel.AutoSize = true;
             bugIdLabel.Location = new System.Drawing.Point(565, 26);
             bugIdLabel.Name = "bugIdLabel";
-            bugIdLabel.Size = new System.Drawing.Size(41, 13);
+            bugIdLabel.Size = new System.Drawing.Size(57, 13);
             bugIdLabel.TabIndex = 1;
-            bugIdLabel.Text = "Bug Id:";
+            bugIdLabel.Text = "קוד תקלה";
             // 
             // bugNameLabel
             // 
             bugNameLabel.AutoSize = true;
             bugNameLabel.Location = new System.Drawing.Point(565, 52);
             bugNameLabel.Name = "bugNameLabel";
-            bugNameLabel.Size = new System.Drawing.Size(60, 13);
+            bugNameLabel.Size = new System.Drawing.Size(54, 13);
             bugNameLabel.TabIndex = 3;
-            bugNameLabel.Text = "Bug Name:";
+            bugNameLabel.Text = "שם תקלה";
             // 
             // bugDescriptionLabel
             // 
             bugDescriptionLabel.AutoSize = true;
             bugDescriptionLabel.Location = new System.Drawing.Point(565, 85);
             bugDescriptionLabel.Name = "bugDescriptionLabel";
-            bugDescriptionLabel.Size = new System.Drawing.Size(85, 13);
+            bugDescriptionLabel.Size = new System.Drawing.Size(69, 13);
             bugDescriptionLabel.TabIndex = 48;
-            bugDescriptionLabel.Text = "Bug Description:";
+            bugDescriptionLabel.Text = "תיאור תקלה";
             // 
             // databaseDataSet
             // 
@@ -135,24 +135,6 @@
             this.bugsDataGridView.Name = "bugsDataGridView";
             this.bugsDataGridView.Size = new System.Drawing.Size(520, 326);
             this.bugsDataGridView.TabIndex = 1;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "BugId";
-            this.dataGridViewTextBoxColumn1.HeaderText = "BugId";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "BugName";
-            this.dataGridViewTextBoxColumn2.HeaderText = "BugName";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "BugDescription";
-            this.dataGridViewTextBoxColumn3.HeaderText = "BugDescription";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
             // bugIdTextBox
             // 
@@ -272,9 +254,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(565, 161);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 13);
+            this.label1.Size = new System.Drawing.Size(75, 13);
             this.label1.TabIndex = 51;
-            this.label1.Text = "Bug Count :";
+            this.label1.Text = "מספר הופעות";
             // 
             // bugsToTestsBindingSource
             // 
@@ -284,6 +266,24 @@
             // bugsToTestsTableAdapter
             // 
             this.bugsToTestsTableAdapter.ClearBeforeFill = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "BugId";
+            this.dataGridViewTextBoxColumn1.HeaderText = "קוד תקלה";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "BugName";
+            this.dataGridViewTextBoxColumn2.HeaderText = "שם תקלה";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "BugDescription";
+            this.dataGridViewTextBoxColumn3.HeaderText = "תיאור תקלה";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
             // P3Bugs
             // 
@@ -326,9 +326,6 @@
         private DatabaseDataSetTableAdapters.BugsTableAdapter bugsTableAdapter;
         private DatabaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.DataGridView bugsDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.TextBox bugIdTextBox;
         private System.Windows.Forms.TextBox bugNameTextBox;
         private System.Windows.Forms.Button button5;
@@ -344,5 +341,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.BindingSource bugsToTestsBindingSource;
         private DatabaseDataSetTableAdapters.BugsToTestsTableAdapter bugsToTestsTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
     }
 }

@@ -46,8 +46,6 @@
             this.teamsTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.TeamsTableAdapter();
             this.workersTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.WorkersTableAdapter();
             this.workersToTeamsDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.teamIdComboBox = new System.Windows.Forms.ComboBox();
             this.teamsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.workerIdComboBox = new System.Windows.Forms.ComboBox();
@@ -56,6 +54,8 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             teamIdLabel = new System.Windows.Forms.Label();
             workerIdLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
@@ -68,20 +68,20 @@
             // teamIdLabel
             // 
             teamIdLabel.AutoSize = true;
-            teamIdLabel.Location = new System.Drawing.Point(459, 21);
+            teamIdLabel.Location = new System.Drawing.Point(447, 21);
             teamIdLabel.Name = "teamIdLabel";
-            teamIdLabel.Size = new System.Drawing.Size(49, 13);
+            teamIdLabel.Size = new System.Drawing.Size(53, 13);
             teamIdLabel.TabIndex = 49;
-            teamIdLabel.Text = "Team Id:";
+            teamIdLabel.Text = "קוד צוות";
             // 
             // workerIdLabel
             // 
             workerIdLabel.AutoSize = true;
             workerIdLabel.Location = new System.Drawing.Point(451, 74);
             workerIdLabel.Name = "workerIdLabel";
-            workerIdLabel.Size = new System.Drawing.Size(57, 13);
+            workerIdLabel.Size = new System.Drawing.Size(55, 13);
             workerIdLabel.TabIndex = 51;
-            workerIdLabel.Text = "Worker Id:";
+            workerIdLabel.Text = "קוד עובד";
             // 
             // button5
             // 
@@ -215,18 +215,6 @@
             this.workersToTeamsDataGridView.Size = new System.Drawing.Size(407, 311);
             this.workersToTeamsDataGridView.TabIndex = 49;
             // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "TeamId";
-            this.dataGridViewTextBoxColumn1.HeaderText = "TeamId";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "WorkerId";
-            this.dataGridViewTextBoxColumn2.HeaderText = "WorkerId";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
             // teamIdComboBox
             // 
             this.teamIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.workersToTeamsBindingSource, "TeamId", true));
@@ -266,11 +254,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(437, 48);
+            this.label1.Location = new System.Drawing.Point(451, 48);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 13);
+            this.label1.Size = new System.Drawing.Size(50, 13);
             this.label1.TabIndex = 53;
-            this.label1.Text = "Team Name :";
+            this.label1.Text = "שם צוות";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // textBox1
@@ -292,12 +280,24 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(429, 101);
+            this.label2.Location = new System.Drawing.Point(451, 101);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 13);
+            this.label2.Size = new System.Drawing.Size(52, 13);
             this.label2.TabIndex = 55;
-            this.label2.Text = "Worker Name :";
+            this.label2.Text = "שם עובד";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "TeamId";
+            this.dataGridViewTextBoxColumn1.HeaderText = "קוד צוות";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "WorkerId";
+            this.dataGridViewTextBoxColumn2.HeaderText = "קוד עובד";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
             // P2WorkersToTeams
             // 
@@ -349,8 +349,6 @@
         private DatabaseDataSetTableAdapters.WorkersToTeamsTableAdapter workersToTeamsTableAdapter;
         private DatabaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.DataGridView workersToTeamsDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.ComboBox teamIdComboBox;
         private System.Windows.Forms.ComboBox workerIdComboBox;
         private DatabaseDataSetTableAdapters.TeamsTableAdapter teamsTableAdapter;
@@ -361,5 +359,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
     }
 }

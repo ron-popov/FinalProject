@@ -43,14 +43,6 @@
             this.surveysTableAdapter = new DbapyInc.DatabaseDataSetTableAdapters.SurveysTableAdapter();
             this.tableAdapterManager = new DbapyInc.DatabaseDataSetTableAdapters.TableAdapterManager();
             this.surveysDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.surveyIdTextBox = new System.Windows.Forms.TextBox();
             this.projectsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.surveyDateDateTimePicker = new System.Windows.Forms.DateTimePicker();
@@ -84,6 +76,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             surveyIdLabel = new System.Windows.Forms.Label();
             surveyDateLabel = new System.Windows.Forms.Label();
             q1Label = new System.Windows.Forms.Label();
@@ -104,72 +104,72 @@
             surveyIdLabel.AutoSize = true;
             surveyIdLabel.Location = new System.Drawing.Point(890, 26);
             surveyIdLabel.Name = "surveyIdLabel";
-            surveyIdLabel.Size = new System.Drawing.Size(55, 13);
+            surveyIdLabel.Size = new System.Drawing.Size(49, 13);
             surveyIdLabel.TabIndex = 1;
-            surveyIdLabel.Text = "Survey Id:";
+            surveyIdLabel.Text = "קוד סקר";
             // 
             // surveyDateLabel
             // 
             surveyDateLabel.AutoSize = true;
             surveyDateLabel.Location = new System.Drawing.Point(890, 80);
             surveyDateLabel.Name = "surveyDateLabel";
-            surveyDateLabel.Size = new System.Drawing.Size(69, 13);
+            surveyDateLabel.Size = new System.Drawing.Size(63, 13);
             surveyDateLabel.TabIndex = 5;
-            surveyDateLabel.Text = "Survey Date:";
+            surveyDateLabel.Text = "תאריך סקר";
             // 
             // q1Label
             // 
             q1Label.AutoSize = true;
             q1Label.Location = new System.Drawing.Point(890, 132);
             q1Label.Name = "q1Label";
-            q1Label.Size = new System.Drawing.Size(24, 13);
+            q1Label.Size = new System.Drawing.Size(47, 13);
             q1Label.TabIndex = 9;
-            q1Label.Text = "Q1:";
+            q1Label.Text = "שאלה 1";
             // 
             // q2Label
             // 
             q2Label.AutoSize = true;
             q2Label.Location = new System.Drawing.Point(890, 159);
             q2Label.Name = "q2Label";
-            q2Label.Size = new System.Drawing.Size(24, 13);
+            q2Label.Size = new System.Drawing.Size(47, 13);
             q2Label.TabIndex = 11;
-            q2Label.Text = "Q2:";
+            q2Label.Text = "שאלה 2";
             // 
             // q3Label
             // 
             q3Label.AutoSize = true;
             q3Label.Location = new System.Drawing.Point(890, 186);
             q3Label.Name = "q3Label";
-            q3Label.Size = new System.Drawing.Size(24, 13);
+            q3Label.Size = new System.Drawing.Size(47, 13);
             q3Label.TabIndex = 13;
-            q3Label.Text = "Q3:";
+            q3Label.Text = "שאלה 3";
             // 
             // q4Label
             // 
             q4Label.AutoSize = true;
             q4Label.Location = new System.Drawing.Point(890, 213);
             q4Label.Name = "q4Label";
-            q4Label.Size = new System.Drawing.Size(24, 13);
+            q4Label.Size = new System.Drawing.Size(47, 13);
             q4Label.TabIndex = 15;
-            q4Label.Text = "Q4:";
+            q4Label.Text = "שאלה 4";
             // 
             // workerIdLabel
             // 
             workerIdLabel.AutoSize = true;
             workerIdLabel.Location = new System.Drawing.Point(890, 104);
             workerIdLabel.Name = "workerIdLabel";
-            workerIdLabel.Size = new System.Drawing.Size(57, 13);
+            workerIdLabel.Size = new System.Drawing.Size(33, 13);
             workerIdLabel.TabIndex = 64;
-            workerIdLabel.Text = "Worker Id:";
+            workerIdLabel.Text = "עובד";
             // 
             // projectIdLabel
             // 
             projectIdLabel.AutoSize = true;
             projectIdLabel.Location = new System.Drawing.Point(892, 52);
             projectIdLabel.Name = "projectIdLabel";
-            projectIdLabel.Size = new System.Drawing.Size(55, 13);
+            projectIdLabel.Size = new System.Drawing.Size(44, 13);
             projectIdLabel.TabIndex = 66;
-            projectIdLabel.Text = "Project Id:";
+            projectIdLabel.Text = "פרויקט";
             // 
             // databaseDataSet
             // 
@@ -220,54 +220,6 @@
             this.surveysDataGridView.Name = "surveysDataGridView";
             this.surveysDataGridView.Size = new System.Drawing.Size(854, 392);
             this.surveysDataGridView.TabIndex = 1;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "SurveyId";
-            this.dataGridViewTextBoxColumn1.HeaderText = "SurveyId";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "ProjectId";
-            this.dataGridViewTextBoxColumn2.HeaderText = "ProjectId";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "SurveyDate";
-            this.dataGridViewTextBoxColumn3.HeaderText = "SurveyDate";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "WorkerId";
-            this.dataGridViewTextBoxColumn4.HeaderText = "WorkerId";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Q1";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Q1";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Q2";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Q2";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "Q3";
-            this.dataGridViewTextBoxColumn7.HeaderText = "Q3";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "Q4";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Q4";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             // 
             // surveyIdTextBox
             // 
@@ -566,6 +518,54 @@
             this.label4.TabIndex = 75;
             this.label4.Text = "4. האם אתה מרוצה מהספק העבודה שלנו ";
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "SurveyId";
+            this.dataGridViewTextBoxColumn1.HeaderText = "קוד סקר";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "ProjectId";
+            this.dataGridViewTextBoxColumn2.HeaderText = "קוד פרויקט";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "SurveyDate";
+            this.dataGridViewTextBoxColumn3.HeaderText = "תאריך סקר";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "WorkerId";
+            this.dataGridViewTextBoxColumn4.HeaderText = "קוד עובד";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Q1";
+            this.dataGridViewTextBoxColumn5.HeaderText = "שאלה 1";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Q2";
+            this.dataGridViewTextBoxColumn6.HeaderText = "שאלה 2";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "Q3";
+            this.dataGridViewTextBoxColumn7.HeaderText = "שאלה 3";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "Q4";
+            this.dataGridViewTextBoxColumn8.HeaderText = "שאלה 4";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            // 
             // P4Surveys
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -625,14 +625,6 @@
         private DatabaseDataSetTableAdapters.SurveysTableAdapter surveysTableAdapter;
         private DatabaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.DataGridView surveysDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.TextBox surveyIdTextBox;
         private System.Windows.Forms.DateTimePicker surveyDateDateTimePicker;
         private System.Windows.Forms.ComboBox q1ComboBox;
@@ -666,5 +658,13 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
     }
 }
