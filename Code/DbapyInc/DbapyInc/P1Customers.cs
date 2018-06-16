@@ -62,6 +62,24 @@ namespace DbapyInc
 
         private void button2_Click(object sender, EventArgs e)
         {
+            int customerId = -1;
+            try
+            {
+                customerId = int.Parse(customerIdTextBox.Text);
+            }
+            catch
+            {
+            }
+
+            foreach (DataRow row in databaseDataSet.Projects.Rows)
+            {
+                if((int)row["OrderId"] == customerId)
+                {
+                    MessageBox.Show("לא ניתן למחוק הזמנה");
+                    return;
+                }
+            }
+
             customersBindingSource.RemoveCurrent();
         }
 
@@ -114,7 +132,7 @@ namespace DbapyInc
             foreach(DataRow row in databaseDataSet.Customers.Rows)
             {
                 int id = (int)(row["CustomerId"]);
-                if(idList.Contains(id))
+                if (idList.Contains(id))
                 {
                     MessageBox.Show("Id Duplicated found, please remove duplicate before saving");
                     return;
@@ -174,10 +192,18 @@ namespace DbapyInc
 
             foreach(DataRow row in databaseDataSet.Orders.Rows)
             {
-                if((int)row["CustomerId"] == customerId)
+                try
                 {
-                    orders.Add((int)row["OrderId"]);
+                    if ((int)row["CustomerId"] == customerId)
+                    {
+                        orders.Add((int)row["OrderId"]);
+                    }
                 }
+                catch(DeletedRowInaccessibleException)
+                {
+
+                }
+
             }
 
             foreach(DataRow row in databaseDataSet.Projects.Rows)

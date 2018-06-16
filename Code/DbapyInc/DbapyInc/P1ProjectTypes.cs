@@ -45,14 +45,19 @@ namespace DbapyInc
             // Find the max customer Id in the table
             foreach (DataRow row in databaseDataSet.ProjectTypes.Rows)
             {
-                int id = int.Parse(row["TypeId"].ToString());
-
-                if (id > max)
+                try
                 {
-                    max = id;
+                    int id = int.Parse(row["TypeId"].ToString());
+
+                    if (id > max)
+                    {
+                        max = id;
+                    }
                 }
+                catch(DeletedRowInaccessibleException)
+                {
 
-
+                }
             }
 
             max += 1;
@@ -62,6 +67,25 @@ namespace DbapyInc
 
         private void button2_Click(object sender, EventArgs e)
         {
+            int typeId = -1;
+            try
+            {
+                typeId = int.Parse(typeIdTextBox.Text);
+            }
+            catch
+            {
+                return;
+            }
+
+            foreach(DataRow row in databaseDataSet.Projects)
+            {
+                if((int)row["ProjectType"] == typeId)
+                {
+                    MessageBox.Show("לא ניתן למחוק");
+                    return;
+                }
+            }
+
             projectTypesBindingSource.RemoveCurrent();
         }
 
@@ -91,14 +115,21 @@ namespace DbapyInc
 
             foreach (DataRow row in databaseDataSet.ProjectTypes.Rows)
             {
-                int id = (int)(row["TypeId"]);
-                if (idList.Contains(id))
+                try
                 {
-                    MessageBox.Show("Project Type Id Duplicated found, please remove duplicate before saving");
-                    return;
-                }
+                    int id = (int)(row["TypeId"]);
+                    if (idList.Contains(id))
+                    {
+                        MessageBox.Show("Project Type Id Duplicated found, please remove duplicate before saving");
+                        return;
+                    }
 
-                idList.Add(id);
+                    idList.Add(id);
+                }
+                catch(DeletedRowInaccessibleException)
+                {
+
+                }
             }
 
             // Saving to database

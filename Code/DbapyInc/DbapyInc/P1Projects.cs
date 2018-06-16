@@ -27,6 +27,8 @@ namespace DbapyInc
 
         private void P1Projects_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'databaseDataSet.Tests' table. You can move, or remove it, as needed.
+            this.testsTableAdapter.Fill(this.databaseDataSet.Tests);
             // TODO: This line of code loads data into the 'databaseDataSet.Surveys' table. You can move, or remove it, as needed.
             this.surveysTableAdapter.Fill(this.databaseDataSet.Surveys);
             // TODO: This line of code loads data into the 'databaseDataSet.Teams' table. You can move, or remove it, as needed.
@@ -76,11 +78,18 @@ namespace DbapyInc
             // Find the max customer Id in the table
             foreach (DataRow row in databaseDataSet.Projects.Rows)
             {
-                int id = int.Parse(row["ProjectId"].ToString());
-
-                if (id > max)
+                try
                 {
-                    max = id;
+                    int id = int.Parse(row["ProjectId"].ToString());
+
+                    if (id > max)
+                    {
+                        max = id;
+                    }
+                }
+                catch(DeletedRowInaccessibleException)
+                {
+
                 }
             }
 
@@ -88,12 +97,48 @@ namespace DbapyInc
 
             projectIdTextBox.Text = max.ToString();
 
-            
-
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            int projectId = -1;
+
+            try
+            {
+                projectId = int.Parse(projectIdTextBox.Text);
+            }
+            catch
+            {
+                return;
+            }
+
+            foreach (DataRow row in databaseDataSet.ProjectComponents.Rows)
+            {
+                if((int)row["ProjectId"] == projectId)
+                {
+                    MessageBox.Show("לא ניתן למחוק");
+                    return;
+                }
+            }
+
+            foreach (DataRow row in databaseDataSet.Tests.Rows)
+            {
+                if ((int)row["ProjectId"] == projectId)
+                {
+                    MessageBox.Show("לא ניתן למחוק");
+                    return;
+                }
+            }
+
+            foreach (DataRow row in databaseDataSet.Surveys.Rows)
+            {
+                if ((int)row["ProjectId"] == projectId)
+                {
+                    MessageBox.Show("לא ניתן למחוק");
+                    return;
+                }
+            }
+
             projectsBindingSource.RemoveCurrent();
 
             UpdateTypeComboBox();
