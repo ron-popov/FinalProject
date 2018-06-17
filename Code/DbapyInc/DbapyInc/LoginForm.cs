@@ -13,8 +13,8 @@ namespace DbapyInc
     public partial class LoginForm : Form
     {
 
-        private readonly string password = "Dbapy123";
-        private readonly bool isDebug = true;
+        private readonly string password = "password";
+        private readonly bool isDebug = false;
 
         public LoginForm()
         {
